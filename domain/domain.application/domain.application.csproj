@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Shared.Utility\shared.utility.csproj" />
-    <ProjectReference Include="..\domain.entity\domain.entity.csproj" />
+    <ProjectReference Include="..\domain.entity\domain.repository.csproj" />
   </ItemGroup>
 
 </Project>

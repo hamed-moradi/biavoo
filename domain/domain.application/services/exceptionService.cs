@@ -1,5 +1,5 @@
 ﻿using domain.application._app;
-using domain.entity.schemas;
+using domain.repository.schemas;
 using domain.application;
 using Newtonsoft.Json;
 using domain.utility;

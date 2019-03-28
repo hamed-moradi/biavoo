@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace presentation.webApi.middlewares {
+namespace presentation.dashboard.middlewares {
     public static class GatewayExtensions {
         public static IApplicationBuilder UseGateway(this IApplicationBuilder builder) {
             return builder.UseMiddleware<GatewayMiddleware>();

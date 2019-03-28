@@ -1,4 +1,4 @@
-﻿using domain.entity._app;
+﻿using domain.repository._app;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

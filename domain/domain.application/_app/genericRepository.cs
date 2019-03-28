@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using domain.entity._app;
+using domain.repository._app;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;

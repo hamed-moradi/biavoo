@@ -1,6 +1,6 @@
-﻿using domain.entity.collections;
-using domain.entity.models;
-using domain.entity.schemas;
+﻿using domain.repository.collections;
+using domain.repository.models;
+using domain.repository.schemas;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

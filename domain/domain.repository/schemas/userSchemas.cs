@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain.entity.schemas {
+namespace domain.repository.schemas {
     [Schema("[dbo].[api_user_getPaging]")]
     public class UserGetPagingSchema: PagingSchema {
         [InputParameter]

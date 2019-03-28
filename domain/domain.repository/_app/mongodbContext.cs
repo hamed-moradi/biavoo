@@ -1,11 +1,11 @@
-﻿using domain.entity.collections;
+﻿using domain.repository.collections;
 using MongoDB.Driver;
 using domain.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain.entity._app {
+namespace domain.repository._app {
     public class MongoDBContext {
         #region Constructor
         private static readonly IMongoDatabase mongoDatabase;

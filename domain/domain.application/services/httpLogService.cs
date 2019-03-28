@@ -1,5 +1,5 @@
-﻿using domain.entity._app;
-using domain.entity.collections;
+﻿using domain.repository._app;
+using domain.repository.collections;
 using domain.utility;
 using System;
 using System.Collections.Generic;

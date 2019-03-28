@@ -8,14 +8,14 @@ using AutoMapper;
 using domain.application;
 using domain.repository.schemas;
 using Microsoft.AspNetCore.Mvc;
-using presentation.webApi.filterAttributes;
-using presentation.webApi.models.bindingModels;
-using presentation.webApi.models.viewModels;
+using presentation.dashboard.filterAttributes;
+using presentation.dashboard.models.bindingModels;
+using presentation.dashboard.models.viewModels;
 using Serilog;
 using domain.utility;
 using domain.utility._app;
 
-namespace presentation.webApi.controllers {
+namespace presentation.dashboard.controllers {
     public class UserController: BaseController {
         #region Constructor
         private readonly IMapper _mapper;

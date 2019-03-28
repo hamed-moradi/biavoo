@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain.entity.schemas {
+namespace domain.repository.schemas {
     [Schema("[dbo].[api_exception_insert]")]
     public class ExceptionInsertSchema: IBaseSchema {
         [InputParameter]

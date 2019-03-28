@@ -1,5 +1,5 @@
 ﻿using domain.application.services;
-using domain.entity._app;
+using domain.repository._app;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace domain.application._app {

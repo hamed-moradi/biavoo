@@ -11,8 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using presentation.webApi.infrastructures;
-using presentation.webApi.middlewares;
+using presentation.dashboard.infrastructures;
+using presentation.dashboard.middlewares;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Presentation.WebApi {

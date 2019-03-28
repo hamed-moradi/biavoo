@@ -45,7 +45,6 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
 
@@ -54,7 +53,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\Domain.Application\domain.application.csproj" />
     <ProjectReference Include="..\..\domain\domain.entity\domain.repository.csproj" />
     <ProjectReference Include="..\..\Shared\Shared.Utility\shared.utility.csproj" />
   </ItemGroup>

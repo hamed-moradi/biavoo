@@ -1,7 +1,7 @@
 ﻿using domain.application;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using domain.utility._app;
-using domain.entity.collections;
+using domain.repository.collections;
 using System;
 
 namespace test.common.units {

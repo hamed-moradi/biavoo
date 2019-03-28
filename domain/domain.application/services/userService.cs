@@ -1,6 +1,6 @@
 ﻿using domain.application._app;
-using domain.entity.models;
-using domain.entity.schemas;
+using domain.repository.models;
+using domain.repository.schemas;
 using domain.utility;
 using System;
 using System.Collections.Generic;

@@ -10,7 +10,7 @@ namespace domain.application {
         Task InsertAsync(Exception model, string url, string ip);
     }
     public interface IUserService {
-        Task<IEnumerable<UserModel>> Get(UserGetSchema model);
+        Task<UserModel> Get(int id);
     }
     public interface IHttpLogService {
         Task<int> InsertAsync(HttpLog model, int timeoutMS = 256);

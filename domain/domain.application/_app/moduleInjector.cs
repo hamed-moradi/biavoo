@@ -7,7 +7,7 @@ namespace domain.application._app {
         public static void Init(IServiceCollection services) {
             //Dapper.EntityFramework.Handlers.Register();
             services.AddSingleton(new ConnectionKeeper());
-            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
+            services.AddSingleton(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddSingleton(typeof(IStoreProcedure<,>), typeof(StoreProcedure<,>));
             services.AddTransient<IHttpLogService, HttpLogService>();
             services.AddTransient<IUserService, UserService>();

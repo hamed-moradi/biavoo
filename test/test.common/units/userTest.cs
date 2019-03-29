@@ -1,6 +1,6 @@
 ﻿using domain.application;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using domain.utility._app;
+using shared.utility._app;
 
 namespace test.common.units {
     [TestClass]

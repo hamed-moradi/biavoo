@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace presentation.webApi.models.bindingModels {
     public interface IBaseBindingModel { }
     public class HeaderBindingModel: IBaseBindingModel {
-        public Guid ApplicationOwnerKey { get; set; }
-        public Guid DataOwnerCenterKey { get; set; }
-        public Guid DataOwnerKey { get; set; }
+        public Guid Token { get; set; }
+        public Guid DeviceId { get; set; }
     }
     public class FullHeaderBindingModel: HeaderBindingModel {
         public string OS { get; set; }

@@ -1,0 +1,21 @@
+2019-03-29 12:39:13.480 +04:30 [INF] User profile is available. Using 'C:\Users\hamèd\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-29 12:39:13.526 +04:30 [INF] Creating key "ac4f3f98-eb6f-454a-a119-0c57cae39e7d" with creation date "2019-03-29T08:09:13.5224318+00:00", activation date "2019-03-29T08:09:13.5126822+00:00", and expiration date "2019-06-27T08:09:13.5126822+00:00".
+2019-03-29 12:39:13.613 +04:30 [INF] Writing data to file 'C:\Users\hamèd\AppData\Local\ASP.NET\DataProtection-Keys\key-ac4f3f98-eb6f-454a-a119-0c57cae39e7d.xml'.
+2019-03-29 12:39:14.622 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:62067/  0
+2019-03-29 12:39:14.622 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/index.html  
+2019-03-29 12:39:14.674 +04:30 [INF] Request finished in 56.8546ms 200 
+2019-03-29 12:39:14.988 +04:30 [INF] Request finished in 370.8153ms 200 text/html
+2019-03-29 12:39:15.000 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/swagger-ui-bundle.js  
+2019-03-29 12:39:15.000 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/swagger-ui.css  
+2019-03-29 12:39:15.008 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/swagger-ui-standalone-preset.js  
+2019-03-29 12:39:15.052 +04:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-03-29 12:39:15.052 +04:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-03-29 12:39:15.052 +04:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-03-29 12:39:15.107 +04:30 [INF] Request finished in 106.6292ms 200 text/css
+2019-03-29 12:39:15.107 +04:30 [INF] Request finished in 99.2054ms 200 application/javascript
+2019-03-29 12:39:15.134 +04:30 [INF] Request finished in 133.9718ms 200 application/javascript
+2019-03-29 12:39:15.513 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/swagger/1.0.0.0/swagger.json  
+2019-03-29 12:39:15.550 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon-32x32.png  
+2019-03-29 12:39:15.550 +04:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-03-29 12:39:15.550 +04:30 [INF] Request finished in 0.6724ms 200 image/png
+2019-03-29 12:39:16.065 +04:30 [INF] Request finished in 551.2901ms 200 application/json;charset=utf-8

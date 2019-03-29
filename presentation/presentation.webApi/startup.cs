@@ -9,8 +9,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using presentation.webApi.infrastructures;
 using presentation.webApi.middlewares;
 using Swashbuckle.AspNetCore.Swagger;
@@ -28,7 +26,7 @@ namespace Presentation.WebApi {
 
         public void ConfigureServices(IServiceCollection services) {
             services.AddSingleton(new MongoDBContext());
-            domain.utility._app.ModuleInjector.Init(services);
+            shared.utility._app.ModuleInjector.Init(services);
             domain.application._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
             services.AddMvc();

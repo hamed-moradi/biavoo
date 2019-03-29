@@ -5,49 +5,33 @@ using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
-using domain.application;
-using domain.repository.schemas;
+using domain.office;
 using Microsoft.AspNetCore.Mvc;
-using presentation.dashboard.filterAttributes;
-using presentation.dashboard.models.bindingModels;
-using presentation.dashboard.models.viewModels;
+using presentation.dashboard.models;
 using Serilog;
-using domain.utility;
-using domain.utility._app;
 
 namespace presentation.dashboard.controllers {
     public class UserController: BaseController {
         #region Constructor
         private readonly IMapper _mapper;
-        private readonly IExceptionService _exceptionService;
-        private readonly IUserService _userService;
-        public UserController(IUserService userService,
-            IMapper mapper, IExceptionService exceptionService) {
+        private readonly IUserContainer _userContainer;
+        public UserController(IMapper mapper, IUserContainer userContainer) {
             _mapper = mapper;
-            _exceptionService = exceptionService;
-            _userService = userService;
+            _userContainer = userContainer;
         }
         #endregion
 
-        [ArgumentBinding]
-        [Route(""), HttpGet]
-        public async Task<IActionResult> LoadPersonelActivities([FromQuery]UserGetBindingModel collection) {
+        [HttpGet, Route("{id}")]
+        public IActionResult Get([FromQuery]int id) {
             try {
-                var maxAccurancy = int.Parse(AppSettings.MaxAccurancy);
-                var model = _mapper.Map<UserGetSchema>(collection);
-                var result = await _userService.Get(model);
-                switch(model.StatusCode) {
-                    case 1:
-                        return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));
-                    case 0:
-                        return InternalServerError();
-                }
+                var result = _userContainer.Get(id);
+                return View(_mapper.Map<UserViewModel>(result));
             }
             catch(Exception ex) {
                 Log.Error(ex, MethodBase.GetCurrentMethod().Name);
                 //await _exceptionService.InsertAsync(ex, URL, IP);
             }
-            return InternalServerError();
+            return View();
         }
     }
 }

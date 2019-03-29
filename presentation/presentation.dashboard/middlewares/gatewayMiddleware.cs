@@ -1,13 +1,14 @@
-﻿using domain.application;
-using domain.repository.collections;
+﻿using domain.repository.collections;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
-using domain.utility._app;
+using Serilog;
+using shared.utility._app;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,12 +20,8 @@ namespace presentation.dashboard.middlewares {
     }
     public class GatewayMiddleware {
         #region Constructor
-        private readonly IHttpLogService _httpLogService;
-        private readonly IExceptionService _exceptionService;
         private readonly RequestDelegate _requestDelegate;
-        public GatewayMiddleware(IHttpLogService httpLogService, IExceptionService exceptionService, RequestDelegate requestDelegate) {
-            _httpLogService = httpLogService;
-            _exceptionService = exceptionService;
+        public GatewayMiddleware(RequestDelegate requestDelegate) {
             _requestDelegate = requestDelegate;
         }
         #endregion
@@ -48,41 +45,40 @@ namespace presentation.dashboard.middlewares {
         #endregion
 
         public async Task InvokeAsync(HttpContext context) {
-            if (AppSettings.MongoLogging) {
+            if(AppSettings.MongoLogging) {
                 var ip = context.Connection.RemoteIpAddress.ToString();
                 var url = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}{context.Request.QueryString}";
                 var requestedAt = DateTime.Now;
                 var stopWatch = new Stopwatch();
-                //try {
-                var response = string.Empty;
-                stopWatch.Start();
-                var originalBodyStream = context.Response.Body;
-                using (var responseBody = new MemoryStream()) {
-                    context.Response.Body = responseBody;
-                    await _requestDelegate(context);
-                    response = await FormatResponse(context.Response);
-                    await responseBody.CopyToAsync(originalBodyStream);
+                try {
+                    var response = string.Empty;
+                    stopWatch.Start();
+                    var originalBodyStream = context.Response.Body;
+                    using(var responseBody = new MemoryStream()) {
+                        context.Response.Body = responseBody;
+                        await _requestDelegate(context);
+                        response = await FormatResponse(context.Response);
+                        await responseBody.CopyToAsync(originalBodyStream);
+                    }
+                    stopWatch.Stop();
+                    var model = new HttpLog {
+                        IP = ip,
+                        URL = url,
+                        Method = context.Request.Method,
+                        RequsetHeader = (from t in context.Request.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
+                        ReqestedAt = requestedAt,
+                        Request = (await FormatRequest(context.Request)).Replace("\n\t", string.Empty),
+                        ResponseHeader = (from t in context.Response.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
+                        ResponsedAt = DateTime.Now,
+                        Response = response,
+                        Duration = stopWatch.ElapsedMilliseconds
+                    };
                 }
-                stopWatch.Stop();
-                var model = new HttpLog {
-                    IP = ip,
-                    URL = url,
-                    Method = context.Request.Method,
-                    RequsetHeader = (from t in context.Request.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
-                    ReqestedAt = requestedAt,
-                    Request = (await FormatRequest(context.Request)).Replace("\n\t", string.Empty),
-                    ResponseHeader = (from t in context.Response.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
-                    ResponsedAt = DateTime.Now,
-                    Response = response,
-                    Duration = stopWatch.ElapsedMilliseconds
-                };
-                await _httpLogService.InsertAsync(model, 5000);
-                //}
-                //catch (Exception ex) {
-                //    await _exceptionService.InsertAsync(ex, url, ip);
-                //}
+                catch(Exception ex) {
+                    Log.Error(ex, MethodBase.GetCurrentMethod().Name);
+                }
             }
-            if (AppSettings.FileLogging) {
+            if(AppSettings.FileLogging) {
 
             }
             await _requestDelegate(context);

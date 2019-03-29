@@ -1,5 +1,5 @@
 ﻿
-namespace domain.utility {
+namespace shared.utility {
     public interface IBaseModel { }
     public interface IBaseSchema { }
     public class PagingSchema: IBaseSchema {

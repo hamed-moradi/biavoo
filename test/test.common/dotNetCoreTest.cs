@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using domain.utility._app;
+using shared.utility._app;
 
 namespace test.common {
     [TestClass]

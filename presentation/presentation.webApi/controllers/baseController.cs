@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
-using domain.utility;
+using shared.utility;
 
 namespace presentation.webApi.controllers {
     [Route("api/[controller]")]

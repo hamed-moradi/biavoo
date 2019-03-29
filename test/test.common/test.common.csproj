@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -33,7 +33,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Domain.Application\domain.application.csproj" />
-    <ProjectReference Include="..\..\domain\domain.entity\domain.repository.csproj" />
+    <ProjectReference Include="..\..\domain\domain.office\domain.office.csproj" />
+    <ProjectReference Include="..\..\domain\domain.repository\domain.repository.csproj" />
     <ProjectReference Include="..\..\presentation\presentation.webApi\presentation.webApi.csproj" />
     <ProjectReference Include="..\..\Shared\Shared.Utility\shared.utility.csproj" />
   </ItemGroup>

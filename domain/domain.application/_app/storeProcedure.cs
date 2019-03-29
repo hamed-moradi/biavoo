@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using domain.utility;
-using domain.utility._app;
+using shared.utility;
+using shared.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,8 +29,8 @@ namespace domain.application._app {
         where Result : IBaseModel
         where Schema : IBaseSchema {
         #region Constructor
-        private readonly IRepository<Result> _repository;
-        public StoreProcedure(IRepository<Result> repository) {
+        private readonly IGenericRepository<Result> _repository;
+        public StoreProcedure(IGenericRepository<Result> repository) {
             _repository = repository;
         }
         #endregion

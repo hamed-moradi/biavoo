@@ -12,8 +12,7 @@ using presentation.webApi.filterAttributes;
 using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
 using Serilog;
-using domain.utility;
-using domain.utility._app;
+using shared.utility._app;
 
 namespace presentation.webApi.controllers {
     public class UserController: BaseController {
@@ -29,14 +28,12 @@ namespace presentation.webApi.controllers {
         }
         #endregion
 
-        [ArgumentBinding]
-        [Route(""), HttpGet]
-        public async Task<IActionResult> LoadPersonelActivities([FromQuery]UserGetBindingModel collection) {
+        //[ArgumentBinding]
+        [HttpGet, Route("/{id}")]
+        public async Task<IActionResult> Get(int id) {
             try {
-                var maxAccurancy = int.Parse(AppSettings.MaxAccurancy);
-                var model = _mapper.Map<UserGetSchema>(collection);
-                var result = await _userService.Get(model);
-                switch(model.StatusCode) {
+                var result = await _userService.Get(id);
+                switch(1) {
                     case 1:
                         return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));
                     case 0:
@@ -49,5 +46,26 @@ namespace presentation.webApi.controllers {
             }
             return InternalServerError();
         }
+
+        //[ArgumentBinding]
+        //[Route(""), HttpGet]
+        //public async Task<IActionResult> GetAll([FromQuery]UserGetBindingModel collection) {
+        //    try {
+        //        var maxAccurancy = int.Parse(AppSettings.MaxAccurancy);
+        //        var model = _mapper.Map<UserGetSchema>(collection);
+        //        var result = await _userService.Get(model);
+        //        switch(model.StatusCode) {
+        //            case 1:
+        //                return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));
+        //            case 0:
+        //                return InternalServerError();
+        //        }
+        //    }
+        //    catch(Exception ex) {
+        //        Log.Error(ex, MethodBase.GetCurrentMethod().Name);
+        //        //await _exceptionService.InsertAsync(ex, URL, IP);
+        //    }
+        //    return InternalServerError();
+        //}
     }
 }

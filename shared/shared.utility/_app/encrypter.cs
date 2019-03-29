@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain.utility._app {
+namespace shared.utility._app {
     public class Encrypter {
         public static string Md5Password(string password) {
             if (string.IsNullOrWhiteSpace(password))

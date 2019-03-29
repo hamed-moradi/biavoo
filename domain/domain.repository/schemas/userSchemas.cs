@@ -1,5 +1,5 @@
-﻿using domain.utility;
-using domain.utility._app;
+﻿using shared.utility;
+using shared.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Text;

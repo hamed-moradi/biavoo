@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace domain.utility {
+namespace shared.utility {
     public class Schema: Attribute {
         public string Name { get; set; }
         public Schema(string name = null) {

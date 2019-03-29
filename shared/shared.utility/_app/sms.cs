@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain.utility._app {
+namespace shared.utility._app {
     public interface ISMS {
         (bool result, string errorMessage, string trackId) Send(string phoneNo, string message);
     }

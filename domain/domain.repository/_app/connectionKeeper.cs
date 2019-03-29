@@ -1,4 +1,4 @@
-﻿using domain.utility._app;
+﻿using shared.utility._app;
 using System.Data;
 using System.Data.SqlClient;
 

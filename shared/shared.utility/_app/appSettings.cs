@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 
-namespace domain.utility._app
+namespace shared.utility._app
 {
     public class AppSettings
     {

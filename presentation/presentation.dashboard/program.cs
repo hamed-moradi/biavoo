@@ -12,16 +12,15 @@ using Serilog.Events;
 namespace Presentation.WebApi {
     public class Program {
         public static void Main(string[] args) {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseSerilog((ctx, config) => {
                     config.ReadFrom.Configuration(ctx.Configuration);
                     //Serilog.Debugging.SelfLog.Enable(Console.Error);
-                })
-                .Build();
+                });
     }
 }

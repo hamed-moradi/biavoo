@@ -3,7 +3,7 @@ using domain.repository.models;
 using domain.repository.schemas;
 using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
-using domain.utility._app;
+using shared.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Linq;

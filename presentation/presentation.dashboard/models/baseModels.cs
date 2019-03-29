@@ -2,7 +2,7 @@
 using System.Net;
 using System.Reflection;
 
-namespace presentation.dashboard.models.viewModels {
+namespace presentation.dashboard.models {
     public interface IBaseViewModel {
     }
     public class BaseViewModel {

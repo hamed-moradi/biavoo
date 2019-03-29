@@ -1,7 +1,7 @@
 ﻿using domain.application._app;
 using domain.repository.models;
 using domain.repository.schemas;
-using domain.utility;
+using shared.utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +17,8 @@ namespace domain.application.services {
         }
         #endregion
 
-        public async Task<IEnumerable<UserModel>> Get(UserGetSchema model) {
-            return await _userGet.ExecuteAsync(model);
+        public async Task<UserModel> Get(int id) {
+            return await _userGet.ExecuteFirstOrDefaultAsync("");
         }
     }
 }

@@ -9,9 +9,9 @@ namespace test.common._app {
         public static void Init(TestContext testContext) {
             var services = new ServiceCollection();
             services.AddSingleton(new MongoDBContext());
-            domain.utility._app.ModuleInjector.Init(services);
+            shared.utility._app.ModuleInjector.Init(services);
             domain.application._app.ModuleInjector.Init(services);
-            services.AddSingleton(new domain.utility._app.ServiceLocator(services));
+            services.AddSingleton(new shared.utility._app.ServiceLocator(services));
         }
     }
 

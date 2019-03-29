@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace domain.utility {
+namespace shared.utility {
     public class GeneralVariables {
-        public const string LocalIP = "127.0.0.1";
+        public const string systemGeneratedMessage = "SystemGeneratedMessage";
+        public const string localIP = "127.0.0.1";
     }
 }

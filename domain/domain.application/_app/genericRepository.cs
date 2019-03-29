@@ -5,7 +5,7 @@ using System.Data;
 using System.Threading.Tasks;
 
 namespace domain.application._app {
-    public interface IRepository<T> {
+    public interface IGenericRepository<T> {
         //Sync
         int Execute(string sql, object param = null, int? commandTimeout = default, CommandType? commandType = default);
         IEnumerable<T> Query(string sql, object param = null, bool buffered = true, int? commandTimeout = default, CommandType? commandType = default);
@@ -20,7 +20,7 @@ namespace domain.application._app {
         Task<T> QueryFirstOrDefaultAsync(string sql, object param = null, int? commandTimeout = default, CommandType? commandType = default);
         Task<SqlMapper.GridReader> QueryMultipleAsync(string sql, object param = null, int? commandTimeout = default, CommandType? commandType = default);
     }
-    public class Repository<T>: IRepository<T> {
+    public class GenericRepository<T>: IGenericRepository<T> {
         //Sync
         public int Execute(string sql, object param, int? commandTimeout, CommandType? commandType) {
             return ConnectionKeeper.SqlConnection.Execute(sql, param, commandTimeout: commandTimeout, commandType: commandType);

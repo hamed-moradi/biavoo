@@ -11,21 +11,16 @@ namespace presentation.webApi.filterAttributes {
                     foreach(var item in properties) {
                         if(!string.IsNullOrWhiteSpace(item.Name)) {
                             switch(item.Name.ToLower()) {
-                                case "applicationownerkey":
-                                var ownerkey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("ownerkey"));
-                                if(ownerkey.Value.Any())
-                                    item.SetValue(param.Value, ownerkey.Value[0]);
-                                break;
-                                case "dataownercenterkey":
-                                var dataOwnerCenterKey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("dataownercenterkey"));
-                                if(dataOwnerCenterKey.Value.Any())
-                                    item.SetValue(param.Value, dataOwnerCenterKey.Value[0]);
-                                break;
-                                case "dataownerkey":
-                                var dataOwnerKey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("dataownerkey"));
-                                if(dataOwnerKey.Value.Any())
-                                    item.SetValue(param.Value, dataOwnerKey.Value[0]);
-                                break;
+                                case "token":
+                                    var ownerkey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("token"));
+                                    if(ownerkey.Value.Any())
+                                        item.SetValue(param.Value, ownerkey.Value[0]);
+                                    break;
+                                case "deviceid":
+                                    var dataOwnerCenterKey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("deviceid"));
+                                    if(dataOwnerCenterKey.Value.Any())
+                                        item.SetValue(param.Value, dataOwnerCenterKey.Value[0]);
+                                    break;
                             }
                         }
                     }

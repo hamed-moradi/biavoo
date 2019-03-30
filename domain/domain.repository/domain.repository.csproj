@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -31,10 +31,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\Shared.Utility\shared.utility.csproj" />
+    <ProjectReference Include="..\..\shared\shared.utility\shared.utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="shared.utility">
+      <HintPath>..\..\Shared\Shared.Utility\bin\Debug\netcoreapp2.2\shared.utility.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>System</HintPath>
     </Reference>

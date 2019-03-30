@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace presentation.webApi.mapperProfiles {
     public class UserProfile: Profile {
         public UserProfile() {
-            CreateMap<UserModel, UserGetViewModel>();
+            CreateMap<UserGetByIdModel, UserGetViewModel>();
             CreateMap<UserGetBindingModel, UserGetPagingSchema>();
         }
     }

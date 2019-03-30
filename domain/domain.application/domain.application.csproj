@@ -34,7 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\Shared.Utility\shared.utility.csproj" />
     <ProjectReference Include="..\domain.repository\domain.repository.csproj" />
   </ItemGroup>
 

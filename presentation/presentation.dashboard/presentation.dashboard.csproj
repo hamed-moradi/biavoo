@@ -33,7 +33,6 @@
   <ItemGroup>
     <Folder Include="views\admin\" />
     <Folder Include="views\user\" />
-    <Folder Include="views\shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\" />
@@ -62,13 +61,16 @@
   <ItemGroup>
     <ProjectReference Include="..\..\domain\domain.office\domain.office.csproj" />
     <ProjectReference Include="..\..\domain\domain.repository\domain.repository.csproj" />
-    <ProjectReference Include="..\..\Shared\Shared.Utility\shared.utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.2.3" />
   </ItemGroup>
 
 </Project>

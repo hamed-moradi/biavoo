@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 namespace domain.repository.schemas {
 
-    [Schema("[dbo].[api_user_getById]")]
-    public class UserGetByIdSchema: IBaseSchema {
+    [Schema("[dbo].[api_customer_getById]")]
+    public class CustomerGetByIdSchema: IBaseSchema {
+        [InputParameter]
+        public string @Token { get; set; }
+        [InputParameter]
+        public string @DeviceId { get; set; }
         [InputParameter]
         public string @Id { get; set; }
     }
 
-    [Schema("[dbo].[api_user_getPaging]")]
-    public class UserGetPagingSchema: PagingSchema {
+    [Schema("[dbo].[api_customer_getPaging]")]
+    public class CustomerGetPagingSchema: PagingSchema {
         [InputParameter]
         public string @Token { get; set; }
         [InputParameter]

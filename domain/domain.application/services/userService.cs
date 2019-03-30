@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 namespace domain.application.services {
     public class UserService: IUserService {
         #region Constructor
-        private readonly IStoreProcedure<UserModel, UserGetSchema> _userGet;
-        public UserService(IStoreProcedure<UserModel, UserGetSchema> userGet) {
+        private readonly IStoreProcedure<UserGetByIdModel, UserGetByIdSchema> _userGet;
+        public UserService(IStoreProcedure<UserGetByIdModel, UserGetByIdSchema> userGet) {
             _userGet = userGet;
         }
         #endregion
 
-        public async Task<UserModel> Get(int id) {
+        public async Task<UserGetByIdModel> Get(int id) {
             return await _userGet.ExecuteFirstOrDefaultAsync("");
         }
     }

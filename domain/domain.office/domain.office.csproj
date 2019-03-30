@@ -8,4 +8,8 @@
     <ProjectReference Include="..\domain.repository\domain.repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.2.3" />
+  </ItemGroup>
+
 </Project>

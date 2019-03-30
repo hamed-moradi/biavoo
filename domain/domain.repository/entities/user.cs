@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace domain.repository.entities {
@@ -7,7 +6,6 @@ namespace domain.repository.entities {
         [Key]
         public int Id { get; set; }
         public string UserName { get; set; }
-        [JsonIgnore]
         public string Password { get; set; }
         public string ActivitionCode { get; set; }
         public string NickName { get; set; }

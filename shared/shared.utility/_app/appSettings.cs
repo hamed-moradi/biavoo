@@ -1,12 +1,14 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿//using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 
 namespace shared.utility._app
 {
     public class AppSettings
     {
         #region Constructor
-        private static readonly IConfiguration _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+        //private static readonly IConfiguration _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+        private static readonly Dictionary<string, string> _configuration = new Dictionary<string, string>();
         #endregion
         public static string SqlConnection => _configuration["ConnectionStrings:Sql"];
         public static string MongoConnection => _configuration["ConnectionStrings:Mongo"];

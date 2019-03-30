@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +7,6 @@ namespace domain.repository.entities {
         [Key]
         public int Id { get; set; }
         public string Username { get; set; }
-        [JsonIgnore]
         public string Password { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }

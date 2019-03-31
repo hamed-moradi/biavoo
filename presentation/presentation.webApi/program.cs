@@ -16,6 +16,8 @@ namespace Presentation.WebApi {
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                //.UseKestrel()
+                //.UseUrls("http://*.80")
                 .UseStartup<Startup>()
                 .UseSerilog((ctx, config) => {
                     config.ReadFrom.Configuration(ctx.Configuration);

@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using presentation.webApi.helpers;
 using presentation.webApi.middlewares;
+using shared.utility._app;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Presentation.WebApi {
@@ -33,11 +34,10 @@ namespace Presentation.WebApi {
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
             services.AddMvc();
             services.AddSwaggerGen(c => {
-                c.SwaggerDoc(apiVersion, new Info { Title = "biavoo", Version = apiVersion });
+                c.SwaggerDoc(apiVersion, new Info { Title = AppSettings.MyTitle, Version = apiVersion });
             });
-            //services.Configure<ForwardedHeadersOptions>(options =>
-            //{
-            //    options.KnownProxies.Add(IPAddress.Parse("198.143.179.55"));
+            //services.Configure<ForwardedHeadersOptions>(options => {
+            //    options.KnownProxies.Add(IPAddress.Parse(AppSettings.MyIp));
             //});
         }
 

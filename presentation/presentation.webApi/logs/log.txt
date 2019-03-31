@@ -1465,3 +1465,21 @@ System.InvalidOperationException: BeginExecuteReader: CommandText property has n
 2019-03-31 13:13:26.035 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
 2019-03-31 13:13:26.035 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 234.1113ms
 2019-03-31 13:13:26.035 +04:30 [INF] Request finished in 235.0641ms 200 application/json; charset=utf-8
+2019-03-31 16:48:49.406 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 16:48:50.253 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 16:48:50.253 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 16:48:50.279 +04:30 [INF] Request finished in 28.1567ms 200 
+2019-03-31 16:48:50.840 +04:30 [INF] Request finished in 589.3313ms 200 text/html
+2019-03-31 16:48:51.531 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 16:48:52.261 +04:30 [INF] Request finished in 729.2824ms 200 application/json;charset=utf-8
+2019-03-31 16:48:59.585 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/test  
+2019-03-31 16:48:59.651 +04:30 [INF] Request finished in 66.5204ms 404 
+2019-03-31 16:49:07.619 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer?id=1  
+2019-03-31 16:49:07.808 +04:30 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+2019-03-31 16:49:08.111 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.CustomerGetByIdBindingModel"]) - Validation state: "Valid"
+2019-03-31 16:49:10.631 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2501.7145ms.
+2019-03-31 16:49:10.664 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
+2019-03-31 16:49:10.682 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 2868.2434000000003ms
+2019-03-31 16:49:10.696 +04:30 [INF] Request finished in 3076.6004ms 200 application/json; charset=utf-8
+2019-03-31 16:49:11.102 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 16:49:11.104 +04:30 [INF] Request finished in 2.3018ms 404 

@@ -13,6 +13,8 @@ namespace shared.utility._app
         public static string SqlConnection => _configuration["ConnectionStrings:Sql"];
         public static string MongoConnection => _configuration["ConnectionStrings:Mongo"];
         public static string RedisConnection => _configuration["ConnectionStrings:Redis"];
+        public static string MyIp => _configuration["Custom:MyIP"];
+        public static string MyTitle => _configuration["Custom:MyTitle"];
         public static bool MongoLogging => Convert.ToBoolean(_configuration["Custom:MongoLogging"]);
         public static bool FileLogging => Convert.ToBoolean(_configuration["Custom:FileLogging"]);
         public static string FileUrl => _configuration["Custom:FileUrl"];

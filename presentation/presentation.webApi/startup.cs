@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using domain.application.services;
 using domain.repository._app;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using presentation.webApi.helpers;
@@ -29,10 +31,14 @@ namespace Presentation.WebApi {
             shared.utility._app.ModuleInjector.Init(services);
             domain.application._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
-            services.AddMvcCore();
+            services.AddMvc();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc(apiVersion, new Info { Title = "biavoo", Version = apiVersion });
             });
+            //services.Configure<ForwardedHeadersOptions>(options =>
+            //{
+            //    options.KnownProxies.Add(IPAddress.Parse("198.143.179.55"));
+            //});
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
@@ -46,6 +52,10 @@ namespace Presentation.WebApi {
                     c.RoutePrefix = string.Empty;
                 });
             }
+            //app.UseForwardedHeaders(new ForwardedHeadersOptions {
+            //    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            //});
+            //app.UseAuthentication();
             //app.UseMvc();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();

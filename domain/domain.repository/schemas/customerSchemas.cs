@@ -11,7 +11,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @DeviceId { get; set; }
         [InputParameter]
-        public string @Id { get; set; }
+        public int @Id { get; set; }
     }
 
     [Schema("[dbo].[api_customer_getPaging]")]

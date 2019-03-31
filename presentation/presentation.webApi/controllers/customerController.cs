@@ -27,14 +27,7 @@ namespace presentation.webApi.controllers {
         }
         #endregion
 
-        [HttpGet]
-        [Route("test")]
-        public IActionResult Test() {
-            return Ok();
-        }
-
-        [ArgumentBinding]
-        [HttpGet, Route("/{id}")]
+        [ArgumentBinding, HttpGet, Route("")]
         public async Task<IActionResult> Get([FromQuery]CustomerGetByIdBindingModel collection) {
             try {
                 var model = _mapper.Map<CustomerGetByIdSchema>(collection);

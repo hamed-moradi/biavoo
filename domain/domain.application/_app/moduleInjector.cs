@@ -10,8 +10,9 @@ namespace domain.application._app {
             services.AddSingleton(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddSingleton(typeof(IStoreProcedure<,>), typeof(StoreProcedure<,>));
             services.AddTransient<IHttpLogService, HttpLogService>();
-            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IExceptionService, ExceptionService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ICustomerService, CustomerService>();
         }
     }
 }

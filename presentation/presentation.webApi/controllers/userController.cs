@@ -28,8 +28,7 @@ namespace presentation.webApi.controllers {
         }
         #endregion
 
-        //[ArgumentBinding]
-        [HttpGet, Route("/{id}")]
+        [ArgumentBinding, HttpGet, Route("")]
         public async Task<IActionResult> Get(int id) {
             try {
                 var result = await _userService.Get(id);

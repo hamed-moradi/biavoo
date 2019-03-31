@@ -845,3 +845,623 @@ System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCor
    at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
 2019-03-31 12:24:24.775 +04:30 [INF] Request finished in 32.9762ms 500 
+2019-03-31 12:33:48.449 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:33:48.449 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:33:48.513 +04:30 [INF] Request finished in 60.6328ms 200 
+2019-03-31 12:33:48.632 +04:30 [ERR] Connection id "0HLLLLTJQFTOK", Request id "0HLLLLTJQFTOK:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:33:48.847 +04:30 [INF] Request finished in 400.8493ms 500 
+2019-03-31 12:33:53.762 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:33:53.795 +04:30 [ERR] Connection id "0HLLLLTJQFTOL", Request id "0HLLLLTJQFTOL:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:33:53.797 +04:30 [INF] Request finished in 35.3971ms 500 
+2019-03-31 12:34:07.223 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/test  
+2019-03-31 12:34:07.246 +04:30 [ERR] Connection id "0HLLLLTJQFTOK", Request id "0HLLLLTJQFTOK:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:34:07.248 +04:30 [INF] Request finished in 25.392ms 500 
+2019-03-31 12:34:41.833 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/test  
+2019-03-31 12:35:31.502 +04:30 [ERR] Connection id "0HLLLLTJQFTOL", Request id "0HLLLLTJQFTOL:00000003": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:35:31.504 +04:30 [INF] Request finished in 49673.5262ms 500 
+2019-03-31 12:36:25.595 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:36:25.595 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:36:28.094 +04:30 [INF] Request finished in 2501.0073ms 200 
+2019-03-31 12:36:28.168 +04:30 [ERR] Connection id "0HLLLLV2M44AV", Request id "0HLLLLV2M44AV:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:36:28.215 +04:30 [INF] Request finished in 2622.3243ms 500 
+2019-03-31 12:36:33.754 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/test  
+2019-03-31 12:36:33.778 +04:30 [ERR] Connection id "0HLLLLV2M44B0", Request id "0HLLLLV2M44B0:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:36:33.780 +04:30 [INF] Request finished in 25.9565ms 500 
+2019-03-31 12:36:39.452 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/customer/test  
+2019-03-31 12:36:39.476 +04:30 [ERR] Connection id "0HLLLLV2M44AV", Request id "0HLLLLV2M44AV:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:36:39.478 +04:30 [INF] Request finished in 25.6626ms 500 
+2019-03-31 12:37:34.318 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:37:34.318 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:37:34.377 +04:30 [INF] Request finished in 61.2414ms 200 
+2019-03-31 12:37:34.376 +04:30 [ERR] Connection id "0HLLLLVN5IMAS", Request id "0HLLLLVN5IMAS:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:37:34.421 +04:30 [INF] Request finished in 106.0801ms 500 
+2019-03-31 12:37:39.872 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/customer/test  
+2019-03-31 12:37:39.874 +04:30 [ERR] Connection id "0HLLLLVN5IMAT", Request id "0HLLLLVN5IMAT:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:37:39.876 +04:30 [INF] Request finished in 3.9737ms 500 
+2019-03-31 12:37:45.001 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/test  
+2019-03-31 12:37:45.003 +04:30 [ERR] Connection id "0HLLLLVN5IMAS", Request id "0HLLLLVN5IMAS:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: No constructor for type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be instantiated using services from the service container and default values.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:37:45.005 +04:30 [INF] Request finished in 3.9049ms 500 
+2019-03-31 12:41:59.806 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 12:42:00.388 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:42:00.388 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:42:00.413 +04:30 [INF] Request finished in 28.0377ms 200 
+2019-03-31 12:42:00.673 +04:30 [INF] Request finished in 288.3461ms 200 text/html
+2019-03-31 12:42:00.694 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger-ui.css  
+2019-03-31 12:42:00.701 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger-ui-standalone-preset.js  
+2019-03-31 12:42:00.702 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger-ui-bundle.js  
+2019-03-31 12:42:00.780 +04:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-03-31 12:42:00.780 +04:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-03-31 12:42:00.790 +04:30 [INF] Request finished in 96.3125ms 200 text/css
+2019-03-31 12:42:00.790 +04:30 [INF] Request finished in 89.3794ms 200 application/javascript
+2019-03-31 12:42:00.813 +04:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-03-31 12:42:00.813 +04:30 [INF] Request finished in 111.4652ms 200 application/javascript
+2019-03-31 12:42:01.778 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 12:42:01.996 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon-32x32.png  
+2019-03-31 12:42:02.017 +04:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-03-31 12:42:02.017 +04:30 [INF] Request finished in 21.2564ms 200 image/png
+2019-03-31 12:42:02.049 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon-16x16.png  
+2019-03-31 12:42:02.050 +04:30 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2019-03-31 12:42:02.050 +04:30 [INF] Request finished in 0.7731ms 200 image/png
+2019-03-31 12:42:02.299 +04:30 [ERR] Connection id "0HLLLM26EVL49", Request id "0HLLLM26EVL49:00000003": An unhandled exception was thrown by the application.
+System.NotSupportedException: HTTP method "GET" & path "{id}" overloaded by actions - presentation.webApi.controllers.CustomerController.Get (presentation.webApi),presentation.webApi.controllers.UserController.Get (presentation.webApi). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:42:02.336 +04:30 [INF] Request finished in 558.1139ms 500 
+2019-03-31 12:42:16.108 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/test  
+2019-03-31 12:42:16.256 +04:30 [INF] Request finished in 148.3344ms 404 
+2019-03-31 12:42:24.280 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/customer/test  
+2019-03-31 12:42:24.281 +04:30 [INF] Request finished in 0.9938ms 404 
+2019-03-31 12:42:28.714 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/test  
+2019-03-31 12:42:28.915 +04:30 [INF] Route matched with {action = "Test", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Test (presentation.webApi)
+2019-03-31 12:42:28.931 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Test (presentation.webApi) in 13.0677ms
+2019-03-31 12:42:28.949 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'domain.application.ICustomerService' while attempting to activate 'presentation.webApi.controllers.CustomerController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:42:29.016 +04:30 [INF] Request finished in 301.7419ms 500 text/html; charset=utf-8
+2019-03-31 12:42:29.169 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:42:29.170 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:42:29.172 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:42:29.177 +04:30 [INF] Request finished in 8.111ms 500 text/html; charset=utf-8
+2019-03-31 12:43:21.384 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 12:43:21.824 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:43:21.824 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:43:21.851 +04:30 [INF] Request finished in 29.2607ms 200 
+2019-03-31 12:43:22.063 +04:30 [INF] Request finished in 241.3233ms 200 text/html
+2019-03-31 12:43:23.177 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 12:43:23.301 +04:30 [ERR] Connection id "0HLLLM2UNL10E", Request id "0HLLLM2UNL10E:00000002": An unhandled exception was thrown by the application.
+System.NotSupportedException: HTTP method "GET" & path "{id}" overloaded by actions - presentation.webApi.controllers.CustomerController.Get (presentation.webApi),presentation.webApi.controllers.UserController.Get (presentation.webApi). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:43:23.337 +04:30 [INF] Request finished in 159.4432ms 500 
+2019-03-31 12:43:47.662 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/index.html  
+2019-03-31 12:43:47.663 +04:30 [INF] Request finished in 1.376ms 200 text/html
+2019-03-31 12:43:47.695 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui.css  
+2019-03-31 12:43:47.695 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-bundle.js  
+2019-03-31 12:43:47.704 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-standalone-preset.js  
+2019-03-31 12:43:47.756 +04:30 [INF] Request finished in 60.3351ms 404 
+2019-03-31 12:43:47.756 +04:30 [INF] Request finished in 61.4347ms 404 
+2019-03-31 12:43:47.756 +04:30 [INF] Request finished in 61.4347ms 404 
+2019-03-31 12:43:47.790 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-bundle.js  
+2019-03-31 12:43:47.790 +04:30 [INF] Request finished in 0.5798ms 404 
+2019-03-31 12:43:47.797 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-standalone-preset.js  
+2019-03-31 12:43:47.797 +04:30 [INF] Request finished in 0.3571ms 404 
+2019-03-31 12:43:47.842 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/favicon-32x32.png  
+2019-03-31 12:43:47.842 +04:30 [INF] Request finished in 0.4348ms 404 
+2019-03-31 12:43:47.871 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/favicon-16x16.png  
+2019-03-31 12:43:47.871 +04:30 [INF] Request finished in 0.3407ms 404 
+2019-03-31 12:43:54.290 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/index.html  
+2019-03-31 12:43:54.291 +04:30 [INF] Request finished in 1.3921ms 200 text/html
+2019-03-31 12:43:54.307 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-standalone-preset.js  
+2019-03-31 12:43:54.307 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-bundle.js  
+2019-03-31 12:43:54.307 +04:30 [INF] Request finished in 0.5754ms 404 
+2019-03-31 12:43:54.307 +04:30 [INF] Request finished in 0.2514ms 404 
+2019-03-31 12:43:54.307 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui.css  
+2019-03-31 12:43:54.308 +04:30 [INF] Request finished in 0.2213ms 404 
+2019-03-31 12:43:54.369 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-bundle.js  
+2019-03-31 12:43:54.370 +04:30 [INF] Request finished in 0.3578ms 404 
+2019-03-31 12:43:54.381 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/swagger-ui-standalone-preset.js  
+2019-03-31 12:43:54.381 +04:30 [INF] Request finished in 0.3325ms 404 
+2019-03-31 12:43:57.043 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:43:57.044 +04:30 [INF] Request finished in 1.0876ms 200 text/html
+2019-03-31 12:43:57.509 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 12:43:57.510 +04:30 [ERR] Connection id "0HLLLM2UNL10E", Request id "0HLLLM2UNL10E:00000008": An unhandled exception was thrown by the application.
+System.NotSupportedException: HTTP method "GET" & path "{id}" overloaded by actions - presentation.webApi.controllers.CustomerController.Get (presentation.webApi),presentation.webApi.controllers.UserController.Get (presentation.webApi). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:43:57.514 +04:30 [INF] Request finished in 5.2262ms 500 
+2019-03-31 12:44:27.415 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 12:44:27.831 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:44:27.831 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:44:27.858 +04:30 [INF] Request finished in 28.4099ms 200 
+2019-03-31 12:44:28.075 +04:30 [INF] Request finished in 246.073ms 200 text/html
+2019-03-31 12:44:28.606 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 12:44:28.798 +04:30 [ERR] Connection id "0HLLLM3ID4L41", Request id "0HLLLM3ID4L41:00000002": An unhandled exception was thrown by the application.
+System.NotSupportedException: HTTP method "GET" & path "{id}" overloaded by actions - presentation.webApi.controllers.CustomerController.Get (presentation.webApi),presentation.webApi.controllers.UserController.Get (presentation.webApi). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:44:28.835 +04:30 [INF] Request finished in 229.0571ms 500 
+2019-03-31 12:44:41.781 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/test  
+2019-03-31 12:44:41.874 +04:30 [INF] Route matched with {action = "Test", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Test (presentation.webApi)
+2019-03-31 12:44:41.881 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Test (presentation.webApi) in 4.5358ms
+2019-03-31 12:44:41.887 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'domain.application.ICustomerService' while attempting to activate 'presentation.webApi.controllers.CustomerController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:44:41.914 +04:30 [INF] Request finished in 133.7935ms 500 text/html; charset=utf-8
+2019-03-31 12:44:42.763 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:44:42.766 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:44:42.769 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:44:42.775 +04:30 [INF] Request finished in 12.5514ms 500 text/html; charset=utf-8
+2019-03-31 12:45:43.934 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 12:45:44.401 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:45:44.401 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:45:44.428 +04:30 [INF] Request finished in 28.4571ms 200 
+2019-03-31 12:45:44.641 +04:30 [INF] Request finished in 241.5463ms 200 text/html
+2019-03-31 12:45:45.168 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 12:45:45.359 +04:30 [ERR] Connection id "0HLLLM497C46I", Request id "0HLLLM497C46I:00000002": An unhandled exception was thrown by the application.
+System.NotSupportedException: HTTP method "GET" & path "{id}" overloaded by actions - presentation.webApi.controllers.CustomerController.Get (presentation.webApi),presentation.webApi.controllers.UserController.Get (presentation.webApi). Actions require unique method/path combination for Swagger 2.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItem(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable`1 source, Func`2 keySelector, Func`2 elementSelector, IEqualityComparer`1 comparer)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.CreatePathItems(IEnumerable`1 apiDescriptions, ISchemaRegistry schemaRegistry)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath, String[] schemes)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at presentation.webApi.middlewares.GatewayMiddleware.InvokeAsync(HttpContext context) in D:\Git\biavoo\presentation\presentation.webApi\middlewares\gatewayMiddleware.cs:line 88
+   at Microsoft.AspNetCore.Server.IISIntegration.IISMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-03-31 12:45:45.397 +04:30 [INF] Request finished in 228.5326ms 500 
+2019-03-31 12:45:52.916 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/test  
+2019-03-31 12:45:52.984 +04:30 [INF] Route matched with {action = "Test", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Test (presentation.webApi)
+2019-03-31 12:45:53.056 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Test (presentation.webApi) - Validation state: "Valid"
+2019-03-31 12:45:56.052 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Test (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2986.3109ms.
+2019-03-31 12:45:56.067 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-03-31 12:45:56.090 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Test (presentation.webApi) in 3101.3766ms
+2019-03-31 12:45:56.090 +04:30 [INF] Request finished in 3174.6571ms 200 application/json; charset=utf-8
+2019-03-31 12:45:56.473 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:45:56.477 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:45:56.480 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:45:56.506 +04:30 [INF] Request finished in 33.2024ms 500 text/html; charset=utf-8
+2019-03-31 12:46:14.629 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/1  
+2019-03-31 12:46:14.632 +04:30 [INF] Request finished in 2.5601ms 404 
+2019-03-31 12:46:19.050 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/  
+2019-03-31 12:46:19.052 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Ok (presentation.webApi)
+presentation.webApi.controllers.CustomerController.BadRequest (presentation.webApi)
+presentation.webApi.controllers.CustomerController.InternalServerError (presentation.webApi)
+2019-03-31 12:46:19.053 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Ok (presentation.webApi)
+presentation.webApi.controllers.CustomerController.BadRequest (presentation.webApi)
+presentation.webApi.controllers.CustomerController.InternalServerError (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:46:19.059 +04:30 [INF] Request finished in 9.3502ms 500 text/html; charset=utf-8
+2019-03-31 12:46:19.226 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:46:19.227 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:46:19.228 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:46:19.232 +04:30 [INF] Request finished in 5.9827ms 500 text/html; charset=utf-8
+2019-03-31 12:46:29.801 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/  
+2019-03-31 12:46:29.801 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Ok (presentation.webApi)
+presentation.webApi.controllers.CustomerController.BadRequest (presentation.webApi)
+presentation.webApi.controllers.CustomerController.InternalServerError (presentation.webApi)
+2019-03-31 12:46:29.803 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Ok (presentation.webApi)
+presentation.webApi.controllers.CustomerController.BadRequest (presentation.webApi)
+presentation.webApi.controllers.CustomerController.InternalServerError (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:46:29.811 +04:30 [INF] Request finished in 10.1709ms 500 text/html; charset=utf-8
+2019-03-31 12:46:29.949 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:46:29.949 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:46:29.950 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:46:29.955 +04:30 [INF] Request finished in 6.1739ms 500 text/html; charset=utf-8
+2019-03-31 12:46:37.337 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/get  
+2019-03-31 12:46:37.338 +04:30 [INF] Request finished in 0.8734ms 404 
+2019-03-31 12:46:50.122 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/get/1  
+2019-03-31 12:46:50.123 +04:30 [INF] Request finished in 0.6004ms 404 
+2019-03-31 12:46:54.793 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/1  
+2019-03-31 12:46:54.793 +04:30 [INF] Request finished in 0.5727ms 404 
+2019-03-31 12:46:58.553 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/  
+2019-03-31 12:46:58.554 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Ok (presentation.webApi)
+presentation.webApi.controllers.CustomerController.BadRequest (presentation.webApi)
+presentation.webApi.controllers.CustomerController.InternalServerError (presentation.webApi)
+2019-03-31 12:46:58.555 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Ok (presentation.webApi)
+presentation.webApi.controllers.CustomerController.BadRequest (presentation.webApi)
+presentation.webApi.controllers.CustomerController.InternalServerError (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:46:58.561 +04:30 [INF] Request finished in 8.4607ms 500 text/html; charset=utf-8
+2019-03-31 12:46:58.729 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:46:58.729 +04:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:46:58.730 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Internal.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+presentation.webApi.controllers.UserController.Get (presentation.webApi)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Internal.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-31 12:46:58.735 +04:30 [INF] Request finished in 6.2742ms 500 text/html; charset=utf-8
+2019-03-31 12:48:21.122 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 12:48:21.669 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 12:48:21.669 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 12:48:21.696 +04:30 [INF] Request finished in 28.9368ms 200 
+2019-03-31 12:48:21.929 +04:30 [INF] Request finished in 261.5253ms 200 text/html
+2019-03-31 12:48:23.132 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 12:48:23.345 +04:30 [INF] Request finished in 212.6184ms 200 application/json;charset=utf-8
+2019-03-31 12:48:47.373 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/customer/1  
+2019-03-31 12:48:47.460 +04:30 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+2019-03-31 12:48:47.582 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.CustomerGetByIdBindingModel"]) - Validation state: "Valid"
+2019-03-31 12:49:50.926 +04:30 [ERR] MoveNext
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.api_customer_getById'.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in C:\projects\dapper\Dapper\SqlMapper.Async.cs:line 483
+   at domain.application._app.GenericRepository`1.QueryFirstOrDefaultAsync(String sql, Object param, Nullable`1 commandTimeout, Nullable`1 commandType) in D:\Git\biavoo\domain\domain.application\_app\genericRepository.cs:line 52
+   at domain.application._app.StoreProcedure`2.ExecuteFirstOrDefaultAsync(Schema model) in D:\Git\biavoo\domain\domain.application\_app\storeProcedure.cs:line 217
+   at domain.application.services.CustomerService.GetById(CustomerGetByIdSchema model) in D:\Git\biavoo\domain\domain.application\services\customerService.cs:line 20
+   at presentation.webApi.controllers.CustomerController.Get(CustomerGetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\customerController.cs:line 35
+ClientConnectionId:65882b0f-c662-4661-bed6-a12999480720
+Error Number:2812,State:62,Class:16
+2019-03-31 12:49:51.017 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 63426.032300000006ms.
+2019-03-31 12:49:51.031 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-03-31 12:49:51.044 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 63584.351ms
+2019-03-31 12:49:51.054 +04:30 [INF] Request finished in 63685.2798ms 200 application/json; charset=utf-8
+2019-03-31 12:49:51.421 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/favicon.ico  
+2019-03-31 12:50:02.039 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-03-31 12:50:02.133 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["0"]) - Validation state: "Invalid"
+2019-03-31 12:50:02.263 +04:30 [ERR] MoveNext
+System.InvalidOperationException: BeginExecuteReader: CommandText property has not been initialized
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in C:\projects\dapper\Dapper\SqlMapper.Async.cs:line 483
+   at domain.application._app.GenericRepository`1.QueryFirstOrDefaultAsync(String sql, Object param, Nullable`1 commandTimeout, Nullable`1 commandType) in D:\Git\biavoo\domain\domain.application\_app\genericRepository.cs:line 52
+   at domain.application._app.StoreProcedure`2.ExecuteFirstOrDefaultAsync(String procedure) in D:\Git\biavoo\domain\domain.application\_app\storeProcedure.cs:line 213
+   at domain.application.services.UserService.Get(Int32 id) in D:\Git\biavoo\domain\domain.application\services\userService.cs:line 21
+   at presentation.webApi.controllers.UserController.Get(Int32 id) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 35
+2019-03-31 12:50:02.265 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 130.94230000000002ms.
+2019-03-31 12:50:02.265 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-03-31 12:50:02.265 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 226.3451ms
+2019-03-31 12:50:02.265 +04:30 [INF] Request finished in 10845.0245ms 200 application/json; charset=utf-8
+2019-03-31 13:11:53.364 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-31 13:11:53.950 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/index.html  
+2019-03-31 13:11:53.950 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-03-31 13:11:53.977 +04:30 [INF] Request finished in 28.2816ms 200 
+2019-03-31 13:11:54.207 +04:30 [INF] Request finished in 258.1448ms 200 text/html
+2019-03-31 13:11:54.730 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/swagger/1.0.0.0/swagger.json  
+2019-03-31 13:11:54.933 +04:30 [INF] Request finished in 203.4351ms 200 application/json;charset=utf-8
+2019-03-31 13:13:04.212 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/Customer?Id=1&Token=DA8FF27A-17D8-46DA-AD65-F610AB453F50&DeviceId=DA8FF27A-17D8-46DA-AD65-F610AB453F50  
+2019-03-31 13:13:04.305 +04:30 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+2019-03-31 13:13:04.406 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.CustomerGetByIdBindingModel"]) - Validation state: "Valid"
+2019-03-31 13:13:06.303 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1882.7809000000002ms.
+2019-03-31 13:13:06.342 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
+2019-03-31 13:13:06.363 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 2053.2953ms
+2019-03-31 13:13:06.373 +04:30 [INF] Request finished in 2160.9465ms 200 application/json; charset=utf-8
+2019-03-31 13:13:22.738 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/Customer?Id=1&Token=DA8FF27A-17D8-46DA-AD65-F610AB453F50&DeviceId=DA8FF27A-17D8-46DA-AD65-F610AB453F50  
+2019-03-31 13:13:22.739 +04:30 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+2019-03-31 13:13:22.760 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.CustomerGetByIdBindingModel"]) - Validation state: "Valid"
+2019-03-31 13:13:22.989 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 228.35680000000002ms.
+2019-03-31 13:13:22.990 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
+2019-03-31 13:13:22.991 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 252.0122ms
+2019-03-31 13:13:22.992 +04:30 [INF] Request finished in 253.8939ms 200 application/json; charset=utf-8
+2019-03-31 13:13:24.383 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/Customer?Id=1&Token=DA8FF27A-17D8-46DA-AD65-F610AB453F50&DeviceId=DA8FF27A-17D8-46DA-AD65-F610AB453F50  
+2019-03-31 13:13:24.384 +04:30 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+2019-03-31 13:13:24.404 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.CustomerGetByIdBindingModel"]) - Validation state: "Valid"
+2019-03-31 13:13:24.625 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 220.9351ms.
+2019-03-31 13:13:24.625 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
+2019-03-31 13:13:24.626 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 242.2733ms
+2019-03-31 13:13:24.627 +04:30 [INF] Request finished in 243.4061ms 200 application/json; charset=utf-8
+2019-03-31 13:13:25.800 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44339/api/Customer?Id=1&Token=DA8FF27A-17D8-46DA-AD65-F610AB453F50&DeviceId=DA8FF27A-17D8-46DA-AD65-F610AB453F50  
+2019-03-31 13:13:25.801 +04:30 [INF] Route matched with {action = "Get", controller = "Customer"}. Executing action presentation.webApi.controllers.CustomerController.Get (presentation.webApi)
+2019-03-31 13:13:25.819 +04:30 [INF] Executing action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.CustomerGetByIdBindingModel"]) - Validation state: "Valid"
+2019-03-31 13:13:26.034 +04:30 [INF] Executed action method presentation.webApi.controllers.CustomerController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 214.8563ms.
+2019-03-31 13:13:26.035 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
+2019-03-31 13:13:26.035 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 234.1113ms
+2019-03-31 13:13:26.035 +04:30 [INF] Request finished in 235.0641ms 200 application/json; charset=utf-8

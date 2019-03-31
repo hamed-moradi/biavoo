@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using presentation.webApi.infrastructures;
+using presentation.webApi.helpers;
 using presentation.webApi.middlewares;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -29,7 +29,7 @@ namespace Presentation.WebApi {
             shared.utility._app.ModuleInjector.Init(services);
             domain.application._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
-            services.AddMvc();
+            services.AddMvcCore();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc(apiVersion, new Info { Title = "biavoo", Version = apiVersion });
             });

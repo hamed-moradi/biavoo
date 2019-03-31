@@ -35,9 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="shared.utility">
-      <HintPath>..\..\Shared\Shared.Utility\bin\Debug\netcoreapp2.2\shared.utility.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <HintPath>System</HintPath>
     </Reference>

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
 using shared.utility;
 
@@ -18,6 +17,7 @@ namespace presentation.webApi.controllers {
         protected IList<ImageFormat> ImageFormats { get { return new List<ImageFormat> { ImageFormat.Gif, ImageFormat.Jpeg, ImageFormat.Tiff, ImageFormat.Png }; } }
         //protected string[] ImageExtensions { get { return new string[] { ".jpg", ".jpeg", ".png", ".tif", ".bmp", ".gif" }; } }
         #endregion
+
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Ok(HttpStatusCode status = HttpStatusCode.OK, string message = GeneralMessage.OK, object data = null, int? totalPages = null) {
             return Json(new BaseViewModel { Status = status, Message = message, Data = data, TotalPages = totalPages });

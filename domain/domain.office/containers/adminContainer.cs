@@ -12,14 +12,19 @@ using System.Threading.Tasks;
 namespace domain.office.container {
     public class AdminContainer: GenericContainer<Admin>, IAdminContainer {
         #region Constructor
-        private readonly MSSqlDBContext _dbContext;
-        public AdminContainer(MSSqlDBContext dbContext) : base(dbContext) {
+        private readonly SqlDBContext _dbContext;
+        public AdminContainer(SqlDBContext dbContext) : base(dbContext) {
             _dbContext = dbContext;
         }
         #endregion
 
-        public Admin Get(int id) {
+        public Admin GetById(int id) {
             return _dbContext.Admins.SingleOrDefault(sd => sd.Id == id);
+        }
+
+        public List<Admin> GetAll(Admin model) {
+            var result = GetPaging(model);
+            return result;
         }
     }
 }

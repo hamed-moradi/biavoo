@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace domain.repository.entities
-{
-    public partial class Admin
-    {
+namespace domain.repository.entities {
+    [Table("admin")]
+    public partial class Admin: BaseEntity {
         public int? Id { get; set; }
         public int? RoleId { get; set; }
         public string Username { get; set; }
@@ -19,20 +19,18 @@ namespace domain.repository.entities
         public byte? Status { get; set; }
     }
 
-    public partial class Admin
-    {
-        public string FullName
-        {
-            get
-            {
+    public partial class Admin {
+        [NotMapped]
+        public string FullName {
+            get {
                 var nickName = $"{Name} {Family}".Trim();
-                if (nickName == string.Empty) nickName = CellPhone;
-                if (nickName == string.Empty) nickName = Email;
-                if (nickName == string.Empty) nickName = Username;
+                if(nickName == string.Empty) nickName = CellPhone;
+                if(nickName == string.Empty) nickName = Email;
+                if(nickName == string.Empty) nickName = Username;
                 return nickName;
             }
         }
         [NotMapped]
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using System.Reflection;
 using domain.repository._app;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using presentation.dashboard.infrastructures;
+using presentation.dashboard.helpers;
 using presentation.dashboard.middlewares;
 
 namespace Presentation.WebApi {
@@ -52,12 +52,12 @@ namespace Presentation.WebApi {
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(routes => {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-            //app.UseMvcWithDefaultRoute();
+            //app.UseMvc(routes => {
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

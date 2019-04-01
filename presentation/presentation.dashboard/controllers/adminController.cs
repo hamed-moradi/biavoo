@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using domain.office;
+using domain.repository.entities;
 using Microsoft.AspNetCore.Mvc;
 using presentation.dashboard.models;
 using Serilog;
@@ -21,15 +22,14 @@ namespace presentation.dashboard.controllers {
         }
         #endregion
 
-        [HttpGet, Route("{id}")]
-        public IActionResult Get([FromQuery]int id) {
+        [HttpGet]
+        public IActionResult Get() {
             try {
-                var result = _adminContainer.Get(id);
-                return View(_mapper.Map<AdminViewModel>(result));
+                var result = _adminContainer.GetAll(new Admin { });
+                return View(_mapper.Map<List<AdminViewModel>>(result));
             }
             catch(Exception ex) {
                 Log.Error(ex, MethodBase.GetCurrentMethod().Name);
-                //await _exceptionService.InsertAsync(ex, URL, IP);
             }
             return View();
         }

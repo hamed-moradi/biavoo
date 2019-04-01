@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 namespace domain.office.container {
     public class UserContainer: GenericContainer<User>, IUserContainer {
         #region Constructor
-        private readonly MSSqlDBContext _dbContext;
-        public UserContainer(MSSqlDBContext dbContext) : base(dbContext) {
+        private readonly SqlDBContext _dbContext;
+        public UserContainer(SqlDBContext dbContext) : base(dbContext) {
             _dbContext = dbContext;
         }
         #endregion

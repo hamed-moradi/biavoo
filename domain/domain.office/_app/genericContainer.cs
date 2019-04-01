@@ -1,24 +1,24 @@
 ﻿using domain.repository._app;
+using domain.repository.entities;
 using shared.utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace domain.office._app {
-    public interface IGenericContainer<T> where T : class {
+    public interface IGenericContainer<T> where T : BaseEntity {
         IQueryable<T> GetFindQuery(T model);
         List<T> Find(T model, int retrieveLimit = 1000);
-        List<T> GetPaging(IQueryable<T> query, out long totalCount, int skip = 0, int take = 10);
+        List<T> GetPaging(T model);
     }
-    public class GenericContainer<T>: IGenericContainer<T> where T : class {
+    public class GenericContainer<T>: IGenericContainer<T> where T : BaseEntity {
         #region Constructor
-        private readonly Type _type;
-        private readonly MSSqlDBContext _dbContext;
-        public GenericContainer(MSSqlDBContext dbContext) {
-            _type = typeof(T);
+        private readonly SqlDBContext _dbContext;
+        public GenericContainer(SqlDBContext dbContext) {
             _dbContext = dbContext;
         }
         #endregion
+
         public IQueryable<T> GetFindQuery(T model) {
             var query = _dbContext.Set<T>().Select(s => s);
             var properties = model.GetType().GetProperties();
@@ -40,9 +40,10 @@ namespace domain.office._app {
             }
             return query.ToList();
         }
-        public List<T> GetPaging(IQueryable<T> query, out long totalCount, int skip, int take) {
-            totalCount = query.Count();
-            query = query.Skip(skip).Take(take);
+        public List<T> GetPaging(T model) {
+            var query = GetFindQuery(model);
+            model.TotalCount = query.Count();
+            query = query.Skip(model.Skip).Take(model.Take);
             return query.ToList();
         }
     }

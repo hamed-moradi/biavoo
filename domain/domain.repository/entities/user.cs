@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    public partial class User {
+    [Table("user")]
+    public partial class User: BaseEntity {
         [Key]
         public int Id { get; set; }
         public string UserName { get; set; }
@@ -18,8 +20,6 @@ namespace domain.repository.entities {
     }
 
     public partial class User {
-
-        public int PendingEvidenceCount { get; set; }
         //public string FullName {
         //    get {
         //        var name = ($"{FirstName} {LastName}").Trim();
@@ -30,8 +30,5 @@ namespace domain.repository.entities {
         //}
         //[RelatedField(nameof(Admin), nameof(Admin.Username), nameof(CreatorId))]
         //public override string CreatorName { get; set; }
-        public long[] ActivityId { get; set; }
-        public int NumberOfPredictions { get; set; }
-        public int TotalPoints { get; set; }
     }
 }

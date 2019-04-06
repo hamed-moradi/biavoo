@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.repository.entities {
-    public partial class ReceivedSms {
+    [Table("receivedSms")]
+    public partial class ReceivedSms: BaseEntity {
+        [Key]
         public long? Id { get; set; }
         public string MSISDN { get; set; }
         public string Body { get; set; }
@@ -21,6 +25,5 @@ namespace domain.repository.entities {
         public Guid? TaskLogGroupId { get; set; }
     }
     public partial class ReceivedSms {
-        public long RowsCount { get; set; }
     }
 }

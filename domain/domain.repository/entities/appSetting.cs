@@ -1,9 +1,13 @@
 ﻿
-namespace domain.repository.entities
-{
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class AppSetting
-    {
+namespace domain.repository.entities {
+
+    [Table("appSetting")]
+    public partial class AppSetting: BaseEntity {
+        [Key]
+        public int? Id { get; set; }
         public string Key { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
@@ -11,8 +15,7 @@ namespace domain.repository.entities
         public string Icon { get; set; }
         public int? Priority { get; set; }
     }
-    public partial class AppSetting
-    {
+    public partial class AppSetting {
         public long RowsCount { get; set; }
     }
 

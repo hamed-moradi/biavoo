@@ -1,15 +1,20 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace domain.repository.entities {
-    public partial class Role2Module {
+    [Table("role2Module")]
+    public partial class Role2Module: BaseEntity {
+        [Key]
         public int? Id { get; set; }
         public int? RoleId { get; set; }
         public int? ModuleId { get; set; }
     }
 
     public partial class Role2Module {
-
-        public virtual Module Module { get; set; }
+        [ForeignKey(nameof(ModuleId))]
+        public virtual ModuleReference Module { get; set; }
+        [ForeignKey(nameof(RoleId))]
         public virtual Role Role { get; set; }
-        public long RowsCount { get; set; }
     }
 }

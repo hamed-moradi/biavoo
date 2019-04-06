@@ -5,8 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using presentation.dashboard.models;
-using shared.utility;
 
 namespace presentation.dashboard.controllers {
     public class BaseController: Controller {

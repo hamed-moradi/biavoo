@@ -34,6 +34,7 @@ namespace domain.application._app {
             _repository = repository;
         }
         #endregion
+
         #region Private
         private DynamicParameters MakeParameters(Schema schema) {
             var parameters = new DynamicParameters();

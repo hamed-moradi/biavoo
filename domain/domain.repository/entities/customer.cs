@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    public partial class Customer {
+    [Table("customer")]
+    public partial class Customer: BaseEntity {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }

@@ -4,6 +4,7 @@ using shared.utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.office._app {
     public interface IGenericContainer<T> where T : BaseEntity {
@@ -21,7 +22,9 @@ namespace domain.office._app {
 
         public IQueryable<T> GetFindQuery(T model) {
             var query = _dbContext.Set<T>().Select(s => s);
-            var properties = model.GetType().GetProperties();
+            var properties = model.GetType().GetProperties().Where(item 
+                => !Attribute.IsDefined(item, typeof(NotMappedAttribute))
+                && !Attribute.IsDefined(item, typeof(ForeignKeyAttribute)));
             foreach(var prp in properties) {
                 var key = prp.Name;
                 var value = prp.GetValue(model, null);
@@ -42,7 +45,7 @@ namespace domain.office._app {
         }
         public List<T> GetPaging(T model) {
             var query = GetFindQuery(model);
-            model.TotalCount = query.Count();
+            model.RowsCount = query.Count();
             query = query.Skip(model.Skip).Take(model.Take);
             return query.ToList();
         }

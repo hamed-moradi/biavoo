@@ -4,6 +4,7 @@ using System.Text;
 
 namespace shared.utility {
     public class GeneralMessage {
+        public const string ExceptionSource = "Custom";
         public const string OK = "عملیات با موفقیت انجام شد.";
         public const string InternalServerError = "عملیات با خطا مواجه شد.";
         public const string TokenNotFound = "شناسه یافت نشد";

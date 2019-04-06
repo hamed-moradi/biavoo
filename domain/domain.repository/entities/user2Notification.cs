@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("user2Notification")]
-    public partial class User2Notification {
+    public partial class User2Notification: BaseEntity {
+        [Key]
         public int? Id { get; set; }
         public int? UserId { get; set; }
         public int? NotificationId { get; set; }
@@ -15,6 +17,5 @@ namespace domain.repository.entities {
     public partial class User2Notification {
         //[RelatedField(nameof(User), nameof(User.CellPhone), nameof(UserId), true)]
         //public string UserName { get; set; }
-        public long RowsCount { get; set; }
     }
 }

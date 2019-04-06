@@ -18,11 +18,12 @@ namespace domain.repository._app {
         //}
 
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        //public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<ModuleReference> ModuleReferences { get; set; }
         //public virtual DbSet<Page> Pages { get; set; }
         //public virtual DbSet<ReceivedSms> ReceivedSmses { get; set; }
-        //public virtual DbSet<Role> Roles { get; set; }
         //public virtual DbSet<Session> Sessions { get; set; }
         //public virtual DbSet<SentSms> SentSms { get; set; }
     }

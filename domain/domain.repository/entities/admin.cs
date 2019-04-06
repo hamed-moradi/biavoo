@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("admin")]
     public partial class Admin: BaseEntity {
+        [Key]
         public int? Id { get; set; }
         public int? RoleId { get; set; }
         public string Username { get; set; }
@@ -30,7 +32,7 @@ namespace domain.repository.entities {
                 return nickName;
             }
         }
-        [NotMapped]
+        [ForeignKey(nameof(RoleId))]
         public virtual Role Role { get; set; }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace domain.repository.entities
-{
-    [System.ComponentModel.DataAnnotations.Schema.Table("Exception")]
-    public partial class Exceptions
-    {
+namespace domain.repository.entities {
+    [Table("exception")]
+    public partial class Exceptions: BaseEntity {
+        [Key]
         public int? Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public string URL { get; set; }
@@ -16,9 +17,7 @@ namespace domain.repository.entities
         public string IP { get; set; }
     }
 
-    public partial class Exceptions
-    {
-        public long RowsCount { get; set; }
+    public partial class Exceptions {
     }
 
 }

@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using presentation.dashboard.helpers;
 using presentation.dashboard.middlewares;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Presentation.WebApi {
     public class Startup {
@@ -30,6 +31,10 @@ namespace Presentation.WebApi {
             shared.utility._app.ModuleInjector.Init(services);
             domain.office._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+                options.LoginPath = "/Account/LogIn";
+                options.LogoutPath = "/Account/LogOut";
+            });
             services.Configure<CookiePolicyOptions>(options => {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
@@ -51,7 +56,7 @@ namespace Presentation.WebApi {
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseAuthentication();
             //app.UseMvc(routes => {
             //    routes.MapRoute(
             //        name: "default",

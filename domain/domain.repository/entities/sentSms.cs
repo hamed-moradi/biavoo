@@ -1,7 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    public partial class SentSms {
+    [Table("sentSms")]
+    public partial class SentSms: BaseEntity {
+        [Key]
         public long? Id { get; set; }
         public string Getway { get; set; }
         public DateTime? CreatedAt { get; set; }
@@ -18,7 +22,5 @@ namespace domain.repository.entities {
         public string AutoMessageChannelKey { get; set; }
     }
     public partial class SentSms {
-
-        public long RowsCount { get; set; }
     }
 }

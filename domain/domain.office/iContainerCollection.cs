@@ -8,6 +8,10 @@ namespace domain.office {
         Admin GetById(int id);
         List<Admin> GetAll(Admin model);
     }
+    public interface IModuleReferenceContainer: IGenericContainer<ModuleReference> {
+        ModuleReference GetById(int id);
+        List<ModuleReference> GetAll(ModuleReference model);
+    }
     public interface IUserContainer: IGenericContainer<User> {
         User Get(int id);
     }

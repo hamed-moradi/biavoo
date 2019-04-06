@@ -1,6 +1,12 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace domain.repository.entities {
-    public partial class Page {
+    [Table("page")]
+    public partial class Page: BaseEntity {
+        [Key]
+        public int? Id { get; set; }
         public string UniqueName { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }

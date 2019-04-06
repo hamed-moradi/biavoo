@@ -1,7 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    public partial class Session {
+    [Table("session")]
+    public partial class Session: BaseEntity {
+        [Key]
         public int? Id { get; set; }
         public string Token { get; set; }
         public string IP { get; set; }
@@ -16,6 +20,5 @@ namespace domain.repository.entities {
     }
 
     public partial class Session {
-        public long RowsCount { get; set; }
     }
 }

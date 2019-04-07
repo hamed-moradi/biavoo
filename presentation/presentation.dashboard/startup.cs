@@ -32,9 +32,13 @@ namespace Presentation.WebApi {
             domain.office._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
-                options.LoginPath = "/Account/LogIn";
-                options.LogoutPath = "/Account/LogOut";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.LoginPath = "/Account/SignIn";
+                options.LogoutPath = "/Account/SignOut";
+                options.ReturnUrlParameter = "returnUrl";
+                options.EventsType = typeof(CustomCookieAuthenticationEvents);
             });
+            services.AddScoped<CustomCookieAuthenticationEvents>();
             services.Configure<CookiePolicyOptions>(options => {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
@@ -55,7 +59,7 @@ namespace Presentation.WebApi {
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Strict });
             app.UseAuthentication();
             //app.UseMvc(routes => {
             //    routes.MapRoute(

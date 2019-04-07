@@ -1,4 +1,6 @@
 ﻿using domain.office;
+using domain.repository.entities;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
@@ -7,15 +9,42 @@ using shared.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
 
 namespace presentation.dashboard.helpers {
+    public class CustomCookieAuthenticationEvents: CookieAuthenticationEvents {
+        private readonly IUserRepository _userRepository;
+
+        public CustomCookieAuthenticationEvents(IUserRepository userRepository) {
+            // Get the database from registered DI services.
+            _userRepository = userRepository;
+        }
+
+        public override async Task ValidatePrincipal(CookieValidatePrincipalContext context) {
+            var userPrincipal = context.Principal;
+
+            // Look for the LastChanged claim.
+            var lastChanged = (from c in userPrincipal.Claims
+                               where c.Type == "LastChanged"
+                               select c.Value).FirstOrDefault();
+
+            if(string.IsNullOrEmpty(lastChanged) ||
+                !_userRepository.ValidateLastChanged(lastChanged)) {
+                context.RejectPrincipal();
+
+                await context.HttpContext.SignOutAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme);
+            }
+        }
+    }
+
     public static class AccountHelper {
         #region Constructor
-        private static IHttpContextAccessor _httpContextAccessor;
-        private static IModuleReferenceContainer _moduleReferenceContainer;
+        private static readonly IHttpContextAccessor _httpContextAccessor;
+        private static readonly IModuleReferenceContainer _moduleReferenceContainer;
 
         static AccountHelper() {
             _httpContextAccessor = ServiceLocator.Current.GetInstance<IHttpContextAccessor>();
@@ -27,7 +56,50 @@ namespace presentation.dashboard.helpers {
         private static bool CheckAccess(string path) {
             return Modules().Any(a => a.Path.ToLower().Equals(path.ToLower()));
         }
+
+
+
+        private static void Test() {
+            var claims = new List<Claim> {
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim("FullName", user.FullName),
+                new Claim(ClaimTypes.Role, "Administrator"),
+            };
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var authProperties = new AuthenticationProperties {
+                //AllowRefresh = <bool>,
+                // Refreshing the authentication session should be allowed.
+
+                //ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
+                // The time at which the authentication ticket expires. A 
+                // value set here overrides the ExpireTimeSpan option of 
+                // CookieAuthenticationOptions set with AddCookie.
+
+                //IsPersistent = true,
+                // Whether the authentication session is persisted across 
+                // multiple requests. When used with cookies, controls
+                // whether the cookie's lifetime is absolute (matching the
+                // lifetime of the authentication ticket) or session-based.
+
+                //IssuedUtc = <DateTimeOffset>,
+                // The time at which the authentication ticket was issued.
+
+                //RedirectUri = <string>
+                // The full path or absolute URI to be used as an http 
+                // redirect response value.
+            };
+
+            //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties { IsPersistent = true });
+            //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,new ClaimsPrincipal(claimsIdentity),authProperties);
+
+            //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties { IsPersistent = true, ExpiresUtc = DateTime.UtcNow.AddMinutes(20) });
+        }
         #endregion
+
 
         public static int AdminId {
             get {
@@ -43,9 +115,9 @@ namespace presentation.dashboard.helpers {
         }
 
         [OutputCache(Duration = 10)]
-        public static IEnumerable<Module> Modules() => _moduleReferenceContainer.GetByAdminId(AdminId);
+        public static IEnumerable<ModuleReference> Modules() => _moduleReferenceContainer.GetByAdminId(AdminId);
 
-        public static bool CheckPermission(IList<Module> modules, string controller, string action, string method, int? moduleId = null, string path = "") {
+        public static bool CheckPermission(IList<ModuleReference> modules, string controller, string action, string method, int? moduleId = null, string path = "") {
             try {
                 if(AdminId > 0) {
                     foreach(var item in modules) {
@@ -105,16 +177,7 @@ namespace presentation.dashboard.helpers {
         }
     }
 
-    internal interface ICustomPrincipal: IPrincipal {
-        int Id { get; set; }
-        string FullName { get; set; }
-        string Avatar { get; set; }
-        string LastLogin { get; set; }
-        string IP { get; set; }
-        string Path { get; set; }
-    }
-
-    public class CustomPrincipal: ICustomPrincipal {
+    public class CustomPrincipal: IPrincipal {
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Avatar { get; set; }

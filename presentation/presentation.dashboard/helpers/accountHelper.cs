@@ -16,11 +16,10 @@ using System.Web;
 
 namespace presentation.dashboard.helpers {
     public class CustomCookieAuthenticationEvents: CookieAuthenticationEvents {
-        private readonly IUserRepository _userRepository;
+        private readonly IAdminContainer _adminRepository;
 
-        public CustomCookieAuthenticationEvents(IUserRepository userRepository) {
-            // Get the database from registered DI services.
-            _userRepository = userRepository;
+        public CustomCookieAuthenticationEvents(IAdminContainer adminRepository) {
+            _adminRepository = adminRepository;
         }
 
         public override async Task ValidatePrincipal(CookieValidatePrincipalContext context) {
@@ -31,12 +30,10 @@ namespace presentation.dashboard.helpers {
                                where c.Type == "LastChanged"
                                select c.Value).FirstOrDefault();
 
-            if(string.IsNullOrEmpty(lastChanged) ||
-                !_userRepository.ValidateLastChanged(lastChanged)) {
+            if(string.IsNullOrEmpty(lastChanged) || !_adminRepository.ValidateLastChanged(lastChanged)) {
                 context.RejectPrincipal();
 
-                await context.HttpContext.SignOutAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme);
+                await context.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             }
         }
     }

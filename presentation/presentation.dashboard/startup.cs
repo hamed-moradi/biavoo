@@ -9,11 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using domain.repository._app;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using presentation.dashboard.helpers;
-using presentation.dashboard.middlewares;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Presentation.WebApi {
@@ -59,7 +55,7 @@ namespace Presentation.WebApi {
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Strict });
+            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None });
             app.UseAuthentication();
             //app.UseMvc(routes => {
             //    routes.MapRoute(

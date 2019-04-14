@@ -5,12 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace domain.office._app {
     public interface IGenericContainer<T> where T : BaseEntity {
         IQueryable<T> GetFindQuery(T model);
-        List<T> Find(T model, int retrieveLimit = 1000);
-        List<T> GetPaging(T model);
+        Task<List<T>> Find(T model, int retrieveLimit = 1000);
+        Task<List<T>> GetPaging(T model);
     }
     public class GenericContainer<T>: IGenericContainer<T> where T : BaseEntity {
         #region Constructor
@@ -34,20 +36,20 @@ namespace domain.office._app {
             }
             return query;
         }
-        public List<T> Find(T model, int retrieveLimit) {
+        public async Task<List<T>> Find(T model, int retrieveLimit) {
             var query = GetFindQuery(model);
             // Pass "zero" for reitrieve all data
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 // Your retrieve limit has been reached
                 throw new Exception(GeneralMessage.retrieveLimit, new Exception(GeneralVariables.systemGeneratedMessage));
             }
-            return query.ToList();
+            return await query.ToListAsync();
         }
-        public List<T> GetPaging(T model) {
+        public async Task<List<T>> GetPaging(T model) {
             var query = GetFindQuery(model);
             model.RowsCount = query.Count();
             query = query.Skip(model.Skip).Take(model.Take);
-            return query.ToList();
+            return await query.ToListAsync();
         }
     }
 }

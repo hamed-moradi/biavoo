@@ -23,5 +23,11 @@ namespace presentation.dashboard.controllers {
         public IActionResult Get() {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SignIn(string username, string password, string returnUrl) {
+            var result = await _adminContainer.SignIn(username, password);
+            return View();
+        }
     }
 }

@@ -2,6 +2,7 @@
 using domain.repository;
 using domain.repository._app;
 using domain.repository.entities;
+using Microsoft.EntityFrameworkCore;
 using shared.utility;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,33 @@ namespace domain.office.container {
         }
         #endregion
 
-        public Admin GetById(int id) {
-            return _dbContext.Admins.SingleOrDefault(sd => sd.Id == id);
+        #region Private
+        private string RandomNumber() {
+            var rnd = new Random();
+            var number = rnd.Next(1000000, 999999);
+            return number.ToString();
+        }
+        #endregion
+
+        public async Task<Admin> GetById(int id) {
+            return await _dbContext.Admins.SingleOrDefaultAsync(sd => sd.Id == id);
         }
 
-        public List<Admin> GetAll(Admin model) {
-            var result = GetPaging(model);
+        public async Task<List<Admin>> GetAll(Admin model) {
+            var result = await GetPaging(model);
             return result;
+        }
+
+        public async Task<Admin> SignIn(string username, string password) {
+            var result = _dbContext.Admins.SingleOrDefaultAsync(admin => admin.Username == username && admin.Password == password);
+            return await result;
+        }
+
+        public async Task<Admin> GenerateNewPassword(int id) {
+            var admin = await GetById(id);
+            admin.Password = RandomNumber();
+            await _dbContext.SaveChangesAsync();
+            return admin;
         }
     }
 }

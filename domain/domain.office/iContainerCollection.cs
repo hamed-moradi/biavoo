@@ -11,12 +11,14 @@ namespace domain.office {
     public interface IAdminContainer: IGenericContainer<Admin> {
         Task<Admin> GetById(int id);
         Task<List<Admin>> GetAll(Admin model);
+        bool ValidateLastChanged(string lastChanged);
         Task<Admin> SignIn(string username, string password);
         Task<Admin> GenerateNewPassword(int id);
     }
     public interface IModuleReferenceContainer: IGenericContainer<ModuleReference> {
-        ModuleReference GetById(int id);
-        List<ModuleReference> GetAll(ModuleReference model);
+        Task<ModuleReference> GetById(int id);
+        Task<List<ModuleReference>> GetAll(ModuleReference model);
+        Task<List<ModuleReference>> GetByAdminId(int adminId);
     }
     public interface IUserContainer: IGenericContainer<User> {
         User Get(int id);

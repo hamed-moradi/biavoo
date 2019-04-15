@@ -22,6 +22,7 @@ namespace domain.repository._app {
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<ModuleReference> ModuleReferences { get; set; }
+        public virtual DbSet<Role2Module> Role2Modules { get; set; }
         //public virtual DbSet<Page> Pages { get; set; }
         //public virtual DbSet<ReceivedSms> ReceivedSmses { get; set; }
         //public virtual DbSet<Session> Sessions { get; set; }

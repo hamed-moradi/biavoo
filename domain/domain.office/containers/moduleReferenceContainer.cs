@@ -2,6 +2,7 @@
 using domain.repository;
 using domain.repository._app;
 using domain.repository.entities;
+using Microsoft.EntityFrameworkCore;
 using shared.utility;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,22 @@ namespace domain.office.container {
         }
         #endregion
 
-        public ModuleReference GetById(int id) {
-            return _dbContext.ModuleReferences.SingleOrDefault(sd => sd.Id == id);
+        public async Task<ModuleReference> GetById(int id) {
+            return await _dbContext.ModuleReferences.SingleOrDefaultAsync(sd => sd.Id == id);
         }
 
-        public List<ModuleReference> GetAll(ModuleReference model) {
+        public async Task<List<ModuleReference>> GetAll(ModuleReference model) {
             var result = GetPaging(model);
-            return result;
+            return await result;
+        }
+
+        public async Task<List<ModuleReference>> GetByAdminId(int adminId) {
+            return await (from module in _dbContext.ModuleReferences
+                          join permission in _dbContext.Role2Modules on module.Id equals permission.ModuleId
+                          join role in _dbContext.Roles on permission.RoleId equals role.Id
+                          join admin in _dbContext.Admins on role.Id equals admin.RoleId
+                          where admin.Id == adminId
+                          select module).ToListAsync();
         }
     }
 }

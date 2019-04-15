@@ -36,6 +36,10 @@ namespace domain.office.container {
             return result;
         }
 
+        public bool ValidateLastChanged(string lastChanged) {
+            return true;
+        }
+
         public async Task<Admin> SignIn(string username, string password) {
             var result = _dbContext.Admins.SingleOrDefaultAsync(admin => admin.Username == username && admin.Password == password);
             return await result;

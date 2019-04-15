@@ -24,38 +24,46 @@ namespace Presentation.WebApi {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
-            shared.utility._app.ModuleInjector.Init(services);
-            domain.office._app.ModuleInjector.Init(services);
-            services.AddSingleton(new MapperConfig().Init().CreateMapper());
+            services.Configure<CookiePolicyOptions>(options => {
+                //This lambda determines whether user consent for non - essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddMvc()
+                .AddRazorPagesOptions(options => {
+                    options.Conventions.AuthorizePage("/Home/Contact");
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
                 options.AccessDeniedPath = "/Account/AccessDenied";
                 options.LoginPath = "/Account/SignIn";
                 options.LogoutPath = "/Account/SignOut";
                 options.ReturnUrlParameter = "returnUrl";
-                options.EventsType = typeof(CustomCookieAuthenticationEvents);
+                options.EventsType = typeof(AccountCookieAuthenticationEvents);
             });
-            services.AddScoped<CustomCookieAuthenticationEvents>();
-            services.Configure<CookiePolicyOptions>(options => {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            services.AddScoped<AccountCookieAuthenticationEvents>();
+            shared.utility._app.ModuleInjector.Init(services);
+            domain.office._app.ModuleInjector.Init(services);
+            services.AddSingleton(new MapperConfig().Init().CreateMapper());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
             if(env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None });
+            app.UseCookiePolicy(new CookiePolicyOptions {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+                Secure = CookieSecurePolicy.SameAsRequest
+            });
             app.UseAuthentication();
             //app.UseMvc(routes => {
             //    routes.MapRoute(

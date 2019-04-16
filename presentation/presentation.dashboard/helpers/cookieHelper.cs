@@ -17,6 +17,7 @@ namespace presentation.dashboard.helpers {
         public string Avatar { get; set; }
         public string LastLoggedin { get; set; }
         public string IP { get; set; }
+        public string Path { get; set; }
     }
 
     public class AccountCookieAuthenticationEvents: CookieAuthenticationEvents {

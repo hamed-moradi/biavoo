@@ -28,13 +28,10 @@ namespace shared.utility {
         }
     }
     public class HelperParameter: Attribute { }
-    //public class SearchAttribute: Attribute {//, IMetadataAware {
-    //    public SearchAttribute(GeneralEnums.SearchFieldType type = GeneralEnums.SearchFieldType.String) {
-    //        Type = type;
-    //    }
-    //    public GeneralEnums.SearchFieldType Type { get; }
-    //    public void OnMetadataCreated(ModelMetadata metadata) {
-    //        metadata.AdditionalValues["Type"] = Type;
-    //    }
-    //}
+    public class SearchAttribute: Attribute {
+        public SearchAttribute(SearchFieldType type = SearchFieldType.String) {
+            Type = type;
+        }
+        public SearchFieldType Type { get; }
+    }
 }

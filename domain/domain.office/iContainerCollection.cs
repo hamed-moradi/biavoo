@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace domain.office {
     public interface IChangeLogContainer: IGenericContainer<ChangeLog> {
-        List<ChangeLog> GetAll(ChangeLog model);
+        Task<List<ChangeLog>> GetAll(ChangeLog model);
     }
     public interface IAdminContainer: IGenericContainer<Admin> {
         Task<Admin> GetById(int id);
@@ -21,6 +21,6 @@ namespace domain.office {
         Task<List<ModuleReference>> GetByAdminId(int adminId);
     }
     public interface IUserContainer: IGenericContainer<User> {
-        User Get(int id);
+        Task<User> Get(int id);
     }
 }

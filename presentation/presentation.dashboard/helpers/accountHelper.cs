@@ -3,6 +3,7 @@ using domain.repository.entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Serilog;
 using shared.utility._app;
@@ -41,7 +42,7 @@ namespace presentation.dashboard.helpers {
             }
         }
 
-        [OutputCache(Duration = 10)]
+        [ResponseCache(Duration = 10)]
         public static List<ModuleReference> ModuleReferences() => _moduleReferenceContainer.GetByAdminId(AdminId).Result;
         #endregion
 

@@ -18,9 +18,9 @@ namespace domain.office.container {
         }
         #endregion
 
-        public List<ChangeLog> GetAll(ChangeLog model) {
+        public async Task<List<ChangeLog>> GetAll(ChangeLog model) {
             var result = GetPaging(model);
-            return result;
+            return await result;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@using Presentation.Panel.Helpers
+﻿@using presentation.dashboard.helpers
 @using ImageResizer
 @{
     var parentMenuItem = string.Empty;
@@ -8,7 +8,7 @@
         <div class="user-panel">
             <div class="pull-right image">
                 @{
-                    var user = (User as CustomPrincipal);
+                    var user = (User as AccountPrincipal);
                     var src = !string.IsNullOrWhiteSpace(user?.Avatar) ? user.Avatar : "/dist/img/avatar-anonymous.png".Replace("~", "");
                     src += "?w=45&h=45&mode=crop";
                 }
@@ -22,9 +22,9 @@
         <div id="main-menu">
             <div class="sidebar-menu">
                 @{
-                    var modules = UserHelper.Modules().Where(w => w.ParentId == null || w.ParentId == 0).OrderBy(ob => ob.Priority).OrderBy(gb => gb.Category).GroupBy(gb => gb.Category).ToList();
+                    var modules = AccountHelper.ModuleReferences().Where(w => w.ParentId == null || w.ParentId == 0).OrderBy(ob => ob.Priority).OrderBy(gb => gb.Category).GroupBy(gb => gb.Category).ToList();
                     foreach(var parent in modules) {
-                        var categoryName = Asset.Resource.Common.EnumHelper<Asset.Resource.Common.GeneralEnums.ModuleCategory>.GetDisplayValue(parent.Key.Value);
+                        var categoryName = shared.utility.EnumHelper<Asset.Resource.Common.GeneralEnums.ModuleCategory>.GetDisplayValue(parent.Key.Value);
                         <a id="parent_@parent.Key" href="#child_@parent.Key" class="header" data-toggle="collapse" data-parent="#main-menu">
                             @categoryName
                             <i class="fa fa-caret-down pull-left"></i>

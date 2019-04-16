@@ -2,6 +2,7 @@
 using domain.repository;
 using domain.repository._app;
 using domain.repository.entities;
+using Microsoft.EntityFrameworkCore;
 using shared.utility;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,8 @@ namespace domain.office.container {
         }
         #endregion
 
-        public User Get(int id) {
-            return _dbContext.Users.SingleOrDefault(sd => sd.Id == id);
+        public async Task<User> Get(int id) {
+            return await _dbContext.Users.SingleOrDefaultAsync(sd => sd.Id == id);
         }
     }
 }

@@ -9,6 +9,7 @@ using domain.office;
 using MD.PersianDateTime.Core;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using presentation.dashboard.helpers;
 using presentation.dashboard.models;
@@ -25,21 +26,47 @@ namespace presentation.dashboard.controllers {
         }
         #endregion
 
-        [HttpPost]
-        public async Task<IActionResult> SignIn(SigninBindingModel collection, string returnUrl) {
-            var admin = await _adminContainer.SignIn(collection.Username, collection.Password);
-            if(admin != null) {
-                var accountPrincipal = _mapper.Map<AccountPrincipal>(admin);
-                accountPrincipal.IP = IP;
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, accountPrincipal, new AuthenticationProperties {
-                    IsPersistent = collection.RememberMe
-                });
-                if(string.IsNullOrWhiteSpace(returnUrl))
-                    return RedirectToAction("Get", "Home");
-                else
-                    Redirect(returnUrl);
+        #region Private
+        private IActionResult RedirectToLocal(string returnUrl) {
+            if(Url.IsLocalUrl(returnUrl)) {
+                return Redirect(returnUrl);
             }
+            else {
+                return RedirectToAction(nameof(HomeController.Get), "Home");
+            }
+        }
+        #endregion
+        [HttpGet, AllowAnonymous]
+        public IActionResult SignIn(string returnUrl = null) {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
+        }
+        [HttpPost, AllowAnonymous, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SignIn(SigninBindingModel collection, string returnUrl = null) {
+            ViewData["ReturnUrl"] = returnUrl;
+            if(ModelState.IsValid) {
+                var admin = await _adminContainer.SignIn(collection.Username, collection.Password);
+                if(admin != null) {
+                    if(admin.Status != 1) {
+                    Log.Information($"The lockout '{admin.FullName} (Id: {admin.Id})' tried to signin.");
+                        return View("Lockout");
+                    }
+                    //TODO: RequiresTwoFactor
+                    Log.Information($"'{admin.FullName} (Id: {admin.Id})' signed in.");
+                    var accountPrincipal = _mapper.Map<AccountPrincipal>(admin);
+                    accountPrincipal.IP = IP;
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, accountPrincipal, new AuthenticationProperties {
+                        IsPersistent = collection.RememberMe
+                    });
+                    return RedirectToLocal(returnUrl);
+                }
+                else {
+                    ModelState.AddModelError(string.Empty, "Invalid signin attempt."); //TODO: use localizer
+                    return View(collection);
+                }
+            }
+            // There is obviously something wrong
+            return View(collection);
         }
 
         [HttpPost]

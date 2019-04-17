@@ -41,7 +41,7 @@ namespace domain.office._app {
             // Pass "zero" for reitrieve all data
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 // Your retrieve limit has been reached
-                throw new Exception(GeneralMessage.retrieveLimit, new Exception(GeneralVariables.systemGeneratedMessage));
+                throw new Exception(GeneralMessage.RetrieveLimit, new Exception(GeneralVariables.systemGeneratedMessage));
             }
             return await query.ToListAsync();
         }

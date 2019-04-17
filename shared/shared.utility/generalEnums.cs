@@ -4,6 +4,20 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace shared.utility {
+    #region System lookups
+    public enum PropertyType: byte {
+        [Display(Name = "تلفن")]
+        Phone = 1,
+        [Display(Name = "موبایل")]
+        CellPhone = 2,
+        [Display(Name = "ایمیل")]
+        Email = 3,
+        [Display(Name = "آدرس")]
+        Address = 4,
+        [Display(Name = "کد فعال سازی")]
+        ActivitionCode = 5
+    }
+    #endregion
     public enum Order: byte {
         [Display(Name = "صعودی")]
         Asc = 0,

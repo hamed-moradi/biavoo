@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="resources\" />
+    <Folder Include="_app\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="fa.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>fa.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

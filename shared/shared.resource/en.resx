@@ -117,40 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConnectionError" xml:space="preserve">
+  <data name="Connection Error" xml:space="preserve">
     <value>ConnectionError</value>
   </data>
-  <data name="DefectiveEntry" xml:space="preserve">
+  <data name="Defective Entry" xml:space="preserve">
     <value>DefectiveEntry</value>
   </data>
-  <data name="DeviceIdNotFound" xml:space="preserve">
+  <data name="DeviceId Not Found" xml:space="preserve">
     <value>DeviceIdNotFound</value>
   </data>
-  <data name="EmptyId" xml:space="preserve">
+  <data name="Empty Id" xml:space="preserve">
     <value>EmptyId</value>
   </data>
-  <data name="InternalServerError" xml:space="preserve">
+  <data name="Internal Server Error" xml:space="preserve">
     <value>InternalServerError</value>
   </data>
-  <data name="NothingFound" xml:space="preserve">
+  <data name="Invalid signin attempt" xml:space="preserve">
+    <value>Invalid signin attempt</value>
+  </data>
+  <data name="Nothing Found" xml:space="preserve">
     <value>NothingFound</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="PhoneIsNotVerified" xml:space="preserve">
+  <data name="Phone Is Not Verified" xml:space="preserve">
     <value>PhoneIsNotVerified</value>
   </data>
-  <data name="RetrieveLimit" xml:space="preserve">
+  <data name="Retrieve Limit" xml:space="preserve">
     <value>RetrieveLimit</value>
   </data>
-  <data name="TokenNotFound" xml:space="preserve">
+  <data name="Token Not Found" xml:space="preserve">
     <value>TokenNotFound</value>
   </data>
-  <data name="UnexpectedError" xml:space="preserve">
+  <data name="Unexpected Error" xml:space="preserve">
     <value>UnexpectedError</value>
   </data>
-  <data name="UserIsNotActive" xml:space="preserve">
+  <data name="User Is Not Active" xml:space="preserve">
     <value>UserIsNotActive</value>
   </data>
 </root>

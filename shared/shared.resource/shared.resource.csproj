@@ -10,6 +10,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="en.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>en.resx</DependentUpon>
+    </Compile>
+    <Compile Update="fa.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>fa.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="fa.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>fa.Designer.cs</LastGenOutput>

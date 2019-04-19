@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using presentation.dashboard.helpers;
 using presentation.dashboard.models;
 using Serilog;
@@ -18,10 +19,8 @@ using Serilog;
 namespace presentation.dashboard.controllers {
     public class AccountController: BaseController {
         #region Constructor
-        private readonly IMapper _mapper;
         private readonly IAdminContainer _adminContainer;
-        public AccountController(IMapper mapper, IAdminContainer adminContainer) {
-            _mapper = mapper;
+        public AccountController(IAdminContainer adminContainer) {
             _adminContainer = adminContainer;
         }
         #endregion
@@ -61,7 +60,7 @@ namespace presentation.dashboard.controllers {
                     return RedirectToLocal(returnUrl);
                 }
                 else {
-                    ModelState.AddModelError(string.Empty, "Invalid signin attempt."); //TODO: use localizer
+                    ModelState.AddModelError(string.Empty, _stringLocalizer["Invalid signin attempt"]);
                     return View(collection);
                 }
             }

@@ -8,7 +8,7 @@ namespace shared.resource {
         public static CultureInfo[] List {
             get {
                 return new[] {
-                    new CultureInfo("en"),
+                    new CultureInfo("en-US"),
                     new CultureInfo("fa")
                 };
             }

@@ -7,7 +7,14 @@ namespace domain.repository.schemas {
     [Schema("[dbo].[api_user_getById]")]
     public class UserGetByIdSchema: IBaseSchema {
         [InputParameter]
+        public string @Token { get; set; }
+        [InputParameter]
+        public string @DeviceId { get; set; }
+        [InputParameter]
         public string @Id { get; set; }
+
+        [OutputParameter]
+        public short @StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_user_getPaging]")]

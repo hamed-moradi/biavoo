@@ -17,13 +17,8 @@ using shared.utility._app;
 namespace presentation.webApi.controllers {
     public class UserController: BaseController {
         #region Constructor
-        private readonly IMapper _mapper;
-        private readonly IExceptionService _exceptionService;
         private readonly IUserService _userService;
-        public UserController(IUserService userService,
-            IMapper mapper, IExceptionService exceptionService) {
-            _mapper = mapper;
-            _exceptionService = exceptionService;
+        public UserController(IUserService userService) {
             _userService = userService;
         }
         #endregion

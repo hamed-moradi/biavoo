@@ -26,6 +26,6 @@ namespace Presentation.WebApi {
                     config.ReadFrom.Configuration(ctx.Configuration);
                     //Serilog.Debugging.SelfLog.Enable(Console.Error);
                 })
-                .Build();
+            .Build();
     }
 }

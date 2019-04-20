@@ -28,7 +28,7 @@ namespace Presentation.WebApi {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddLocalization(options => options.ResourcesPath = "");
+            services.AddLocalization(options => options.ResourcesPath = "SharedResource");
             services.Configure<CookiePolicyOptions>(options => {
                 //This lambda determines whether user consent for non - essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;

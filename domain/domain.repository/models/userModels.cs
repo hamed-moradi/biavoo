@@ -11,6 +11,7 @@ namespace domain.repository.models {
         public string Family { get; set; }
         public string Password { get; set; }
         public string Avatar { get; set; }
+        [HelperParameter]
         public virtual ICollection<UserPropertyModel> Properties { get; set; }
     }
 }

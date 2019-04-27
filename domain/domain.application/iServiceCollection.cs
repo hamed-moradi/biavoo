@@ -15,6 +15,7 @@ namespace domain.application {
     public interface IUserService {
         Task<UserModel> SignIn();
         Task<UserModel> Get(int id);
+        Task<UserModel> Get(GetByIdSchema model);
     }
     public interface ICustomerService {
         Task<CustomerGetByIdModel> GetById(CustomerGetByIdSchema model);

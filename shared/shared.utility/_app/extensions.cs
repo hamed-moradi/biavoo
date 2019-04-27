@@ -178,11 +178,21 @@ namespace shared.utility._app {
         }
 
         public static string SchemaName(this IBaseSchema baseSchema) {
+            // Read from model name (default)
             var name = baseSchema.GetType().Name;
-            var attrs = baseSchema.GetType().GetCustomAttributes(true);
-            foreach(var attr in attrs) {
-                if(attr is Schema schema && !string.IsNullOrWhiteSpace(schema.Name))
-                    name = schema.Name;
+
+            // Read from "EntityName" property (get by id model)
+            var props = baseSchema.GetType().GetProperties().FirstOrDefault(prop => prop.Name == "EntityName");
+            if(props != null) {
+                name = props.GetValue(baseSchema, null).ToString();
+            }
+            else {
+                // Read from schema attribute
+                var attrs = baseSchema.GetType().GetCustomAttributes(true);
+                foreach(var attr in attrs) {
+                    if(attr is Schema schema && !string.IsNullOrWhiteSpace(schema.Name))
+                        name = schema.Name;
+                }
             }
             return name;
         }

@@ -28,23 +28,24 @@ namespace domain.application.services {
         }
 
         public async Task<UserModel> Get(int id) {
+        public async Task<UserModel> Get(GetByIdSchema model) {
             var user = new UserModel();
             var parameters = new DynamicParameters();
-            parameters.Add("@Id", id, DbType.Int32, ParameterDirection.Input);
-            parameters.Add("@StatusCode", dbType: DbType.Int16, direction: ParameterDirection.Output);
+            parameters.Add("@Token", model.Token, DbType.String, ParameterDirection.Input);
+            parameters.Add("@DeviceId", model.DeviceId, DbType.String, ParameterDirection.Input);
+            parameters.Add("@Id", model.Id, DbType.Int32, ParameterDirection.Input);
+            parameters.Add("@StatusCode", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
             var result = await _repository.QueryMultipleAsync("dbo.[api_user_getById]", param: parameters, commandType: CommandType.StoredProcedure);
-            var statusCode = parameters.Get<short>("@StatusCode");
-            if(statusCode == 200) {
-                if(!result.IsConsumed) {
-                    user = await result.ReadFirstAsync<UserModel>();
-                }
-                if(!result.IsConsumed) {
-                    var properties = await result.ReadAsync<UserPropertyModel>();
-                    if(properties.Any()) {
-                        user.Properties = properties.ToList();
-                    }
+            if(!result.IsConsumed) {
+                user = await result.ReadFirstAsync<UserModel>();
+            }
+            if(!result.IsConsumed) {
+                var properties = await result.ReadAsync<UserPropertyModel>();
+                if(properties.Any()) {
+                    user.Properties = properties.ToList();
                 }
             }
+            model.StatusCode = parameters.Get<int>("@StatusCode");
             return user;
         }
     }

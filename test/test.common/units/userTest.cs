@@ -1,4 +1,5 @@
 ﻿using domain.application;
+using domain.repository.schemas;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using shared.utility._app;
 using System;

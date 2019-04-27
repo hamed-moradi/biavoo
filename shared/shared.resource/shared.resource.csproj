@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Folder Include="resources\" />
+    <Folder Include="scripts\functions\" />
+    <Folder Include="scripts\tables\" />
     <Folder Include="_app\" />
   </ItemGroup>
 

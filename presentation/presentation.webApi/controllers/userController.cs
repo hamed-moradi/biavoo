@@ -26,7 +26,8 @@ namespace presentation.webApi.controllers {
         [ArgumentBinding, HttpGet, Route("")]
         public async Task<IActionResult> Get(int id) {
             try {
-                var result = await _userService.Get(id);
+                var model = new GetByIdSchema { EntityName = "User", Id = id };
+                var result = await _userService.Get(model);
                 switch(1) {
                     case 1:
                         return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));

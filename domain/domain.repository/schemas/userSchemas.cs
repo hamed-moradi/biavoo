@@ -11,10 +11,10 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @DeviceId { get; set; }
         [InputParameter]
-        public string @Id { get; set; }
+        public int @Id { get; set; }
 
-        [OutputParameter]
-        public short @StatusCode { get; set; }
+        [HelperParameter]
+        public int StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_user_getPaging]")]
@@ -30,7 +30,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public DateTime? @ToDate { get; set; }
 
-        [OutputParameter]
-        public short @StatusCode { get; set; }
+        [HelperParameter]
+        public int @StatusCode { get; set; }
     }
 }

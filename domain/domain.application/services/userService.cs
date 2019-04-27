@@ -23,6 +23,10 @@ namespace domain.application.services {
         }
         #endregion
 
+        public async Task<UserModel> SignIn() {
+            return new UserModel { Id = 1 };
+        }
+
         public async Task<UserModel> Get(int id) {
             var user = new UserModel();
             var parameters = new DynamicParameters();

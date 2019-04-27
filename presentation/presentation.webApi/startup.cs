@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
-using domain.application.services;
 using domain.repository._app;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,7 +15,6 @@ using Microsoft.Extensions.DependencyInjection;
 using presentation.webApi.helpers;
 using presentation.webApi.middlewares;
 using shared.resource;
-using shared.utility._app;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Presentation.WebApi {
@@ -42,7 +40,7 @@ namespace Presentation.WebApi {
             domain.application._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig());
             services.AddSwaggerGen(c => {
-                c.SwaggerDoc(apiVersion, new Info { Title = AppSettings.MyTitle, Version = apiVersion });
+                c.SwaggerDoc(apiVersion, new Info { Title = shared.utility._app.AppSettings.MyTitle, Version = apiVersion });
             });
             services.Configure<RequestLocalizationOptions>(options => {
                 options.DefaultRequestCulture = new RequestCulture("en-US");

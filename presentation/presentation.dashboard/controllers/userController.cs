@@ -13,10 +13,8 @@ using Serilog;
 namespace presentation.dashboard.controllers {
     public class UserController: BaseController {
         #region Constructor
-        private readonly IMapper _mapper;
         private readonly IUserContainer _userContainer;
-        public UserController(IMapper mapper, IUserContainer userContainer) {
-            _mapper = mapper;
+        public UserController(IUserContainer userContainer) {
             _userContainer = userContainer;
         }
         #endregion

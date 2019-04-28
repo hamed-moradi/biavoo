@@ -12,6 +12,7 @@ using presentation.webApi.filterAttributes;
 using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
 using Serilog;
+using shared.resource;
 using shared.utility._app;
 
 namespace presentation.webApi.controllers {
@@ -23,21 +24,40 @@ namespace presentation.webApi.controllers {
         }
         #endregion
 
-        [ArgumentBinding, HttpGet, Route("")]
-        public async Task<IActionResult> Get(int id) {
+        [ArgumentBinding, HttpGet, Route("signup")]
+        public async Task<IActionResult> SignUp(UserSignUpBindingModel collection) {
             try {
-                var model = new GetByIdSchema { EntityName = "User", Id = id };
-                var result = await _userService.Get(model);
-                switch(1) {
-                    case 1:
+                var model = _mapper.Map<UserSignUpSchema>(collection);
+                var result = await _userService.SignUpAsync(model);
+                switch(model.StatusCode) {
+                    case 200:
                         return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));
-                    case 0:
-                        return InternalServerError();
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
                 }
             }
             catch(Exception ex) {
                 Log.Error(ex, MethodBase.GetCurrentMethod().Name);
-                //await _exceptionService.InsertAsync(ex, URL, IP);
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            return InternalServerError();
+        }
+
+        [ArgumentBinding, HttpGet, Route("")]
+        public async Task<IActionResult> Get(int id) {
+            try {
+                var model = new GetByIdSchema { EntityName = "User", Id = id };
+                var result = await _userService.GetAsync(model);
+                switch(model.StatusCode) {
+                    case 200:
+                        return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                }
+            }
+            catch(Exception ex) {
+                Log.Error(ex, MethodBase.GetCurrentMethod().Name);
+                await _exceptionService.InsertAsync(ex, URL, IP);
             }
             return InternalServerError();
         }

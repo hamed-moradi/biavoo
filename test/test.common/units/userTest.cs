@@ -3,6 +3,7 @@ using domain.repository.schemas;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using shared.utility._app;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace test.common.units {
@@ -18,7 +19,7 @@ namespace test.common.units {
         [TestMethod, TestCategory("User"), TestCategory("SignIn")]
         public async Task SignIn() {
             try {
-                var result = await _userService.SignIn();
+                var result = await _userService.SignInAsync();
                 Assert.IsNotNull(result);
             }
             catch(Exception ex) {
@@ -27,10 +28,13 @@ namespace test.common.units {
         }
 
         [TestMethod, TestCategory("User"), TestCategory("GetById")]
-        public void GetById() {
+        public async Task GetById() {
             try {
-                var result = _userService.Get(1);
+                var model = new GetByIdSchema { Id = 1, EntityName = "[user]" };
+                var result = await _userService.GetAsync(model);
+                Assert.IsTrue(model.StatusCode > 0);
                 Assert.IsNotNull(result);
+                Assert.IsTrue(result.Properties.Any());
             }
             catch(Exception ex) {
                 Console.WriteLine(ex);

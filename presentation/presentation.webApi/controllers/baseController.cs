@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using presentation.webApi.filterAttributes;
 using presentation.webApi.models.viewModels;
+using shared.resource;
 using shared.utility;
 using shared.utility._app;
 
@@ -33,15 +34,18 @@ namespace presentation.webApi.controllers {
         #endregion
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult Ok(HttpStatusCode status = HttpStatusCode.OK, string message = GeneralMessage.OK, object data = null, int? totalPages = null) {
+        public IActionResult Ok(HttpStatusCode status = HttpStatusCode.OK, string message = null, object data = null, int? totalPages = null) {
+            message = message ?? _stringLocalizer[SharedResource.Ok];
             return Json(new BaseViewModel { Status = status, Message = message, Data = data, TotalPages = totalPages });
         }
         [ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult BadRequest(string message) {
+        public IActionResult BadRequest(string message = null) {
+            message = message ?? _stringLocalizer[SharedResource.BadRequest];
             return Json(new BaseViewModel { Status = HttpStatusCode.BadRequest, Message = message });
         }
         [ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult InternalServerError(string message = GeneralMessage.InternalServerError) {
+        public IActionResult InternalServerError(string message = null) {
+            message = message ?? _stringLocalizer[SharedResource.InternalServerError];
             return Json(new BaseViewModel { Status = HttpStatusCode.InternalServerError, Message = message });
         }
     }

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Localization;
 using presentation.dashboard.helpers;
 using presentation.dashboard.models;
 using Serilog;
+using shared.resource;
 
 namespace presentation.dashboard.controllers {
     public class AccountController: BaseController {
@@ -35,6 +36,7 @@ namespace presentation.dashboard.controllers {
             }
         }
         #endregion
+
         [HttpGet, AllowAnonymous]
         public IActionResult SignIn(string returnUrl = null) {
             ViewData["ReturnUrl"] = returnUrl;
@@ -60,7 +62,7 @@ namespace presentation.dashboard.controllers {
                     return RedirectToLocal(returnUrl);
                 }
                 else {
-                    ModelState.AddModelError(string.Empty, _stringLocalizer["Invalid signin attempt"]);
+                    ModelState.AddModelError(string.Empty, _stringLocalizer[SharedResource.InvalidSigninAttempt]);
                     return View(collection);
                 }
             }

@@ -29,7 +29,7 @@ namespace domain.application.services {
                 return 1;
             }
             catch(OperationCanceledException ex) {
-                await _exceptionService.InsertAsync(ex, MethodBase.GetCurrentMethod().Name, GeneralVariables.localIP);
+                await _exceptionService.InsertAsync(ex, MethodBase.GetCurrentMethod().Name, GeneralVariables.LocalIP);
                 var elapsed = DateTime.UtcNow - startTime;
                 return 0;
             }

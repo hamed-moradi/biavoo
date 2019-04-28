@@ -12,6 +12,9 @@ namespace domain.repository.schemas {
         public string @DeviceId { get; set; }
         [InputParameter]
         public int @Id { get; set; }
+
+        [HelperParameter]
+        public int StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_customer_getPaging]")]
@@ -27,7 +30,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public DateTime? @ToDate { get; set; }
 
-        [OutputParameter]
-        public short @StatusCode { get; set; }
+        [HelperParameter]
+        public int @StatusCode { get; set; }
     }
 }

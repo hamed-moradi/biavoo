@@ -23,12 +23,11 @@ namespace domain.application.services {
         }
         #endregion
 
-        public async Task<UserModel> SignIn() {
+        public async Task<UserModel> SignInAsync() {
             return new UserModel { Id = 1 };
         }
 
-        public async Task<UserModel> Get(int id) {
-        public async Task<UserModel> Get(GetByIdSchema model) {
+        public async Task<UserModel> GetAsync(GetByIdSchema model) {
             var user = new UserModel();
             var parameters = new DynamicParameters();
             parameters.Add("@Token", model.Token, DbType.String, ParameterDirection.Input);

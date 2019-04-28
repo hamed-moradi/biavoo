@@ -4,6 +4,8 @@ using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 using presentation.webApi.models.viewModels;
 using Serilog;
+using shared.resource;
+using shared.resource._app;
 using shared.utility;
 using shared.utility._app;
 using System;
@@ -31,9 +33,9 @@ namespace presentation.webApi.filterAttributes {
                     IP = filterContext.HttpContext.Connection.RemoteIpAddress.ToString(),
                     Method = filterContext.Controller.ToString(),
                     Keyword = text,
-                    Message = "Restricted keyword detection"
+                    Message = InternalMessage.RestrictedKeywordDetection
                 }));
-                throw new Exception("درخواست شما شامل کلمات خطرناک می باشد. آی پی شما ثبت شد!", new Exception { Source = GeneralMessage.ExceptionSource });
+                throw new Exception(_stringLocalizer[SharedResource.DangerousRequest], new Exception { Source = GeneralVariables.ExceptionSource });
             }
         }
         #endregion

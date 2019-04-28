@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shared.resource {
+namespace shared.resource.resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace shared.resource {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class fa {
+    internal class en {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal fa() {
+        internal en() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace shared.resource {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("shared.resource.fa", typeof(fa).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("shared.resource.resources.en", typeof(en).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,119 +61,146 @@ namespace shared.resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Authentication Failed.
         /// </summary>
-        internal static string Connection_Error {
+        internal static string AuthenticationFailed {
             get {
-                return ResourceManager.GetString("Connection Error", resourceCulture);
+                return ResourceManager.GetString("AuthenticationFailed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Connection error.
         /// </summary>
-        internal static string Defective_Entry {
+        internal static string ConnectionError {
             get {
-                return ResourceManager.GetString("Defective Entry", resourceCulture);
+                return ResourceManager.GetString("ConnectionError", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Dangerous Request.
         /// </summary>
-        internal static string DeviceId_Not_Found {
+        internal static string DangerousRequest {
             get {
-                return ResourceManager.GetString("DeviceId Not Found", resourceCulture);
+                return ResourceManager.GetString("DangerousRequest", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Defective entry.
         /// </summary>
-        internal static string Empty_Id {
+        internal static string DefectiveEntry {
             get {
-                return ResourceManager.GetString("Empty Id", resourceCulture);
+                return ResourceManager.GetString("DefectiveEntry", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to DeviceId not found.
         /// </summary>
-        internal static string Internal_Server_Error {
+        internal static string DeviceIdNotFound {
             get {
-                return ResourceManager.GetString("Internal Server Error", resourceCulture);
+                return ResourceManager.GetString("DeviceIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty Id.
+        /// </summary>
+        internal static string EmptyId {
+            get {
+                return ResourceManager.GetString("EmptyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal server error.
+        /// </summary>
+        internal static string InternalServerError {
+            get {
+                return ResourceManager.GetString("InternalServerError", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Invalid signin attempt.
         /// </summary>
-        internal static string Invalid_signin_attempt {
+        internal static string InvalidSigninAttempt {
             get {
-                return ResourceManager.GetString("Invalid signin attempt", resourceCulture);
+                return ResourceManager.GetString("InvalidSigninAttempt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Nothing found.
         /// </summary>
-        internal static string Nothing_Found {
+        internal static string NothingFound {
             get {
-                return ResourceManager.GetString("Nothing Found", resourceCulture);
+                return ResourceManager.GetString("NothingFound", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Ok.
         /// </summary>
-        internal static string OK {
+        internal static string Ok {
             get {
-                return ResourceManager.GetString("OK", resourceCulture);
+                return ResourceManager.GetString("Ok", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Phone is not verified.
         /// </summary>
-        internal static string Phone_Is_Not_Verified {
+        internal static string PhoneIsNotVerified {
             get {
-                return ResourceManager.GetString("Phone Is Not Verified", resourceCulture);
+                return ResourceManager.GetString("PhoneIsNotVerified", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Restricted keyword(s) detected.
         /// </summary>
-        internal static string Retrieve_Limit {
+        internal static string RestrictedKeywordDetection {
             get {
-                return ResourceManager.GetString("Retrieve Limit", resourceCulture);
+                return ResourceManager.GetString("RestrictedKeywordDetection", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Retrieve limit.
         /// </summary>
-        internal static string Token_Not_Found {
+        internal static string RetrieveLimit {
             get {
-                return ResourceManager.GetString("Token Not Found", resourceCulture);
+                return ResourceManager.GetString("RetrieveLimit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Token not found.
         /// </summary>
-        internal static string Unexpected_Error {
+        internal static string TokenNotFound {
             get {
-                return ResourceManager.GetString("Unexpected Error", resourceCulture);
+                return ResourceManager.GetString("TokenNotFound", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Unexpected rror.
         /// </summary>
-        internal static string User_Is_Not_Active {
+        internal static string UnexpectedError {
             get {
-                return ResourceManager.GetString("User Is Not Active", resourceCulture);
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User is not active.
+        /// </summary>
+        internal static string UserIsNotActive {
+            get {
+                return ResourceManager.GetString("UserIsNotActive", resourceCulture);
             }
         }
     }

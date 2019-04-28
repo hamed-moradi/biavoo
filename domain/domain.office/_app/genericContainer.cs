@@ -7,6 +7,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using shared.resource._app;
 
 namespace domain.office._app {
     public interface IGenericContainer<T> where T : BaseEntity {
@@ -41,7 +42,7 @@ namespace domain.office._app {
             // Pass "zero" for reitrieve all data
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 // Your retrieve limit has been reached
-                throw new Exception(GeneralMessage.RetrieveLimit, new Exception(GeneralVariables.systemGeneratedMessage));
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
             }
             return await query.ToListAsync();
         }

@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 using presentation.dashboard.models;
 using Serilog;
+using shared.resource;
+using shared.resource._app;
 using shared.utility;
 using shared.utility._app;
 using System;
@@ -12,9 +15,11 @@ using System.Threading.Tasks;
 namespace presentation.dashboard.filterAttributes {
     public class SecurityFilter: ActionFilterAttribute {
         #region Constructor
+        protected readonly IStringLocalizer<SecurityFilter> _stringLocalizer;
         private readonly string[] UnsafeKeywords = { "javascript", "vbscript", "shutdown", "exec", "having", "union", "select", "insert", "update", "delete", "drop", "truncate", "script" };
 
         public SecurityFilter() {
+            _stringLocalizer = ServiceLocator.Current.GetInstance<IStringLocalizer<SecurityFilter>>();
         }
         #endregion
 
@@ -26,9 +31,9 @@ namespace presentation.dashboard.filterAttributes {
                     IP = filterContext.HttpContext.Connection.RemoteIpAddress.ToString(),
                     Method = filterContext.Controller.ToString(),
                     Keyword = text,
-                    Message = "Restricted keyword detection"
+                    Message = InternalMessage.RestrictedKeywordDetection
                 }));
-                throw new Exception("درخواست شما شامل کلمات خطرناک می باشد. آی پی شما ثبت شد!", new Exception { Source = GeneralMessage.ExceptionSource });
+                throw new Exception(_stringLocalizer[SharedResource.DangerousRequest], new Exception { Source = GeneralVariables.ExceptionSource });
             }
         }
         #endregion

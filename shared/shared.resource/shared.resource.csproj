@@ -5,19 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="resources\" />
     <Folder Include="scripts\functions\" />
     <Folder Include="scripts\tables\" />
-    <Folder Include="_app\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="en.Designer.cs">
+    <Compile Update="resources\en.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>en.resx</DependentUpon>
     </Compile>
-    <Compile Update="fa.Designer.cs">
+    <Compile Update="resources\fa.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>fa.resx</DependentUpon>
@@ -25,11 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="en.resx">
+    <EmbeddedResource Update="resources\en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="fa.resx">
+    <EmbeddedResource Update="resources\fa.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>fa.Designer.cs</LastGenOutput>
     </EmbeddedResource>

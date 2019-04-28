@@ -4,7 +4,8 @@ using System.Text;
 
 namespace shared.utility {
     public class GeneralVariables {
-        public const string systemGeneratedMessage = "SystemGeneratedMessage";
-        public const string localIP = "127.0.0.1";
+        public const string ExceptionSource = "Custom";
+        public const string SystemGeneratedMessage = "SystemGeneratedMessage";
+        public const string LocalIP = "127.0.0.1";
     }
 }

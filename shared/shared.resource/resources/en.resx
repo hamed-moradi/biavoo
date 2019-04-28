@@ -117,43 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connection Error" xml:space="preserve">
-    <value />
+  <data name="AuthenticationFailed" xml:space="preserve">
+    <value>Authentication Failed</value>
   </data>
-  <data name="Defective Entry" xml:space="preserve">
-    <value />
+  <data name="ConnectionError" xml:space="preserve">
+    <value>Connection error</value>
   </data>
-  <data name="DeviceId Not Found" xml:space="preserve">
-    <value />
+  <data name="DangerousRequest" xml:space="preserve">
+    <value>Dangerous Request</value>
   </data>
-  <data name="Empty Id" xml:space="preserve">
-    <value />
+  <data name="DefectiveEntry" xml:space="preserve">
+    <value>Defective entry</value>
   </data>
-  <data name="Internal Server Error" xml:space="preserve">
-    <value />
+  <data name="DeviceIdNotFound" xml:space="preserve">
+    <value>DeviceId not found</value>
   </data>
-  <data name="Invalid signin attempt" xml:space="preserve">
+  <data name="EmptyId" xml:space="preserve">
+    <value>Empty Id</value>
+  </data>
+  <data name="InternalServerError" xml:space="preserve">
+    <value>Internal server error</value>
+  </data>
+  <data name="InvalidSigninAttempt" xml:space="preserve">
     <value>Invalid signin attempt</value>
   </data>
-  <data name="Nothing Found" xml:space="preserve">
-    <value />
+  <data name="NothingFound" xml:space="preserve">
+    <value>Nothing found</value>
   </data>
-  <data name="OK" xml:space="preserve">
-    <value />
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
   </data>
-  <data name="Phone Is Not Verified" xml:space="preserve">
-    <value />
+  <data name="PhoneIsNotVerified" xml:space="preserve">
+    <value>Phone is not verified</value>
   </data>
-  <data name="Retrieve Limit" xml:space="preserve">
-    <value />
+  <data name="RestrictedKeywordDetection" xml:space="preserve">
+    <value>Restricted keyword(s) detected</value>
   </data>
-  <data name="Token Not Found" xml:space="preserve">
-    <value />
+  <data name="RetrieveLimit" xml:space="preserve">
+    <value>Retrieve limit</value>
   </data>
-  <data name="Unexpected Error" xml:space="preserve">
-    <value />
+  <data name="TokenNotFound" xml:space="preserve">
+    <value>Token not found</value>
   </data>
-  <data name="User Is Not Active" xml:space="preserve">
-    <value />
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>Unexpected rror</value>
+  </data>
+  <data name="UserIsNotActive" xml:space="preserve">
+    <value>User is not active</value>
   </data>
 </root>

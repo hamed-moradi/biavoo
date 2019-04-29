@@ -1571,3 +1571,333 @@ System.InvalidOperationException: BeginExecuteReader: CommandText property has n
 2019-04-01 12:02:50.046 +04:30 [INF] Executing ObjectResult, writing value of type 'presentation.webApi.models.viewModels.CustomerGetByIdViewModel'.
 2019-04-01 12:02:50.057 +04:30 [INF] Executed action presentation.webApi.controllers.CustomerController.Get (presentation.webApi) in 2024.0022000000001ms
 2019-04-01 12:02:50.064 +04:30 [INF] Request finished in 2126.4366ms 200 application/json; charset=utf-8
+2019-04-29 14:38:37.231 +04:30 [FTL] Application startup exception
+System.IO.FileNotFoundException: Could not load file or assembly 'presentation.webApi.helpers, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+File name: 'presentation.webApi.helpers, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at AutoMapper.Configuration.MapperConfigurationExpression.<>c.<AddProfiles>b__22_0(String name) in C:\projects\automapper\src\AutoMapper\Configuration\MapperConfigurationExpression.cs:line 56
+   at System.Linq.Enumerable.SelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at AutoMapper.Configuration.MapperConfigurationExpression.AddProfilesCore(IEnumerable`1 assembliesToScan) in C:\projects\automapper\src\AutoMapper\Configuration\MapperConfigurationExpression.cs:line 66
+   at presentation.webApi.helpers.MapperConfig.<>c.<.ctor>b__0_0(IMapperConfigurationExpression config) in D:\Git\biavoo\presentation\presentation.webApi\helpers\mapperProfile.cs:line 16
+   at AutoMapper.MapperConfiguration.Build(Action`1 configure) in C:\projects\automapper\src\AutoMapper\MapperConfiguration.cs:line 317
+   at AutoMapper.MapperConfiguration..ctor(Action`1 configure) in C:\projects\automapper\src\AutoMapper\MapperConfiguration.cs:line 57
+   at presentation.webApi.helpers.MapperConfig..ctor() in D:\Git\biavoo\presentation\presentation.webApi\helpers\mapperProfile.cs:line 16
+   at Presentation.WebApi.Startup.ConfigureServices(IServiceCollection services) in D:\Git\biavoo\presentation\presentation.webApi\startup.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.ConfigureServices(IServiceCollection services)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.EnsureApplicationServices()
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.Initialize()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+
+
+2019-04-29 14:38:37.820 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 14:38:37.820 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 14:38:37.976 +04:30 [INF] Request finished in 156.968ms 500 
+2019-04-29 14:38:37.952 +04:30 [ERR] Connection id "0HLMCHAIQRUHC", Request id "0HLMCHAIQRUHC:00000001": An unhandled exception was thrown by the application.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.Join(String separator, IEnumerable`1 values)
+   at Microsoft.Extensions.RazorViews.BaseView.EndWriteAttribute()
+   at Microsoft.AspNetCore.Hosting.Views.ErrorPage.ExecuteAsync()
+   at Microsoft.Extensions.RazorViews.BaseView.ExecuteAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2019-04-29 14:38:37.997 +04:30 [INF] Request finished in 178.5929ms 500 text/html; charset=utf-8
+2019-04-29 14:49:57.042 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 14:49:58.455 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 14:49:58.455 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 14:49:58.554 +04:30 [INF] Request finished in 98.0307ms 200 
+2019-04-29 14:49:59.177 +04:30 [INF] Request finished in 723.2113ms 200 text/html
+2019-04-29 14:49:59.419 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger-ui-standalone-preset.js  
+2019-04-29 14:49:59.419 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger-ui.css  
+2019-04-29 14:49:59.419 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger-ui-bundle.js  
+2019-04-29 14:49:59.506 +04:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-04-29 14:49:59.519 +04:30 [INF] Request finished in 99.8624ms 200 text/css
+2019-04-29 14:49:59.548 +04:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-04-29 14:49:59.548 +04:30 [INF] Request finished in 129.01ms 200 application/javascript
+2019-04-29 14:49:59.590 +04:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-04-29 14:49:59.591 +04:30 [INF] Request finished in 172.1032ms 200 application/javascript
+2019-04-29 14:50:01.849 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/favicon-32x32.png  
+2019-04-29 14:50:01.849 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 14:50:01.946 +04:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-04-29 14:50:01.946 +04:30 [INF] Request finished in 97.5681ms 200 image/png
+2019-04-29 14:50:01.955 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/favicon-16x16.png  
+2019-04-29 14:50:01.956 +04:30 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2019-04-29 14:50:01.956 +04:30 [INF] Request finished in 0.9962ms 200 image/png
+2019-04-29 14:50:04.197 +04:30 [INF] Request finished in 2348.834ms 200 application/json;charset=utf-8
+2019-04-29 14:50:57.863 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User  
+2019-04-29 14:50:57.900 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-04-29 14:50:58.132 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 14:50:58.182 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 14:51:07.713 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 9517.8509000000013ms.
+2019-04-29 14:51:07.722 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 14:51:07.733 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 9598.6585000000014ms
+2019-04-29 14:51:07.734 +04:30 [INF] Request finished in 9871.1141ms 200 application/json; charset=utf-8
+2019-04-29 14:52:07.840 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 14:52:07.842 +04:30 [INF] Request finished in 1.9596ms 404 
+2019-04-29 14:52:28.813 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 14:52:28.814 +04:30 [INF] Request finished in 1.2966ms 404 
+2019-04-29 14:54:50.451 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 14:54:50.453 +04:30 [INF] Request finished in 1.4061ms 404 
+2019-04-29 14:55:01.471 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 14:55:01.471 +04:30 [INF] Request finished in 0.5299ms 404 
+2019-04-29 14:58:39.686 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get/1  
+2019-04-29 14:58:39.687 +04:30 [INF] Request finished in 1.0629ms 404 
+2019-04-29 14:58:47.681 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 14:58:47.682 +04:30 [INF] Request finished in 0.9743ms 404 
+2019-04-29 14:58:59.703 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/  
+2019-04-29 14:58:59.704 +04:30 [INF] Request finished in 1.3476ms 301 
+2019-04-29 14:58:59.712 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 14:58:59.714 +04:30 [INF] Request finished in 2.5467ms 200 text/html
+2019-04-29 14:59:00.482 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 14:59:00.484 +04:30 [INF] Request finished in 1.688ms 200 application/json;charset=utf-8
+2019-04-29 14:59:20.797 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user?id=1  
+2019-04-29 14:59:20.798 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 14:59:20.805 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 14:59:23.540 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2734.3512ms.
+2019-04-29 14:59:23.540 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 14:59:23.541 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 2742.3138000000004ms
+2019-04-29 14:59:23.541 +04:30 [INF] Request finished in 2743.2625ms 200 application/json; charset=utf-8
+2019-04-29 16:14:24.321 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 16:14:25.557 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 16:14:25.557 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 16:14:25.629 +04:30 [INF] Request finished in 74.1149ms 200 
+2019-04-29 16:14:26.212 +04:30 [INF] Request finished in 657.748ms 200 text/html
+2019-04-29 16:14:26.917 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 16:14:28.092 +04:30 [INF] Request finished in 1175.4078ms 200 application/json;charset=utf-8
+2019-04-29 16:14:36.769 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get  
+2019-04-29 16:14:36.827 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-04-29 16:14:37.021 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:14:37.079 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:14:37.143 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 51.8057ms.
+2019-04-29 16:14:37.153 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 16:14:37.173 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 148.93460000000002ms
+2019-04-29 16:14:37.173 +04:30 [INF] Request finished in 403.9279ms 200 application/json; charset=utf-8
+2019-04-29 16:15:45.485 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:15:45.492 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:15:45.522 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:15:45.522 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.1625ms.
+2019-04-29 16:15:45.523 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 16:15:45.545 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 53.402ms
+2019-04-29 16:15:45.545 +04:30 [INF] Request finished in 60.0618ms 200 application/json; charset=utf-8
+2019-04-29 16:15:56.536 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:15:56.537 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:15:56.538 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:15:56.538 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.015000000000000001ms.
+2019-04-29 16:15:56.538 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 16:15:56.538 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 1.4755ms
+2019-04-29 16:15:56.538 +04:30 [INF] Request finished in 2.0989ms 200 application/json; charset=utf-8
+2019-04-29 16:16:11.383 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:16:11.384 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:16:11.384 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:16:30.522 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 19137.7061ms.
+2019-04-29 16:16:30.523 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 16:16:30.523 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 19139.168ms
+2019-04-29 16:16:30.523 +04:30 [INF] Request finished in 19139.9921ms 200 application/json; charset=utf-8
+2019-04-29 16:16:34.239 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:16:34.240 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:16:45.625 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:16:48.735 +04:30 [INF] Executed action method presentation.webApi.controllers.UserController.Get (presentation.webApi), returned result Microsoft.AspNetCore.Mvc.JsonResult in 3109.8576000000003ms.
+2019-04-29 16:16:48.738 +04:30 [INF] Executing JsonResult, writing value of type 'presentation.webApi.models.viewModels.BaseViewModel'.
+2019-04-29 16:16:48.739 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 14498.4693ms
+2019-04-29 16:16:48.739 +04:30 [INF] Request finished in 14499.2695ms 200 application/json; charset=utf-8
+2019-04-29 16:17:17.749 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 16:17:18.370 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 16:17:18.370 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 16:17:18.395 +04:30 [INF] Request finished in 26.8755ms 200 
+2019-04-29 16:17:18.652 +04:30 [INF] Request finished in 283.9886ms 200 text/html
+2019-04-29 16:17:19.240 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 16:17:19.516 +04:30 [INF] Request finished in 276.8508ms 200 application/json;charset=utf-8
+2019-04-29 16:17:24.860 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:17:24.891 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-04-29 16:17:24.978 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:17:50.809 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:17:50.918 +04:30 [ERR] MoveNext
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.webApi.controllers.UserController.Get(GetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 74
+2019-04-29 16:17:51.262 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 26282.069600000003ms
+2019-04-29 16:17:51.274 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.webApi.controllers.UserController.Get(GetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 89
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-29 16:17:51.372 +04:30 [INF] Request finished in 26512.4047ms 500 text/html; charset=utf-8
+2019-04-29 16:18:06.158 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:18:06.159 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:18:06.159 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:18:42.843 +04:30 [ERR] MoveNext
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.webApi.controllers.UserController.Get(GetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 74
+2019-04-29 16:18:42.876 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 36716.7113ms
+2019-04-29 16:18:42.877 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.webApi.controllers.UserController.Get(GetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 89
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-29 16:18:42.888 +04:30 [INF] Request finished in 36730.1202ms 500 text/html; charset=utf-8
+2019-04-29 16:20:02.541 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 16:20:03.016 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 16:20:03.016 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 16:20:03.046 +04:30 [INF] Request finished in 31.3446ms 200 
+2019-04-29 16:20:03.302 +04:30 [INF] Request finished in 287.3482ms 200 text/html
+2019-04-29 16:20:03.885 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 16:20:04.142 +04:30 [INF] Request finished in 256.5793ms 200 application/json;charset=utf-8
+2019-04-29 16:20:13.062 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:20:13.107 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-04-29 16:20:13.185 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:20:29.423 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:31:19.054 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 16:31:19.669 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 16:31:19.669 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 16:31:19.710 +04:30 [INF] Request finished in 43.3973ms 200 
+2019-04-29 16:31:19.977 +04:30 [INF] Request finished in 310.5647ms 200 text/html
+2019-04-29 16:31:20.594 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 16:31:20.870 +04:30 [INF] Request finished in 275.8994ms 200 application/json;charset=utf-8
+2019-04-29 16:31:26.034 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:31:26.069 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-04-29 16:31:26.152 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:32:23.836 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["presentation.webApi.models.bindingModels.GetByIdBindingModel"]) - Validation state: "Valid"
+2019-04-29 16:32:23.891 +04:30 [ERR] MoveNext
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.webApi.controllers.UserController.Get(GetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 74
+2019-04-29 16:32:23.967 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 57811.873ms
+2019-04-29 16:32:23.969 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.webApi.controllers.UserController.Get(GetByIdBindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\userController.cs:line 89
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-29 16:32:24.002 +04:30 [INF] Request finished in 57967.8732ms 500 text/html; charset=utf-8
+2019-04-29 16:36:21.244 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 16:36:21.806 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 16:36:21.806 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 16:36:21.842 +04:30 [INF] Request finished in 37.1727ms 200 
+2019-04-29 16:36:22.123 +04:30 [INF] Request finished in 318.6532ms 200 text/html
+2019-04-29 16:36:22.702 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 16:36:22.969 +04:30 [INF] Request finished in 266.6371ms 200 application/json;charset=utf-8
+2019-04-29 16:36:54.468 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-04-29 16:36:54.931 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-04-29 16:36:54.931 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-04-29 16:36:54.962 +04:30 [INF] Request finished in 32.2896ms 200 
+2019-04-29 16:36:55.226 +04:30 [INF] Request finished in 296.9188ms 200 text/html
+2019-04-29 16:36:55.803 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-04-29 16:36:56.051 +04:30 [INF] Request finished in 248.2685ms 200 application/json;charset=utf-8
+2019-04-29 16:37:00.783 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:37:00.817 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-04-29 16:37:00.900 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:37:00.907 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 4.92ms
+2019-04-29 16:37:00.914 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'presentation.webApi.controllers.UserController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-29 16:37:01.030 +04:30 [INF] Request finished in 247.4528ms 500 text/html; charset=utf-8
+2019-04-29 16:37:12.480 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/user/get?id=1  
+2019-04-29 16:37:12.481 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-04-29 16:37:12.482 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 0.7547ms
+2019-04-29 16:37:12.487 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'AutoMapper.IMapper' while attempting to activate 'presentation.webApi.controllers.UserController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-29 16:37:12.505 +04:30 [INF] Request finished in 24.2664ms 500 text/html; charset=utf-8

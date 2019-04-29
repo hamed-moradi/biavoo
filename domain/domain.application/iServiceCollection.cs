@@ -13,7 +13,8 @@ namespace domain.application {
         Task<int> InsertAsync(HttpLog model, int timeoutMS = 256);
     }
     public interface IUserService {
-        Task<UserModel> SignInAsync();
+        Task<UserModel> SignUpAsync(UserSignUpSchema model);
+        Task SentActivationCodeAsync(UserSendActivationCodeSchema model);
         Task<UserModel> GetAsync(GetByIdSchema model);
     }
     public interface ICustomerService {

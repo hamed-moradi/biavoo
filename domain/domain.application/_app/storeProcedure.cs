@@ -38,7 +38,8 @@ namespace domain.application._app {
         #region Private
         private DynamicParameters MakeParameters(Schema schema) {
             var parameters = new DynamicParameters();
-            var inputProperties = schema.GetType().GetProperties().Where(item => Attribute.IsDefined(item, typeof(InputParameter)));
+            // Input parameters (Include IEnumerable as Table type value)
+            var inputProperties = schema.GetType().GetProperties().Where(attr => Attribute.IsDefined(attr, typeof(InputParameter)));
             foreach(var item in inputProperties) {
                 var key = item.Name;
                 var value = item.GetValue(schema, null);
@@ -71,7 +72,8 @@ namespace domain.application._app {
                 else
                     parameters.Add(key, value, item.PropertyType.ToDbType(), direction: ParameterDirection.Input);
             }
-            var outputProperties = schema.GetType().GetProperties()?.Where(item => Attribute.IsDefined(item, typeof(OutputParameter)));
+            // Output parameters
+            var outputProperties = schema.GetType().GetProperties()?.Where(attr => Attribute.IsDefined(attr, typeof(OutputParameter)));
             foreach(var item in outputProperties) {
                 var key = item.Name;
                 var attrs = item.GetCustomAttributes(true);
@@ -80,6 +82,11 @@ namespace domain.application._app {
                         key = output.Name;
                 }
                 parameters.Add(key, dbType: item.PropertyType.ToDbType(), direction: ParameterDirection.Output);
+            }
+            // Return parameter
+            var returnPropery = schema.GetType().GetProperties().FirstOrDefault(attr => Attribute.IsDefined(attr, typeof(ReturnParameter)));
+            if(returnPropery != null) {
+                parameters.Add(returnPropery.Name, dbType: returnPropery.PropertyType.ToDbType(), direction: ParameterDirection.ReturnValue);
             }
             return parameters;
         }
@@ -162,6 +169,12 @@ namespace domain.application._app {
                     propertyInfo.SetValue(model, parameters.Get<DateTimeOffset?>(key));
             }
         }
+        private void SetReturnValue(Schema model, DynamicParameters parameters) {
+            var returnProperty = model.GetType().GetProperties().FirstOrDefault(item => Attribute.IsDefined(item, typeof(ReturnParameter)));
+            if(returnProperty != null) {
+                returnProperty.SetValue(model, parameters.Get<int>(returnProperty.Name));
+            }
+        }
         #endregion
 
         //Sync
@@ -172,23 +185,28 @@ namespace domain.application._app {
             var parameters = MakeParameters(model);
             _repository.Execute(model.SchemaName(), parameters, commandType: CommandType.StoredProcedure);
             SetOutputValues(model, parameters);
+            SetReturnValue(model, parameters);
         }
         public IEnumerable<Result> Execute(string procedure) {
-            return _repository.Query(procedure, commandType: CommandType.StoredProcedure);
+            var result = _repository.Query(procedure, commandType: CommandType.StoredProcedure);
+            return result;
         }
         public IEnumerable<Result> Execute(Schema model) {
             var parameters = MakeParameters(model);
             var result = _repository.Query(model.SchemaName(), parameters, commandType: CommandType.StoredProcedure);
             SetOutputValues(model, parameters);
+            SetReturnValue(model, parameters);
             return result;
         }
         public Result ExecuteFirstOrDefault(string procedure) {
-            return _repository.QueryFirstOrDefault(procedure, commandType: CommandType.StoredProcedure);
+            var result = _repository.QueryFirstOrDefault(procedure, commandType: CommandType.StoredProcedure);
+            return result;
         }
         public Result ExecuteFirstOrDefault(Schema model) {
             var parameters = MakeParameters(model);
             var result = _repository.QueryFirstOrDefault(model.SchemaName(), parameters, commandType: CommandType.StoredProcedure);
             SetOutputValues(model, parameters);
+            SetReturnValue(model, parameters);
             return result;
         }
 
@@ -202,21 +220,25 @@ namespace domain.application._app {
             SetOutputValues(model, parameters);
         }
         public async Task<IEnumerable<Result>> ExecuteAsync(string procedure) {
-            return await _repository.QueryAsync(procedure, commandType: CommandType.StoredProcedure);
+            var result = await _repository.QueryAsync(procedure, commandType: CommandType.StoredProcedure);
+            return result;
         }
         public async Task<IEnumerable<Result>> ExecuteAsync(Schema model) {
             var parameters = MakeParameters(model);
             var result = await _repository.QueryAsync(model.SchemaName(), parameters, commandType: CommandType.StoredProcedure);
             SetOutputValues(model, parameters);
+            SetReturnValue(model, parameters);
             return result;
         }
         public async Task<Result> ExecuteFirstOrDefaultAsync(string procedure) {
-            return await _repository.QueryFirstOrDefaultAsync(procedure, commandType: CommandType.StoredProcedure);
+            var result = await _repository.QueryFirstOrDefaultAsync(procedure, commandType: CommandType.StoredProcedure);
+            return result;
         }
         public async Task<Result> ExecuteFirstOrDefaultAsync(Schema model) {
             var parameters = MakeParameters(model);
             var result = await _repository.QueryFirstOrDefaultAsync(model.SchemaName(), parameters, commandType: CommandType.StoredProcedure);
             SetOutputValues(model, parameters);
+            SetReturnValue(model, parameters);
             return result;
         }
     }

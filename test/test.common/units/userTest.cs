@@ -16,11 +16,27 @@ namespace test.common.units {
         }
         #endregion
 
-        [TestMethod, TestCategory("User"), TestCategory("SignIn")]
+        [TestMethod, TestCategory("User"), TestCategory("SignUp")]
         public async Task SignIn() {
             try {
-                var result = await _userService.SignInAsync();
+                var model = new UserSignUpSchema { Token = "", DeviceId = "", Name = "behzad", Family = "saemi", CellPhone = "911" };
+                var result = await _userService.SignUpAsync(model);
                 Assert.IsNotNull(result);
+                Assert.IsTrue(model.StatusCode > 0);
+                Console.WriteLine($"StatusCode: {model.StatusCode}");
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex);
+            }
+        }
+
+        [TestMethod, TestCategory("User"), TestCategory("SentActivationCode")]
+        public async Task SentActivationCode() {
+            try {
+                var model = new UserSendActivationCodeSchema { Token = "", DeviceId = "", CellPhone = "911" };
+                await _userService.SentActivationCodeAsync(model);
+                Assert.IsTrue(model.StatusCode > 0);
+                Console.WriteLine($"StatusCode: {model.StatusCode}");
             }
             catch(Exception ex) {
                 Console.WriteLine(ex);

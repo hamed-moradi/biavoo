@@ -11,7 +11,7 @@ namespace test.common._app {
         [AssemblyInitialize]
         public static void Init(TestContext testContext) {
             var services = new ServiceCollection();
-            services.AddLocalization(options => options.ResourcesPath = "SharedResource");
+            services.AddLocalization(options => options.ResourcesPath = "shared.resource.resources");
             services.AddSingleton(new MongoDBContext());
             shared.utility._app.ModuleInjector.Init(services);
             domain.application._app.ModuleInjector.Init(services);

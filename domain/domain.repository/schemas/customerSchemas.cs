@@ -13,7 +13,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public int @Id { get; set; }
 
-        [HelperParameter]
+        [ReturnParameter]
         public int StatusCode { get; set; }
     }
 
@@ -30,7 +30,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public DateTime? @ToDate { get; set; }
 
-        [HelperParameter]
-        public int @StatusCode { get; set; }
+        [ReturnParameter]
+        public int StatusCode { get; set; }
     }
 }

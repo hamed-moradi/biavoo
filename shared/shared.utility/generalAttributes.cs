@@ -20,6 +20,7 @@ namespace shared.utility {
             Name = name;
         }
     }
+    public class ReturnParameter: Attribute { }
     public class ErrorAttribute: Attribute {
         public string Message { get; set; }
 
@@ -29,9 +30,9 @@ namespace shared.utility {
     }
     public class HelperParameter: Attribute { }
     public class SearchAttribute: Attribute {
+        public SearchFieldType Type { get; }
         public SearchAttribute(SearchFieldType type = SearchFieldType.String) {
             Type = type;
         }
-        public SearchFieldType Type { get; }
     }
 }

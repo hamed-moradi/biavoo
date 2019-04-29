@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace presentation.webApi.models.viewModels {
-    public class UserGetViewModel: IBaseViewModel {
-        public int? Id { get; set; }
+    public class UserViewModel: IBaseViewModel {
         public string Name { get; set; }
         public string Family { get; set; }
         public string Fullname { get; set; }

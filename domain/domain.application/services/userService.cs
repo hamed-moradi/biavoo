@@ -15,19 +15,31 @@ namespace domain.application.services {
     public class UserService: IUserService {
         #region Constructor
         private readonly IGenericRepository<IBaseModel> _repository;
-        private readonly IStoreProcedure<IBaseModel, UserGetByIdSchema> _userGet;
+        private readonly IStoreProcedure<UserModel, UserSignUpSchema> _signUp;
+        private readonly IStoreProcedure<IBaseModel, UserSendActivationCodeSchema> _sendActivationCode;
+        private readonly IStoreProcedure<IBaseModel, UserGetByIdSchema> _get;
         public UserService(IGenericRepository<IBaseModel> repository,
-            IStoreProcedure<IBaseModel, UserGetByIdSchema> userGet) {
+            IStoreProcedure<UserModel, UserSignUpSchema> signUp,
+            IStoreProcedure<IBaseModel, UserSendActivationCodeSchema> sendActivationCode,
+            IStoreProcedure<IBaseModel, UserGetByIdSchema> get) {
             _repository = repository;
-            _userGet = userGet;
+            _signUp = signUp;
+            _sendActivationCode = sendActivationCode;
+            _get = get;
         }
         #endregion
 
-        public async Task<UserModel> SignInAsync() {
-            return new UserModel { Id = 1 };
+        public async Task<UserModel> SignUpAsync(UserSignUpSchema model) {
+            var result = await _signUp.ExecuteFirstOrDefaultAsync(model);
+            return result;
+        }
+
+        public async Task SentActivationCodeAsync(UserSendActivationCodeSchema model) {
+            await _sendActivationCode.ExecuteReturnLessAsync(model);
         }
 
         public async Task<UserModel> GetAsync(GetByIdSchema model) {
+            //model.EntityName = "[user]";
             var user = new UserModel();
             var parameters = new DynamicParameters();
             parameters.Add("@Token", model.Token, DbType.String, ParameterDirection.Input);

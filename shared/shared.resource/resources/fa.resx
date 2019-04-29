@@ -130,7 +130,7 @@
     <value />
   </data>
   <data name="DeviceIdNotFound" xml:space="preserve">
-    <value />
+    <value>شناسه دستگاه یافت نشد</value>
   </data>
   <data name="EmptyId" xml:space="preserve">
     <value />
@@ -157,7 +157,7 @@
     <value />
   </data>
   <data name="TokenNotFound" xml:space="preserve">
-    <value />
+    <value>رمزینه یافت نشد</value>
   </data>
   <data name="UnexpectedError" xml:space="preserve">
     <value />

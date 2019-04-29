@@ -36,6 +36,7 @@
     <ProjectReference Include="..\..\domain\domain.office\domain.office.csproj" />
     <ProjectReference Include="..\..\domain\domain.repository\domain.repository.csproj" />
     <ProjectReference Include="..\..\presentation\presentation.webApi\presentation.webApi.csproj" />
+    <ProjectReference Include="..\..\shared\shared.resource\shared.resource.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -97,7 +97,7 @@ namespace shared.resource.resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to شناسه دستگاه یافت نشد.
         /// </summary>
         internal static string DeviceIdNotFound {
             get {
@@ -178,7 +178,7 @@ namespace shared.resource.resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to رمزینه یافت نشد.
         /// </summary>
         internal static string TokenNotFound {
             get {

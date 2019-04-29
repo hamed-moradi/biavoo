@@ -13,7 +13,9 @@ using System.Threading.Tasks;
 namespace presentation.webApi.helpers {
     public class MapperConfig {
         public MapperConfig() {
-            new MapperConfiguration(config => config.AddProfiles("presentation.webApi.helpers")).CreateMapper();
+            //new MapperConfiguration(new MapperConfigurationExpression { CreateMissingTypeMaps = true });
+            //new MapperConfiguration(config => config.AddProfiles("presentation.webApi.helpers")).CreateMapper();
+            new MapperConfiguration(config => config.AddProfile(new MappingProfile()));
         }
         //public MapperConfiguration Init() {
         //    var mce = new MapperConfigurationExpression();
@@ -26,13 +28,15 @@ namespace presentation.webApi.helpers {
         //}
     }
 
-    public class MapperProfile: Profile {
-        public MapperProfile() {
+    public class MappingProfile: Profile {
+        public MappingProfile() {
+            CreateMap<GetByIdBindingModel, GetByIdSchema>();
+
             CreateMap<CustomerGetByIdModel, CustomerGetByIdViewModel>();
             CreateMap<CustomerGetByIdBindingModel, CustomerGetPagingSchema>();
 
-            CreateMap<UserModel, UserGetViewModel>();
-            CreateMap<UserGetBindingModel, UserGetPagingSchema>();
+            CreateMap<UserModel, UserViewModel>();
+            //CreateMap<UserBindingModel, UserGetPagingSchema>();
 
             CreateMap<UserPropertyModel, UserPropertyViewModel>();
         }

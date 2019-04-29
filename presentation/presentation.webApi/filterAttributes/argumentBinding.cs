@@ -12,14 +12,24 @@ namespace presentation.webApi.filterAttributes {
                         if(!string.IsNullOrWhiteSpace(item.Name)) {
                             switch(item.Name.ToLower()) {
                                 case "token":
-                                    var ownerkey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("token"));
-                                    if(ownerkey.Value.Any())
-                                        item.SetValue(param.Value, ownerkey.Value[0]);
+                                    var token = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("token"));
+                                    if(token.Value.Any())
+                                        item.SetValue(param.Value, token.Value[0]);
                                     break;
                                 case "deviceid":
-                                    var dataOwnerCenterKey = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("deviceid"));
-                                    if(dataOwnerCenterKey.Value.Any())
-                                        item.SetValue(param.Value, dataOwnerCenterKey.Value[0]);
+                                    var deviceId = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("deviceid"));
+                                    if(deviceId.Value.Any())
+                                        item.SetValue(param.Value, deviceId.Value[0]);
+                                    break;
+                                case "timezone":
+                                    var timeZone = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("timezone"));
+                                    if(timeZone.Value.Any())
+                                        item.SetValue(param.Value, timeZone.Value[0]);
+                                    break;
+                                case "language":
+                                    var language = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("language"));
+                                    if(language.Value.Any())
+                                        item.SetValue(param.Value, language.Value[0]);
                                     break;
                             }
                         }

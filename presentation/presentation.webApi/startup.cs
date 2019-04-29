@@ -29,11 +29,11 @@ namespace Presentation.WebApi {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddLocalization(options => options.ResourcesPath = "SharedResource");
+            services.AddLocalization(options => options.ResourcesPath = "shared.resource.resources");
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization(options => {
-                    options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(SharedResource));
+                    //options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(SharedResource));
                 });
             services.AddSingleton(new MongoDBContext());
             shared.utility._app.ModuleInjector.Init(services);

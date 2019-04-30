@@ -30,12 +30,16 @@ namespace presentation.webApi.controllers {
         public async Task<IActionResult> SignUp([FromBody]UserSignUpBindingModel collection) {
             try {
                 var model = _mapper.Map<UserSignUpSchema>(collection);
-                var result = await _userService.SignUpAsync(model);
+                await _userService.SignUpAsync(model);
                 switch(model.StatusCode) {
                     case 200:
-                        return Ok(data: _mapper.Map<IList<UserViewModel>>(result));
-                    case 400:
-                        return BadRequest();
+                        return Ok();
+                    case 420:
+                        return BadRequest(_stringLocalizer[""]);
+                    case 421:
+                        return BadRequest(_stringLocalizer[""]);
+                    case 422:
+                        return BadRequest(_stringLocalizer[""]);
                 }
             }
             catch(Exception ex) {

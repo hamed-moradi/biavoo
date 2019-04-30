@@ -19,7 +19,7 @@ namespace test.common.units {
         [TestMethod, TestCategory("User"), TestCategory("SignUp")]
         public async Task SignIn() {
             try {
-                var model = new UserSignUpSchema { Token = "", DeviceId = "", Name = "behzad", Family = "saemi", CellPhone = "911" };
+                var model = new UserSignUpSchema { DeviceId = "", Name = "behzad", Family = "saemi", CellPhone = "911" };
                 var result = await _userService.SignUpAsync(model);
                 Assert.IsNotNull(result);
                 Assert.IsTrue(model.StatusCode > 0);

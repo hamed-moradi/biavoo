@@ -29,9 +29,8 @@ namespace domain.application.services {
         }
         #endregion
 
-        public async Task<UserModel> SignUpAsync(UserSignUpSchema model) {
-            var result = await _signUp.ExecuteFirstOrDefaultAsync(model);
-            return result;
+        public async Task SignUpAsync(UserSignUpSchema model) {
+            await _signUp.ExecuteReturnLessAsync(model);
         }
 
         public async Task SentActivationCodeAsync(UserSendActivationCodeSchema model) {

@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace presentation.webApi.models.bindingModels {
-    public class UserSignUpBindingModel: HeaderBindingModel {
+    public class UserSignUpBindingModel: BaseBindingModel {
+        public string DeviceId { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }
         [Phone]

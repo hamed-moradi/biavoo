@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace presentation.webApi.models.bindingModels {
     public interface IBaseBindingModel { }
     public class BaseBindingModel: IBaseBindingModel {
-        public string TimeZone { get; set; }
-        public string Language { get; set; }
+        public string TimeZone { get; set; } = "UTC-00:00";
+        public string Language { get; set; } = "en-US";
     }
     public class HeaderBindingModel: BaseBindingModel {
         public string Token { get; set; }

@@ -20,8 +20,7 @@ namespace test.common.units {
         public async Task SignIn() {
             try {
                 var model = new UserSignUpSchema { DeviceId = "", Name = "behzad", Family = "saemi", CellPhone = "911" };
-                var result = await _userService.SignUpAsync(model);
-                Assert.IsNotNull(result);
+                await _userService.SignUpAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Console.WriteLine($"StatusCode: {model.StatusCode}");
             }

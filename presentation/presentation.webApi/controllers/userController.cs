@@ -52,11 +52,11 @@ namespace presentation.webApi.controllers {
         [ArgumentBinding, HttpGet, Route("sendactivationcode")]
         public async Task<IActionResult> SendActivationCode([FromQuery]UserSendActivationCodeBindingModel collection) {
             try {
-                var model = _mapper.Map<UserSignUpSchema>(collection);
-                var result = await _userService.SignUpAsync(model);
+                var model = _mapper.Map<UserSendActivationCodeSchema>(collection);
+                await _userService.SentActivationCodeAsync(model);
                 switch(model.StatusCode) {
                     case 200:
-                        return Ok(data: _mapper.Map<IList<UserViewModel>>(result));
+                        return Ok();
                     case 400:
                         return BadRequest();
                 }

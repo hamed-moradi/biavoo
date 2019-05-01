@@ -16,16 +16,16 @@ namespace domain.application.services {
         #region Constructor
         private readonly IGenericRepository<IBaseModel> _repository;
         private readonly IStoreProcedure<UserModel, UserSignUpSchema> _signUp;
-        private readonly IStoreProcedure<IBaseModel, UserSendActivationCodeSchema> _sendActivationCode;
-        private readonly IStoreProcedure<IBaseModel, UserGetByIdSchema> _get;
+        private readonly IStoreProcedure<IBaseModel, UserSendVerificationCodeSchema> _sendVerificationCode;
+        private readonly IStoreProcedure<IBaseModel, TwoFactorAuthenticationSchema> _enableTwoFactorAuthentication;
         public UserService(IGenericRepository<IBaseModel> repository,
             IStoreProcedure<UserModel, UserSignUpSchema> signUp,
-            IStoreProcedure<IBaseModel, UserSendActivationCodeSchema> sendActivationCode,
-            IStoreProcedure<IBaseModel, UserGetByIdSchema> get) {
+            IStoreProcedure<IBaseModel, UserSendVerificationCodeSchema> sendVerificationCode,
+            IStoreProcedure<IBaseModel, TwoFactorAuthenticationSchema> _enableTwoFactorAuthentication) {
             _repository = repository;
             _signUp = signUp;
-            _sendActivationCode = sendActivationCode;
-            _get = get;
+            _sendVerificationCode = sendVerificationCode;
+            this._enableTwoFactorAuthentication = _enableTwoFactorAuthentication;
         }
         #endregion
 
@@ -33,8 +33,8 @@ namespace domain.application.services {
             await _signUp.ExecuteReturnLessAsync(model);
         }
 
-        public async Task SentActivationCodeAsync(UserSendActivationCodeSchema model) {
-            await _sendActivationCode.ExecuteReturnLessAsync(model);
+        public async Task SendVerificationCodeAsync(UserSendVerificationCodeSchema model) {
+            await _sendVerificationCode.ExecuteReturnLessAsync(model);
         }
 
         public async Task<UserModel> GetAsync(GetByIdSchema model) {
@@ -57,6 +57,10 @@ namespace domain.application.services {
             }
             model.StatusCode = parameters.Get<int>("@StatusCode");
             return user;
+        }
+
+        public async Task EnableTwoFactorAuthentication(TwoFactorAuthenticationSchema model) {
+            await _enableTwoFactorAuthentication.ExecuteReturnLessAsync(model);
         }
     }
 }

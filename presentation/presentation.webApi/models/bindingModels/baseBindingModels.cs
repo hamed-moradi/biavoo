@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace presentation.webApi.models.bindingModels {
     public interface IBaseBindingModel { }
-    public class BaseBindingModel: IBaseBindingModel {
+    public class HeaderBindingModel: IBaseBindingModel {
         public string TimeZone { get; set; } = "UTC-00:00";
         public string Language { get; set; } = "en-US";
     }
-    public class HeaderBindingModel: BaseBindingModel {
+    public class FullHeaderBindingModel: HeaderBindingModel {
         public string Token { get; set; }
         public string DeviceId { get; set; }
     }
-    public class FullHeaderBindingModel: HeaderBindingModel {
-        public string OS { get; set; }
-        public string Version { get; set; }
-        public string DeviceName { get; set; }
-        public string Browser { get; set; }
-    }
-    public class BindingModel: HeaderBindingModel {
+    public class BindingModel: FullHeaderBindingModel {
         public string OrderBy { get; set; } = "Id";
         public string Order { get; set; } = "DESC";
         public int? PageIndex { get; set; } = 0;
@@ -31,7 +25,7 @@ namespace presentation.webApi.models.bindingModels {
             return (int)Math.Ceiling((decimal)rowsCount / PageSize.Value);
         }
     }
-    public class GetByIdBindingModel: HeaderBindingModel {
+    public class GetByIdBindingModel: FullHeaderBindingModel {
         public int Id { get; set; }
     }
 }

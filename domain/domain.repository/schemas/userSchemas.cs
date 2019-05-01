@@ -47,8 +47,8 @@ namespace domain.repository.schemas {
         public int StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_user_sendActivationCode]")]
-    public class UserSendActivationCodeSchema: IBaseSchema {
+    [Schema("[dbo].[api_user_sendVerificationCode]")]
+    public class UserSendVerificationCodeSchema: IBaseSchema {
         [InputParameter]
         public string @Token { get; set; }
         [InputParameter]
@@ -61,13 +61,20 @@ namespace domain.repository.schemas {
     }
 
     [Schema("[dbo].[api_user_getById]")]
-    public class UserGetByIdSchema: IBaseSchema {
-        [InputParameter]
-        public string @Token { get; set; }
-        [InputParameter]
-        public string @DeviceId { get; set; }
+    public class UserGetByIdSchema: HeaderSchema {
         [InputParameter]
         public int @Id { get; set; }
+
+        [ReturnParameter]
+        public int StatusCode { get; set; }
+    }
+
+    [Schema("[dbo].[api_user_enableTwoFactorAuthentication")]
+    public class TwoFactorAuthenticationSchema: HeaderSchema {
+        [InputParameter]
+        public int VerificationCode { get; set; }
+        [InputParameter]
+        public string Password { get; set; }
 
         [ReturnParameter]
         public int StatusCode { get; set; }

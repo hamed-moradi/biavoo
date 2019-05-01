@@ -14,7 +14,7 @@ namespace domain.application {
     }
     public interface IUserService {
         Task SignUpAsync(UserSignUpSchema model);
-        Task SentActivationCodeAsync(UserSendActivationCodeSchema model);
+        Task SendVerificationCodeAsync(UserSendVerificationCodeSchema model);
         Task<UserModel> GetAsync(GetByIdSchema model);
     }
     public interface ICustomerService {

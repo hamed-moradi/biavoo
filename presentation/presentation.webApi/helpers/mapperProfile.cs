@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.Configuration;
 using domain.repository.models;
 using domain.repository.schemas;
 using presentation.webApi.models.bindingModels;
@@ -12,20 +11,17 @@ using System.Threading.Tasks;
 
 namespace presentation.webApi.helpers {
     public class MapperConfig {
-        public MapperConfig() {
-            //new MapperConfiguration(new MapperConfigurationExpression { CreateMissingTypeMaps = true });
-            //new MapperConfiguration(config => config.AddProfiles("presentation.webApi.helpers")).CreateMapper();
-            new MapperConfiguration(config => config.AddProfile(new MappingProfile()));
+        public MapperConfiguration Init() {
+            return new MapperConfiguration(config => config.AddProfile(new MappingProfile()));
+            //return new MapperConfiguration(config => config.AddProfiles("presentation.webApi.helpers")).CreateMapper();
+            //var mce = new MapperConfigurationExpression();
+            //var profiles = from asm in Assembly.GetExecutingAssembly().GetTypes()
+            //               where asm.Namespace == "presentation.webApi.helpers"
+            //                   && asm == typeof(Profile) && asm.IsClass
+            //               select asm;
+            //profiles.ToList().ForEach(e => mce.AddProfile(e));
+            //return new MapperConfiguration(mce);
         }
-        //public MapperConfiguration Init() {
-        //    var mce = new MapperConfigurationExpression();
-        //    var profiles = from asm in Assembly.GetExecutingAssembly().GetTypes()
-        //                   where asm.Namespace == "presentation.webApi.helpers"
-        //                       && asm == typeof(Profile) && asm.IsClass
-        //                   select asm;
-        //    profiles.ToList().ForEach(e => mce.AddProfile(e));
-        //    return new MapperConfiguration(mce);
-        //}
     }
 
     public class MappingProfile: Profile {
@@ -39,6 +35,8 @@ namespace presentation.webApi.helpers {
             //CreateMap<UserBindingModel, UserGetPagingSchema>();
 
             CreateMap<UserPropertyModel, UserPropertyViewModel>();
+
+            CreateMap<TwoFactorAuthenticationBindingModel, TwoFactorAuthenticationSchema>();
         }
     }
 }

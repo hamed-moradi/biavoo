@@ -29,11 +29,11 @@ namespace test.common.units {
             }
         }
 
-        [TestMethod, TestCategory("User"), TestCategory("SentActivationCode")]
-        public async Task SentActivationCode() {
+        [TestMethod, TestCategory("User"), TestCategory("SentVerificationCode")]
+        public async Task SentVerificationCode() {
             try {
-                var model = new UserSendActivationCodeSchema { Token = "", DeviceId = "", CellPhone = "911" };
-                await _userService.SentActivationCodeAsync(model);
+                var model = new UserSendVerificationCodeSchema { Token = "", DeviceId = "", CellPhone = "911" };
+                await _userService.SendVerificationCodeAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Console.WriteLine($"StatusCode: {model.StatusCode}");
             }

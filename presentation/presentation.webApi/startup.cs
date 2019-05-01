@@ -36,9 +36,8 @@ namespace Presentation.WebApi {
                     //options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(SharedResource));
                 });
             services.AddSingleton(new MongoDBContext());
-            shared.utility._app.ModuleInjector.Init(services);
+            services.AddSingleton(new MapperConfig().Init().CreateMapper());
             domain.application._app.ModuleInjector.Init(services);
-            services.AddSingleton(new MapperConfig());
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc(apiVersion, new Info { Title = shared.utility._app.AppSettings.MyTitle, Version = apiVersion });
             });
@@ -47,6 +46,7 @@ namespace Presentation.WebApi {
                 options.SupportedCultures = SupportedCultures.List;
                 options.SupportedUICultures = SupportedCultures.List;
             });
+            shared.utility._app.ModuleInjector.Init(services); // ServiceLocator
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace presentation.webApi.models.bindingModels {
-    public class UserSignUpBindingModel: BaseBindingModel {
+    public class UserSignUpBindingModel: HeaderBindingModel {
         public string DeviceId { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }
@@ -14,7 +14,7 @@ namespace presentation.webApi.models.bindingModels {
         [EmailAddress]
         public string Email { get; set; }
     }
-    public class UserSendActivationCodeBindingModel: HeaderBindingModel {
+    public class UserSendVerificationCodeBindingModel: FullHeaderBindingModel {
         [Phone]
         public string CellPhone { get; set; }
     }
@@ -22,5 +22,11 @@ namespace presentation.webApi.models.bindingModels {
         public string Tilte { get; set; }
         public long? FromDate { get; set; }
         public long? ToDate { get; set; }
+    }
+    public class TwoFactorAuthenticationBindingModel: FullHeaderBindingModel {
+        [Required]
+        public int VerificationCode { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }

@@ -2,6 +2,13 @@
 namespace shared.utility {
     public interface IBaseModel { }
     public interface IBaseSchema { }
+    public class HeaderSchema: IBaseSchema {
+        [InputParameter]
+        public string @Token { get; set; }
+        [InputParameter]
+        public string @DeviceId { get; set; }
+    }
+    public class FullHeaderSchema: HeaderSchema { }
     public class PagingSchema: IBaseSchema {
         [InputParameter]
         public string @OrderBy { get; set; }

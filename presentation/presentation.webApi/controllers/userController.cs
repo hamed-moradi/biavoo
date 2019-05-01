@@ -19,10 +19,8 @@ namespace presentation.webApi.controllers {
     public class UserController: BaseController {
         #region Constructor
         private readonly IUserService _userService;
-        private readonly IMapper mapperr;
-        public UserController(IUserService userService, IMapper mapper) {
+        public UserController(IUserService userService) {
             _userService = userService;
-            mapperr = mapper;
         }
         #endregion
 
@@ -49,11 +47,11 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpGet, Route("sendactivationcode")]
-        public async Task<IActionResult> SendActivationCode([FromQuery]UserSendActivationCodeBindingModel collection) {
+        [ArgumentBinding, HttpGet, Route("sendverificationcode")]
+        public async Task<IActionResult> SendVerificationCode([FromQuery]UserSendVerificationCodeBindingModel collection) {
             try {
-                var model = _mapper.Map<UserSendActivationCodeSchema>(collection);
-                await _userService.SentActivationCodeAsync(model);
+                var model = _mapper.Map<UserSendVerificationCodeSchema>(collection);
+                await _userService.SendVerificationCodeAsync(model);
                 switch(model.StatusCode) {
                     case 200:
                         return Ok();
@@ -77,7 +75,7 @@ namespace presentation.webApi.controllers {
                 if(string.IsNullOrWhiteSpace(collection.DeviceId)) {
                     return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
                 }
-                var model = mapperr.Map<GetByIdSchema>(collection);
+                var model = _mapper.Map<GetByIdSchema>(collection);
                 var result = await _userService.GetAsync(model);
                 switch(model.StatusCode) {
                     case 200:
@@ -92,6 +90,45 @@ namespace presentation.webApi.controllers {
             }
             catch(Exception ex) {
                 Log.Error(ex, MethodBase.GetCurrentMethod().Name);
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            return InternalServerError();
+        }
+
+        [ArgumentBinding, HttpPost, Route("enabletwofactorauthentication")]
+        public async Task<IActionResult> EnableTwoFactorAuthentication([FromBody]TwoFactorAuthenticationBindingModel collection) {
+            if(collection.Password.Length < 6) {
+                return BadRequest(_stringLocalizer["your password doesn't meet the legal length"]);
+            }
+            try {
+                var model = _mapper.Map<TwoFactorAuthenticationSchema>(collection);
+                switch(model.StatusCode) {
+                    case 200:
+                        return Ok();
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.TokenNotFound]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
+                    case 430:
+                        return BadRequest(_stringLocalizer["verification code is not valid"]);
+                    case 431:
+                        return BadRequest(_stringLocalizer["password is not valid"]);
+                    case 432:
+                        return BadRequest(_stringLocalizer["varsification code has been expired"]);
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            return InternalServerError();
+        }
+
+        [ArgumentBinding, HttpPost, Route("disabletwofactorauthentication")]
+        public async Task<IActionResult> DisableTwoFactorAuthentication([FromBody]TwoFactorAuthenticationBindingModel collection) {
+            try {
+
+            }
+            catch(Exception ex) {
                 await _exceptionService.InsertAsync(ex, URL, IP);
             }
             return InternalServerError();

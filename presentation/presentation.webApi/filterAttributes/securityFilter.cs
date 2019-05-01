@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
+using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
 using Serilog;
 using shared.resource;
@@ -46,7 +47,7 @@ namespace presentation.webApi.filterAttributes {
                     //filterContext.ActionParameters[param.Key] = new KeyValuePair<string, object>(param.Key, param.Value.ToString().CharacterNormalizer());
                     KeywordChecker(context, param.Value.ToString());
                 }
-                if(param.Value is BaseViewModel) {
+                if(param.Value is IBaseBindingModel) {
                     var properties = param.Value.GetType().GetProperties();
                     foreach(var item in properties) {
                         if(item.PropertyType == typeof(string) && item != null) {

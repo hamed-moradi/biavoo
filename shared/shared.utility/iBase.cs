@@ -9,7 +9,7 @@ namespace shared.utility {
         public string @DeviceId { get; set; }
     }
     public class FullHeaderSchema: HeaderSchema { }
-    public class PagingSchema: IBaseSchema {
+    public class PagingSchema: HeaderSchema {
         [InputParameter]
         public string @OrderBy { get; set; }
         [InputParameter]

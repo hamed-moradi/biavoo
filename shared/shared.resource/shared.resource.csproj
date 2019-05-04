@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="scripts\functions\" />
-    <Folder Include="scripts\tables\" />
+    <Folder Include="scripts\types\" />
+    <Folder Include="scripts\views\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,6 +3,7 @@ using domain.application._app;
 using domain.repository.models;
 using domain.repository.schemas;
 using shared.utility;
+using shared.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,15 +18,18 @@ namespace domain.application.services {
         private readonly IGenericRepository<IBaseModel> _repository;
         private readonly IStoreProcedure<UserModel, UserSignUpSchema> _signUp;
         private readonly IStoreProcedure<IBaseModel, UserSendVerificationCodeSchema> _sendVerificationCode;
-        private readonly IStoreProcedure<IBaseModel, TwoFactorAuthenticationSchema> _enableTwoFactorAuthentication;
+        private readonly IStoreProcedure<IBaseModel, EnableTwoFactorAuthenticationSchema> _enableTwoFactorAuthentication;
+        private readonly IStoreProcedure<IBaseModel, DisableTwoFactorAuthenticationSchema> _disableTwoFactorAuthentication;
         public UserService(IGenericRepository<IBaseModel> repository,
             IStoreProcedure<UserModel, UserSignUpSchema> signUp,
             IStoreProcedure<IBaseModel, UserSendVerificationCodeSchema> sendVerificationCode,
-            IStoreProcedure<IBaseModel, TwoFactorAuthenticationSchema> _enableTwoFactorAuthentication) {
+            IStoreProcedure<IBaseModel, EnableTwoFactorAuthenticationSchema> enableTwoFactorAuthentication,
+            IStoreProcedure<IBaseModel, DisableTwoFactorAuthenticationSchema> disableTwoFactorAuthentication) {
             _repository = repository;
             _signUp = signUp;
             _sendVerificationCode = sendVerificationCode;
-            this._enableTwoFactorAuthentication = _enableTwoFactorAuthentication;
+            _enableTwoFactorAuthentication = enableTwoFactorAuthentication;
+            _disableTwoFactorAuthentication = disableTwoFactorAuthentication;
         }
         #endregion
 
@@ -58,9 +62,11 @@ namespace domain.application.services {
             model.StatusCode = parameters.Get<int>("@StatusCode");
             return user;
         }
-
-        public async Task EnableTwoFactorAuthentication(TwoFactorAuthenticationSchema model) {
+        public async Task EnableTwoFactorAuthentication(EnableTwoFactorAuthenticationSchema model) {
             await _enableTwoFactorAuthentication.ExecuteReturnLessAsync(model);
+        }
+        public async Task DisableTwoFactorAuthentication(DisableTwoFactorAuthenticationSchema model) {
+            await _disableTwoFactorAuthentication.ExecuteReturnLessAsync(model);
         }
     }
 }

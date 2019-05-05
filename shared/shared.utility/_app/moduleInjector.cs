@@ -7,6 +7,7 @@ namespace shared.utility._app {
     public class ModuleInjector {
         public static void Init(IServiceCollection services) {
             services.AddSingleton(new ServiceLocator(services));
+            services.AddTransient<IRandomGenerator, RandomGenerator>();
         }
     }
 }

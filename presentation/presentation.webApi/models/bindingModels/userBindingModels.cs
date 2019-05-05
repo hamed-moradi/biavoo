@@ -14,7 +14,7 @@ namespace presentation.webApi.models.bindingModels {
         [EmailAddress]
         public string Email { get; set; }
     }
-    public class UserSendVerificationCodeBindingModel: FullHeaderBindingModel {
+    public class ChangeMeBindingModel: FullHeaderBindingModel {
         [Phone]
         public string CellPhone { get; set; }
     }

@@ -44,7 +44,7 @@ namespace domain.repository.schemas {
         #endregion
 
         [ReturnParameter]
-        public int StatusCode { get; set; }
+        public short StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_user_sendVerificationCode]")]
@@ -54,10 +54,10 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @DeviceId { get; set; }
         [InputParameter]
-        public string @CellPhone { get; set; }
+        public int @Number { get; set; }
 
         [ReturnParameter]
-        public int StatusCode { get; set; }
+        public short StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_user_getById]")]
@@ -66,17 +66,25 @@ namespace domain.repository.schemas {
         public int @Id { get; set; }
 
         [ReturnParameter]
-        public int StatusCode { get; set; }
+        public short StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_user_enableTwoFactorAuthentication")]
-    public class TwoFactorAuthenticationSchema: HeaderSchema {
+    public class EnableTwoFactorAuthenticationSchema: HeaderSchema {
         [InputParameter]
         public int VerificationCode { get; set; }
         [InputParameter]
         public string Password { get; set; }
 
         [ReturnParameter]
-        public int StatusCode { get; set; }
+        public short StatusCode { get; set; }
+    }
+    [Schema("[dbo].[api_user_disableTwoFactorAuthentication")]
+    public class DisableTwoFactorAuthenticationSchema: HeaderSchema {
+        [InputParameter]
+        public string Password { get; set; }
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
     }
 }

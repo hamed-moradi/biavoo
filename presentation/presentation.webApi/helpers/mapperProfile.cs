@@ -36,7 +36,10 @@ namespace presentation.webApi.helpers {
 
             CreateMap<UserPropertyModel, UserPropertyViewModel>();
 
-            CreateMap<TwoFactorAuthenticationBindingModel, TwoFactorAuthenticationSchema>();
+            CreateMap<TwoFactorAuthenticationBindingModel, EnableTwoFactorAuthenticationSchema>();
+            CreateMap<TwoFactorAuthenticationBindingModel, DisableTwoFactorAuthenticationSchema>();
+
+            CreateMap<FullHeaderBindingModel, UserSendVerificationCodeSchema>();
         }
     }
 }

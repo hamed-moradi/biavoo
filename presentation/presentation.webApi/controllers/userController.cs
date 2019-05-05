@@ -19,8 +19,10 @@ namespace presentation.webApi.controllers {
     public class UserController: BaseController {
         #region Constructor
         private readonly IUserService _userService;
-        public UserController(IUserService userService) {
+        private readonly IRandomGenerator _randomGenerator;
+        public UserController(IUserService userService, IRandomGenerator randomGenerator) {
             _userService = userService;
+            _randomGenerator = randomGenerator;
         }
         #endregion
 
@@ -48,15 +50,16 @@ namespace presentation.webApi.controllers {
         }
 
         [ArgumentBinding, HttpGet, Route("sendverificationcode")]
-        public async Task<IActionResult> SendVerificationCode([FromQuery]UserSendVerificationCodeBindingModel collection) {
+        public async Task<IActionResult> SendVerificationCode(FullHeaderBindingModel collection) {
             try {
                 var model = _mapper.Map<UserSendVerificationCodeSchema>(collection);
+                model.Number = _randomGenerator.Create("****");
                 await _userService.SendVerificationCodeAsync(model);
                 switch(model.StatusCode) {
-                    case 200:
-                        return Ok();
                     case 400:
                         return BadRequest();
+                    case 200:
+                        return Ok();
                 }
             }
             catch(Exception ex) {
@@ -101,20 +104,23 @@ namespace presentation.webApi.controllers {
                 return BadRequest(_stringLocalizer["your password doesn't meet the legal length"]);
             }
             try {
-                var model = _mapper.Map<TwoFactorAuthenticationSchema>(collection);
+                var model = _mapper.Map<EnableTwoFactorAuthenticationSchema>(collection);
+                await _userService.EnableTwoFactorAuthentication(model);
                 switch(model.StatusCode) {
-                    case 200:
-                        return Ok();
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.TokenNotFound]);
                     case 405:
                         return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                     case 430:
                         return BadRequest(_stringLocalizer["verification code is not valid"]);
                     case 431:
                         return BadRequest(_stringLocalizer["password is not valid"]);
                     case 432:
                         return BadRequest(_stringLocalizer["varsification code has been expired"]);
+                    case 200:
+                        return Ok();
                 }
             }
             catch(Exception ex) {
@@ -126,7 +132,20 @@ namespace presentation.webApi.controllers {
         [ArgumentBinding, HttpPost, Route("disabletwofactorauthentication")]
         public async Task<IActionResult> DisableTwoFactorAuthentication([FromBody]TwoFactorAuthenticationBindingModel collection) {
             try {
-
+                var model = _mapper.Map<DisableTwoFactorAuthenticationSchema>(collection);
+                await _userService.DisableTwoFactorAuthentication(model);
+                switch(model.StatusCode) {
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.TokenNotFound]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
+                    case 415:
+                        return BadRequest(_stringLocalizer[""]);
+                    case 200:
+                        return Ok();
+                }
             }
             catch(Exception ex) {
                 await _exceptionService.InsertAsync(ex, URL, IP);

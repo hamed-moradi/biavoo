@@ -8,9 +8,14 @@ using System.IO;
 namespace test.common {
     [TestClass]
     public class CommonTest {
-        [TestMethod]
-        [TestCategory("Common")]
-        [TestCategory("Directory")]
+        #region Constructor
+        private readonly IRandomGenerator _randomGenerator;
+        public CommonTest() {
+            _randomGenerator = ServiceLocator.Current.GetInstance<IRandomGenerator>();
+        }
+        #endregion
+
+        [TestMethod, TestCategory("Common"), TestCategory("Directory")]
         public void IODirectory() {
             //var d1 = Application.StartupPath;
             var d2 = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -21,12 +26,16 @@ namespace test.common {
             var d = Directory.GetCurrentDirectory();
         }
 
-        [TestMethod]
-        [TestCategory("Common")]
-        [TestCategory("SubStr")]
+        [TestMethod, TestCategory("Common"), TestCategory("SubStr")]
         public void SubStr() {
             var mongodbName = AppSettings.MongoConnection.Split('?')[0].Split('/')[3];
             Assert.IsTrue(mongodbName.Equals("PredictionEngine"));
+        }
+
+        [TestMethod, TestCategory("Common"), TestCategory("RandomGenerator")]
+        public void RandomGenerator() {
+            var number = _randomGenerator.Create("***");
+            Assert.IsTrue(number >= 100 && number <= 999);
         }
     }
 }

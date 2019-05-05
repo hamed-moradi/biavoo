@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="scripts\types\" />
-    <Folder Include="scripts\views\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="resources\en.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

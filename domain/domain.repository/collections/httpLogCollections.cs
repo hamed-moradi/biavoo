@@ -1,11 +1,12 @@
 ﻿using MongoDB.Bson;
+using shared.utility;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
 namespace domain.repository.collections {
-    public class HttpLog {
+    public class HttpLog: IBase_Collection {
         public ObjectId Id { get; set; }
         public string IP { get; set; }
         public string Method { get; set; }

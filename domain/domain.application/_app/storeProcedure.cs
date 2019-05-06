@@ -26,8 +26,8 @@ namespace domain.application._app {
         Task<Result> ExecuteFirstOrDefaultAsync(Schema model);
     }
     public class StoreProcedure<Result, Schema>: IStoreProcedure<Result, Schema>
-        where Result : IBaseModel
-        where Schema : IBaseSchema {
+        where Result : IBase_Model
+        where Schema : IBase_Schema {
         #region Constructor
         private readonly IGenericRepository<Result> _repository;
         public StoreProcedure(IGenericRepository<Result> repository) {

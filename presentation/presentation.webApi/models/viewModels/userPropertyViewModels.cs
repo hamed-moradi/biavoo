@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace presentation.webApi.models.viewModels {
-    public class UserPropertyViewModel: IBaseViewModel {
+    public class UserProperty_ViewModel: IBaseViewModel {
         public int? Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

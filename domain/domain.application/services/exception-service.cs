@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.application.services {
-    public class ExceptionService: IExceptionService {
+    public class ExceptionService: IException_Service {
         #region Constructor
-        private readonly IStoreProcedure<IBaseModel, ExceptionInsertSchema> _matchPredict;
-        public ExceptionService(IStoreProcedure<IBaseModel, ExceptionInsertSchema> matchPredict) {
+        private readonly IStoreProcedure<IBase_Model, ExceptionInsertSchema> _matchPredict;
+        public ExceptionService(IStoreProcedure<IBase_Model, ExceptionInsertSchema> matchPredict) {
             _matchPredict = matchPredict;
         }
         #endregion

@@ -19,10 +19,10 @@ namespace presentation.webApi.middlewares {
     }
     public class GatewayMiddleware {
         #region Constructor
-        private readonly IHttpLogService _httpLogService;
-        private readonly IExceptionService _exceptionService;
+        private readonly IHttpLog_Service _httpLogService;
+        private readonly IException_Service _exceptionService;
         private readonly RequestDelegate _requestDelegate;
-        public GatewayMiddleware(IHttpLogService httpLogService, IExceptionService exceptionService, RequestDelegate requestDelegate) {
+        public GatewayMiddleware(IHttpLog_Service httpLogService, IException_Service exceptionService, RequestDelegate requestDelegate) {
             _httpLogService = httpLogService;
             _exceptionService = exceptionService;
             _requestDelegate = requestDelegate;

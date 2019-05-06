@@ -17,6 +17,8 @@ namespace shared.utility._app
         public static string MyTitle => _configuration["Custom:MyTitle"];
         public static bool MongoLogging => Convert.ToBoolean(_configuration["Custom:MongoLogging"]);
         public static bool FileLogging => Convert.ToBoolean(_configuration["Custom:FileLogging"]);
+        public static string SystemToken => _configuration["Custom:SystemToken"];
+        public static string SystemDeviceId => _configuration["Custom:SystemDeviceId"];
         public static string FileUrl => _configuration["Custom:FileUrl"];
         public static string FilePath => _configuration["Custom:FilePath"];
         public static string AvatarResolution => _configuration["Custom:AvatarResolution"];

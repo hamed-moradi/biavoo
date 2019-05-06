@@ -26,20 +26,22 @@ namespace presentation.webApi.helpers {
 
     public class MappingProfile: Profile {
         public MappingProfile() {
-            CreateMap<GetByIdBindingModel, GetByIdSchema>();
+            // General
+            CreateMap<GetById_BindingModel, GetById_Schema>();
 
-            CreateMap<CustomerGetByIdModel, CustomerGetByIdViewModel>();
-            CreateMap<CustomerGetByIdBindingModel, CustomerGetPagingSchema>();
+            // Customer
+            CreateMap<Customer_GetById_Model, Customer_GetById_ViewModel>();
+            CreateMap<Customer_GetById_BindingModel, Customer_GetPaging_Schema>();
 
-            CreateMap<UserModel, UserViewModel>();
-            //CreateMap<UserBindingModel, UserGetPagingSchema>();
+            // User
+            CreateMap<User_Model, User_ViewModel>();
+            CreateMap<UserProperty_Model, UserProperty_ViewModel>();
+            CreateMap<User_TwoFactorAuthentication_BindingModel, User_EnableTwoFactorAuthentication_Schema>();
+            CreateMap<User_TwoFactorAuthentication_BindingModel, User_DisableTwoFactorAuthentication_Schema>();
+            CreateMap<FullHeader_BindingModel, User_SendVerificationCode_Schema>();
 
-            CreateMap<UserPropertyModel, UserPropertyViewModel>();
-
-            CreateMap<TwoFactorAuthenticationBindingModel, EnableTwoFactorAuthenticationSchema>();
-            CreateMap<TwoFactorAuthenticationBindingModel, DisableTwoFactorAuthenticationSchema>();
-
-            CreateMap<FullHeaderBindingModel, UserSendVerificationCodeSchema>();
+            // SendMessageQueue
+            CreateMap<SendMessageQueue_GetPaging_BindingModel, SendMessageQueue_GetPaging_Schema>();
         }
     }
 }

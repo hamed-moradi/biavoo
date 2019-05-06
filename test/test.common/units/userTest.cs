@@ -10,16 +10,16 @@ namespace test.common.units {
     [TestClass]
     public class UserTest {
         #region Constructor
-        private readonly IUserService _userService;
+        private readonly IUser_Service _userService;
         public UserTest() {
-            _userService = ServiceLocator.Current.GetInstance<IUserService>();
+            _userService = ServiceLocator.Current.GetInstance<IUser_Service>();
         }
         #endregion
 
         [TestMethod, TestCategory("User"), TestCategory("SignUp")]
         public async Task SignIn() {
             try {
-                var model = new UserSignUpSchema { DeviceId = "", Name = "behzad", Family = "saemi", CellPhone = "911" };
+                var model = new User_SignUp_Schema { DeviceId = "", Name = "behzad", Family = "saemi", CellPhone = "911" };
                 await _userService.SignUpAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Console.WriteLine($"StatusCode: {model.StatusCode}");
@@ -32,7 +32,7 @@ namespace test.common.units {
         [TestMethod, TestCategory("User"), TestCategory("SentVerificationCode")]
         public async Task SentVerificationCode() {
             try {
-                var model = new UserSendVerificationCodeSchema { Token = "", DeviceId = "", Number = 911 };
+                var model = new User_SendVerificationCode_Schema { Token = "", DeviceId = "", Number = 911 };
                 await _userService.SendVerificationCodeAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Console.WriteLine($"StatusCode: {model.StatusCode}");
@@ -45,7 +45,7 @@ namespace test.common.units {
         [TestMethod, TestCategory("User"), TestCategory("GetById")]
         public async Task GetById() {
             try {
-                var model = new GetByIdSchema { Id = 1, EntityName = "[user]" };
+                var model = new GetById_Schema { Id = 1, EntityName = "[user]" };
                 var result = await _userService.GetAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Assert.IsNotNull(result);

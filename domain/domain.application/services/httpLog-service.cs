@@ -9,12 +9,12 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace domain.application.services {
-    public class HttpLogService: IHttpLogService {
+    public class HttpLogService: IHttpLog_Service {
         #region Constructor
         private readonly MongoDBContext _mongoDBContext;
-        private readonly IExceptionService _exceptionService;
+        private readonly IException_Service _exceptionService;
 
-        public HttpLogService(MongoDBContext mongoDBContext, IExceptionService exceptionService) {
+        public HttpLogService(MongoDBContext mongoDBContext, IException_Service exceptionService) {
             _mongoDBContext = mongoDBContext;
             _exceptionService = exceptionService;
         }

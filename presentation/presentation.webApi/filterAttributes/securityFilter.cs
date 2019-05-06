@@ -47,7 +47,7 @@ namespace presentation.webApi.filterAttributes {
                     //filterContext.ActionParameters[param.Key] = new KeyValuePair<string, object>(param.Key, param.Value.ToString().CharacterNormalizer());
                     KeywordChecker(context, param.Value.ToString());
                 }
-                if(param.Value is IBaseBindingModel) {
+                if(param.Value is IBase_BindingModel) {
                     var properties = param.Value.GetType().GetProperties();
                     foreach(var item in properties) {
                         if(item.PropertyType == typeof(string) && item != null) {

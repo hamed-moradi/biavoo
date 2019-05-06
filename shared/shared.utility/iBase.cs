@@ -1,15 +1,16 @@
 ﻿
 namespace shared.utility {
-    public interface IBaseModel { }
-    public interface IBaseSchema { }
-    public class HeaderSchema: IBaseSchema {
+    public interface IBase_Collection { }
+    public interface IBase_Model { }
+    public interface IBase_Schema { }
+    public class Header_Schema: IBase_Schema {
         [InputParameter]
         public string @Token { get; set; }
         [InputParameter]
         public string @DeviceId { get; set; }
     }
-    public class FullHeaderSchema: HeaderSchema { }
-    public class PagingSchema: HeaderSchema {
+    public class FullHeader_Schema: Header_Schema { }
+    public class Paging_Schema: Header_Schema {
         [InputParameter]
         public string @OrderBy { get; set; }
         [InputParameter]

@@ -6,20 +6,23 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace domain.application {
-    public interface IExceptionService {
+    public interface IException_Service {
         Task InsertAsync(Exception model, string url, string ip);
     }
-    public interface IHttpLogService {
+    public interface IHttpLog_Service {
         Task<int> InsertAsync(HttpLog model, int timeoutMS = 256);
     }
-    public interface IUserService {
-        Task SignUpAsync(UserSignUpSchema model);
-        Task SendVerificationCodeAsync(UserSendVerificationCodeSchema model);
-        Task<UserModel> GetAsync(GetByIdSchema model);
-        Task EnableTwoFactorAuthentication(EnableTwoFactorAuthenticationSchema model);
-        Task DisableTwoFactorAuthentication(DisableTwoFactorAuthenticationSchema model);
+    public interface IUser_Service {
+        Task SignUpAsync(User_SignUp_Schema model);
+        Task SendVerificationCodeAsync(User_SendVerificationCode_Schema model);
+        Task<User_Model> GetAsync(GetById_Schema model);
+        Task EnableTwoFactorAuthentication(User_EnableTwoFactorAuthentication_Schema model);
+        Task DisableTwoFactorAuthentication(User_DisableTwoFactorAuthentication_Schema model);
     }
-    public interface ICustomerService {
-        Task<CustomerGetByIdModel> GetByIdAsync(GetByIdSchema model);
+    public interface ICustomer_Service {
+        Task<Customer_GetById_Model> GetByIdAsync(GetById_Schema model);
+    }
+    public interface ISendMessageQueue_Service {
+
     }
 }

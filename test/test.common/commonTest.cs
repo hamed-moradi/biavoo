@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using shared.utility._app;
 using System.IO;
+using shared.utility.infrastructure;
 
 namespace test.common {
     [TestClass]

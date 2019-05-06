@@ -4,7 +4,7 @@ using System.Text;
 using shared.utility;
 
 namespace domain.repository.models {
-    public class CustomerGetByIdModel: IBaseModel {
+    public class Customer_GetById_Model: IBase_Model {
         public string Username { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace domain.repository.schemas {
 
     [Schema("[dbo].[api_user_signUp]")]
-    public class UserSignUpSchema: IBaseSchema {
+    public class User_SignUp_Schema: IBase_Schema {
         #region User
         [InputParameter]
         public string @Name { get; set; }
@@ -48,7 +48,7 @@ namespace domain.repository.schemas {
     }
 
     [Schema("[dbo].[api_user_sendVerificationCode]")]
-    public class UserSendVerificationCodeSchema: IBaseSchema {
+    public class User_SendVerificationCode_Schema: IBase_Schema {
         [InputParameter]
         public string @Token { get; set; }
         [InputParameter]
@@ -61,7 +61,7 @@ namespace domain.repository.schemas {
     }
 
     [Schema("[dbo].[api_user_getById]")]
-    public class UserGetByIdSchema: HeaderSchema {
+    public class UserGetByIdSchema: Header_Schema {
         [InputParameter]
         public int @Id { get; set; }
 
@@ -70,7 +70,7 @@ namespace domain.repository.schemas {
     }
 
     [Schema("[dbo].[api_user_enableTwoFactorAuthentication")]
-    public class EnableTwoFactorAuthenticationSchema: HeaderSchema {
+    public class User_EnableTwoFactorAuthentication_Schema: Header_Schema {
         [InputParameter]
         public int VerificationCode { get; set; }
         [InputParameter]
@@ -80,7 +80,7 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
     [Schema("[dbo].[api_user_disableTwoFactorAuthentication")]
-    public class DisableTwoFactorAuthenticationSchema: HeaderSchema {
+    public class User_DisableTwoFactorAuthentication_Schema: Header_Schema {
         [InputParameter]
         public string Password { get; set; }
 

@@ -8,9 +8,9 @@ namespace test.common.units {
     [TestClass]
     public class HttpLogTest {
         #region Constructor
-        private readonly IHttpLogService _httpLogService;
+        private readonly IHttpLog_Service _httpLogService;
         public HttpLogTest() {
-            _httpLogService = ServiceLocator.Current.GetInstance<IHttpLogService>();
+            _httpLogService = ServiceLocator.Current.GetInstance<IHttpLog_Service>();
         }
         #endregion
         [TestMethod]

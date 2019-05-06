@@ -13,23 +13,23 @@ using presentation.webApi.models.bindingModels;
 using presentation.webApi.models.viewModels;
 using Serilog;
 using shared.resource;
-using shared.utility._app;
+using shared.utility.infrastructure;
 
 namespace presentation.webApi.controllers {
     public class UserController: BaseController {
         #region Constructor
-        private readonly IUserService _userService;
+        private readonly IUser_Service _userService;
         private readonly IRandomGenerator _randomGenerator;
-        public UserController(IUserService userService, IRandomGenerator randomGenerator) {
+        public UserController(IUser_Service userService, IRandomGenerator randomGenerator) {
             _userService = userService;
             _randomGenerator = randomGenerator;
         }
         #endregion
 
         [ArgumentBinding, HttpPost, Route("signup")]
-        public async Task<IActionResult> SignUp([FromBody]UserSignUpBindingModel collection) {
+        public async Task<IActionResult> SignUp([FromBody]User_SignUp_BindingModel collection) {
             try {
-                var model = _mapper.Map<UserSignUpSchema>(collection);
+                var model = _mapper.Map<User_SignUp_Schema>(collection);
                 await _userService.SignUpAsync(model);
                 switch(model.StatusCode) {
                     case 200:
@@ -50,9 +50,9 @@ namespace presentation.webApi.controllers {
         }
 
         [ArgumentBinding, HttpGet, Route("sendverificationcode")]
-        public async Task<IActionResult> SendVerificationCode(FullHeaderBindingModel collection) {
+        public async Task<IActionResult> SendVerificationCode(FullHeader_BindingModel collection) {
             try {
-                var model = _mapper.Map<UserSendVerificationCodeSchema>(collection);
+                var model = _mapper.Map<User_SendVerificationCode_Schema>(collection);
                 model.Number = _randomGenerator.Create("****");
                 await _userService.SendVerificationCodeAsync(model);
                 switch(model.StatusCode) {
@@ -70,7 +70,7 @@ namespace presentation.webApi.controllers {
         }
 
         [ArgumentBinding, HttpGet, Route("get")]
-        public async Task<IActionResult> Get([FromQuery]GetByIdBindingModel collection) {
+        public async Task<IActionResult> Get([FromQuery]GetById_BindingModel collection) {
             try {
                 if(string.IsNullOrWhiteSpace(collection.Token)) {
                     return BadRequest(_stringLocalizer[SharedResource.TokenNotFound]);
@@ -78,11 +78,11 @@ namespace presentation.webApi.controllers {
                 if(string.IsNullOrWhiteSpace(collection.DeviceId)) {
                     return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
                 }
-                var model = _mapper.Map<GetByIdSchema>(collection);
+                var model = _mapper.Map<GetById_Schema>(collection);
                 var result = await _userService.GetAsync(model);
                 switch(model.StatusCode) {
                     case 200:
-                        return Ok(data: _mapper.Map<UserViewModel>(result));
+                        return Ok(data: _mapper.Map<User_ViewModel>(result));
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
                     case 401:
@@ -99,12 +99,12 @@ namespace presentation.webApi.controllers {
         }
 
         [ArgumentBinding, HttpPost, Route("enabletwofactorauthentication")]
-        public async Task<IActionResult> EnableTwoFactorAuthentication([FromBody]TwoFactorAuthenticationBindingModel collection) {
+        public async Task<IActionResult> EnableTwoFactorAuthentication([FromBody]User_TwoFactorAuthentication_BindingModel collection) {
             if(collection.Password.Length < 6) {
                 return BadRequest(_stringLocalizer["your password doesn't meet the legal length"]);
             }
             try {
-                var model = _mapper.Map<EnableTwoFactorAuthenticationSchema>(collection);
+                var model = _mapper.Map<User_EnableTwoFactorAuthentication_Schema>(collection);
                 await _userService.EnableTwoFactorAuthentication(model);
                 switch(model.StatusCode) {
                     case 400:
@@ -130,9 +130,9 @@ namespace presentation.webApi.controllers {
         }
 
         [ArgumentBinding, HttpPost, Route("disabletwofactorauthentication")]
-        public async Task<IActionResult> DisableTwoFactorAuthentication([FromBody]TwoFactorAuthenticationBindingModel collection) {
+        public async Task<IActionResult> DisableTwoFactorAuthentication([FromBody]User_TwoFactorAuthentication_BindingModel collection) {
             try {
-                var model = _mapper.Map<DisableTwoFactorAuthenticationSchema>(collection);
+                var model = _mapper.Map<User_DisableTwoFactorAuthentication_Schema>(collection);
                 await _userService.DisableTwoFactorAuthentication(model);
                 switch(model.StatusCode) {
                     case 400:

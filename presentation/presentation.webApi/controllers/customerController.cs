@@ -18,20 +18,20 @@ using shared.resource;
 namespace presentation.webApi.controllers {
     public class CustomerController: BaseController {
         #region Constructor
-        private readonly ICustomerService _customerService;
-        public CustomerController(ICustomerService customerService) {
+        private readonly ICustomer_Service _customerService;
+        public CustomerController(ICustomer_Service customerService) {
             _customerService = customerService;
         }
         #endregion
 
         [ArgumentBinding, HttpGet, Route("")]
-        public async Task<IActionResult> Get([FromQuery]CustomerGetByIdBindingModel collection) {
+        public async Task<IActionResult> Get([FromQuery]Customer_GetById_BindingModel collection) {
             try {
-                var model = _mapper.Map<GetByIdSchema>(collection);
+                var model = _mapper.Map<GetById_Schema>(collection);
                 var result = await _customerService.GetByIdAsync(model);
                 switch(model.StatusCode) {
                     case 200:
-                        return Ok(data: _mapper.Map<CustomerGetByIdViewModel>(result));
+                        return Ok(data: _mapper.Map<Customer_GetById_ViewModel>(result));
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
                     default:

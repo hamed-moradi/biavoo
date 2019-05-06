@@ -1,5 +1,6 @@
 ﻿@using presentation.dashboard.helpers
 @using shared.utility
+@using shared.utility.infrastructure
 @{
     var parentMenuItem = string.Empty;
 }
@@ -24,7 +25,7 @@
                 @{
                     var modules = AccountHelper.ModuleReferences().Where(w => w.ParentId == null || w.ParentId == 0).OrderBy(ob => ob.Priority).OrderBy(gb => gb.Category).GroupBy(gb => gb.Category).ToList();
                     foreach(var parent in modules) {
-                        var categoryName = shared.utility._app.EnumHelper<ModuleCategory>.GetDisplayValue((ModuleCategory)parent.Key.Value);
+                        var categoryName = EnumHelper<ModuleCategory>.GetDisplayValue((ModuleCategory)parent.Key.Value);
                         <a id="parent_@parent.Key" href="#child_@parent.Key" class="header" data-toggle="collapse" data-parent="#main-menu">
                             @categoryName
                             <i class="fa fa-caret-down pull-left"></i>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace shared.utility._app {
+namespace shared.utility.infrastructure {
     public interface IRandomGenerator {
         int Create();
         int Create(string patern = "****");

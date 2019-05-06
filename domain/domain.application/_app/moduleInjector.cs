@@ -9,10 +9,10 @@ namespace domain.application._app {
             services.AddSingleton(new ConnectionKeeper());
             services.AddSingleton(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddSingleton(typeof(IStoreProcedure<,>), typeof(StoreProcedure<,>));
-            services.AddTransient<IHttpLogService, HttpLogService>();
-            services.AddTransient<IExceptionService, ExceptionService>();
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IHttpLog_Service, HttpLogService>();
+            services.AddTransient<IException_Service, ExceptionService>();
+            services.AddTransient<IUser_Service, UserService>();
+            services.AddTransient<ICustomer_Service, CustomerService>();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace shared.utility._app {
     public static class Extensions {
         public static IDictionary<Type, DbType> TypeMap = new Dictionary<Type, DbType> {
             //[typeof(System.Collections.IEnumerable)] = DbType.Object,
+            //[typeof(Binary)] = DbType.Binary
             [typeof(byte)] = DbType.Byte,
             [typeof(sbyte)] = DbType.SByte,
             [typeof(short)] = DbType.Int16,
@@ -45,7 +46,6 @@ namespace shared.utility._app {
             [typeof(Guid?)] = DbType.Guid,
             [typeof(DateTime?)] = DbType.DateTime,
             [typeof(DateTimeOffset?)] = DbType.DateTimeOffset,
-            //[typeof(Binary)] = DbType.Binary
         };
 
         public static string Truncate(this string value, int maxChars = 100) {
@@ -177,7 +177,7 @@ namespace shared.utility._app {
             return TypeMap[type];
         }
 
-        public static string SchemaName(this IBaseSchema baseSchema) {
+        public static string SchemaName(this IBase_Schema baseSchema) {
             // Read from model name (default)
             var name = baseSchema.GetType().Name;
 

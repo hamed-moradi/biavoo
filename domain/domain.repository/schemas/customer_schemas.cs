@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace domain.repository.schemas {
 
     [Schema("[dbo].[api_customer_getById]")]
-    public class CustomerGetByIdSchema: IBaseSchema {
+    public class Customer_GetById_Schema: IBase_Schema {
         [InputParameter]
         public string @Token { get; set; }
         [InputParameter]
@@ -14,15 +14,11 @@ namespace domain.repository.schemas {
         public int @Id { get; set; }
 
         [ReturnParameter]
-        public int StatusCode { get; set; }
+        public byte StatusCode { get; set; }
     }
 
     [Schema("[dbo].[api_customer_getPaging]")]
-    public class CustomerGetPagingSchema: PagingSchema {
-        [InputParameter]
-        public string @Token { get; set; }
-        [InputParameter]
-        public string @DeviceId { get; set; }
+    public class Customer_GetPaging_Schema: Paging_Schema {
         [InputParameter]
         public string @Title { get; set; }
         [InputParameter]
@@ -31,6 +27,6 @@ namespace domain.repository.schemas {
         public DateTime? @ToDate { get; set; }
 
         [ReturnParameter]
-        public int StatusCode { get; set; }
+        public byte StatusCode { get; set; }
     }
 }

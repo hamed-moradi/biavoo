@@ -19,7 +19,7 @@ namespace presentation.webApi.controllers {
     public class BaseController: Controller {
         #region Constructor
         protected readonly IMapper _mapper;
-        protected readonly IExceptionService _exceptionService;
+        protected readonly IException_Service _exceptionService;
         protected readonly IStringLocalizer<BaseController> _stringLocalizer;
         protected string IP { get { return HttpContext.Connection.RemoteIpAddress.ToString(); } }
         protected string URL { get { return $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}{HttpContext.Request.Path}{HttpContext.Request.QueryString}"; } }
@@ -28,7 +28,7 @@ namespace presentation.webApi.controllers {
 
         public BaseController() {
             _mapper = ServiceLocator.Current.GetInstance<IMapper>();
-            _exceptionService = ServiceLocator.Current.GetInstance<IExceptionService>();
+            _exceptionService = ServiceLocator.Current.GetInstance<IException_Service>();
             _stringLocalizer = ServiceLocator.Current.GetInstance<IStringLocalizer<BaseController>>();
         }
         #endregion

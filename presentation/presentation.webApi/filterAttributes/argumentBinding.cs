@@ -6,7 +6,7 @@ namespace presentation.webApi.filterAttributes {
     public class ArgumentBinding: ActionFilterAttribute {
         public override void OnActionExecuting(ActionExecutingContext context) {
             foreach(var param in context.ActionArguments) {
-                if(param.Value is IBaseBindingModel) {
+                if(param.Value is IBase_BindingModel) {
                     var properties = param.Value.GetType().GetProperties();
                     foreach(var item in properties) {
                         if(!string.IsNullOrWhiteSpace(item.Name)) {

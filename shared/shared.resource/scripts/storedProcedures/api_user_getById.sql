@@ -1,4 +1,4 @@
-﻿IF OBJECT_ID('dbo.[api_user_getById]', 'P') IS NOT NULL
+﻿IF(OBJECT_ID('dbo.[api_user_getById]', 'P') IS NOT NULL)
     DROP PROCEDURE dbo.[api_user_getById];
 GO
 

@@ -1,5 +1,6 @@
 ﻿using domain.repository.collections;
 using MongoDB.Driver;
+using shared.utility;
 using shared.utility._app;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,12 @@ namespace domain.repository._app {
         #endregion
 
         #region Private
-        private IMongoCollection<T> Collection<T>() where T : new() {
+        private IMongoCollection<T> Collection<T>() where T : IBase_Collection, new() {
             return mongoDatabase.GetCollection<T>(typeof(T).Name);
         }
         #endregion
 
         public IMongoCollection<HttpLog> HttpLogs { get { return Collection<HttpLog>(); } }
+        public IMongoCollection<Product> Products { get { return Collection<Product>(); } }
     }
 }

@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.application.services {
-    public class CustomerService: ICustomerService {
+    public class CustomerService: ICustomer_Service {
         #region Constructor
-        private readonly IStoreProcedure<CustomerGetByIdModel, GetByIdSchema> _customerGet;
-        public CustomerService(IStoreProcedure<CustomerGetByIdModel, GetByIdSchema> customerGet) {
+        private readonly IStoreProcedure<Customer_GetById_Model, GetById_Schema> _customerGet;
+        public CustomerService(IStoreProcedure<Customer_GetById_Model, GetById_Schema> customerGet) {
             _customerGet = customerGet;
         }
         #endregion
 
-        public async Task<CustomerGetByIdModel> GetByIdAsync(GetByIdSchema model) {
+        public async Task<Customer_GetById_Model> GetByIdAsync(GetById_Schema model) {
             return await _customerGet.ExecuteFirstOrDefaultAsync(model);
         }
     }

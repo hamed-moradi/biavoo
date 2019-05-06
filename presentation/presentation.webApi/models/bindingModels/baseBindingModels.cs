@@ -5,16 +5,16 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace presentation.webApi.models.bindingModels {
-    public interface IBaseBindingModel { }
-    public class HeaderBindingModel: IBaseBindingModel {
+    public interface IBase_BindingModel { }
+    public class Header_BindingModel: IBase_BindingModel {
         public string TimeZone { get; set; } = "UTC-00:00";
         public string Language { get; set; } = "en-US";
     }
-    public class FullHeaderBindingModel: HeaderBindingModel {
+    public class FullHeader_BindingModel: Header_BindingModel {
         public string Token { get; set; }
         public string DeviceId { get; set; }
     }
-    public class BindingModel: FullHeaderBindingModel {
+    public class Paging_BindingModel: FullHeader_BindingModel {
         public string OrderBy { get; set; } = "Id";
         public string Order { get; set; } = "DESC";
         public int? PageIndex { get; set; } = 0;
@@ -25,7 +25,7 @@ namespace presentation.webApi.models.bindingModels {
             return (int)Math.Ceiling((decimal)rowsCount / PageSize.Value);
         }
     }
-    public class GetByIdBindingModel: FullHeaderBindingModel {
+    public class GetById_BindingModel: FullHeader_BindingModel {
         public int Id { get; set; }
     }
 }

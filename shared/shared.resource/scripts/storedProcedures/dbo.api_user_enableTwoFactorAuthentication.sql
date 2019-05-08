@@ -15,7 +15,7 @@ CREATE PROCEDURE [dbo].[api_user_enableTwoFactorAuthentication]
 	@Password NVARCHAR(32)
 AS
 BEGIN
-	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @verifyCode INT = NULL, @verifyCodeCreatedAt DATETIME = NULL, @verifyCodeStatus TINYINT = NULL;
+	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @verifyCode INT = NULL, @verifyCodeModifiedAt DATETIME = NULL;
 
 	SELECT @userId = UserId, @sessionStatus = [Status] FROM dbo.[session] WITH(NOLOCK) WHERE Token = @Token AND DeviceId = @DeviceId
 	IF(@sessionStatus IS NULL)
@@ -26,15 +26,13 @@ BEGIN
 	IF(100 NOT IN (SELECT [Status] FROM dbo.[user] WHERE Id = @userId))
 		RETURN 410; -- User is not active
 
-	SELECT @verifyCode = [Value], @verifyCodeCreatedAt = CreatedAt, @verifyCodeStatus = [Status] FROM dbo.userProperty WITH(NOLOCK) WHERE UserId = @userId AND PropTypeId = 5
+	SELECT @verifyCode = [Value], @verifyCodeModifiedAt = ModifiedAt FROM dbo.userProperty WITH(NOLOCK) WHERE UserId = @userId AND PropTypeId = 5 -- 5: Verification Code
 	IF(@verifyCode IS NULL)
 		RETURN 411; -- User must request for a verification code before enabling two step authentication
-	IF(@verifyCodeStatus <> 100)
-		RETURN 412; -- Request for verification code again
-	IF(DATEDIFF(MINUTE, @verifyCodeCreatedAt, GETDATE()) > 10) -- 10 minutes!
-		RETURN 413; -- Your code has expired
+	IF(DATEDIFF(MINUTE, @verifyCodeModifiedAt, GETDATE()) > 10) -- 10 minutes!
+		RETURN 412; -- Your code has expired
 	IF(@verifyCode <> @VerificationCode)
-		RETURN 414; -- Verification code is not valid
+		RETURN 413; -- Verification code is not valid
 
 	UPDATE dbo.[user] SET [Password] = @Password WHERE Id = @userId
 	RETURN 200; -- Done!

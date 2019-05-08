@@ -51,7 +51,6 @@ namespace domain.application.services {
         }
 
         public async Task<User_Model> GetAsync(GetById_Schema model) {
-            //model.EntityName = "[user]";
             var user = new User_Model();
             var parameters = new DynamicParameters();
             parameters.Add("@Token", model.Token, DbType.String, ParameterDirection.Input);

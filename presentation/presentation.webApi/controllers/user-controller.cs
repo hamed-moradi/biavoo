@@ -139,16 +139,17 @@ namespace presentation.webApi.controllers {
             ValidateHeader(collection);
             try {
                 var model = _mapper.Map<GetById_Schema>(collection);
+                //model.EntityName = "[user]";
                 var result = await _userService.GetAsync(model);
                 switch(model.StatusCode) {
-                    case 200:
-                        return Ok(data: _mapper.Map<User_ViewModel>(result));
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
-                    case 401:
-                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
                     case 405:
-                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
+                    case 200:
+                        return Ok(data: _mapper.Map<User_ViewModel>(result));
                 }
             }
             catch(Exception ex) {
@@ -174,12 +175,12 @@ namespace presentation.webApi.controllers {
                         return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
                     case 410:
                         return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
-                    case 430:
-                        return BadRequest(_stringLocalizer["verification code is not valid"]);
-                    case 431:
-                        return BadRequest(_stringLocalizer["password is not valid"]);
-                    case 432:
-                        return BadRequest(_stringLocalizer["varsification code has been expired"]);
+                    case 411:
+                        return BadRequest(_stringLocalizer["You must request for a verification code first"]);
+                    case 412:
+                        return BadRequest(_stringLocalizer["Your code has expired"]);
+                    case 413:
+                        return BadRequest(_stringLocalizer["Verification code is not valid"]);
                     case 200:
                         return Ok();
                 }

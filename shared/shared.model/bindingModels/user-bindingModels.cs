@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace presentation.webApi.models.bindingModels {
+namespace shared.model.bindingModels {
     public class User_SignUp_BindingModel: Header_BindingModel {
         public string DeviceId { get; set; }
         public string Name { get; set; }
@@ -28,5 +28,10 @@ namespace presentation.webApi.models.bindingModels {
         public int VerificationCode { get; set; }
         [Required]
         public string Password { get; set; }
+    }
+    public class User_Verify_BindingModel: FullHeader_BindingModel {
+        public string @CellPhone { get; set; }
+        public string @Email { get; set; }
+        public int VerificationCode { get; set; }
     }
 }

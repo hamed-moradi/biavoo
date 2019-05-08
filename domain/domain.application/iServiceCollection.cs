@@ -14,7 +14,8 @@ namespace domain.application {
     }
     public interface IUser_Service {
         Task SignUpAsync(User_SignUp_Schema model);
-        Task SendVerificationCodeAsync(User_SendVerificationCode_Schema model);
+        Task SetVerificationCodeAsync(User_SetVerificationCode_Schema model);
+        Task VerifyAsync(User_Verify_Schema model);
         Task<User_Model> GetAsync(GetById_Schema model);
         Task EnableTwoFactorAuthentication(User_EnableTwoFactorAuthentication_Schema model);
         Task DisableTwoFactorAuthentication(User_DisableTwoFactorAuthentication_Schema model);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace presentation.webApi.models.viewModels {
+namespace shared.model.viewModels {
     public class UserProperty_ViewModel: IBaseViewModel {
         public int? Id { get; set; }
         public string Title { get; set; }

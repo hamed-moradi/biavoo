@@ -4,6 +4,7 @@ using domain.repository.models;
 using domain.repository.schemas;
 using shared.utility;
 using shared.utility._app;
+using shared.utility.infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,23 +12,27 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace domain.application.services {
     public class UserService: IUser_Service {
         #region Constructor
         private readonly IGenericRepository<IBase_Model> _repository;
         private readonly IStoreProcedure<User_Model, User_SignUp_Schema> _signUp;
-        private readonly IStoreProcedure<IBase_Model, User_SendVerificationCode_Schema> _sendVerificationCode;
+        private readonly IStoreProcedure<IBase_Model, User_SetVerificationCode_Schema> _setVerificationCode;
+        private readonly IStoreProcedure<IBase_Model, User_Verify_Schema> _verify;
         private readonly IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> _enableTwoFactorAuthentication;
         private readonly IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> _disableTwoFactorAuthentication;
         public UserService(IGenericRepository<IBase_Model> repository,
             IStoreProcedure<User_Model, User_SignUp_Schema> signUp,
-            IStoreProcedure<IBase_Model, User_SendVerificationCode_Schema> sendVerificationCode,
+            IStoreProcedure<IBase_Model, User_SetVerificationCode_Schema> setVerificationCode,
+            IStoreProcedure<IBase_Model, User_Verify_Schema> verify,
             IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> enableTwoFactorAuthentication,
             IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> disableTwoFactorAuthentication) {
             _repository = repository;
             _signUp = signUp;
-            _sendVerificationCode = sendVerificationCode;
+            _setVerificationCode = setVerificationCode;
+            _verify = verify;
             _enableTwoFactorAuthentication = enableTwoFactorAuthentication;
             _disableTwoFactorAuthentication = disableTwoFactorAuthentication;
         }
@@ -37,8 +42,12 @@ namespace domain.application.services {
             await _signUp.ExecuteReturnLessAsync(model);
         }
 
-        public async Task SendVerificationCodeAsync(User_SendVerificationCode_Schema model) {
-            await _sendVerificationCode.ExecuteReturnLessAsync(model);
+        public async Task SetVerificationCodeAsync(User_SetVerificationCode_Schema model) {
+            await _setVerificationCode.ExecuteReturnLessAsync(model);
+        }
+
+        public async Task VerifyAsync(User_Verify_Schema model) {
+            await _verify.ExecuteReturnLessAsync(model);
         }
 
         public async Task<User_Model> GetAsync(GetById_Schema model) {

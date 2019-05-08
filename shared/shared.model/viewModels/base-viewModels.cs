@@ -2,7 +2,7 @@
 using System.Net;
 using System.Reflection;
 
-namespace presentation.webApi.models.viewModels {
+namespace shared.model.viewModels {
     public interface IBaseViewModel {
     }
     public class BaseViewModel {

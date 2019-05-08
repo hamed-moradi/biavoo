@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
-using presentation.webApi.models.bindingModels;
+using shared.model.bindingModels;
 using System.Linq;
 
 namespace presentation.webApi.filterAttributes {

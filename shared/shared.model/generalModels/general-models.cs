@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace domain.office._app {
+namespace shared.model.generalModels {
     public class DropDownItemModel {
         public int id { get; set; }
         public int? parentId { get; set; }

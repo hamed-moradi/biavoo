@@ -47,14 +47,35 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_user_sendVerificationCode]")]
-    public class User_SendVerificationCode_Schema: IBase_Schema {
+    [Schema("[dbo].[api_user_setVerificationCode]")]
+    public class User_SetVerificationCode_Schema: IBase_Schema {
         [InputParameter]
         public string @Token { get; set; }
         [InputParameter]
         public string @DeviceId { get; set; }
         [InputParameter]
-        public int @Number { get; set; }
+        public string @CellPhone { get; set; }
+        [InputParameter]
+        public string @Email { get; set; }
+        [InputParameter]
+        public int VerificationCode { get; set; }
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
+    }
+
+    [Schema("[dbo].[api_user_verify]")]
+    public class User_Verify_Schema: IBase_Schema {
+        [InputParameter]
+        public string @Token { get; set; }
+        [InputParameter]
+        public string @DeviceId { get; set; }
+        [InputParameter]
+        public string @CellPhone { get; set; }
+        [InputParameter]
+        public string @Email { get; set; }
+        [InputParameter]
+        public int VerificationCode { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

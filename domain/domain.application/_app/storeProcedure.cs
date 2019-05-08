@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace domain.application._app {
-    public interface IStoreProcedure<Result, Schema> {
+    public interface IStoreProcedure<Result, Schema>
+        where Result : IBase_Model
+        where Schema : IBase_Schema {
         //Sync
         void ExecuteReturnLess(string procedure);
         void ExecuteReturnLess(Schema model);

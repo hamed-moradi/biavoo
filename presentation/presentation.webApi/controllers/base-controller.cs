@@ -9,7 +9,8 @@ using domain.application;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using presentation.webApi.filterAttributes;
-using presentation.webApi.models.viewModels;
+using shared.model.bindingModels;
+using shared.model.viewModels;
 using shared.resource;
 using shared.utility;
 using shared.utility._app;
@@ -25,6 +26,8 @@ namespace presentation.webApi.controllers {
         protected string URL { get { return $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}{HttpContext.Request.Path}{HttpContext.Request.QueryString}"; } }
         protected IList<ImageFormat> ImageFormats { get { return new List<ImageFormat> { ImageFormat.Gif, ImageFormat.Jpeg, ImageFormat.Tiff, ImageFormat.Png }; } }
         //protected string[] ImageExtensions { get { return new string[] { ".jpg", ".jpeg", ".png", ".tif", ".bmp", ".gif" }; } }
+        protected readonly string[] Languages = new string[] { "en", "en-US", "fa" };
+        protected readonly string[] TimeZones = new string[] { "+3.5 UTC" };
 
         public BaseController() {
             _mapper = ServiceLocator.Current.GetInstance<IMapper>();
@@ -32,6 +35,21 @@ namespace presentation.webApi.controllers {
             _stringLocalizer = ServiceLocator.Current.GetInstance<IStringLocalizer<BaseController>>();
         }
         #endregion
+
+        public void ValidateHeader<T>(T model) where T : FullHeader_BindingModel {
+            if(!Languages.Contains(model.Language)) {
+                //BadRequest(_stringLocalizer[SharedResource.UnsupportedLanguage]);
+            }
+            if(!TimeZones.Contains(model.TimeZone)) {
+                //BadRequest(_stringLocalizer[SharedResource.UnsupportedTimeZone]);
+            }
+            if(!string.IsNullOrWhiteSpace(model.Token)) {
+                BadRequest(_stringLocalizer[SharedResource.TokenNotFound]);
+            }
+            if(!string.IsNullOrWhiteSpace(model.DeviceId)) {
+                BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
+            }
+        }
 
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Ok(HttpStatusCode status = HttpStatusCode.OK, string message = null, object data = null, int? totalPages = null) {

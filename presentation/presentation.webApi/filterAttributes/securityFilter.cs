@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
-using presentation.webApi.models.bindingModels;
-using presentation.webApi.models.viewModels;
+using shared.model.bindingModels;
+using shared.model.viewModels;
 using Serilog;
 using shared.resource;
 using shared.resource._app;

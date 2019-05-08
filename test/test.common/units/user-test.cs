@@ -32,8 +32,8 @@ namespace test.common.units {
         [TestMethod, TestCategory("User"), TestCategory("SentVerificationCode")]
         public async Task SentVerificationCode() {
             try {
-                var model = new User_SendVerificationCode_Schema { Token = "", DeviceId = "", Number = 911 };
-                await _userService.SendVerificationCodeAsync(model);
+                var model = new User_SetVerificationCode_Schema { Token = "", DeviceId = "", VerificationCode = 911 };
+                await _userService.SetVerificationCodeAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Console.WriteLine($"StatusCode: {model.StatusCode}");
             }

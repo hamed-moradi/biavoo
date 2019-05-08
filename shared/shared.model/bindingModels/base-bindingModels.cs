@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace presentation.webApi.models.bindingModels {
+namespace shared.model.bindingModels {
     public interface IBase_BindingModel { }
     public class Header_BindingModel: IBase_BindingModel {
         public string TimeZone { get; set; } = "UTC-00:00";

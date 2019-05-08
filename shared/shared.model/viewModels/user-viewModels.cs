@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace presentation.webApi.models.viewModels {
+namespace shared.model.viewModels {
     public class User_ViewModel: IBaseViewModel {
         public string Name { get; set; }
         public string Family { get; set; }

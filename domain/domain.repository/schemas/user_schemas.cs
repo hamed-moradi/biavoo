@@ -93,15 +93,6 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_user_getById]")]
-    public class UserGetByIdSchema: Header_Schema {
-        [InputParameter]
-        public int @Id { get; set; }
-
-        [ReturnParameter]
-        public short StatusCode { get; set; }
-    }
-
     [Schema("[dbo].[api_user_enableTwoFactorAuthentication")]
     public class User_EnableTwoFactorAuthentication_Schema: Header_Schema {
         [InputParameter]
@@ -116,6 +107,17 @@ namespace domain.repository.schemas {
     public class User_DisableTwoFactorAuthentication_Schema: Header_Schema {
         [InputParameter]
         public string Password { get; set; }
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
+    }
+
+    [Schema("[dbo].[api_user_update]")]
+    public class User_Update_Schema: Header_Schema {
+        [InputParameter]
+        public string @NickName { get; set; }
+        [InputParameter]
+        public string @Avatar { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

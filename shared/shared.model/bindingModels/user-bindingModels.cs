@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -39,6 +40,6 @@ namespace shared.model.bindingModels {
         public string VerificationCode { get; set; }
     }
     public class User_SetAvatar_BindingModel: FullHeader_BindingModel {
-
+        public IFormFile Avatar { get; set; }
     }
 }

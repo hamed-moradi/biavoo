@@ -13,6 +13,10 @@ using shared.model.viewModels;
 using Serilog;
 using shared.resource;
 using shared.utility.infrastructure;
+using System.IO;
+using shared.utility._app;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace presentation.webApi.controllers {
     public class UserController: BaseController {
@@ -253,6 +257,48 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpPost, Route("setavatar")]
         public async Task<IActionResult> SetAvatar([FromBody]User_SetAvatar_BindingModel collection) {
+            ValidateHeader(collection);
+            try {
+                var model = _mapper.Map<GetById_Schema>(collection);
+                var user = await _userService.GetAsync(model);
+                switch(model.StatusCode) {
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
+                }
+                using(var memoryStream = new MemoryStream()) {
+                    await collection.Avatar.CopyToAsync(memoryStream);
+                    if(memoryStream.ToArray().Length == 0) {
+                        return BadRequest("فایل فاقد محتوی می باشد");
+                    }
+                    if(memoryStream.ToArray().Length > int.Parse(AppSettings.AvatarSize) * 1024) {
+                        return BadRequest("حجم تصویر شما بیشتر از میزان مجاز است");
+                    }
+                    var image = new Bitmap(memoryStream);
+                    if(!ImageFormats.Contains(image.RawFormat)) {
+                        return BadRequest("نوع تصویر شما از انواع مجاز نمی باشد");
+                    }
+                    var avatarResolution = AppSettings.AvatarResolution.Split('x');
+                    if(image.Width * image.Height > int.Parse(avatarResolution[0]) * int.Parse(avatarResolution[1])) {
+                        return BadRequest("اندازه تصویر شما بزرگتر از میزان مجاز است");
+                    }
+                    if(!Directory.Exists(AppSettings.FilePath))
+                        Directory.CreateDirectory(AppSettings.FilePath);
+                    image.Save($@"{AppSettings.FilePath}\{user.Username}.jpeg", ImageFormat.Jpeg);
+                }
+                var editModel = new User_Update_Schema { Token = collection.Token, DeviceId = collection.DeviceId, Avatar = $"{user.Username}.jpeg" };
+                await _userService.UpdateAsync(editModel);
+                switch(model.StatusCode) {
+                    case 1:
+                        return Ok();
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
             return InternalServerError();
         }
     }

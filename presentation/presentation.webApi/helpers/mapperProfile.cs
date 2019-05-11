@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace shared.model._app {
+namespace presentation.webApi.helpers {
     public class MapperConfig {
         public MapperConfiguration Init() {
             return new MapperConfiguration(config => config.AddProfile(new MappingProfile()));

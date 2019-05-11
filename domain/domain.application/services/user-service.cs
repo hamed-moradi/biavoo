@@ -15,28 +15,28 @@ namespace domain.application.services {
         #region Constructor
         private readonly IParameterHandler _parameterHandler;
         private readonly IGenericRepository<IBase_Model> _repository;
-        private readonly IStoreProcedure<User_SignUp_Model, User_SignUp_Schema> _signUp;
         private readonly IStoreProcedure<IBase_Model, User_SetVerificationCode_Schema> _setVerificationCode;
         private readonly IStoreProcedure<IBase_Model, User_Verify_Schema> _verify;
         private readonly IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> _enableTwoFactorAuthentication;
         private readonly IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> _disableTwoFactorAuthentication;
         private readonly IStoreProcedure<User_SignUp_Model, User_SignIn_Schema> _signIn;
+        private readonly IStoreProcedure<IBase_Model, User_Update_Schema> _updateProfile;
         public UserService(IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository,
-            IStoreProcedure<User_SignUp_Model, User_SignUp_Schema> signUp,
             IStoreProcedure<IBase_Model, User_SetVerificationCode_Schema> setVerificationCode,
             IStoreProcedure<IBase_Model, User_Verify_Schema> verify,
             IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> enableTwoFactorAuthentication,
             IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> disableTwoFactorAuthentication,
-            IStoreProcedure<User_SignUp_Model, User_SignIn_Schema> signIn) {
+            IStoreProcedure<User_SignUp_Model, User_SignIn_Schema> signIn,
+            IStoreProcedure<IBase_Model, User_Update_Schema> updateProfile) {
             _repository = repository;
-            _signUp = signUp;
             _parameterHandler = parameterHandler;
             _setVerificationCode = setVerificationCode;
             _verify = verify;
             _enableTwoFactorAuthentication = enableTwoFactorAuthentication;
             _disableTwoFactorAuthentication = disableTwoFactorAuthentication;
             _signIn = signIn;
+            _updateProfile = updateProfile;
         }
         #endregion
 
@@ -88,6 +88,9 @@ namespace domain.application.services {
         }
         public async Task DisableTwoFactorAuthentication(User_DisableTwoFactorAuthentication_Schema model) {
             await _disableTwoFactorAuthentication.ExecuteReturnLessAsync(model);
+        }
+        public async Task UpdateAsync(User_Update_Schema model) {
+            await _updateProfile.ExecuteReturnLessAsync(model);
         }
     }
 }

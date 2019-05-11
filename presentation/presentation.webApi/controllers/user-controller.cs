@@ -29,6 +29,41 @@ namespace presentation.webApi.controllers {
         }
         #endregion
 
+        [ArgumentBinding, HttpPost, Route("signin")]
+        public async Task<IActionResult> SignIn([FromBody]User_SignIn_BindingModel collection) {
+            var model = _mapper.Map<User_SignIn_Schema>(collection);
+            try {
+                await _userService.SignInAsync(model);
+                switch(model.StatusCode) {
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
+                    case 411:
+                        return BadRequest(_stringLocalizer[SharedResource.RequestForVerificationCodeFirst]);
+                    case 412:
+                        return BadRequest(_stringLocalizer[SharedResource.VerificationCodeHasBeenExpired]);
+                    case 413:
+                        return BadRequest(_stringLocalizer[SharedResource.WrongVerificationCode]);
+                    case 415:
+                        return BadRequest(_stringLocalizer[SharedResource.WrongPassword]);
+                    case 205:
+                        return Ok(HttpStatusCode.PartialContent, _stringLocalizer[SharedResource.GoToStepTwo]);
+                    case 200:
+                        return Ok(data: model.Token);
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            finally {
+                Log.Information($"DeviceId: '{model.DeviceId}' tried to signing in, result: '{model.StatusCode}'.");
+            }
+            return InternalServerError();
+        }
+
         [ArgumentBinding, HttpPost, Route("signup")]
         public async Task<IActionResult> SignUp([FromBody]User_SignUp_BindingModel collection) {
             if(string.IsNullOrWhiteSpace(collection.CellPhone) && string.IsNullOrWhiteSpace(collection.Email)) {
@@ -36,7 +71,7 @@ namespace presentation.webApi.controllers {
             }
             try {
                 var model = _mapper.Map<User_SignUp_Schema>(collection);
-                await _userService.SignUpAsync(model);
+                var user = await _userService.SignUpAsync(model);
                 switch(model.StatusCode) {
                     case 420:
                         return BadRequest(_stringLocalizer[SharedResource.DefectiveEntry]);
@@ -44,10 +79,8 @@ namespace presentation.webApi.controllers {
                         return BadRequest(_stringLocalizer[SharedResource.DefectiveCellPhone]);
                     case 422:
                         return BadRequest(_stringLocalizer[SharedResource.DefectiveEmail]);
-                    case 500:
-                        return InternalServerError();
                     case 200:
-                        return Ok();
+                        return Ok(data: new { model.Token, user });
                 }
             }
             catch(Exception ex) {
@@ -57,18 +90,18 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpGet, Route("sendverificationcode")]
-        public async Task<IActionResult> SendVerificationCode(User_Verify_BindingModel collection) {
-            ValidateHeader(collection);
+        [ArgumentBinding, HttpPost, Route("sendverificationcode")]
+        public async Task<IActionResult> SendVerificationCode([FromBody]User_Verify_BindingModel collection) {
+            if(string.IsNullOrWhiteSpace(collection.DeviceId)) {
+                return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
+            }
             try {
                 var model = _mapper.Map<User_SetVerificationCode_Schema>(collection);
                 model.VerificationCode = _randomGenerator.Create("****");
                 await _userService.SetVerificationCodeAsync(model);
                 switch(model.StatusCode) {
                     case 400:
-                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
-                    case 405:
-                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIdNotFound]);
                     case 410:
                         return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                     case 416:
@@ -81,10 +114,12 @@ namespace presentation.webApi.controllers {
                         return BadRequest(_stringLocalizer["Email does not match"]);
                     case 200: {
                         if(!string.IsNullOrWhiteSpace(model.CellPhone)) {
+                            // Send SMS
                             _smsService.Send(model.CellPhone, $"{_stringLocalizer["This is your verification code"]} {model.VerificationCode}");
                         }
                         if(!string.IsNullOrWhiteSpace(model.Email)) {
-                            _emailService.Send(model.CellPhone, _stringLocalizer["Verification code"],
+                            // Send Email
+                            _emailService.Send(model.CellPhone, _stringLocalizer["VerificationCode"],
                                 $"{_stringLocalizer["This is your verification code"]} {model.VerificationCode}");
                         }
                         return Ok();
@@ -98,8 +133,8 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpGet, Route("verify")]
-        public async Task<IActionResult> Verify(User_Verify_BindingModel collection) {
+        [ArgumentBinding, HttpPost, Route("verify")]
+        public async Task<IActionResult> Verify([FromBody]User_Verify_BindingModel collection) {
             ValidateHeader(collection);
             try {
                 var model = _mapper.Map<User_Verify_Schema>(collection);
@@ -149,7 +184,7 @@ namespace presentation.webApi.controllers {
                     case 410:
                         return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                     case 200:
-                        return Ok(data: _mapper.Map<User_ViewModel>(result));
+                        return Ok(data: _mapper.Map<User_SignUp_ViewModel>(result));
                 }
             }
             catch(Exception ex) {
@@ -176,11 +211,11 @@ namespace presentation.webApi.controllers {
                     case 410:
                         return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                     case 411:
-                        return BadRequest(_stringLocalizer["You must request for a verification code first"]);
+                        return BadRequest(_stringLocalizer[SharedResource.RequestForVerificationCodeFirst]);
                     case 412:
-                        return BadRequest(_stringLocalizer["Your code has expired"]);
+                        return BadRequest(_stringLocalizer[SharedResource.VerificationCodeHasBeenExpired]);
                     case 413:
-                        return BadRequest(_stringLocalizer["Verification code is not valid"]);
+                        return BadRequest(_stringLocalizer[SharedResource.WrongVerificationCode]);
                     case 200:
                         return Ok();
                 }
@@ -205,7 +240,7 @@ namespace presentation.webApi.controllers {
                     case 410:
                         return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                     case 415:
-                        return BadRequest(_stringLocalizer[""]);
+                        return BadRequest(_stringLocalizer[SharedResource.WrongPassword]);
                     case 200:
                         return Ok();
                 }
@@ -216,25 +251,9 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        //[ArgumentBinding]
-        //[Route(""), HttpGet]
-        //public async Task<IActionResult> GetAll([FromQuery]UserGetBindingModel collection) {
-        //    try {
-        //        var maxAccurancy = int.Parse(AppSettings.MaxAccurancy);
-        //        var model = _mapper.Map<UserGetSchema>(collection);
-        //        var result = await _userService.Get(model);
-        //        switch(model.StatusCode) {
-        //            case 1:
-        //                return Ok(data: _mapper.Map<IList<UserGetViewModel>>(result));
-        //            case 0:
-        //                return InternalServerError();
-        //        }
-        //    }
-        //    catch(Exception ex) {
-        //        Log.Error(ex, MethodBase.GetCurrentMethod().Name);
-        //        //await _exceptionService.InsertAsync(ex, URL, IP);
-        //    }
-        //    return InternalServerError();
-        //}
+        [ArgumentBinding, HttpPost, Route("setavatar")]
+        public async Task<IActionResult> SetAvatar([FromBody]User_SetAvatar_BindingModel collection) {
+            return InternalServerError();
+        }
     }
 }

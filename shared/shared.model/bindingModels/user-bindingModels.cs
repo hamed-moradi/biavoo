@@ -34,4 +34,11 @@ namespace shared.model.bindingModels {
         public string @Email { get; set; }
         public int VerificationCode { get; set; }
     }
+    public class User_SignIn_BindingModel: FullHeader_BindingModel {
+        public string Password { get; set; }
+        public string VerificationCode { get; set; }
+    }
+    public class User_SetAvatar_BindingModel: FullHeader_BindingModel {
+
+    }
 }

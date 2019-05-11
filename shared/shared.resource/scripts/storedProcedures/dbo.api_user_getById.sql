@@ -11,13 +11,12 @@ GO
 CREATE PROCEDURE [dbo].[api_user_getById]
 	@Token varchar(32),
 	@DeviceId varchar(128),
-	@Id int,
-	@StatusCode smallint
+	@Id int
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL;
 
-	SELECT @userId = UserId, @sessionStatus = [Status] FROM dbo.[session] WITH(NOLOCK) WHERE Token = @Token AND DeviceId = @DeviceId
+	SELECT @userId = UserId, @sessionStatus = [Status] FROM dbo.[session] WITH(NOLOCK) WHERE Token = @Token AND DeviceId = @DeviceId;
 	IF(@sessionStatus IS NULL)
 		RETURN 400; -- Authentication failed
 	IF(@sessionStatus <> 100)
@@ -27,8 +26,9 @@ BEGIN
 		RETURN 410; -- User is not active
 
 	SELECT * FROM dbo.[user] WITH(NOLOCK) WHERE Id = @Id;
-	SELECT * FROM dbo.[userProperty] WITH(NOLOCK) WHERE UserId = @Id;
+	SELECT * FROM dbo.[userProperty] WITH(NOLOCK) WHERE UserId = @Id
+		AND ([Status] = 10 OR [Status] = 100) -- 10: Pendding, 100: Active
+		AND PropTypeId IN (2, 3); -- 2: CellPhone, 3: Email
 
-	SET @StatusCode = 1;
-	RETURN @StatusCode;
+	RETURN 200;
 END;

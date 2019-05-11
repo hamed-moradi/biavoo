@@ -177,7 +177,7 @@ namespace shared.utility._app {
             return TypeMap[type];
         }
 
-        public static string SchemaName(this IBase_Schema baseSchema) {
+        public static string GetSchemaName(this IBase_Schema baseSchema) {
             // Read from model name (default)
             var name = baseSchema.GetType().Name;
 

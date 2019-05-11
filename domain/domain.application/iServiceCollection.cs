@@ -13,10 +13,11 @@ namespace domain.application {
         Task<int> InsertAsync(HttpLog model, int timeoutMS = 256);
     }
     public interface IUser_Service {
-        Task SignUpAsync(User_SignUp_Schema model);
+        Task SignInAsync(User_SignIn_Schema model);
+        Task<User_SignUp_Model> SignUpAsync(User_SignUp_Schema model);
         Task SetVerificationCodeAsync(User_SetVerificationCode_Schema model);
         Task VerifyAsync(User_Verify_Schema model);
-        Task<User_Model> GetAsync(GetById_Schema model);
+        Task<User_SignUp_Model> GetAsync(GetById_Schema model);
         Task EnableTwoFactorAuthentication(User_EnableTwoFactorAuthentication_Schema model);
         Task DisableTwoFactorAuthentication(User_DisableTwoFactorAuthentication_Schema model);
     }
@@ -24,6 +25,7 @@ namespace domain.application {
         Task<Customer_GetById_Model> GetByIdAsync(GetById_Schema model);
     }
     public interface ISendMessageQueue_Service {
-
+        Task PutInAsync(SendMessageQueue_PutIn_Schema model);
+        Task<List<SendMessageQueue_Model>> GetPagingAsync(SendMessageQueue_GetPaging_Schema model);
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace presentation.webApi.helpers {
+namespace shared.model._app {
     public class MapperConfig {
         public MapperConfiguration Init() {
             return new MapperConfiguration(config => config.AddProfile(new MappingProfile()));
@@ -34,7 +34,8 @@ namespace presentation.webApi.helpers {
             CreateMap<Customer_GetById_BindingModel, Customer_GetPaging_Schema>();
 
             // User
-            CreateMap<User_Model, User_ViewModel>();
+            CreateMap<User_SignIn_BindingModel, User_SignIn_Schema>();
+            CreateMap<User_SignUp_Model, User_SignUp_ViewModel>();
             CreateMap<UserProperty_Model, UserProperty_ViewModel>();
             CreateMap<User_TwoFactorAuthentication_BindingModel, User_EnableTwoFactorAuthentication_Schema>();
             CreateMap<User_TwoFactorAuthentication_BindingModel, User_DisableTwoFactorAuthentication_Schema>();

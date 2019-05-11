@@ -20,9 +20,13 @@ using shared.utility.infrastructure;
 namespace presentation.webApi.controllers {
     public class SendMessageQueueController: BaseController {
         #region Constructor
+        private readonly ISendMessageQueue_Service _sendMessageQueueService;
         private readonly IEmailService _emailService;
-        public SendMessageQueueController(IEmailService emailService) {
+        private readonly ISMSService _smsService;
+        public SendMessageQueueController(ISendMessageQueue_Service sendMessageQueueService, IEmailService emailService, ISMSService smsService) {
+            _sendMessageQueueService = sendMessageQueueService;
             _emailService = emailService;
+            _smsService = smsService;
         }
         #endregion
 
@@ -31,21 +35,46 @@ namespace presentation.webApi.controllers {
             if(collection.Token != AppSettings.SystemToken || collection.DeviceId != AppSettings.SystemDeviceId) {
                 return BadRequest();
             }
+            int totalSMS = 0, sentSMS = 0, totalEmail = 0, sentEmail = 0;
+            var model = _mapper.Map<SendMessageQueue_GetPaging_Schema>(collection);
             try {
-                var model = _mapper.Map<GetById_Schema>(collection);
-                //var result = await _emailService.GetByIdAsync(model);
-                //switch(model.StatusCode) {
-                //    case 200:
-                //        return Ok(data: _mapper.Map<SendQueueGetByIdViewModel>(result));
-                //    case 400:
-                //        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
-                //    default:
-                //        return InternalServerError();
-                //}
+                var result = await _sendMessageQueueService.GetPagingAsync(model);
+                switch(model.StatusCode) {
+                    case 200:
+                        totalSMS = result.Count(c => c.TypeId == 1);
+                        totalEmail = result.Count(c => c.TypeId == 2);
+                        foreach(var item in result) {
+                            switch(item.TypeId) {
+                                case 1: // CellPhone
+                                    try {
+                                        _smsService.Send(item.CellPhone, item.Body);
+                                        sentSMS++;
+                                    }
+                                    catch(Exception ex) {
+                                        Log.Error(ex, "Send SMS Problem!");
+                                    }
+                                    break;
+                                case 2: // Email
+                                    try {
+                                        _emailService.Send(item.CellPhone, item.Subject, item.Body);
+                                        sentEmail++;
+                                    }
+                                    catch(Exception ex) {
+                                        Log.Error(ex, "Send Email Problem!");
+                                    }
+                                    break;
+                            }
+                        }
+                        break;
+                }
             }
             catch(Exception ex) {
-                Log.Error(ex, MethodBase.GetCurrentMethod().Name);
                 await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            finally {
+                Log.Information($"Method: '{MethodBase.GetCurrentMethod().Name}' called at {DateTime.Now}. \n\r" +
+                    $"'{sentSMS}' SMSs sent from '{totalSMS}'. \n\r" +
+                    $"'{sentEmail}' Emails sent from '{totalEmail}'.");
             }
             return InternalServerError();
         }

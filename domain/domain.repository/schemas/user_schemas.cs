@@ -3,7 +3,19 @@ using System;
 using System.Collections.Generic;
 
 namespace domain.repository.schemas {
+    [Schema("[dbo].[api_user_signIn")]
+    public class User_SignIn_Schema: Header_Schema {
+        [InputParameter]
+        public string @VerificationCode { get; set; }
+        [InputParameter]
+        public string @Password { get; set; }
 
+        [OutputParameter]
+        public new string @Token { get; set; }
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
+    }
     [Schema("[dbo].[api_user_signUp]")]
     public class User_SignUp_Schema: IBase_Schema {
         #region User
@@ -43,14 +55,14 @@ namespace domain.repository.schemas {
         public string @Browser { get; set; }
         #endregion
 
+        [OutputParameter]
+        public string Token { get; set; }
+
         [ReturnParameter]
         public short StatusCode { get; set; }
     }
-
     [Schema("[dbo].[api_user_setVerificationCode]")]
     public class User_SetVerificationCode_Schema: IBase_Schema {
-        [InputParameter]
-        public string @Token { get; set; }
         [InputParameter]
         public string @DeviceId { get; set; }
         [InputParameter]

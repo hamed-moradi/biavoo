@@ -22,6 +22,10 @@ namespace shared.resource {
         public static string DangerousRequest { get { return nameof(DangerousRequest); } }
         public static string UnsupportedLanguage { get { return nameof(UnsupportedLanguage); } }
         public static string UnsupportedTimeZone { get { return nameof(UnsupportedTimeZone); } }
+        public static string WrongPassword { get { return nameof(WrongPassword); } }
+        public static string RequestForVerificationCodeFirst { get { return nameof(RequestForVerificationCodeFirst); } }
+        public static string VerificationCodeHasBeenExpired { get { return nameof(VerificationCodeHasBeenExpired); } }
+        public static string WrongVerificationCode { get { return nameof(WrongVerificationCode); } }
         #endregion
 
         #region SignUp
@@ -31,6 +35,7 @@ namespace shared.resource {
 
         #region SignIn
         public static string InvalidSigninAttempt { get { return nameof(InvalidSigninAttempt); } }
+        public static string GoToStepTwo { get { return nameof(GoToStepTwo); } }
         #endregion
     }
 }

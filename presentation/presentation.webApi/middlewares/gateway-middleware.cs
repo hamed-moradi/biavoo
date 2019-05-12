@@ -3,6 +3,8 @@ using domain.repository.collections;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
+using Newtonsoft.Json;
+using Serilog;
 using shared.utility._app;
 using System;
 using System.Diagnostics;
@@ -48,43 +50,46 @@ namespace presentation.webApi.middlewares {
         #endregion
 
         public async Task InvokeAsync(HttpContext context) {
+            var ip = context.Connection.RemoteIpAddress.ToString();
+            var url = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}{context.Request.QueryString}";
+            var requestedAt = DateTime.Now;
+            var stopWatch = new Stopwatch();
+            var response = string.Empty;
+            stopWatch.Start();
+            var originalBodyStream = context.Response.Body;
+            using(var responseBody = new MemoryStream()) {
+                context.Response.Body = responseBody;
+                await _requestDelegate(context);
+                response = await FormatResponse(context.Response);
+                await responseBody.CopyToAsync(originalBodyStream);
+            }
+            stopWatch.Stop();
+            var model = new HttpLog {
+                IP = ip,
+                URL = url,
+                Method = context.Request.Method,
+                RequsetHeader = (from t in context.Request.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
+                ReqestedAt = requestedAt,
+                Request = (await FormatRequest(context.Request)).Replace("\n\t", string.Empty),
+                ResponseHeader = (from t in context.Response.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
+                ResponsedAt = DateTime.Now,
+                Response = response,
+                Duration = stopWatch.ElapsedMilliseconds
+            };
+            //try {
             if (AppSettings.MongoLogging) {
-                var ip = context.Connection.RemoteIpAddress.ToString();
-                var url = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}{context.Request.QueryString}";
-                var requestedAt = DateTime.Now;
-                var stopWatch = new Stopwatch();
-                //try {
-                var response = string.Empty;
-                stopWatch.Start();
-                var originalBodyStream = context.Response.Body;
-                using (var responseBody = new MemoryStream()) {
-                    context.Response.Body = responseBody;
-                    await _requestDelegate(context);
-                    response = await FormatResponse(context.Response);
-                    await responseBody.CopyToAsync(originalBodyStream);
-                }
-                stopWatch.Stop();
-                var model = new HttpLog {
-                    IP = ip,
-                    URL = url,
-                    Method = context.Request.Method,
-                    RequsetHeader = (from t in context.Request.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
-                    ReqestedAt = requestedAt,
-                    Request = (await FormatRequest(context.Request)).Replace("\n\t", string.Empty),
-                    ResponseHeader = (from t in context.Response.Headers select t).ToDictionary(x => x.Key, x => x.Value.ToArray()),
-                    ResponsedAt = DateTime.Now,
-                    Response = response,
-                    Duration = stopWatch.ElapsedMilliseconds
-                };
                 await _httpLogService.InsertAsync(model, 5000);
-                //}
-                //catch (Exception ex) {
-                //    await _exceptionService.InsertAsync(ex, url, ip);
-                //}
             }
             if (AppSettings.FileLogging) {
+                Log.Debug(JsonConvert.SerializeObject(model));
+            }
+            if(AppSettings.SqlLogging) {
 
             }
+            //}
+            //catch (Exception ex) {
+            //    await _exceptionService.InsertAsync(ex, url, ip);
+            //}
             await _requestDelegate(context);
         }
     }

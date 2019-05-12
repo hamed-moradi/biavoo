@@ -259,6 +259,7 @@ namespace presentation.webApi.controllers {
         public async Task<IActionResult> SetAvatar([FromBody]User_SetAvatar_BindingModel collection) {
             ValidateHeader(collection);
             try {
+                var fileName = string.Empty;
                 var model = _mapper.Map<GetById_Schema>(collection);
                 var user = await _userService.GetAsync(model);
                 switch(model.StatusCode) {
@@ -272,27 +273,39 @@ namespace presentation.webApi.controllers {
                 using(var memoryStream = new MemoryStream()) {
                     await collection.Avatar.CopyToAsync(memoryStream);
                     if(memoryStream.ToArray().Length == 0) {
-                        return BadRequest("فایل فاقد محتوی می باشد");
+                        return BadRequest(_stringLocalizer["FileHasNoContent"]);
                     }
                     if(memoryStream.ToArray().Length > int.Parse(AppSettings.AvatarSize) * 1024) {
-                        return BadRequest("حجم تصویر شما بیشتر از میزان مجاز است");
+                        return BadRequest(_stringLocalizer["FileSizeIsTooMuch"]);
                     }
                     var image = new Bitmap(memoryStream);
                     if(!ImageFormats.Contains(image.RawFormat)) {
-                        return BadRequest("نوع تصویر شما از انواع مجاز نمی باشد");
+                        return BadRequest(_stringLocalizer["WrongFileType"]);
                     }
                     var avatarResolution = AppSettings.AvatarResolution.Split('x');
                     if(image.Width * image.Height > int.Parse(avatarResolution[0]) * int.Parse(avatarResolution[1])) {
-                        return BadRequest("اندازه تصویر شما بزرگتر از میزان مجاز است");
+                        return BadRequest(_stringLocalizer["FileResolutionIsTooMuch"]);
                     }
                     if(!Directory.Exists(AppSettings.FilePath))
                         Directory.CreateDirectory(AppSettings.FilePath);
-                    image.Save($@"{AppSettings.FilePath}\{user.Username}.jpeg", ImageFormat.Jpeg);
+                    if(string.IsNullOrWhiteSpace(user.Avatar)) {
+                        fileName = $"{user.Username}_001";
+                    }
+                    else {
+                        var avatarArray = user.Username.Split('_');
+                        var avatarNo = int.Parse(avatarArray[1]);
+                        fileName = (++avatarNo).ToString();
+                        for(var index = 0; index < (3 - avatarNo.ToString().Length); index++) {
+                            fileName = "0" + fileName;
+                        }
+                        fileName = $"{user.Username}_{fileName}";
+                    }
+                    image.Save($@"{AppSettings.FilePath}\{fileName}.jpeg", ImageFormat.Jpeg);
                 }
-                var editModel = new User_Update_Schema { Token = collection.Token, DeviceId = collection.DeviceId, Avatar = $"{user.Username}.jpeg" };
+                var editModel = new User_Update_Schema { Token = collection.Token, DeviceId = collection.DeviceId, Avatar = $"{fileName}.jpeg" };
                 await _userService.UpdateAsync(editModel);
                 switch(model.StatusCode) {
-                    case 1:
+                    case 200:
                         return Ok();
                 }
             }

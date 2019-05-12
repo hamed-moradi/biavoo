@@ -23,6 +23,7 @@ namespace domain.application {
         Task UpdateAsync(User_Update_Schema model);
     }
     public interface ICustomer_Service {
+        Task<User_SignUp_Model> SignUpAsync(Customer_SignUp_Schema model);
         Task<Customer_GetById_Model> GetByIdAsync(GetById_Schema model);
     }
     public interface ISendMessageQueue_Service {

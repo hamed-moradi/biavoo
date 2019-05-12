@@ -11,7 +11,8 @@ GO
 CREATE PROCEDURE [dbo].[api_user_update]
 	@Token char(32),
 	@DeviceId varchar(128),
-	@Avatar NVARCHAR(512)
+	@Avatar NVARCHAR(512),
+	@Nickname NVARCHAR(64)
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @userStatus TINYINT = NULL;
@@ -26,6 +27,6 @@ BEGIN
 	IF(@userStatus <> 100)
 		RETURN 410; -- User is not active
 
-	UPDATE dbo.[user] SET [Avatar] = @Avatar WHERE Id = @userId;
+	UPDATE dbo.[user] SET [Nickname] = @Nickname, [Avatar] = @Avatar WHERE Id = @userId;
 	RETURN 200; -- Done!
 END;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -25,9 +26,11 @@ namespace presentation.webApi.controllers {
         protected string IP { get { return HttpContext.Connection.RemoteIpAddress.ToString(); } }
         protected string URL { get { return $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}{HttpContext.Request.Path}{HttpContext.Request.QueryString}"; } }
         protected IList<ImageFormat> ImageFormats { get { return new List<ImageFormat> { ImageFormat.Gif, ImageFormat.Jpeg, ImageFormat.Tiff, ImageFormat.Png }; } }
+        protected CultureInfo[] Languages { get { return CultureInfo.GetCultures(CultureTypes.AllCultures); } }
+        protected IReadOnlyCollection<TimeZoneInfo> TimeZones { get { return TimeZoneInfo.GetSystemTimeZones(); } }
         //protected string[] ImageExtensions { get { return new string[] { ".jpg", ".jpeg", ".png", ".tif", ".bmp", ".gif" }; } }
-        protected readonly string[] Languages = new string[] { "en", "en-US", "fa" };
-        protected readonly string[] TimeZones = new string[] { "+3.5 UTC" };
+        //protected readonly string[] Languages = new string[] { "en", "en-US", "fa" };
+        //protected readonly IReadOnlyCollection<TimeZoneInfo> TimeZones = TimeZoneInfo.GetSystemTimeZones();
 
         public BaseController() {
             _mapper = ServiceLocator.Current.GetInstance<IMapper>();
@@ -37,10 +40,12 @@ namespace presentation.webApi.controllers {
         #endregion
 
         public void ValidateHeader<T>(T model) where T : FullHeader_BindingModel {
-            if(!Languages.Contains(model.Language)) {
+            if(!Languages.Contains(CultureInfo.GetCultureInfoByIetfLanguageTag(model.Language))) {
+                model.Language = new CultureInfo("en-US").IetfLanguageTag;
                 //BadRequest(_stringLocalizer[SharedResource.UnsupportedLanguage]);
             }
-            if(!TimeZones.Contains(model.TimeZone)) {
+            if(!TimeZones.Contains(TimeZoneInfo.FromSerializedString(model.TimeZone))) {
+                model.TimeZone = TimeZoneInfo.Utc.ToSerializedString();
                 //BadRequest(_stringLocalizer[SharedResource.UnsupportedTimeZone]);
             }
             if(!string.IsNullOrWhiteSpace(model.Token)) {

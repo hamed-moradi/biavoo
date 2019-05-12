@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace shared.model.bindingModels {
     public interface IBase_BindingModel { }
     public class Header_BindingModel: IBase_BindingModel {
-        public string TimeZone { get; set; } = "UTC-00:00";
+        public string TimeZone { get; set; } = "UTC";
         public string Language { get; set; } = "en-US";
     }
     public class FullHeader_BindingModel: Header_BindingModel {

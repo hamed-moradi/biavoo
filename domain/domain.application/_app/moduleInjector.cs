@@ -11,7 +11,7 @@ namespace domain.application._app {
             services.AddTransient<IHttpLog_Service, HttpLogService>();
             services.AddTransient<IException_Service, ExceptionService>();
             services.AddTransient<IUser_Service, UserService>();
-            services.AddTransient<ICustomer_Service, CustomerService>();
+            services.AddTransient<ICustomer_Service, Customer_Service>();
         }
     }
 }

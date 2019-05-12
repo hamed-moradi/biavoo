@@ -115,7 +115,7 @@ namespace domain.repository.schemas {
     [Schema("[dbo].[api_user_update]")]
     public class User_Update_Schema: Header_Schema {
         [InputParameter]
-        public string @NickName { get; set; }
+        public string Nickname { get; set; }
         [InputParameter]
         public string @Avatar { get; set; }
 

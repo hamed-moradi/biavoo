@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 namespace domain.application.services {
     public class ExceptionService: IException_Service {
         #region Constructor
-        private readonly IStoreProcedure<IBase_Model, ExceptionInsertSchema> _matchPredict;
-        public ExceptionService(IStoreProcedure<IBase_Model, ExceptionInsertSchema> matchPredict) {
+        private readonly IStoreProcedure<IBase_Model, Exception_Insert_Schema> _matchPredict;
+        public ExceptionService(IStoreProcedure<IBase_Model, Exception_Insert_Schema> matchPredict) {
             _matchPredict = matchPredict;
         }
         #endregion
 
         public async Task InsertAsync(Exception model, string url, string ip) {
-            var schema = new ExceptionInsertSchema {
+            var schema = new Exception_Insert_Schema {
                 URL = url,
                 Data = JsonConvert.SerializeObject(model.Data.Keys),
                 IP = ip,

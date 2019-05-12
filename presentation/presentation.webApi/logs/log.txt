@@ -2218,3 +2218,283 @@ System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure
 ClientConnectionId:c271ca85-97f7-4a78-a301-81a3637afaeb
 Error Number:2812,State:62,Class:16
 2019-05-01 16:16:39.197 +04:30 [INF] Request finished in 84605.1571ms 500 text/html; charset=utf-8
+2019-05-12 09:11:46.282 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-12 09:11:48.076 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-05-12 09:11:48.085 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-05-12 09:11:48.249 +04:30 [INF] Request finished in 175.5493ms 200 
+2019-05-12 09:11:49.328 +04:30 [INF] Request finished in 1254.2526ms 200 text/html
+2019-05-12 09:11:51.481 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-05-12 09:11:51.753 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/favicon-32x32.png  
+2019-05-12 09:11:51.891 +04:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-05-12 09:11:51.891 +04:30 [INF] Request finished in 138.3087ms 200 image/png
+2019-05-12 09:11:51.929 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/favicon-16x16.png  
+2019-05-12 09:11:51.930 +04:30 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2019-05-12 09:11:51.930 +04:30 [INF] Request finished in 0.5781ms 200 image/png
+2019-05-12 09:11:52.424 +04:30 [INF] Request finished in 942.8868ms 200 application/json;charset=utf-8
+2019-05-12 09:12:13.608 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1  
+2019-05-12 09:12:13.672 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-05-12 09:12:13.861 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 09:13:30.094 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 76230.0558ms
+2019-05-12 09:13:30.101 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'shared.utility.infrastructure.IParameterHandler`1[domain.repository.schemas.ExceptionInsertSchema]' while attempting to activate 'domain.application._app.StoreProcedure`2[shared.utility.IBase_Model,domain.repository.schemas.ExceptionInsertSchema]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at shared.utility._app.ServiceLocatorAdapter.GetInstance[T]() in D:\Git\biavoo\shared\shared.utility\_app\serviceLocator.cs:line 16
+   at presentation.webApi.controllers.BaseController..ctor() in D:\Git\biavoo\presentation\presentation.webApi\controllers\base-controller.cs:line 34
+   at presentation.webApi.controllers.UserController..ctor(IUser_Service userService, IRandomGenerator randomGenerator, IEmailService emailService, ISMSService smsService) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 28
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-12 09:13:30.625 +04:30 [INF] Request finished in 77016.5779ms 500 text/html; charset=utf-8
+2019-05-12 09:18:37.435 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-12 09:18:38.101 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-05-12 09:18:38.101 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-05-12 09:18:38.128 +04:30 [INF] Request finished in 29.6293ms 200 
+2019-05-12 09:18:38.389 +04:30 [INF] Request finished in 290.8814ms 200 text/html
+2019-05-12 09:18:39.030 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-05-12 09:18:39.292 +04:30 [INF] Request finished in 262.4936ms 200 application/json;charset=utf-8
+2019-05-12 09:18:46.193 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1  
+2019-05-12 09:18:46.228 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-05-12 09:18:46.305 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 09:19:08.364 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 22054.5325ms
+2019-05-12 09:19:08.372 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'shared.utility.infrastructure.IParameterHandler`1[domain.repository.schemas.ExceptionInsertSchema]' while attempting to activate 'domain.application._app.StoreProcedure`2[shared.utility.IBase_Model,domain.repository.schemas.ExceptionInsertSchema]'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateOpenGeneric(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at shared.utility._app.ServiceLocatorAdapter.GetInstance[T]() in D:\Git\biavoo\shared\shared.utility\_app\serviceLocator.cs:line 16
+   at presentation.webApi.controllers.BaseController..ctor() in D:\Git\biavoo\presentation\presentation.webApi\controllers\base-controller.cs:line 34
+   at presentation.webApi.controllers.UserController..ctor(IUser_Service userService, IRandomGenerator randomGenerator, IEmailService emailService, ISMSService smsService) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 28
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-12 09:19:08.448 +04:30 [INF] Request finished in 22255.3316ms 500 text/html; charset=utf-8
+2019-05-12 12:39:48.304 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-12 12:39:50.068 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-05-12 12:39:50.068 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-05-12 12:39:50.162 +04:30 [INF] Request finished in 95.8423ms 200 
+2019-05-12 12:39:50.865 +04:30 [INF] Request finished in 799.0862ms 200 text/html
+2019-05-12 12:39:51.722 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-05-12 12:39:53.305 +04:30 [INF] Request finished in 1582.6554ms 200 application/json;charset=utf-8
+2019-05-12 12:40:10.582 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1&TimeZone=1&Language=1  
+2019-05-12 12:40:10.676 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-05-12 12:40:10.869 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 12:40:10.957 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["shared.model.bindingModels.GetById_BindingModel"]) - Validation state: "Valid"
+2019-05-12 12:41:57.056 +04:30 [ERR] MoveNext
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at shared.utility._app.Extensions.GetSchemaName(IBase_Schema baseSchema) in D:\Git\biavoo\shared\shared.utility\_app\extensions.cs:line 187
+   at domain.application.services.UserService.GetAsync(GetById_Schema model) in D:\Git\biavoo\domain\domain.application\services\user-service.cs:line 72
+   at presentation.webApi.controllers.UserController.Get(GetById_BindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 182
+2019-05-12 12:41:57.421 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 106549.871ms
+2019-05-12 12:41:57.428 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.Reflection.TargetException: Object does not match target type.
+   at System.Reflection.RuntimeMethodInfo.CheckConsistency(Object target)
+   at System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at shared.utility.infrastructure.ParameterHandler`1.MakeParameters() in D:\Git\biavoo\shared\shared.utility\infrastructure\parameterHandler.cs:line 173
+   at domain.application._app.StoreProcedure`2.ExecuteReturnLessAsync(Schema model) in D:\Git\biavoo\domain\domain.application\_app\storeProcedure.cs:line 78
+   at domain.application.services.ExceptionService.InsertAsync(Exception model, String url, String ip) in D:\Git\biavoo\domain\domain.application\services\exception-service.cs:line 30
+   at presentation.webApi.controllers.UserController.Get(GetById_BindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 196
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-12 12:41:57.591 +04:30 [INF] Request finished in 107008.8052ms 500 text/html; charset=utf-8
+2019-05-12 12:52:56.941 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-12 12:52:57.474 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-05-12 12:52:57.474 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-05-12 12:52:57.510 +04:30 [INF] Request finished in 37.5522ms 200 
+2019-05-12 12:52:57.756 +04:30 [INF] Request finished in 284.4477ms 200 text/html
+2019-05-12 12:52:59.215 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-05-12 12:52:59.442 +04:30 [INF] Request finished in 226.7393ms 200 application/json;charset=utf-8
+2019-05-12 12:53:14.692 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1  
+2019-05-12 12:53:14.728 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-05-12 12:53:14.815 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 12:53:14.855 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["shared.model.bindingModels.GetById_BindingModel"]) - Validation state: "Valid"
+2019-05-12 13:21:34.929 +04:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-05-12 13:21:35.483 +04:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:44338/  0
+2019-05-12 13:21:35.483 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/index.html  
+2019-05-12 13:21:35.516 +04:30 [INF] Request finished in 34.4327ms 200 
+2019-05-12 13:21:35.783 +04:30 [INF] Request finished in 302.7664ms 200 text/html
+2019-05-12 13:21:36.554 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/swagger/1.0.0.0/swagger.json  
+2019-05-12 13:21:36.845 +04:30 [INF] Request finished in 291.177ms 200 application/json;charset=utf-8
+2019-05-12 13:21:46.682 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1  
+2019-05-12 13:21:46.712 +04:30 [WRN] Failed to determine the https port for redirect.
+2019-05-12 13:21:46.805 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 13:21:46.845 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["shared.model.bindingModels.GetById_BindingModel"]) - Validation state: "Valid"
+2019-05-12 13:25:16.240 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 209432.2337ms
+2019-05-12 13:25:16.243 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.Runtime.Serialization.SerializationException: An error occurred while deserializing the object.  The serialized data is corrupt.
+   at System.TimeZoneInfo.StringSerializer.GetNextStringValue()
+   at System.TimeZoneInfo.StringSerializer.GetDeserializedTimeZoneInfo(String source)
+   at presentation.webApi.controllers.BaseController.ValidateHeader[T](T model) in D:\Git\biavoo\presentation\presentation.webApi\controllers\base-controller.cs:line 47
+   at presentation.webApi.controllers.UserController.Get(GetById_BindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 178
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-12 13:25:16.324 +04:30 [INF] Request finished in 209641.6113ms 500 text/html; charset=utf-8
+2019-05-12 13:27:28.774 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1  
+2019-05-12 13:27:28.775 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 13:27:28.780 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["shared.model.bindingModels.GetById_BindingModel"]) - Validation state: "Valid"
+2019-05-12 13:34:42.772 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 433997.3461ms
+2019-05-12 13:34:42.774 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.Runtime.Serialization.SerializationException: An error occurred while deserializing the object.  The serialized data is corrupt.
+   at System.TimeZoneInfo.StringSerializer.GetNextStringValue()
+   at System.TimeZoneInfo.StringSerializer.GetDeserializedTimeZoneInfo(String source)
+   at presentation.webApi.controllers.BaseController.ValidateHeader[T](T model) in D:\Git\biavoo\presentation\presentation.webApi\controllers\base-controller.cs:line 47
+   at presentation.webApi.controllers.UserController.Get(GetById_BindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 178
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-12 13:34:42.793 +04:30 [INF] Request finished in 434019.3221ms 500 text/html; charset=utf-8
+2019-05-12 13:50:04.805 +04:30 [INF] Request starting HTTP/1.1 GET http://localhost:44338/User/get?Id=1&Token=1&DeviceId=1  
+2019-05-12 13:50:04.807 +04:30 [INF] Route matched with {action = "Get", controller = "User"}. Executing action presentation.webApi.controllers.UserController.Get (presentation.webApi)
+2019-05-12 13:50:04.807 +04:30 [INF] Executing action method presentation.webApi.controllers.UserController.Get (presentation.webApi) with arguments (["shared.model.bindingModels.GetById_BindingModel"]) - Validation state: "Valid"
+2019-05-12 13:59:08.577 +04:30 [INF] Executed action presentation.webApi.controllers.UserController.Get (presentation.webApi) in 543769.9379ms
+2019-05-12 13:59:08.579 +04:30 [ERR] An unhandled exception has occurred while executing the request.
+System.Runtime.Serialization.SerializationException: An error occurred while deserializing the object.  The serialized data is corrupt.
+   at System.TimeZoneInfo.StringSerializer.GetNextStringValue()
+   at System.TimeZoneInfo.StringSerializer.GetDeserializedTimeZoneInfo(String source)
+   at presentation.webApi.controllers.BaseController.ValidateHeader[T](T model) in D:\Git\biavoo\presentation\presentation.webApi\controllers\base-controller.cs:line 47
+   at presentation.webApi.controllers.UserController.Get(GetById_BindingModel collection) in D:\Git\biavoo\presentation\presentation.webApi\controllers\user-controller.cs:line 178
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-12 13:59:08.609 +04:30 [INF] Request finished in 543804.463ms 500 text/html; charset=utf-8

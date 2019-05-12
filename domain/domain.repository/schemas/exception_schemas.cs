@@ -5,7 +5,7 @@ using System.Text;
 
 namespace domain.repository.schemas {
     [Schema("[dbo].[api_exception_insert]")]
-    public class ExceptionInsertSchema: IBase_Schema {
+    public class Exception_Insert_Schema: IBase_Schema {
         [InputParameter]
         public string @URL { get; set; }
         [InputParameter]

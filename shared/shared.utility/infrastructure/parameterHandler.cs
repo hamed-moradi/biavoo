@@ -7,17 +7,17 @@ using System.Linq;
 
 namespace shared.utility.infrastructure {
     public interface IParameterHandler {
-        DynamicParameters MakeParameters<T>(T schema);
-        void SetOutputValues<T>(T model, DynamicParameters parameters);
-        void SetReturnValue<T>(T model, DynamicParameters parameters);
+        DynamicParameters MakeParameters<T>(T schema) where T : IBase_Schema;
+        void SetOutputValues<T>(T model, DynamicParameters parameters) where T : IBase_Schema;
+        void SetReturnValue<T>(T model, DynamicParameters parameters) where T : IBase_Schema;
     }
-    public interface IParameterHandler<T> {
+    public interface IParameterHandler<T> where T : IBase_Schema {
         DynamicParameters MakeParameters();
         void SetOutputValues(DynamicParameters parameters);
         void SetReturnValue(DynamicParameters parameters);
     }
     public class ParameterHandler: IParameterHandler {
-        public DynamicParameters MakeParameters<T>(T schema) {
+        public DynamicParameters MakeParameters<T>(T schema) where T : IBase_Schema {
             var parameters = new DynamicParameters();
             // Input parameters (Include IEnumerable as Table type value)
             var inputProperties = schema.GetType().GetProperties().Where(attr => Attribute.IsDefined(attr, typeof(InputParameter)));
@@ -71,7 +71,7 @@ namespace shared.utility.infrastructure {
             }
             return parameters;
         }
-        public void SetOutputValues<T>(T model, DynamicParameters parameters) {
+        public void SetOutputValues<T>(T model, DynamicParameters parameters) where T : IBase_Schema {
             var outputProperties = model.GetType().GetProperties().Where(item => Attribute.IsDefined(item, typeof(OutputParameter)));
             foreach(var propertyInfo in outputProperties) {
                 var key = propertyInfo.Name;
@@ -150,14 +150,14 @@ namespace shared.utility.infrastructure {
                     propertyInfo.SetValue(model, parameters.Get<DateTimeOffset?>(key));
             }
         }
-        public void SetReturnValue<T>(T model, DynamicParameters parameters) {
+        public void SetReturnValue<T>(T model, DynamicParameters parameters) where T : IBase_Schema {
             var returnProperty = model.GetType().GetProperties().FirstOrDefault(item => Attribute.IsDefined(item, typeof(ReturnParameter)));
             if(returnProperty != null) {
                 returnProperty.SetValue(model, parameters.Get<int>(returnProperty.Name));
             }
         }
     }
-    public class ParameterHandler<T>: IParameterHandler<T> {
+    public class ParameterHandler<T>: IParameterHandler<T> where T : IBase_Schema {
         #region Constructor
         private readonly Type _type;
         public ParameterHandler() {

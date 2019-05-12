@@ -23,4 +23,6 @@ namespace domain.office {
     public interface IUserContainer: IGenericContainer<User> {
         Task<User> Get(int id);
     }
+    public interface IProductContainer: IGenericContainer<Product> { }
+    public interface IBusinessContainer: IGenericContainer<Business> { }
 }

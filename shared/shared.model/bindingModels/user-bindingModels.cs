@@ -39,7 +39,13 @@ namespace shared.model.bindingModels {
         public string Password { get; set; }
         public string VerificationCode { get; set; }
     }
-    public class User_SetAvatar_BindingModel: FullHeader_BindingModel {
+    public class User_Update_BindingModel: FullHeader_BindingModel {
         public IFormFile Avatar { get; set; }
+        public string Nickname { get; set; }
+        public long? BirthDate { get; set; }
+    }
+
+    public class User_DisableMe_BindingModel: FullHeader_BindingModel {
+        public string Description { get; set; }
     }
 }

@@ -126,6 +126,7 @@ namespace shared.utility._app {
             return q.Provider.CreateQuery<T>(mce);
         }
 
+        #region Date and Time
         public static long? UnixTimestampFromDateTime(this DateTime? date) {
             if(!date.HasValue)
                 return null;
@@ -133,25 +134,37 @@ namespace shared.utility._app {
             unixTimestamp /= TimeSpan.TicksPerSecond;
             return unixTimestamp;
         }
-
         public static string PersianFromDateTime(this DateTime GregorianDate) {
             var pc = new PersianCalendar();
             return string.Format("{0}/{1}/{2} {3:00}:{4:00}", pc.GetYear(GregorianDate), pc.GetMonth(GregorianDate), pc.GetDayOfMonth(GregorianDate), pc.GetHour(GregorianDate), pc.GetMinute(GregorianDate));
         }
-
-        public static DateTime? DateTimeFromUnix(this long? unixTime) {
-            if(!unixTime.HasValue)
-                return null;
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(unixTime.Value).ToLocalTime();
-            return dtDateTime;
+        public static DateTime? ToDateTime(this long? unixTime) {
+            if(unixTime.HasValue) {
+                var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                dateTime = dateTime.AddSeconds(unixTime.Value).ToLocalTime();
+                return dateTime;
+            }
+            return null;
         }
-
-        public static DateTime DateTimeFromUnixMilisec(this long unixTime) {
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddMilliseconds(unixTime).ToLocalTime();
-            return dtDateTime;
+        public static DateTime? ToDateTime(this long? unixTime, TimeZoneInfo timeZoneInfo) {
+            if(unixTime.HasValue) {
+                var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                dateTime = dateTime.AddSeconds(unixTime.Value);
+                return TimeZoneInfo.ConvertTime(dateTime, timeZoneInfo ?? TimeZoneInfo.Utc);
+            }
+            return null;
         }
+        public static DateTime ToUnixMiliseconds(this long unixTime) {
+            var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dateTime = dateTime.AddMilliseconds(unixTime).ToLocalTime();
+            return dateTime;
+        }
+        public static DateTime ToUnixMiliseconds(this long unixTime, TimeZoneInfo timeZoneInfo) {
+            var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dateTime = dateTime.AddMilliseconds(unixTime);
+            return TimeZoneInfo.ConvertTime(dateTime, timeZoneInfo ?? TimeZoneInfo.Utc);
+        }
+        #endregion
 
         public static DataTable ToDataTable<T>(this IEnumerable<T> list) {
             var dataTable = new DataTable();
@@ -172,7 +185,6 @@ namespace shared.utility._app {
             }
             return dataTable;
         }
-
         public static DbType ToDbType(this Type type) {
             return TypeMap[type];
         }

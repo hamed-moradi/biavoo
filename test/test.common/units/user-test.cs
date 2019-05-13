@@ -45,7 +45,7 @@ namespace test.common.units {
         [TestMethod, TestCategory("User"), TestCategory("GetById")]
         public async Task GetById() {
             try {
-                var model = new GetById_Schema { Id = 1, EntityName = "[user]" };
+                var model = new Void_Schema { EntityName = "[user]" };
                 var result = await _userService.GetAsync(model);
                 Assert.IsTrue(model.StatusCode > 0);
                 Assert.IsNotNull(result);

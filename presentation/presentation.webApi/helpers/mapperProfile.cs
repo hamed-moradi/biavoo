@@ -3,6 +3,7 @@ using domain.repository.models;
 using domain.repository.schemas;
 using shared.model.bindingModels;
 using shared.model.viewModels;
+using shared.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,23 +28,31 @@ namespace presentation.webApi.helpers {
     public class MappingProfile: Profile {
         public MappingProfile() {
             // General
-            CreateMap<GetById_BindingModel, GetById_Schema>();
+            CreateMap<FullHeader_BindingModel, Void_Schema>();
 
             // Customer
+            CreateMap<Customer_Model, Customer_ViewModel>();
             CreateMap<Customer_GetById_Model, Customer_GetById_ViewModel>();
             CreateMap<Customer_GetById_BindingModel, Customer_GetPaging_Schema>();
 
             // User
             CreateMap<User_SignIn_BindingModel, User_SignIn_Schema>();
-            CreateMap<User_SignUp_Model, User_SignUp_ViewModel>();
+            CreateMap<User_Model, User_SignUp_ViewModel>();
             CreateMap<UserProperty_Model, UserProperty_ViewModel>();
             CreateMap<User_TwoFactorAuthentication_BindingModel, User_EnableTwoFactorAuthentication_Schema>();
             CreateMap<User_TwoFactorAuthentication_BindingModel, User_DisableTwoFactorAuthentication_Schema>();
             CreateMap<User_Verify_BindingModel, User_SetVerificationCode_Schema>();
             CreateMap<User_Verify_BindingModel, User_Verify_Schema>();
+            CreateMap<User_Update_BindingModel, User_Update_Schema>()
+                .ForMember(d => d.BirthDate, s => s.MapFrom(f => f.BirthDate.ToDateTime(null)));
+            CreateMap<User_DisableMe_BindingModel, User_DisableMe_Schema>();
 
             // SendMessageQueue
             CreateMap<SendMessageQueue_GetPaging_BindingModel, SendMessageQueue_GetPaging_Schema>();
+
+            // Business
+            CreateMap<Business_Get_BindingModel, Business_Get_Schema>();
+            CreateMap<Business_Model, Business_ViewModel>();
         }
     }
 }

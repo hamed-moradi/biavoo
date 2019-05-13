@@ -11,8 +11,9 @@ GO
 CREATE PROCEDURE [dbo].[api_user_update]
 	@Token char(32),
 	@DeviceId varchar(128),
-	@Avatar NVARCHAR(512),
-	@Nickname NVARCHAR(64)
+	@Avatar NVARCHAR(512) = NULL,
+	@Nickname NVARCHAR(64) = NULL,
+	@BirthDate DATETIME = NULL
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @userStatus TINYINT = NULL;
@@ -27,6 +28,18 @@ BEGIN
 	IF(@userStatus <> 100)
 		RETURN 410; -- User is not active
 
-	UPDATE dbo.[user] SET [Nickname] = @Nickname, [Avatar] = @Avatar WHERE Id = @userId;
-	RETURN 200; -- Done!
+	BEGIN TRAN userUpdate;
+	BEGIN
+		BEGIN TRY
+			UPDATE dbo.[user] SET [Nickname] = @Nickname, [Avatar] = @Avatar WHERE Id = @userId;
+			IF(@BirthDate IS NOT NULL) --  AND EXISTS(SELECT 1 FROM dbo.[customer] WITH(NOLOCK) WHERE UserId = @userId)
+				UPDATE dbo.[customer] SET BirthDate = @BirthDate WHERE UserId = @userId;
+			COMMIT TRAN userUpdate;
+			RETURN 200; -- Done!
+		END TRY
+		BEGIN CATCH
+			ROLLBACK TRAN userUpdate;
+			RETURN 500;
+		END CATCH
+	END;
 END;

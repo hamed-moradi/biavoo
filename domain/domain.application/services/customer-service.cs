@@ -16,21 +16,21 @@ namespace domain.application.services {
         #region Constructor
         private readonly IParameterHandler _parameterHandler;
         private readonly IGenericRepository<IBase_Model> _repository;
-        private readonly IStoreProcedure<Customer_GetById_Model, GetById_Schema> _customerGet;
+        private readonly IStoreProcedure<Customer_GetById_Model, Void_Schema> _customerGet;
         public Customer_Service(IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository, 
-            IStoreProcedure<Customer_GetById_Model, GetById_Schema> customerGet) {
+            IStoreProcedure<Customer_GetById_Model, Void_Schema> customerGet) {
             _repository = repository;
             _parameterHandler = parameterHandler;
             _customerGet = customerGet;
         }
         #endregion
-        public async Task<User_SignUp_Model> SignUpAsync(Customer_SignUp_Schema model) {
-            var user = new User_SignUp_Model();
+        public async Task<User_Model> SignUpAsync(User_SignUp_Schema model) {
+            var user = new User_Model();
             var parameters = _parameterHandler.MakeParameters(model);
             var result = await _repository.QueryMultipleAsync(model.GetSchemaName(), param: parameters, commandType: CommandType.StoredProcedure);
             if(!result.IsConsumed) {
-                user = await result.ReadFirstAsync<User_SignUp_Model>();
+                user = await result.ReadFirstAsync<User_Model>();
             }
             if(!result.IsConsumed) {
                 var properties = await result.ReadAsync<UserProperty_Model>();
@@ -42,7 +42,7 @@ namespace domain.application.services {
             _parameterHandler.SetReturnValue(model, parameters);
             return user;
         }
-        public async Task<Customer_GetById_Model> GetByIdAsync(GetById_Schema model) {
+        public async Task<Customer_GetById_Model> GetByIdAsync(Void_Schema model) {
             return await _customerGet.ExecuteFirstOrDefaultAsync(model);
         }
     }

@@ -27,6 +27,11 @@ namespace domain.repository.schemas {
         public string @Nickname { get; set; }
         #endregion
 
+        #region Customer
+        public string @NationalCode { get; set; }
+        public DateTime? @BirthDate { get; set; }
+        #endregion
+
         #region UserProperty
         [InputParameter]
         public string @CellPhone { get; set; }
@@ -115,9 +120,20 @@ namespace domain.repository.schemas {
     [Schema("[dbo].[api_user_update]")]
     public class User_Update_Schema: Header_Schema {
         [InputParameter]
-        public string Nickname { get; set; }
+        public string @Nickname { get; set; }
         [InputParameter]
         public string @Avatar { get; set; }
+        [InputParameter]
+        public DateTime? @BirthDate { get; set; }
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
+    }
+
+    [Schema("[dbo].[api_user_disableMe]")]
+    public class User_DisableMe_Schema: Header_Schema {
+        [InputParameter]
+        public string @Description { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

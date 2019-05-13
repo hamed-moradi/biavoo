@@ -174,10 +174,10 @@ namespace presentation.webApi.controllers {
         }
 
         [ArgumentBinding, HttpGet, Route("get")]
-        public async Task<IActionResult> Get([FromQuery]GetById_BindingModel collection) {
+        public async Task<IActionResult> Get([FromQuery]FullHeader_BindingModel collection) {
             ValidateHeader(collection);
             try {
-                var model = _mapper.Map<GetById_Schema>(collection);
+                var model = _mapper.Map<Void_Schema>(collection);
                 //model.EntityName = "[user]";
                 var result = await _userService.GetAsync(model);
                 switch(model.StatusCode) {
@@ -255,12 +255,12 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpPost, Route("setavatar")]
-        public async Task<IActionResult> SetAvatar([FromBody]User_SetAvatar_BindingModel collection) {
+        [ArgumentBinding, HttpPut, Route("put")]
+        public async Task<IActionResult> Update([FromBody]User_Update_BindingModel collection) {
             ValidateHeader(collection);
             try {
                 var fileName = string.Empty;
-                var model = _mapper.Map<GetById_Schema>(collection);
+                var model = _mapper.Map<Void_Schema>(collection);
                 var user = await _userService.GetAsync(model);
                 switch(model.StatusCode) {
                     case 400:
@@ -270,41 +270,72 @@ namespace presentation.webApi.controllers {
                     case 410:
                         return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                 }
-                using(var memoryStream = new MemoryStream()) {
-                    await collection.Avatar.CopyToAsync(memoryStream);
-                    if(memoryStream.ToArray().Length == 0) {
-                        return BadRequest(_stringLocalizer["FileHasNoContent"]);
-                    }
-                    if(memoryStream.ToArray().Length > int.Parse(AppSettings.AvatarSize) * 1024) {
-                        return BadRequest(_stringLocalizer["FileSizeIsTooMuch"]);
-                    }
-                    var image = new Bitmap(memoryStream);
-                    if(!ImageFormats.Contains(image.RawFormat)) {
-                        return BadRequest(_stringLocalizer["WrongFileType"]);
-                    }
-                    var avatarResolution = AppSettings.AvatarResolution.Split('x');
-                    if(image.Width * image.Height > int.Parse(avatarResolution[0]) * int.Parse(avatarResolution[1])) {
-                        return BadRequest(_stringLocalizer["FileResolutionIsTooMuch"]);
-                    }
-                    if(!Directory.Exists(AppSettings.FilePath))
-                        Directory.CreateDirectory(AppSettings.FilePath);
-                    if(string.IsNullOrWhiteSpace(user.Avatar)) {
-                        fileName = $"{user.Username}_001";
-                    }
-                    else {
-                        var avatarArray = user.Username.Split('_');
-                        var avatarNo = int.Parse(avatarArray[1]);
-                        fileName = (++avatarNo).ToString();
-                        for(var index = 0; index < (3 - avatarNo.ToString().Length); index++) {
-                            fileName = "0" + fileName;
+                if(collection.Avatar != null) {
+                    using(var memoryStream = new MemoryStream()) {
+                        await collection.Avatar.CopyToAsync(memoryStream);
+                        if(memoryStream.ToArray().Length == 0) {
+                            return BadRequest(_stringLocalizer["FileHasNoContent"]);
                         }
-                        fileName = $"{user.Username}_{fileName}";
+                        if(memoryStream.ToArray().Length > int.Parse(AppSettings.AvatarSize) * 1024) {
+                            return BadRequest(_stringLocalizer["FileSizeIsTooMuch"]);
+                        }
+                        var image = new Bitmap(memoryStream);
+                        if(!ImageFormats.Contains(image.RawFormat)) {
+                            return BadRequest(_stringLocalizer["WrongFileType"]);
+                        }
+                        var avatarResolution = AppSettings.AvatarResolution.Split('x');
+                        if(image.Width * image.Height > int.Parse(avatarResolution[0]) * int.Parse(avatarResolution[1])) {
+                            return BadRequest(_stringLocalizer["FileResolutionIsTooMuch"]);
+                        }
+                        if(!Directory.Exists(AppSettings.FilePath))
+                            Directory.CreateDirectory(AppSettings.FilePath);
+                        if(string.IsNullOrWhiteSpace(user.Avatar)) {
+                            fileName = $"{user.Username}_001";
+                        }
+                        else {
+                            var avatarArray = user.Username.Split('_');
+                            var avatarNo = int.Parse(avatarArray[1]);
+                            fileName = (++avatarNo).ToString();
+                            for(var index = 0; index < (3 - avatarNo.ToString().Length); index++) {
+                                fileName = "0" + fileName;
+                            }
+                            fileName = $"{user.Username}_{fileName}";
+                        }
+                        image.Save($@"{AppSettings.FilePath}\{fileName}.jpeg", ImageFormat.Jpeg);
                     }
-                    image.Save($@"{AppSettings.FilePath}\{fileName}.jpeg", ImageFormat.Jpeg);
                 }
-                var editModel = new User_Update_Schema { Token = collection.Token, DeviceId = collection.DeviceId, Avatar = $"{fileName}.jpeg" };
+                var editModel = new User_Update_Schema {
+                    Token = collection.Token,
+                    DeviceId = collection.DeviceId,
+                    Avatar = $"{fileName}.jpeg",
+                    Nickname = collection.Nickname,
+                    BirthDate = collection.BirthDate.ToDateTime(null)
+                };
                 await _userService.UpdateAsync(editModel);
                 switch(model.StatusCode) {
+                    case 200:
+                        return Ok();
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            return InternalServerError();
+        }
+
+        [ArgumentBinding, HttpPut, Route("disableme")]
+        public async Task<IActionResult> DisableMe([FromBody]User_DisableMe_BindingModel collection) {
+            ValidateHeader(collection);
+            try {
+                var model = _mapper.Map<User_DisableMe_Schema>(collection);
+                await _userService.DisableMeAsync(model);
+                switch(model.StatusCode) {
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                     case 200:
                         return Ok();
                 }

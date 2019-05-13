@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace shared.model.viewModels {
+    public class Customer_ViewModel: IBaseViewModel {
+        public string NationalCode { get; set; }
+        public string BirthDate { get; set; }
+    }
     public class Customer_GetById_ViewModel: IBaseViewModel {
         public string Username { get; set; }
         public string Name { get; set; }

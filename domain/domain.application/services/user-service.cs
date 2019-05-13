@@ -19,16 +19,18 @@ namespace domain.application.services {
         private readonly IStoreProcedure<IBase_Model, User_Verify_Schema> _verify;
         private readonly IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> _enableTwoFactorAuthentication;
         private readonly IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> _disableTwoFactorAuthentication;
-        private readonly IStoreProcedure<User_SignUp_Model, User_SignIn_Schema> _signIn;
+        private readonly IStoreProcedure<User_Model, User_SignIn_Schema> _signIn;
         private readonly IStoreProcedure<IBase_Model, User_Update_Schema> _updateProfile;
+        private readonly IStoreProcedure<IBase_Model, User_DisableMe_Schema> _disableMe;
         public UserService(IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository,
             IStoreProcedure<IBase_Model, User_SetVerificationCode_Schema> setVerificationCode,
             IStoreProcedure<IBase_Model, User_Verify_Schema> verify,
             IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> enableTwoFactorAuthentication,
             IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> disableTwoFactorAuthentication,
-            IStoreProcedure<User_SignUp_Model, User_SignIn_Schema> signIn,
-            IStoreProcedure<IBase_Model, User_Update_Schema> updateProfile) {
+            IStoreProcedure<User_Model, User_SignIn_Schema> signIn,
+            IStoreProcedure<IBase_Model, User_Update_Schema> updateProfile,
+            IStoreProcedure<IBase_Model, User_DisableMe_Schema> disableMe) {
             _repository = repository;
             _parameterHandler = parameterHandler;
             _setVerificationCode = setVerificationCode;
@@ -37,18 +39,22 @@ namespace domain.application.services {
             _disableTwoFactorAuthentication = disableTwoFactorAuthentication;
             _signIn = signIn;
             _updateProfile = updateProfile;
+            _disableMe = disableMe;
         }
         #endregion
 
         public async Task SignInAsync(User_SignIn_Schema model) {
             await _signIn.ExecuteFirstOrDefaultAsync(model);
         }
-        public async Task<User_SignUp_Model> SignUpAsync(User_SignUp_Schema model) {
-            var user = new User_SignUp_Model();
+        public async Task<User_Model> SignUpAsync(User_SignUp_Schema model) {
+            var user = new User_Model();
             var parameters = _parameterHandler.MakeParameters(model);
             var result = await _repository.QueryMultipleAsync(model.GetSchemaName(), param: parameters, commandType: CommandType.StoredProcedure);
             if(!result.IsConsumed) {
-                user = await result.ReadFirstAsync<User_SignUp_Model>();
+                user = await result.ReadFirstOrDefaultAsync<User_Model>();
+            }
+            if(!result.IsConsumed) {
+                user.Customer = await result.ReadFirstOrDefaultAsync<Customer_Model>();
             }
             if(!result.IsConsumed) {
                 var properties = await result.ReadAsync<UserProperty_Model>();
@@ -66,12 +72,15 @@ namespace domain.application.services {
         public async Task VerifyAsync(User_Verify_Schema model) {
             await _verify.ExecuteReturnLessAsync(model);
         }
-        public async Task<User_SignUp_Model> GetAsync(GetById_Schema model) {
-            var user = new User_SignUp_Model();
+        public async Task<User_Model> GetAsync(Void_Schema model) {
+            var user = new User_Model();
             var parameters = _parameterHandler.MakeParameters(model);
             var result = await _repository.QueryMultipleAsync(model.GetSchemaName(), param: parameters, commandType: CommandType.StoredProcedure);
             if(!result.IsConsumed) {
-                user = await result.ReadFirstAsync<User_SignUp_Model>();
+                user = await result.ReadFirstOrDefaultAsync<User_Model>();
+            }
+            if(!result.IsConsumed) {
+                user.Customer = await result.ReadFirstOrDefaultAsync<Customer_Model>();
             }
             if(!result.IsConsumed) {
                 var properties = await result.ReadAsync<UserProperty_Model>();
@@ -91,6 +100,9 @@ namespace domain.application.services {
         }
         public async Task UpdateAsync(User_Update_Schema model) {
             await _updateProfile.ExecuteReturnLessAsync(model);
+        }
+        public async Task DisableMeAsync(User_DisableMe_Schema model) {
+            await _disableMe.ExecuteReturnLessAsync(model);
         }
     }
 }

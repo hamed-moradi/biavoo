@@ -24,7 +24,4 @@ namespace shared.model.bindingModels {
             return (int)Math.Ceiling((decimal)rowsCount / PageSize.Value);
         }
     }
-    public class GetById_BindingModel: FullHeader_BindingModel {
-        public int Id { get; set; }
-    }
 }

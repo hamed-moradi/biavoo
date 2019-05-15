@@ -33,5 +33,7 @@ namespace domain.application {
     }
     public interface IBusiness_Service {
         Task<List<Business_Model>> GetAsync(Business_Get_Schema model);
+        Task<Business_Model> NewAsync(Business_New_Schema model);
+        Task<Business_Model> EditAsync(Business_Edit_Schema model);
     }
 }

@@ -52,6 +52,8 @@ namespace presentation.webApi.helpers {
 
             // Business
             CreateMap<Business_Get_BindingModel, Business_Get_Schema>();
+            CreateMap<Business_New_BindingModel, Business_New_Schema>();
+            CreateMap<Business_Edit_BindingModel, Business_Edit_Schema>();
             CreateMap<Business_Model, Business_ViewModel>();
         }
     }

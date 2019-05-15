@@ -37,5 +37,11 @@ namespace shared.resource {
         public static string InvalidSigninAttempt { get { return nameof(InvalidSigninAttempt); } }
         public static string GoToStepTwo { get { return nameof(GoToStepTwo); } }
         #endregion
+
+        #region Business
+        public static string InvalidPoint { get { return nameof(InvalidPoint); } }
+        public static string BusinessNotFound { get { return nameof(BusinessNotFound); } }
+        public static string BusinessIsNotActive { get { return nameof(BusinessIsNotActive); } }
+        #endregion
     }
 }

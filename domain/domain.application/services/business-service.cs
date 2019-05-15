@@ -2,7 +2,6 @@
 using domain.repository.models;
 using domain.repository.schemas;
 using shared.utility;
-using shared.utility._app;
 using shared.utility.infrastructure;
 using System;
 using System.Collections.Generic;
@@ -17,17 +16,33 @@ namespace domain.application.services {
         private readonly IParameterHandler _parameterHandler;
         private readonly IGenericRepository<IBase_Model> _repository;
         private readonly IStoreProcedure<Business_Model, Business_Get_Schema> _get;
+        private readonly IStoreProcedure<Business_Model, Business_New_Schema> _new;
+        private readonly IStoreProcedure<Business_Model, Business_Edit_Schema> _edit;
         public Business_Service(IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository, 
-            IStoreProcedure<Business_Model, Business_Get_Schema> get) {
+            IStoreProcedure<Business_Model, Business_Get_Schema> get,
+            IStoreProcedure<Business_Model, Business_New_Schema> @new,
+            IStoreProcedure<Business_Model, Business_Edit_Schema> edit) {
             _repository = repository;
             _parameterHandler = parameterHandler;
             _get = get;
+            _new = @new;
+            _edit = edit;
         }
         #endregion
         public async Task<List<Business_Model>> GetAsync(Business_Get_Schema model) {
             var result = await _get.ExecuteAsync(model);
             return result.ToList();
+        }
+
+        public async Task<Business_Model> NewAsync(Business_New_Schema model) {
+            var result = await _new.ExecuteFirstOrDefaultAsync(model);
+            return result;
+        }
+
+        public async Task<Business_Model> EditAsync(Business_Edit_Schema model) {
+            var result = await _edit.ExecuteFirstOrDefaultAsync(model);
+            return result;
         }
     }
 }

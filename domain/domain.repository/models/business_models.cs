@@ -5,7 +5,7 @@ using Microsoft.SqlServer.Types;
 using shared.utility;
 
 namespace domain.repository.models {
-    public class Business_Model: IBase_Model {
+    public class Business_Model: Paging_Model {
         public int CustomerId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

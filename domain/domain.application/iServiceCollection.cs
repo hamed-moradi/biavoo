@@ -32,7 +32,8 @@ namespace domain.application {
         Task<List<SendMessageQueue_Model>> GetPagingAsync(SendMessageQueue_GetPaging_Schema model);
     }
     public interface IBusiness_Service {
-        Task<List<Business_Model>> GetAsync(Business_Get_Schema model);
+        Task<List<Business_Model>> GetByLocationAsync(Business_GetByLocation_Schema model);
+        Task<List<Business_Model>> GetPagingAsync(Business_GetPaging_Schema model);
         Task<Business_Model> NewAsync(Business_New_Schema model);
         Task<Business_Model> EditAsync(Business_Edit_Schema model);
     }

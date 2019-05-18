@@ -51,7 +51,8 @@ namespace presentation.webApi.helpers {
             CreateMap<SendMessageQueue_GetPaging_BindingModel, SendMessageQueue_GetPaging_Schema>();
 
             // Business
-            CreateMap<Business_Get_BindingModel, Business_Get_Schema>();
+            CreateMap<Business_GetByLocation_BindingModel, Business_GetByLocation_Schema>();
+            CreateMap<Business_GetPaging_BindingModel, Business_GetPaging_Schema>();
             CreateMap<Business_New_BindingModel, Business_New_Schema>();
             CreateMap<Business_Edit_BindingModel, Business_Edit_Schema>();
             CreateMap<Business_Model, Business_ViewModel>();

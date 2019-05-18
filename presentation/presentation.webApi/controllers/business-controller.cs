@@ -24,11 +24,38 @@ namespace presentation.webApi.controllers {
         }
         #endregion
         
-        [ArgumentBinding, HttpGet, Route("get")]
-        public async Task<IActionResult> Get([FromQuery]Business_Get_BindingModel collection) {
+        [ArgumentBinding, HttpGet, Route("getByLocation")]
+        public async Task<IActionResult> GetByLocation([FromQuery]Business_GetByLocation_BindingModel collection) {
             try {
-                var model = _mapper.Map<Business_Get_Schema>(collection);
-                var result = await _businessService.GetAsync(model);
+                var model = _mapper.Map<Business_GetByLocation_Schema>(collection);
+                var result = await _businessService.GetByLocationAsync(model);
+                switch(model.StatusCode) {
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
+                    case 411:
+                        return BadRequest(_stringLocalizer[SharedResource.InvalidPoint]);
+                    case 200:
+                        return Ok(data: _mapper.Map<List<Business_ViewModel>>(result));
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            finally {
+                ///Log.Information(MethodBase.GetCurrentMethod().Name);
+            }
+            return InternalServerError();
+        }
+
+        [ArgumentBinding, HttpGet, Route("getPaging")]
+        public async Task<IActionResult> GetPaging([FromQuery]Business_GetPaging_BindingModel collection) {
+            try {
+                var model = _mapper.Map<Business_GetPaging_Schema>(collection);
+                var result = await _businessService.GetPagingAsync(model);
                 switch(model.StatusCode) {
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);

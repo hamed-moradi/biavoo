@@ -2,6 +2,9 @@
 namespace shared.utility {
     public interface IBase_Collection { }
     public interface IBase_Model { }
+    public class Paging_Model: IBase_Model {
+        public long TotalCount { get; set; }
+    }
     public interface IBase_Schema { }
     public class Header_Schema: IBase_Schema {
         [InputParameter]
@@ -19,7 +22,5 @@ namespace shared.utility {
         public int? @Skip { get; set; }
         [InputParameter]
         public int? @Take { get; set; }
-        [HelperParameter]
-        public int RowsCount { get; set; }
     }
 }

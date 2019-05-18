@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace domain.repository.schemas {
 
-    [Schema("[dbo].[api_business_getByLocation]")]
-    public class Business_GetByLocation_Schema: IBase_Schema {
+    [Schema("[dbo].[api_product_get]")]
+    public class Product_Get_Schema: IBase_Schema {
         [InputParameter]
         public string @Title { get; set; }
         [InputParameter]
@@ -23,23 +23,31 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_business_get]")]
-    public class Business_GetPaging_Schema: Paging_Schema {
+    [Schema("[dbo].[api_product_getPaging]")]
+    public class Product_GetPaging_Schema: Paging_Schema {
         [InputParameter]
-        public int? @CustomerId { get; set; }
+        public string @Token { get; set; }
+        [InputParameter]
+        public string @DeviceId { get; set; }
         [InputParameter]
         public string @Title { get; set; }
         [InputParameter]
-        public string @BusinessCode { get; set; }
-        [InputParameter]
         public string @Categories { get; set; } // Comma seprated CategoryId's list
+        [InputParameter]
+        public double? @Latitude { get; set; }
+        [InputParameter]
+        public double? @Longitude { get; set; }
+        [InputParameter]
+        public bool? @MakeItValid { get; set; }
+        [InputParameter]
+        public int? @Radius { get; set; } // In meters
 
         [ReturnParameter]
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_business_new]")]
-    public class Business_New_Schema: Header_Schema {
+    [Schema("[dbo].[api_product_new]")]
+    public class Product_New_Schema: Header_Schema {
         [InputParameter]
         public string @Title { get; set; }
         [InputParameter]
@@ -47,7 +55,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @Address { get; set; }
         [InputParameter]
-        public string @BusinessCode { get; set; }
+        public string @ProductCode { get; set; }
         [InputParameter]
         public string @ThumbImage { get; set; }
         [InputParameter]
@@ -61,8 +69,8 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_business_edit]")]
-    public class Business_Edit_Schema: Header_Schema {
+    [Schema("[dbo].[api_product_edit]")]
+    public class Product_Edit_Schema: Header_Schema {
         [InputParameter]
         public int Id { get; set; }
         [InputParameter]
@@ -72,7 +80,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @Address { get; set; }
         [InputParameter]
-        public string @BusinessCode { get; set; }
+        public string @ProductCode { get; set; }
         [InputParameter]
         public string @ThumbImage { get; set; }
         [InputParameter]

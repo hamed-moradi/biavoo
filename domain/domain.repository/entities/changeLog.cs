@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("changeLog")]
+    [Table("dbo.changeLog")]
     public partial class ChangeLog: BaseEntity {
         [Key]
         public int? Id { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("category")]
+    [Table("dbo.category")]
     public partial class Category: BaseEntity {
         [Key]
         public int? Id { get; set; }

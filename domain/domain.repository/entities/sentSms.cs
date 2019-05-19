@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("sentSms")]
+    [Table("dbo.sentSms")]
     public partial class SentSms: BaseEntity {
         [Key]
         public long? Id { get; set; }

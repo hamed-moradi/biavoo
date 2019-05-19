@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
 
-    [Table("appSetting")]
+    [Table("dbo.appSetting")]
     public partial class AppSetting: BaseEntity {
         [Key]
         public int? Id { get; set; }

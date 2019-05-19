@@ -23,9 +23,12 @@ namespace presentation.webApi.controllers {
             _businessService = businessService;
         }
         #endregion
-        
+
         [ArgumentBinding, HttpGet, Route("getByLocation")]
         public async Task<IActionResult> GetByLocation([FromQuery]Business_GetByLocation_BindingModel collection) {
+            if(collection.Latitude<=0 || collection.Longitude <= 0) {
+                return BadRequest(_stringLocalizer[SharedResource.InvalidPoint]);
+            }
             try {
                 var model = _mapper.Map<Business_GetByLocation_Schema>(collection);
                 var result = await _businessService.GetByLocationAsync(model);
@@ -53,6 +56,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpGet, Route("getPaging")]
         public async Task<IActionResult> GetPaging([FromQuery]Business_GetPaging_BindingModel collection) {
+            ValidateHeader(collection);
             try {
                 var model = _mapper.Map<Business_GetPaging_Schema>(collection);
                 var result = await _businessService.GetPagingAsync(model);
@@ -66,7 +70,8 @@ namespace presentation.webApi.controllers {
                     case 411:
                         return BadRequest(_stringLocalizer[SharedResource.InvalidPoint]);
                     case 200:
-                        return Ok(data: _mapper.Map<List<Business_ViewModel>>(result));
+                        var viewModel = _mapper.Map<List<Business_ViewModel>>(result);
+                        return Ok(data: viewModel, totalPages: model.TotalPages);
                 }
             }
             catch(Exception ex) {
@@ -80,6 +85,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpGet, Route("new")]
         public async Task<IActionResult> New([FromQuery]Business_New_BindingModel collection) {
+            ValidateHeader(collection);
             try {
                 var model = _mapper.Map<Business_New_Schema>(collection);
                 var result = await _businessService.NewAsync(model);
@@ -107,6 +113,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpGet, Route("edit")]
         public async Task<IActionResult> Edit([FromQuery]Business_Edit_BindingModel collection) {
+            ValidateHeader(collection);
             try {
                 var model = _mapper.Map<Business_Edit_Schema>(collection);
                 var result = await _businessService.EditAsync(model);

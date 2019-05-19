@@ -2,25 +2,25 @@
 using System;
 
 namespace shared.utility {
-    public class Schema: Attribute {
+    public class SchemaAttribute: Attribute {
         public string Name { get; set; }
-        public Schema(string name = null) {
+        public SchemaAttribute(string name = null) {
             Name = name;
         }
     }
-    public class InputParameter: Attribute {
+    public class InputParameterAttribute: Attribute {
         public string Name { get; set; }
-        public InputParameter(string name = null) {
+        public InputParameterAttribute(string name = null) {
             Name = name;
         }
     }
-    public class OutputParameter: Attribute {
+    public class OutputParameterAttribute: Attribute {
         public string Name { get; set; }
-        public OutputParameter(string name = null) {
+        public OutputParameterAttribute(string name = null) {
             Name = name;
         }
     }
-    public class ReturnParameter: Attribute { }
+    public class ReturnParameterAttribute: Attribute { }
     public class ErrorAttribute: Attribute {
         public string Message { get; set; }
 
@@ -28,7 +28,7 @@ namespace shared.utility {
             Message = message;
         }
     }
-    public class HelperParameter: Attribute { }
+    public class HelperParameterAttribute: Attribute { }
     public class SearchAttribute: Attribute {
         public SearchFieldType Type { get; }
         public SearchAttribute(SearchFieldType type = SearchFieldType.String) {

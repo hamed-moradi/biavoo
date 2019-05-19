@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("customer")]
+    [Table("dbo.customer")]
     public partial class Customer: BaseEntity {
         [ForeignKey("dbo.[admin].Id")]
         public int? AdminId { get; set; }

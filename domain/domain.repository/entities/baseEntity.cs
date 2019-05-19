@@ -14,6 +14,6 @@ namespace domain.repository.entities {
         [NotMapped]
         public int Take { get; set; } = 10;
         [NotMapped]
-        public long RowsCount { get; set; } = 0;
+        public long TotalCount { get; set; } = 0;
     }
 }

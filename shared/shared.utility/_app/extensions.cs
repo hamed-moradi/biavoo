@@ -202,7 +202,7 @@ namespace shared.utility._app {
                 // Read from schema attribute
                 var attrs = baseSchema.GetType().GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is Schema schema && !string.IsNullOrWhiteSpace(schema.Name))
+                    if(attr is SchemaAttribute schema && !string.IsNullOrWhiteSpace(schema.Name))
                         name = schema.Name;
                 }
             }

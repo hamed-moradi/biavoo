@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("business")]
+    [Table("dbo.business")]
     public partial class Business: BaseEntity {
         public int? Id { get; set; }
         public string Username { get; set; }

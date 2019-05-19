@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("session")]
+    [Table("dbo.session")]
     public partial class Session: BaseEntity {
         [Key]
         public int? Id { get; set; }

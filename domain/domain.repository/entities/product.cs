@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("product")]
+    [Table("dbo.product")]
     public partial class Product: BaseEntity {
         [Key]
         public int? Id { get; set; }

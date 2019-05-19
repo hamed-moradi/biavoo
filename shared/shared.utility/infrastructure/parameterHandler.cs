@@ -20,13 +20,13 @@ namespace shared.utility.infrastructure {
         public DynamicParameters MakeParameters<T>(T schema) where T : IBase_Schema {
             var parameters = new DynamicParameters();
             // Input parameters (Include IEnumerable as Table type value)
-            var inputProperties = schema.GetType().GetProperties().Where(attr => Attribute.IsDefined(attr, typeof(InputParameter)));
+            var inputProperties = schema.GetType().GetProperties().Where(attr => Attribute.IsDefined(attr, typeof(InputParameterAttribute)));
             foreach(var item in inputProperties) {
                 var key = item.Name;
                 var value = item.GetValue(schema, null);
                 var attrs = item.GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is InputParameter input && !string.IsNullOrWhiteSpace(input.Name))
+                    if(attr is InputParameterAttribute input && !string.IsNullOrWhiteSpace(input.Name))
                         key = input.Name;
                 }
                 if(item.PropertyType.Name.Contains("IEnumerable")) {
@@ -34,11 +34,11 @@ namespace shared.utility.infrastructure {
                     var genericTypeName = genericType.Name;
                     var genericTypeAttrs = genericType.GetCustomAttributes(true);
                     foreach(var attr in genericTypeAttrs) {
-                        if(attr is System.ComponentModel.DataAnnotations.Schema.TableAttribute table && !string.IsNullOrWhiteSpace(table.Name))
+                        if(attr is TableAttribute table && !string.IsNullOrWhiteSpace(table.Name))
                             genericTypeName = table.Name;
                     }
                     var dataTable = new DataTable(genericTypeName);
-                    foreach(var column in genericType.GetProperties())
+                    foreach(var column in genericType.GetProperties().Where(attr => !Attribute.IsDefined(attr, typeof(NotMappedAttribute))))
                         dataTable.Columns.Add(column.Name);
                     var list = (System.Collections.IEnumerable)item.GetValue(schema);
                     foreach(var row in list) {
@@ -54,30 +54,30 @@ namespace shared.utility.infrastructure {
                     parameters.Add(key, value, item.PropertyType.ToDbType(), direction: ParameterDirection.Input);
             }
             // Output parameters
-            var outputProperties = schema.GetType().GetProperties()?.Where(attr => Attribute.IsDefined(attr, typeof(OutputParameter)));
+            var outputProperties = schema.GetType().GetProperties()?.Where(attr => Attribute.IsDefined(attr, typeof(OutputParameterAttribute)));
             foreach(var item in outputProperties) {
                 var key = item.Name;
                 var attrs = item.GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is OutputParameter output && !string.IsNullOrWhiteSpace(output.Name))
+                    if(attr is OutputParameterAttribute output && !string.IsNullOrWhiteSpace(output.Name))
                         key = output.Name;
                 }
                 parameters.Add(key, dbType: item.PropertyType.ToDbType(), direction: ParameterDirection.Output);
             }
             // Return parameter
-            var returnPropery = schema.GetType().GetProperties().FirstOrDefault(attr => Attribute.IsDefined(attr, typeof(ReturnParameter)));
+            var returnPropery = schema.GetType().GetProperties().FirstOrDefault(attr => Attribute.IsDefined(attr, typeof(ReturnParameterAttribute)));
             if(returnPropery != null) {
                 parameters.Add(returnPropery.Name, dbType: returnPropery.PropertyType.ToDbType(), direction: ParameterDirection.ReturnValue);
             }
             return parameters;
         }
         public void SetOutputValues<T>(T model, DynamicParameters parameters) where T : IBase_Schema {
-            var outputProperties = model.GetType().GetProperties().Where(item => Attribute.IsDefined(item, typeof(OutputParameter)));
+            var outputProperties = model.GetType().GetProperties().Where(item => Attribute.IsDefined(item, typeof(OutputParameterAttribute)));
             foreach(var propertyInfo in outputProperties) {
                 var key = propertyInfo.Name;
                 var attrs = propertyInfo.GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is OutputParameter output && !string.IsNullOrWhiteSpace(output.Name))
+                    if(attr is OutputParameterAttribute output && !string.IsNullOrWhiteSpace(output.Name))
                         key = output.Name;
                 }
                 if(propertyInfo.PropertyType == typeof(byte))
@@ -151,7 +151,7 @@ namespace shared.utility.infrastructure {
             }
         }
         public void SetReturnValue<T>(T model, DynamicParameters parameters) where T : IBase_Schema {
-            var returnProperty = model.GetType().GetProperties().FirstOrDefault(item => Attribute.IsDefined(item, typeof(ReturnParameter)));
+            var returnProperty = model.GetType().GetProperties().FirstOrDefault(item => Attribute.IsDefined(item, typeof(ReturnParameterAttribute)));
             if(returnProperty != null) {
                 returnProperty.SetValue(model, parameters.Get<int>(returnProperty.Name));
             }
@@ -167,13 +167,13 @@ namespace shared.utility.infrastructure {
         public DynamicParameters MakeParameters() {
             var parameters = new DynamicParameters();
             // Input parameters (Include IEnumerable as Table type value)
-            var inputProperties = _type.GetProperties().Where(attr => Attribute.IsDefined(attr, typeof(InputParameter)));
+            var inputProperties = _type.GetProperties().Where(attr => Attribute.IsDefined(attr, typeof(InputParameterAttribute)));
             foreach(var item in inputProperties) {
                 var key = item.Name;
                 var value = item.GetValue(_type, null);
                 var attrs = item.GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is InputParameter input && !string.IsNullOrWhiteSpace(input.Name))
+                    if(attr is InputParameterAttribute input && !string.IsNullOrWhiteSpace(input.Name))
                         key = input.Name;
                 }
                 if(item.PropertyType.Name.Contains("IEnumerable")) {
@@ -201,30 +201,30 @@ namespace shared.utility.infrastructure {
                     parameters.Add(key, value, item.PropertyType.ToDbType(), direction: ParameterDirection.Input);
             }
             // Output parameters
-            var outputProperties = _type.GetProperties()?.Where(attr => Attribute.IsDefined(attr, typeof(OutputParameter)));
+            var outputProperties = _type.GetProperties()?.Where(attr => Attribute.IsDefined(attr, typeof(OutputParameterAttribute)));
             foreach(var item in outputProperties) {
                 var key = item.Name;
                 var attrs = item.GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is OutputParameter output && !string.IsNullOrWhiteSpace(output.Name))
+                    if(attr is OutputParameterAttribute output && !string.IsNullOrWhiteSpace(output.Name))
                         key = output.Name;
                 }
                 parameters.Add(key, dbType: item.PropertyType.ToDbType(), direction: ParameterDirection.Output);
             }
             // Return parameter
-            var returnPropery = _type.GetProperties().FirstOrDefault(attr => Attribute.IsDefined(attr, typeof(ReturnParameter)));
+            var returnPropery = _type.GetProperties().FirstOrDefault(attr => Attribute.IsDefined(attr, typeof(ReturnParameterAttribute)));
             if(returnPropery != null) {
                 parameters.Add(returnPropery.Name, dbType: returnPropery.PropertyType.ToDbType(), direction: ParameterDirection.ReturnValue);
             }
             return parameters;
         }
         public void SetOutputValues(DynamicParameters parameters) {
-            var outputProperties = _type.GetType().GetProperties().Where(item => Attribute.IsDefined(item, typeof(OutputParameter)));
+            var outputProperties = _type.GetType().GetProperties().Where(item => Attribute.IsDefined(item, typeof(OutputParameterAttribute)));
             foreach(var propertyInfo in outputProperties) {
                 var key = propertyInfo.Name;
                 var attrs = propertyInfo.GetCustomAttributes(true);
                 foreach(var attr in attrs) {
-                    if(attr is OutputParameter output && !string.IsNullOrWhiteSpace(output.Name))
+                    if(attr is OutputParameterAttribute output && !string.IsNullOrWhiteSpace(output.Name))
                         key = output.Name;
                 }
                 if(propertyInfo.PropertyType == typeof(byte))
@@ -298,7 +298,7 @@ namespace shared.utility.infrastructure {
             }
         }
         public void SetReturnValue(DynamicParameters parameters) {
-            var returnProperty = _type.GetType().GetProperties().FirstOrDefault(item => Attribute.IsDefined(item, typeof(ReturnParameter)));
+            var returnProperty = _type.GetType().GetProperties().FirstOrDefault(item => Attribute.IsDefined(item, typeof(ReturnParameterAttribute)));
             if(returnProperty != null) {
                 returnProperty.SetValue(_type, parameters.Get<int>(returnProperty.Name));
             }

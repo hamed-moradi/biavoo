@@ -48,7 +48,7 @@ namespace domain.office._app {
         }
         public async Task<List<T>> GetPaging(T model) {
             var query = GetFindQuery(model);
-            model.RowsCount = query.Count();
+            model.TotalCount = query.Count();
             query = query.Skip(model.Skip).Take(model.Take);
             return await query.ToListAsync();
         }

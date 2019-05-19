@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace shared.utility {
     public interface IBase_Collection { }
     public interface IBase_Model { }
@@ -22,5 +24,10 @@ namespace shared.utility {
         public int? @Skip { get; set; }
         [InputParameter]
         public int? @Take { get; set; }
+
+        [HelperParameter]
+        public long TotalCount { get; set; }
+        [HelperParameter]
+        public int TotalPages { get { return (int)Math.Ceiling((decimal)TotalCount / Take.Value); } }
     }
 }

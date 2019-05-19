@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.repository.entities {
-    [Table("receivedSms")]
+    [Table("dbo.receivedSms")]
     public partial class ReceivedSms: BaseEntity {
         [Key]
         public long? Id { get; set; }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("page")]
+    [Table("dbo.page")]
     public partial class Page: BaseEntity {
         [Key]
         public int? Id { get; set; }

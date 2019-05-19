@@ -16,7 +16,7 @@ namespace shared.model.bindingModels {
         public string BusinessCode { get; set; }
         public string Categories { get; set; } // Comma seprated CategoryId's list
     }
-    public class Business_New_BindingModel: Header_BindingModel {
+    public class Business_New_BindingModel: FullHeader_BindingModel {
         public string Title { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }

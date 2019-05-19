@@ -20,8 +20,5 @@ namespace shared.model.bindingModels {
         public int? PageSize { get; set; } = 10;
         public int Skip { get { return (PageIndex * PageSize).Value; } }
         public int Take { get { return PageSize.Value; } }
-        public int TotalPages(int rowsCount) {
-            return (int)Math.Ceiling((decimal)rowsCount / PageSize.Value);
-        }
     }
 }

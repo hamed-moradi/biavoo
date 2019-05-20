@@ -74,13 +74,15 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @BusinessCode { get; set; }
         [InputParameter]
-        public string @ThumbImage { get; set; }
+        public string @Thumbnail { get; set; }
         [InputParameter]
-        public double @Latitude { get; set; }
+        public double? @Latitude { get; set; }
         [InputParameter]
-        public double @Longitude { get; set; }
+        public double? @Longitude { get; set; }
         [InputParameter]
         public bool? @MakeItValid { get; set; }
+        [InputParameter]
+        public byte? Status { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

@@ -37,4 +37,10 @@ namespace domain.application {
         Task<Business_Model> NewAsync(Business_New_Schema model);
         Task<Business_Model> EditAsync(Business_Edit_Schema model);
     }
+    public interface IProduct_Service {
+        Task<Product_Model> GetAsync(Product_Get_Schema model);
+        Task<List<Product_Model>> GetPagingAsync(Product_GetPaging_Schema model);
+        Task<Product_Model> NewAsync(Product_New_Schema model);
+        Task<Product_Model> EditAsync(Product_Edit_Schema model);
+    }
 }

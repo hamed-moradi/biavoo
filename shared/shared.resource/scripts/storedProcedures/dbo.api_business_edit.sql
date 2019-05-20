@@ -16,10 +16,11 @@ CREATE PROCEDURE [dbo].[api_business_edit]
 	@Description NVARCHAR(MAX) = NULL,
 	@Address NVARCHAR(512) = NULL,
 	@BusinessCode VARCHAR(16) = NULL,
-	@ThumbImage NVARCHAR(512) = NULL,
+	@Thumbnail NVARCHAR(512) = NULL,
 	@Latitude FLOAT = NULL,
 	@Longitude FLOAT = NULL,
-	@MakeItValid BIT = 0
+	@MakeItValid BIT = 0,
+	@Status TINYINT = NULL
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @userStatus TINYINT = NULL, @point GEOGRAPHY = NULL, @businessStatus TINYINT = NULL;
@@ -51,8 +52,8 @@ BEGIN
 	END;
 	
 	UPDATE dbo.[business] SET [Title] = ISNULL(@Title, [Title]), [Description] = ISNULL(@Description, [Description]), [Address] = ISNULL(@Address, [Address]),
-		[BusinessCode] = ISNULL(@BusinessCode, [BusinessCode]), [ThumbImage] = ISNULL(@ThumbImage, [ThumbImage]), [Latitude] = ISNULL(@Latitude, [Latitude]),
-		[Longitude] = ISNULL(@Longitude, [Longitude]), [Point] = ISNULL(@point, [Point])
+		[BusinessCode] = ISNULL(@BusinessCode, [BusinessCode]), [Thumbnail] = ISNULL(@Thumbnail, [Thumbnail]), [Latitude] = ISNULL(@Latitude, [Latitude]),
+		[Longitude] = ISNULL(@Longitude, [Longitude]), [Point] = ISNULL(@point, [Point]), [Status] = ISNULL(@Status, [Status])
 	WHERE Id = @Id;
 
 	SELECT * FROM dbo.[business] WHERE Id = @businessId;

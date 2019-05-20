@@ -39,7 +39,7 @@ namespace domain.application.services {
         }
         public async Task<List<Business_Model>> GetPagingAsync(Business_GetPaging_Schema model) {
             var result = await _getPaging.ExecuteAsync(model);
-            model.TotalCount = result.Any() ? result.SingleOrDefault().TotalCount : 0;
+            model.TotalCount = result.Any() ? result.Single().TotalCount : 0;
             return result.ToList();
         }
         public async Task<Business_Model> NewAsync(Business_New_Schema model) {

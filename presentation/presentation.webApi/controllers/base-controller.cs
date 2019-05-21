@@ -39,7 +39,7 @@ namespace presentation.webApi.controllers {
         }
         #endregion
 
-        public void ValidateHeader<T>(T model) where T : FullHeader_BindingModel {
+        public void HeaderValidator<T>(T model) where T : FullHeader_BindingModel {
             if(!Languages.Contains(CultureInfo.GetCultureInfoByIetfLanguageTag(model.Language))) {
                 model.Language = new CultureInfo("en-US").IetfLanguageTag;
                 //BadRequest(_stringLocalizer[SharedResource.UnsupportedLanguage]);
@@ -59,17 +59,17 @@ namespace presentation.webApi.controllers {
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Ok(HttpStatusCode status = HttpStatusCode.OK, string message = null, object data = null, int? totalPages = null) {
             message = message ?? _stringLocalizer[SharedResource.Ok];
-            return Json(new BaseViewModel { Status = status, Message = message, Data = data, TotalPages = totalPages });
+            return Json(new Base_ViewModel { Status = status, Message = message, Data = data, TotalPages = totalPages });
         }
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult BadRequest(string message = null) {
             message = message ?? _stringLocalizer[SharedResource.BadRequest];
-            return Json(new BaseViewModel { Status = HttpStatusCode.BadRequest, Message = message });
+            return Json(new Base_ViewModel { Status = HttpStatusCode.BadRequest, Message = message });
         }
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult InternalServerError(string message = null) {
             message = message ?? _stringLocalizer[SharedResource.InternalServerError];
-            return Json(new BaseViewModel { Status = HttpStatusCode.InternalServerError, Message = message });
+            return Json(new Base_ViewModel { Status = HttpStatusCode.InternalServerError, Message = message });
         }
     }
 }

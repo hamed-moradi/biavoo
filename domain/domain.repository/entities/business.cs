@@ -1,21 +1,30 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Spatial;
 
 namespace domain.repository.entities {
-    [Table("dbo.business")]
+    [Table("dbo.[business]")]
     public partial class Business: BaseEntity {
+        [Key]
         public int? Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string Family { get; set; }
-        public string Avatar { get; set; }
-        public bool? RequiresTwoFactor { get; set; }
+        public int? CustomerId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string BusinessCode { get; set; }
+        public string Thumbnail { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
+        public Geography Point { get; set; }
         public DateTime? CreatedAt { get; set; }
+        public DateTime? ModifiedAt { get; set; }
         public byte? Status { get; set; }
     }
 
     public partial class Business {
+        [ForeignKey(nameof(CustomerId))]
+        public virtual Customer Customer { get; set; }
     }
 }

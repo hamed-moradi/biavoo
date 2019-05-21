@@ -48,11 +48,11 @@ BEGIN
 			-- Edit product images
 			IF(EXISTS(SELECT 1 FROM @Images))
 			BEGIN
-				INSERT INTO dbo.[image]([EntityId], [TypeId], [Entity], [Name], [Extension], [Path], [Description])
-				SELECT @Id, [TypeId], 'product', [Name], [Extension], [Path], [Description] FROM @Images
+				INSERT INTO dbo.[image]([EntityId], [ScaleId], [Entity], [Name], [Extension], [Path], [Description])
+				SELECT @Id, [ScaleId], 'product', [Name], [Extension], [Path], [Description] FROM @Images
 				WHERE NOT EXISTS (SELECT 1 FROM dbo.[image] WITH(NOLOCK) WHERE @Images.Id = [image].Id);
 
-				UPDATE dbo.[image] SET [TypeId] = @Images.[TypeId], [Name] = @Images.[Name], [Extension] = @Images.[Extension],
+				UPDATE dbo.[image] SET [ScaleId] = @Images.[ScaleId], [Name] = @Images.[Name], [Extension] = @Images.[Extension],
 					[Path] = @Images.[Path], [Description] = @Images.[Description]
 				FROM @Image
 				INNER JOIN dbo.[image] img WITH(NOLOCK) ON @Image.Id = img.Id;
@@ -60,13 +60,16 @@ BEGIN
 				DELETE FROM dbo.[image] WHERE NOT EXISTS(SELECT 1 FROM @Image
 					INNER JOIN dbo.[image] img WITH(NOLOCK) ON @Image.Id = img.Id);
 
-				MERGE dbo.[image] USING @Image
-				WHEN MATCHED THEN
-					UPDATE SET [TypeId] = @Images.[TypeId], [Name] = @Images.[Name], [Extension] = @Images.[Extension],
-						[Path] = @Images.[Path], [Description] = @Images.[Description]
-				WHEN NOT MATCHED BY TARGET THEN
-					INSERT INTO dbo.[image]([EntityId], [TypeId], [Entity], [Name], [Extension], [Path], [Description])
-					VALUES (@Id, @Images.[TypeId], 'product', @Images.[Name], @Images.[Extension], @Images.[Path], @Images.[Description])					
+				--MERGE dbo.[image] AS trg
+				--USING @Images AS src
+				--ON (src.Id = trg.Id)
+				--WHEN MATCHED THEN
+				--	UPDATE SET trg.[ScaleId] = src.[ScaleId], trg.[Name] = src.[Name], trg.[Extension] = src.[Extension], trg.[Path] = src.[Path], trg.[Description] = src.[Description]
+				--WHEN NOT MATCHED BY TARGET THEN
+				--	INSERT ([EntityId], [ScaleId], [Entity], [Name], [Extension], [Path], [Description])
+				--	VALUES (@Id, src.[ScaleId], 'product', src.[Name], src.[Extension], src.[Path], src.[Description])
+				--WHEN NOT MATCHED BY SOURCE THEN
+				--	DELETE;
 			END;
 
 			COMMIT TRAN productNew;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace shared.model.viewModels {
-    public class User_SignUp_ViewModel: IBaseViewModel {
+    public class User_SignUp_ViewModel: IBase_ViewModel {
         public string Name { get; set; }
         public string Family { get; set; }
         public string Fullname { get; set; }

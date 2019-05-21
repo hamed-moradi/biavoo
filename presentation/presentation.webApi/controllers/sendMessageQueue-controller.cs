@@ -4,16 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
-using AutoMapper;
 using domain.application;
 using domain.repository.schemas;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
 using presentation.webApi.filterAttributes;
 using shared.model.bindingModels;
-using shared.model.viewModels;
 using Serilog;
-using shared.resource;
 using shared.utility._app;
 using shared.utility.infrastructure;
 

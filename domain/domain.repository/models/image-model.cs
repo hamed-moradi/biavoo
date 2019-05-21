@@ -7,7 +7,7 @@ using shared.utility;
 namespace domain.repository.models {
     public class Image_Model: IBase_Model {
         public int EntityId { get; set; }
-        public int TypeId { get; set; }
+        public int ScaleId { get; set; }
         public string Entity { get; set; }
         public string Name { get; set; }
         public string Extension { get; set; }

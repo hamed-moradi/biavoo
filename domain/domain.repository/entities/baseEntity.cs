@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace domain.repository.entities {
-    public class BaseEntity {
+    public interface IBaseEntity { }
+    public class BaseEntity: IBaseEntity {
         [NotMapped]
         public string OrderBy { get; set; } = "Id";
         [NotMapped]

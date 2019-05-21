@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace shared.model.viewModels {
-    public class UserProperty_ViewModel: IBaseViewModel {
+    public class UserProperty_ViewModel: IBase_ViewModel {
         public int? Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

@@ -3,9 +3,9 @@ using System.Net;
 using System.Reflection;
 
 namespace shared.model.viewModels {
-    public interface IBaseViewModel {
+    public interface IBase_ViewModel {
     }
-    public class BaseViewModel {
+    public class Base_ViewModel: IBase_ViewModel {
         public HttpStatusCode Status { get; set; }
         public string Message { get; set; }
         public object Data { get; set; }

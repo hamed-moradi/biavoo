@@ -139,7 +139,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpPost, Route("verify")]
         public async Task<IActionResult> Verify([FromBody]User_Verify_BindingModel collection) {
-            ValidateHeader(collection);
+            HeaderValidator(collection);
             try {
                 var model = _mapper.Map<User_Verify_Schema>(collection);
                 await _userService.VerifyAsync(model);
@@ -175,7 +175,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpGet, Route("get")]
         public async Task<IActionResult> Get([FromQuery]FullHeader_BindingModel collection) {
-            ValidateHeader(collection);
+            HeaderValidator(collection);
             try {
                 var model = _mapper.Map<Void_Schema>(collection);
                 //model.EntityName = "[user]";
@@ -200,7 +200,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpPost, Route("enabletwofactorauthentication")]
         public async Task<IActionResult> EnableTwoFactorAuthentication([FromBody]User_TwoFactorAuthentication_BindingModel collection) {
-            ValidateHeader(collection);
+            HeaderValidator(collection);
             if(collection.Password.Length < 6) {
                 return BadRequest(_stringLocalizer["your password doesn't meet the legal length"]);
             }
@@ -232,7 +232,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpPost, Route("disabletwofactorauthentication")]
         public async Task<IActionResult> DisableTwoFactorAuthentication([FromBody]User_TwoFactorAuthentication_BindingModel collection) {
-            ValidateHeader(collection);
+            HeaderValidator(collection);
             try {
                 var model = _mapper.Map<User_DisableTwoFactorAuthentication_Schema>(collection);
                 await _userService.DisableTwoFactorAuthentication(model);
@@ -255,9 +255,9 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpPut, Route("put")]
-        public async Task<IActionResult> Update([FromBody]User_Update_BindingModel collection) {
-            ValidateHeader(collection);
+        [ArgumentBinding, HttpPut, Route("edit")]
+        public async Task<IActionResult> Edit([FromBody]User_Update_BindingModel collection) {
+            HeaderValidator(collection);
             try {
                 var fileName = string.Empty;
                 var model = _mapper.Map<Void_Schema>(collection);
@@ -325,7 +325,7 @@ namespace presentation.webApi.controllers {
 
         [ArgumentBinding, HttpPut, Route("disableme")]
         public async Task<IActionResult> DisableMe([FromBody]User_DisableMe_BindingModel collection) {
-            ValidateHeader(collection);
+            HeaderValidator(collection);
             try {
                 var model = _mapper.Map<User_DisableMe_Schema>(collection);
                 await _userService.DisableMeAsync(model);

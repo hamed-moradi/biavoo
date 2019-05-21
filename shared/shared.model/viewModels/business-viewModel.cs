@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace shared.model.viewModels {
-    public class Business_ViewModel: IBaseViewModel {
+    public class Business_ViewModel: IBase_ViewModel {
         public string Title { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }

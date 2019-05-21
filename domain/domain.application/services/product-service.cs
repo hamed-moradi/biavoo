@@ -16,19 +16,13 @@ namespace domain.application.services {
         #region Constructor
         private readonly IParameterHandler _parameterHandler;
         private readonly IGenericRepository<IBase_Model> _repository;
-        private readonly IStoreProcedure<Product_Model, Product_Get_Schema> _get;
         private readonly IStoreProcedure<Product_Model, Product_GetPaging_Schema> _getPaging;
-        private readonly IStoreProcedure<Product_Model, Product_Edit_Schema> _edit;
         public Product_Service(IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository, 
-            IStoreProcedure<Product_Model, Product_Get_Schema> get,
-            IStoreProcedure<Product_Model, Product_GetPaging_Schema> getPaging,
-            IStoreProcedure<Product_Model, Product_Edit_Schema> edit) {
+            IStoreProcedure<Product_Model, Product_GetPaging_Schema> getPaging) {
             _repository = repository;
             _parameterHandler = parameterHandler;
-            _get = get;
             _getPaging = getPaging;
-            _edit = edit;
         }
         #endregion
         public async Task<Product_Model> GetAsync(Product_Get_Schema model) {
@@ -71,8 +65,21 @@ namespace domain.application.services {
             return product;
         }
         public async Task<Product_Model> EditAsync(Product_Edit_Schema model) {
-            var result = await _edit.ExecuteFirstOrDefaultAsync(model);
-            return result;
+            var product = new Product_Model();
+            var parameters = _parameterHandler.MakeParameters(model);
+            var result = await _repository.QueryMultipleAsync(model.GetSchemaName(), param: parameters, commandType: CommandType.StoredProcedure);
+            if(!result.IsConsumed) {
+                product = await result.ReadFirstOrDefaultAsync<Product_Model>();
+            }
+            if(!result.IsConsumed) {
+                var images = await result.ReadAsync<Image_Model>();
+                if(images.Any()) {
+                    product.Images = images.ToList();
+                }
+            }
+            _parameterHandler.SetOutputValues(model, parameters);
+            _parameterHandler.SetReturnValue(model, parameters);
+            return product;
         }
     }
 }

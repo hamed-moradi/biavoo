@@ -43,5 +43,10 @@ namespace shared.resource {
         public static string BusinessNotFound { get { return nameof(BusinessNotFound); } }
         public static string BusinessIsNotActive { get { return nameof(BusinessIsNotActive); } }
         #endregion
+
+        #region Product
+        public static string ProductNotFound { get { return nameof(ProductNotFound); } }
+        public static string ProductIsNotActive { get { return nameof(ProductIsNotActive); } }
+        #endregion
     }
 }

@@ -6,6 +6,7 @@ using shared.model.viewModels;
 using shared.utility._app;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -56,6 +57,14 @@ namespace presentation.webApi.helpers {
             CreateMap<Business_New_BindingModel, Business_New_Schema>();
             CreateMap<Business_Edit_BindingModel, Business_Edit_Schema>();
             CreateMap<Business_Model, Business_ViewModel>();
+
+            // Image
+            CreateMap<Image_BindingModel, Image>()
+                .ForMember(d => d.Path, s => s.MapFrom(f => Path.GetDirectoryName(f.FullName)))
+                .ForMember(d => d.Name, s => s.MapFrom(f => Path.GetFileNameWithoutExtension(f.FullName)))
+                .ForMember(d => d.Extension, s => s.MapFrom(f => Path.GetExtension(f.FullName)));
+            CreateMap<Image_Model, Image_ViewModel>()
+                .ForMember(d => d.FullName, s => s.MapFrom(f => $"{f.Path}{f.Name}{f.Extension}"));
         }
     }
 }

@@ -42,7 +42,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @Thumbnail { get; set; }
         [InputParameter]
-        public IEnumerable<Image> Image { get; set; }
+        public IEnumerable<Image> Images { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }
@@ -53,21 +53,15 @@ namespace domain.repository.schemas {
         [InputParameter]
         public int Id { get; set; }
         [InputParameter]
+        public int @CategoryId { get; set; }
+        [InputParameter]
         public string @Title { get; set; }
         [InputParameter]
         public string @Description { get; set; }
         [InputParameter]
-        public string @Address { get; set; }
+        public string @Thumbnail { get; set; }
         [InputParameter]
-        public string @ProductCode { get; set; }
-        [InputParameter]
-        public string @ThumbImage { get; set; }
-        [InputParameter]
-        public double @Latitude { get; set; }
-        [InputParameter]
-        public double @Longitude { get; set; }
-        [InputParameter]
-        public bool? @MakeItValid { get; set; }
+        public IEnumerable<Image> Images { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

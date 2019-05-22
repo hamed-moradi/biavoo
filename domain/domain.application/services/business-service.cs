@@ -19,7 +19,8 @@ namespace domain.application.services {
         private readonly IStoreProcedure<Business_Model, Business_GetPaging_Schema> _getPaging;
         private readonly IStoreProcedure<Business_Model, Business_New_Schema> _new;
         private readonly IStoreProcedure<Business_Model, Business_Edit_Schema> _edit;
-        public Business_Service(IParameterHandler parameterHandler,
+        public Business_Service(
+            IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository, 
             IStoreProcedure<Business_Model, Business_GetByLocation_Schema> get,
             IStoreProcedure<Business_Model, Business_GetPaging_Schema> getPaging,

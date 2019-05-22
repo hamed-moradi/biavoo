@@ -43,4 +43,9 @@ namespace domain.application {
         Task<Product_Model> NewAsync(Product_New_Schema model);
         Task<Product_Model> EditAsync(Product_Edit_Schema model);
     }
+    public interface IComment_Service {
+        Task<List<Comment_Model>> GetPagingAsync(Comment_GetPaging_Schema model);
+        Task<Comment_Model> NewAsync(Comment_New_Schema model);
+        Task<Comment_Model> EditAsync(Comment_Edit_Schema model);
+    }
 }

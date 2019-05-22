@@ -9,13 +9,19 @@ namespace domain.repository.entities {
         [Key]
         public int? Id { get; set; }
         public int? UserId { get; set; }
+        public int? ParentId { get; set; }
         public long? EntityId { get; set; }
         public string Entity { get; set; }
-        public string Text { get; set; }
+        public string Body { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public byte Status { get; set; }
+        public DateTime? ModifiedAt { get; set; }
+        public byte? Status { get; set; }
     }
 
     public partial class Comment {
+        [ForeignKey(nameof(UserId))]
+        public virtual User User { get; set; }
+        [ForeignKey(nameof(ParentId))]
+        public virtual Comment Parent { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_business_get]")]
+    [Schema("[dbo].[api_business_getPaging]")]
     public class Business_GetPaging_Schema: Paging_Schema {
         [InputParameter]
         public int? @CustomerId { get; set; }

@@ -26,6 +26,7 @@ namespace shared.resource {
         public static string RequestForVerificationCodeFirst { get { return nameof(RequestForVerificationCodeFirst); } }
         public static string VerificationCodeHasBeenExpired { get { return nameof(VerificationCodeHasBeenExpired); } }
         public static string WrongVerificationCode { get { return nameof(WrongVerificationCode); } }
+        public static string AccessDenied { get { return nameof(AccessDenied); } }
         #endregion
 
         #region SignUp
@@ -47,6 +48,11 @@ namespace shared.resource {
         #region Product
         public static string ProductNotFound { get { return nameof(ProductNotFound); } }
         public static string ProductIsNotActive { get { return nameof(ProductIsNotActive); } }
+        #endregion
+
+        #region Comment
+        public static string CommentNotFound { get { return nameof(CommentNotFound); } }
+        public static string CommentIsNotActive { get { return nameof(CommentIsNotActive); } }
         #endregion
     }
 }

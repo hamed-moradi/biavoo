@@ -17,7 +17,8 @@ namespace domain.application.services {
         private readonly IParameterHandler _parameterHandler;
         private readonly IGenericRepository<IBase_Model> _repository;
         private readonly IStoreProcedure<Customer_GetById_Model, Void_Schema> _customerGet;
-        public Customer_Service(IParameterHandler parameterHandler,
+        public Customer_Service(
+            IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository, 
             IStoreProcedure<Customer_GetById_Model, Void_Schema> customerGet) {
             _repository = repository;

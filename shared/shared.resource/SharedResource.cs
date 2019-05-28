@@ -29,6 +29,7 @@ namespace shared.resource {
         public static string AccessDenied { get { return nameof(AccessDenied); } }
         #endregion
 
+        #region User
         #region SignUp
         public static string DefectiveCellPhone { get { return nameof(DefectiveCellPhone); } }
         public static string DefectiveEmail { get { return nameof(DefectiveEmail); } }
@@ -37,6 +38,7 @@ namespace shared.resource {
         #region SignIn
         public static string InvalidSigninAttempt { get { return nameof(InvalidSigninAttempt); } }
         public static string GoToStepTwo { get { return nameof(GoToStepTwo); } }
+        #endregion
         #endregion
 
         #region Business

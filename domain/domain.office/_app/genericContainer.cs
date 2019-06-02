@@ -10,12 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using shared.resource._app;
 
 namespace domain.office._app {
-    public interface IGenericContainer<T> where T : BaseEntity {
+    public interface IGenericContainer<T> where T : Base_Entity {
         IQueryable<T> GetFindQuery(T model);
         Task<List<T>> Find(T model, int retrieveLimit = 1000);
         Task<List<T>> GetPaging(T model);
     }
-    public class GenericContainer<T>: IGenericContainer<T> where T : BaseEntity {
+    public class GenericContainer<T>: IGenericContainer<T> where T : Base_Entity {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public GenericContainer(SqlDBContext dbContext) {

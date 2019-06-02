@@ -25,23 +25,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="sources\directives\" />
-    <Folder Include="sources\factories\" />
-    <Folder Include="sources\components\" />
-    <Folder Include="sources\services\" />
+    <None Include="angular.json" />
+    <None Include="e2e\tsconfig.e2e.json" />
+    <None Include="package-lock.json" />
+    <None Include="package.json" />
+    <None Include="src\tsconfig.app.json" />
+    <None Include="src\tsconfig.server.json" />
+    <None Include="src\tsconfig.spec.json" />
+    <None Include="src\tslint.json" />
+    <None Include="tsconfig.json" />
+    <None Include="tslint.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="sources\angular.json" />
-    <None Include="sources\e2e\tsconfig.e2e.json" />
-    <None Include="sources\package-lock.json" />
-    <None Include="sources\package.json" />
-    <None Include="sources\src\tsconfig.app.json" />
-    <None Include="sources\src\tsconfig.server.json" />
-    <None Include="sources\src\tsconfig.spec.json" />
-    <None Include="sources\src\tslint.json" />
-    <None Include="sources\tsconfig.json" />
-    <None Include="sources\tslint.json" />
+    <Folder Include="scripts\" />
+    <Folder Include="src\i18n\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

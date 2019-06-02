@@ -25,7 +25,7 @@ namespace presentation.dashboard.controllers {
         [HttpGet]
         public IActionResult Get() {
             try {
-                var result = _adminContainer.GetAll(new Admin { });
+                var result = _adminContainer.GetAll(new Admin_Entity { });
                 return View(_mapper.Map<List<AdminViewModel>>(result));
             }
             catch(Exception ex) {

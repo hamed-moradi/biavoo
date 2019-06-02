@@ -1,0 +1,33 @@
+﻿using AutoMapper;
+using AutoMapper.Configuration;
+using domain.repository.entities;
+using MD.PersianDateTime.Core;
+using presentation.dashboard.models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+
+namespace presentation.dashboard.helpers {
+    public class MapperConfig {
+        public MapperConfiguration Init() {
+            return new MapperConfiguration(config => config.AddProfile(new MappingProfile()));
+        }
+    }
+    public class MappingProfile: Profile {
+        public MappingProfile() {
+            // General
+
+            // Admin
+            CreateMap<Admin_Entity, AccountPrincipal>()
+                .ForMember(d => d.LastLoggedin, s => s.MapFrom(f => new PersianDateTime(f.LastLoggedin).ToShortDateTimeString()));
+
+            CreateMap<Admin_Entity, AdminViewModel>();
+            CreateMap<AdminViewModel, Admin_Entity>();
+
+            // User
+            CreateMap<User, UserViewModel>();
+            CreateMap<UserViewModel, User>();
+        }
+    }
+}

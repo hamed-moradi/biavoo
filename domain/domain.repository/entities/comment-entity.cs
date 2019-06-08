@@ -20,7 +20,7 @@ namespace domain.repository.entities {
 
     public partial class Comment_Entity {
         [ForeignKey(nameof(UserId))]
-        public virtual User User { get; set; }
+        public virtual User_Entity User { get; set; }
         [ForeignKey(nameof(ParentId))]
         public virtual Comment_Entity Parent { get; set; }
     }

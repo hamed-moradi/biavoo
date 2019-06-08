@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class ModuleReferenceContainer: GenericContainer<ModuleReference>, IModuleReferenceContainer {
+    public class ModuleReferenceContainer: GenericContainer<ModuleReference_Entity>, IModuleReferenceContainer {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public ModuleReferenceContainer(SqlDBContext dbContext) : base(dbContext) {
@@ -19,16 +19,16 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<ModuleReference> GetById(int id) {
+        public async Task<ModuleReference_Entity> GetById(int id) {
             return await _dbContext.ModuleReferences.SingleOrDefaultAsync(sd => sd.Id == id);
         }
 
-        public async Task<List<ModuleReference>> GetAll(ModuleReference model) {
+        public async Task<List<ModuleReference_Entity>> GetAll(ModuleReference_Entity model) {
             var result = GetPaging(model);
             return await result;
         }
 
-        public async Task<List<ModuleReference>> GetByAdminId(int adminId) {
+        public async Task<List<ModuleReference_Entity>> GetByAdminId(int adminId) {
             return await (from module in _dbContext.ModuleReferences
                           join permission in _dbContext.Role2Modules on module.Id equals permission.ModuleId
                           join role in _dbContext.Roles on permission.RoleId equals role.Id

@@ -26,8 +26,8 @@ namespace presentation.dashboard.helpers {
             CreateMap<AdminViewModel, Admin_Entity>();
 
             // User
-            CreateMap<User, UserViewModel>();
-            CreateMap<UserViewModel, User>();
+            CreateMap<User_Entity, UserViewModel>();
+            CreateMap<UserViewModel, User_Entity>();
         }
     }
 }

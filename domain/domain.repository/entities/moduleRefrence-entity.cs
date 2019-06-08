@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("dbo.module")]
-    public partial class ModuleReference: Base_Entity {
+    [Table("dbo.moduleReference")]
+    public partial class ModuleReference_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public int? ParentId { get; set; }
@@ -19,7 +19,7 @@ namespace domain.repository.entities {
         public byte? Status { get; set; }
     }
 
-    public partial class ModuleReference {
+    public partial class ModuleReference_Entity {
         [NotMapped]
         public string ParentTitle { get; set; }
     }

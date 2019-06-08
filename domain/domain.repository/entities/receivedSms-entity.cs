@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace domain.repository.entities {
     [Table("dbo.receivedSms")]
-    public partial class ReceivedSms: Base_Entity {
+    public partial class ReceivedSms_Entity: Base_Entity {
         [Key]
         public long? Id { get; set; }
         public string MSISDN { get; set; }
@@ -24,6 +24,6 @@ namespace domain.repository.entities {
         public int? CorrelatorId { get; set; }
         public Guid? TaskLogGroupId { get; set; }
     }
-    public partial class ReceivedSms {
+    public partial class ReceivedSms_Entity {
     }
 }

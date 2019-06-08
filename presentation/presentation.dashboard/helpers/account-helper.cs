@@ -43,7 +43,7 @@ namespace presentation.dashboard.helpers {
         }
 
         [ResponseCache(Duration = 10)]
-        public static List<ModuleReference> ModuleReferences() => _moduleReferenceContainer.GetByAdminId(AdminId).Result;
+        public static List<ModuleReference_Entity> ModuleReferences() => _moduleReferenceContainer.GetByAdminId(AdminId).Result;
         #endregion
 
         public static bool HasAccess(string path) {
@@ -53,7 +53,7 @@ namespace presentation.dashboard.helpers {
             return CheckAccess($"/{controller}/{action}");
         }
 
-        public static bool CheckPermission(IList<ModuleReference> modules, string controller, string action, string method, int? moduleId = null, string path = "") {
+        public static bool CheckPermission(IList<ModuleReference_Entity> modules, string controller, string action, string method, int? moduleId = null, string path = "") {
             try {
                 if(AdminId > 0) {
                     foreach(var item in modules) {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("dbo.sentSms")]
-    public partial class SentSms: Base_Entity {
+    public partial class SentSms_Entity: Base_Entity {
         [Key]
         public long? Id { get; set; }
         public string Getway { get; set; }
@@ -21,6 +21,6 @@ namespace domain.repository.entities {
         public string AutoMessageUniqueKey { get; set; }
         public string AutoMessageChannelKey { get; set; }
     }
-    public partial class SentSms {
+    public partial class SentSms_Entity {
     }
 }

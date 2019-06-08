@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("dbo.product")]
-    public partial class Product: Base_Entity {
+    [Table("dbo.[product]")]
+    public partial class Product_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public int? CategoryId { get; set; }
@@ -16,7 +16,7 @@ namespace domain.repository.entities {
         public byte Status { get; set; }
     }
 
-    public partial class Product {
+    public partial class Product_Entity {
         [ForeignKey(nameof(CategoryId))]
         public virtual Category_Entity Category { get; set; }
     }

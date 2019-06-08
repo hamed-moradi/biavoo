@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("dbo.userProperty")]
-    public partial class UserProperty: Base_Entity {
+    public partial class UserProperty_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public int? UserId { get; set; }
@@ -14,8 +14,8 @@ namespace domain.repository.entities {
         public DateTime? CreatedAt { get; set; }
     }
 
-    public partial class UserProperty {
+    public partial class UserProperty_Entity {
         [NotMapped]
-        public virtual ICollection<Customer_Entity> Customer { get; set; }
+        public virtual User_Entity User { get; set; }
     }
 }

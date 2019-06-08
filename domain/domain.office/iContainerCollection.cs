@@ -15,14 +15,14 @@ namespace domain.office {
         Task<Admin_Entity> SignIn(string username, string password);
         Task<Admin_Entity> GenerateNewPassword(int id);
     }
-    public interface IModuleReferenceContainer: IGenericContainer<ModuleReference> {
-        Task<ModuleReference> GetById(int id);
-        Task<List<ModuleReference>> GetAll(ModuleReference model);
-        Task<List<ModuleReference>> GetByAdminId(int adminId);
+    public interface IModuleReferenceContainer: IGenericContainer<ModuleReference_Entity> {
+        Task<ModuleReference_Entity> GetById(int id);
+        Task<List<ModuleReference_Entity>> GetAll(ModuleReference_Entity model);
+        Task<List<ModuleReference_Entity>> GetByAdminId(int adminId);
     }
-    public interface IUserContainer: IGenericContainer<User> {
-        Task<User> Get(int id);
+    public interface IUserContainer: IGenericContainer<User_Entity> {
+        Task<User_Entity> Get(int id);
     }
-    public interface IProductContainer: IGenericContainer<Product> { }
+    public interface IProductContainer: IGenericContainer<Product_Entity> { }
     public interface IBusinessContainer: IGenericContainer<Business_Entity> { }
 }

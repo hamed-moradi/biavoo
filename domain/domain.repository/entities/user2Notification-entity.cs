@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("dbo.user2Notification")]
-    public partial class User2Notification: Base_Entity {
+    public partial class User2Notification_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public int? UserId { get; set; }
@@ -14,7 +14,7 @@ namespace domain.repository.entities {
         public DateTime? SentAt { get; set; }
     }
 
-    public partial class User2Notification {
+    public partial class User2Notification_Entity {
         //[RelatedField(nameof(User), nameof(User.CellPhone), nameof(UserId), true)]
         //public string UserName { get; set; }
     }

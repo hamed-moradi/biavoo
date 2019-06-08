@@ -20,12 +20,11 @@ namespace Presentation.WebApi {
     public class Startup {
         #region Constructor
         private static readonly string apiVersion = Assembly.GetEntryAssembly().GetName().Version.ToString();
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
         }
         #endregion
-
-        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
             services.AddLocalization(options => options.ResourcesPath = "shared.resource.resources");

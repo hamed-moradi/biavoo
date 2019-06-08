@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("dbo.rate")]
-    public partial class Rate: Base_Entity {
+    [Table("dbo.[rate]")]
+    public partial class Rate_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public int? UserId { get; set; }
@@ -13,6 +13,6 @@ namespace domain.repository.entities {
         public byte? Score { get; set; } // 0 to 9
     }
 
-    public partial class Rate {
+    public partial class Rate_Entity {
     }
 }

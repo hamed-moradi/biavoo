@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("dbo.notification")]
-    public partial class Notification: Base_Entity {
+    public partial class Notification_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public string Body { get; set; }
@@ -14,7 +14,7 @@ namespace domain.repository.entities {
         public byte? Status { get; set; }
     }
 
-    public partial class Notification {
+    public partial class Notification_Entity {
         [NotMapped]
         public string CreatorName { get; set; }
     }

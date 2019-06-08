@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("dbo.user")]
-    public partial class User: Base_Entity {
+    [Table("dbo.[user]")]
+    public partial class User_Entity: Base_Entity {
         [Key]
         public int Id { get; set; }
         public string UserName { get; set; }
@@ -19,7 +19,7 @@ namespace domain.repository.entities {
         public byte? IdentityProvider { get; set; }
     }
 
-    public partial class User {
+    public partial class User_Entity {
         //public string FullName {
         //    get {
         //        var name = ($"{FirstName} {LastName}").Trim();

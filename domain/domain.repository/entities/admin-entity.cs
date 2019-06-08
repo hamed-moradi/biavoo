@@ -34,6 +34,6 @@ namespace domain.repository.entities {
             }
         }
         [ForeignKey(nameof(RoleId))]
-        public virtual Role Role { get; set; }
+        public virtual Role_Entity Role { get; set; }
     }
 }

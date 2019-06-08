@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("dbo.page")]
-    public partial class Page: Base_Entity {
+    [Table("dbo.[page]")]
+    public partial class Page_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public string UniqueName { get; set; }
@@ -16,6 +16,6 @@ namespace domain.repository.entities {
         public string Photo { get; set; }
     }
 
-    public partial class Page {
+    public partial class Page_Entity {
     }
 }

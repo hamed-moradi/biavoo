@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
     [Table("dbo.session")]
-    public partial class Session: Base_Entity {
+    public partial class Session_Entity: Base_Entity {
         [Key]
         public int? Id { get; set; }
         public int? UserId { get; set; }
@@ -23,8 +23,8 @@ namespace domain.repository.entities {
         public short? Status { get; set; }
     }
 
-    public partial class Session {
+    public partial class Session_Entity {
         [ForeignKey(nameof(UserId))]
-        public virtual User User { get; set; }
+        public virtual User_Entity User { get; set; }
     }
 }

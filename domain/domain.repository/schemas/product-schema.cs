@@ -42,7 +42,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @Thumbnail { get; set; }
         [InputParameter]
-        public IEnumerable<Image> Images { get; set; }
+        public IEnumerable<Image_Entity> Images { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }
@@ -61,7 +61,7 @@ namespace domain.repository.schemas {
         [InputParameter]
         public string @Thumbnail { get; set; }
         [InputParameter]
-        public IEnumerable<Image> Images { get; set; }
+        public IEnumerable<Image_Entity> Images { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

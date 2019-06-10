@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class UserContainer: GenericContainer<User_Entity>, IUserContainer {
+    public class UserContainer: Generic_Container<User_Entity>, IUserContainer {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public UserContainer(SqlDBContext dbContext) : base(dbContext) {
@@ -19,7 +19,7 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<User_Entity> Get(int id) {
+        public async Task<User_Entity> GetByIdAsync(int id) {
             return await _dbContext.Users.SingleOrDefaultAsync(sd => sd.Id == id);
         }
     }

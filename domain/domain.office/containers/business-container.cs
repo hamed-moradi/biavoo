@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class BusinessContainer: GenericContainer<Business_Entity>, IBusinessContainer {
+    public class BusinessContainer: Generic_Container<Business_Entity>, IBusinessContainer {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public BusinessContainer(SqlDBContext dbContext) : base(dbContext) {
@@ -19,17 +19,13 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<Business_Entity> GetById(int id) {
+        public async Task<Business_Entity> GetByIdAsync(int id) {
             return await _dbContext.Businesses.SingleOrDefaultAsync(sd => sd.Id == id);
         }
 
-        public async Task<List<Business_Entity>> GetAll(Business_Entity model) {
+        public async Task<List<Business_Entity>> GetAllAsync(Business_Entity model) {
             var result = await GetPaging(model);
             return result;
-        }
-
-        public bool ValidateLastChanged(string lastChanged) {
-            return true;
         }
     }
 }

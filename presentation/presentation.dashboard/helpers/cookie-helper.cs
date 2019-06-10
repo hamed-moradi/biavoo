@@ -1,9 +1,6 @@
 ﻿using domain.office;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using shared.utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +32,7 @@ namespace presentation.dashboard.helpers {
                                where c.Type == "LastChanged"
                                select c.Value).FirstOrDefault();
 
-            if(string.IsNullOrEmpty(lastChanged) || !_adminRepository.ValidateLastChanged(lastChanged)) {
+            if(string.IsNullOrEmpty(lastChanged) || !_adminRepository.ValidateLastChangedAsync(lastChanged)) {
                 context.RejectPrincipal();
                 await context.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             }

@@ -4,17 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
-using AutoMapper;
 using domain.office;
-using MD.PersianDateTime.Core;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
 using presentation.dashboard.helpers;
-using presentation.dashboard.models;
 using Serilog;
+using shared.model.dashboard_models;
 using shared.resource;
 
 namespace presentation.dashboard.controllers {
@@ -43,10 +40,10 @@ namespace presentation.dashboard.controllers {
             return View();
         }
         [HttpPost, AllowAnonymous, ValidateAntiForgeryToken]
-        public async Task<IActionResult> SignIn(SigninBindingModel collection, string returnUrl = null) {
+        public async Task<IActionResult> SignIn(Signin_DashboardModel collection, string returnUrl = null) {
             ViewData["ReturnUrl"] = returnUrl;
             if(ModelState.IsValid) {
-                var admin = await _adminContainer.SignIn(collection.Username, collection.Password);
+                var admin = await _adminContainer.SignInAsync(collection.Username, collection.Password);
                 if(admin != null) {
                     if(admin.Status != 1) {
                     Log.Information($"The lockout '{admin.FullName} (Id: {admin.Id})' tried to sign in.");

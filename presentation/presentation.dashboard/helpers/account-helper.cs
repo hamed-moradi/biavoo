@@ -43,7 +43,7 @@ namespace presentation.dashboard.helpers {
         }
 
         [ResponseCache(Duration = 10)]
-        public static List<ModuleReference_Entity> ModuleReferences() => _moduleReferenceContainer.GetByAdminId(AdminId).Result;
+        public static List<ModuleReference_Entity> ModuleReferences() => _moduleReferenceContainer.GetByAdminIdAsync(AdminId).Result;
         #endregion
 
         public static bool HasAccess(string path) {

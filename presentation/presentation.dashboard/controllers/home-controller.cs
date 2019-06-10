@@ -4,10 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
-using AutoMapper;
 using domain.office;
 using Microsoft.AspNetCore.Mvc;
-using presentation.dashboard.models;
 using Serilog;
 
 namespace presentation.dashboard.controllers {

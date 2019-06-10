@@ -10,19 +10,19 @@ using Serilog;
 using shared.model.dashboard_models;
 
 namespace presentation.dashboard.controllers {
-    public class UserController: BaseController {
+    public class BusinessController: BaseController {
         #region Constructor
-        private readonly IUserContainer _userContainer;
-        public UserController(IUserContainer userContainer) {
-            _userContainer = userContainer;
+        private readonly IBusinessContainer _businessContainer;
+        public BusinessController(IBusinessContainer businessContainer) {
+            _businessContainer = businessContainer;
         }
         #endregion
 
         [HttpGet, Route("{id}")]
         public async Task<IActionResult> Get([FromQuery]int id) {
             try {
-                var result = await _userContainer.GetByIdAsync(id);
-                return View(_mapper.Map<User_DashboardModel>(result));
+                var result = await _businessContainer.GetByIdAsync(id);
+                return View(_mapper.Map<Business_DashboardModel>(result));
             }
             catch(Exception ex) {
                 Log.Error(ex, MethodBase.GetCurrentMethod().Name);

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
-using presentation.dashboard.models;
 using Serilog;
+using shared.model.dashboard_models;
 using shared.resource;
 using shared.resource._app;
 using shared.utility;
@@ -44,7 +44,7 @@ namespace presentation.dashboard.filterAttributes {
                     //filterContext.ActionParameters[param.Key] = new KeyValuePair<string, object>(param.Key, param.Value.ToString().CharacterNormalizer());
                     KeywordChecker(context, param.Value.ToString());
                 }
-                if(param.Value is BaseViewModel) {
+                if(param.Value is Base_DashboardModel) {
                     var properties = param.Value.GetType().GetProperties();
                     foreach(var item in properties) {
                         if(item.PropertyType == typeof(string) && item != null) {

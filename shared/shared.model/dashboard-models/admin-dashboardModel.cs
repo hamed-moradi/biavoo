@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace presentation.dashboard.models {
-    public class AdminViewModel: IBaseViewModel {
+namespace shared.model.dashboard_models {
+    public class Admin_DashboardModel: IBase_DashboardModel {
         public int? Id { get; set; }
         public int? RoleId { get; set; }
         public string Username { get; set; }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.SqlServer.Types;
 using shared.utility;
 
 namespace domain.repository.models {

@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class ProductContainer: GenericContainer<Product_Entity>, IProductContainer {
+    public class ProductContainer: Generic_Container<Product_Entity>, IProductContainer {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public ProductContainer(SqlDBContext dbContext) : base(dbContext) {
@@ -19,17 +19,13 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<Product_Entity> GetById(int id) {
+        public async Task<Product_Entity> GetByIdAsync(int id) {
             return await _dbContext.Products.SingleOrDefaultAsync(sd => sd.Id == id);
         }
 
-        public async Task<List<Product_Entity>> GetAll(Product_Entity model) {
+        public async Task<List<Product_Entity>> GetAllAsync(Product_Entity model) {
             var result = await GetPaging(model);
             return result;
-        }
-
-        public bool ValidateLastChanged(string lastChanged) {
-            return true;
         }
     }
 }

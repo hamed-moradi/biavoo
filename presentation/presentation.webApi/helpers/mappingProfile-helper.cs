@@ -51,7 +51,7 @@ namespace presentation.webApi.helpers {
             CreateMap<Business_Model, Business_ViewModel>();
 
             // Image
-            CreateMap<Image_BindingModel, Image>()
+            CreateMap<Image_BindingModel, Image_Entity>()
                 .ForMember(d => d.Path, s => s.MapFrom(f => Path.GetDirectoryName(f.FullName)))
                 .ForMember(d => d.Name, s => s.MapFrom(f => Path.GetFileNameWithoutExtension(f.FullName)))
                 .ForMember(d => d.Extension, s => s.MapFrom(f => Path.GetExtension(f.FullName)));

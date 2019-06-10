@@ -2,7 +2,7 @@
 using AutoMapper.Configuration;
 using domain.repository.entities;
 using MD.PersianDateTime.Core;
-using presentation.dashboard.models;
+using shared.model.dashboard_models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +22,12 @@ namespace presentation.dashboard.helpers {
             CreateMap<Admin_Entity, AccountPrincipal>()
                 .ForMember(d => d.LastLoggedin, s => s.MapFrom(f => new PersianDateTime(f.LastLoggedin).ToShortDateTimeString()));
 
-            CreateMap<Admin_Entity, AdminViewModel>();
-            CreateMap<AdminViewModel, Admin_Entity>();
+            CreateMap<Admin_Entity, Admin_DashboardModel>();
+            CreateMap<Admin_DashboardModel, Admin_Entity>();
 
             // User
-            CreateMap<User_Entity, UserViewModel>();
-            CreateMap<UserViewModel, User_Entity>();
+            CreateMap<User_Entity, User_DashboardModel>();
+            CreateMap<User_DashboardModel, User_Entity>();
         }
     }
 }

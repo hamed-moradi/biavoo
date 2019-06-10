@@ -8,8 +8,8 @@ using AutoMapper;
 using domain.office;
 using domain.repository.entities;
 using Microsoft.AspNetCore.Mvc;
-using presentation.dashboard.models;
 using Serilog;
+using shared.model.dashboard_models;
 
 namespace presentation.dashboard.controllers {
     public class AdminController: BaseController {
@@ -23,10 +23,10 @@ namespace presentation.dashboard.controllers {
         #endregion
 
         [HttpGet]
-        public IActionResult Get() {
+        public async Task<IActionResult> Get() {
             try {
-                var result = _adminContainer.GetAll(new Admin_Entity { });
-                return View(_mapper.Map<List<AdminViewModel>>(result));
+                var result = await _adminContainer.GetAllAsync(new Admin_Entity { });
+                return View(_mapper.Map<List<Admin_DashboardModel>>(result));
             }
             catch(Exception ex) {
                 Log.Error(ex, MethodBase.GetCurrentMethod().Name);

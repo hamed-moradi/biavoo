@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeoAPI.Geometries;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Spatial;
@@ -17,6 +18,7 @@ namespace domain.repository.entities {
         public string Thumbnail { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        //public IGeometry Geometry { get; set; }
         public Geography Point { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }

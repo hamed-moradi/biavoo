@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class ChangeLogContainer: GenericContainer<ChangeLog_Entity>, IChangeLogContainer {
+    public class ChangeLogContainer: Generic_Container<ChangeLog_Entity>, IChangeLogContainer {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public ChangeLogContainer(SqlDBContext dbContext) : base(dbContext) {
@@ -18,7 +18,7 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<List<ChangeLog_Entity>> GetAll(ChangeLog_Entity model) {
+        public async Task<List<ChangeLog_Entity>> GetAllAsync(ChangeLog_Entity model) {
             var result = GetPaging(model);
             return await result;
         }

@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class AdminContainer: GenericContainer<Admin_Entity>, IAdminContainer {
+    public class AdminContainer: Generic_Container<Admin_Entity>, IAdminContainer {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public AdminContainer(SqlDBContext dbContext) : base(dbContext) {
@@ -27,26 +27,26 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<Admin_Entity> GetById(int id) {
+        public async Task<Admin_Entity> GetByIdAsync(int id) {
             return await _dbContext.Admins.SingleOrDefaultAsync(sd => sd.Id == id);
         }
 
-        public async Task<List<Admin_Entity>> GetAll(Admin_Entity model) {
+        public async Task<List<Admin_Entity>> GetAllAsync(Admin_Entity model) {
             var result = await GetPaging(model);
             return result;
         }
 
-        public bool ValidateLastChanged(string lastChanged) {
+        public bool ValidateLastChangedAsync(string lastChanged) {
             return true;
         }
 
-        public async Task<Admin_Entity> SignIn(string username, string password) {
+        public async Task<Admin_Entity> SignInAsync(string username, string password) {
             var result = _dbContext.Admins.SingleOrDefaultAsync(admin => admin.Username == username && admin.Password == password);
             return await result;
         }
 
-        public async Task<Admin_Entity> GenerateNewPassword(int id) {
-            var admin = await GetById(id);
+        public async Task<Admin_Entity> GenerateNewPasswordAsync(int id) {
+            var admin = await GetByIdAsync(id);
             admin.Password = RandomNumber();
             await _dbContext.SaveChangesAsync();
             return admin;

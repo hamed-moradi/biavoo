@@ -15,5 +15,8 @@ namespace domain.repository.models {
         public string Extension { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
+        public DateTime? ModifiedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public byte? Status { get; set; }
     }
 }

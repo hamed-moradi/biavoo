@@ -17,7 +17,7 @@ namespace domain.repository.entities {
         public string Email { get; set; }
         public byte? Gender { get; set; }
         public string Avatar { get; set; }
-        public DateTime? LastLoggedin { get; set; }
+        public DateTime? LastSignedin { get; set; }
         public DateTime? CreatedAt { get; set; }
         public byte? Status { get; set; }
     }

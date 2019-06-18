@@ -19,7 +19,8 @@ using Swashbuckle.AspNetCore.Swagger;
 namespace Presentation.WebApi {
     public class Startup {
         #region Constructor
-        private static readonly string apiVersion = Assembly.GetEntryAssembly().GetName().Version.ToString();
+        //private static readonly string apiVersion = Assembly.GetEntryAssembly().GetName().Version.ToString();
+        private static readonly string apiVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration) {
             Configuration = configuration;

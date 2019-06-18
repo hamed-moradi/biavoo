@@ -7,18 +7,12 @@ namespace domain.repository.entities {
     public partial class Customer_Entity: Base_Entity {
         [ForeignKey("dbo.[user].Id")]
         public int? UserId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string Family { get; set; }
-        public string Avatar { get; set; }
-        public bool? RequiresTwoFactor { get; set; }
+        public string NationalCode { get; set; }
+        public DateTime? BirthDate { get; set; }
         public DateTime? CreatedAt { get; set; }
         public byte? Status { get; set; }
     }
 
     public partial class Customer_Entity {
-        [NotMapped]
-        public string FullName { get { return $"{Name} {Family}".Trim(); } }
     }
 }

@@ -23,16 +23,16 @@ namespace domain.application.services {
             _edit = edit;
         }
         #endregion
+
         public async Task<List<Comment_Model>> GetPagingAsync(Comment_GetPaging_Schema model) {
             var result = await _getPaging.ExecuteAsync(model);
             model.TotalCount = result.Any() ? result.Single().TotalCount : 0;
             return result.ToList();
         }
-        public async Task<Comment_Model> NewAsync(Comment_New_Schema model) {
+        public async Task<Comment_Model> CreateAsync(Comment_New_Schema model) {
             var result = await _new.ExecuteFirstOrDefaultAsync(model);
             return result;
         }
-
         public async Task<Comment_Model> EditAsync(Comment_Edit_Schema model) {
             var result = await _edit.ExecuteFirstOrDefaultAsync(model);
             return result;

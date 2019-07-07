@@ -81,12 +81,12 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpGet, Route("new")]
-        public async Task<IActionResult> New([FromQuery]Business_New_BindingModel collection) {
+        [ArgumentBinding, HttpGet, Route("create")]
+        public async Task<IActionResult> Create([FromQuery]Business_New_BindingModel collection) {
             HeaderValidator(collection);
             try {
                 var model = _mapper.Map<Business_New_Schema>(collection);
-                var result = await _businessService.NewAsync(model);
+                var result = await _businessService.CreateAsync(model);
                 switch(model.StatusCode) {
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);

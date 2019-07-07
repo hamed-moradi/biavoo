@@ -39,6 +39,7 @@ namespace presentation.dashboard.controllers {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
+
         [HttpPost, AllowAnonymous, ValidateAntiForgeryToken]
         public async Task<IActionResult> SignIn(Signin_DashboardModel collection, string returnUrl = null) {
             ViewData["ReturnUrl"] = returnUrl;

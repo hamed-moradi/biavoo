@@ -50,6 +50,36 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
+        [ArgumentBinding, HttpGet, Route("getByLocation")]
+        public async Task<IActionResult> GetByLocation([FromQuery]Product_GetByLocation_BindingModel collection) {
+            if(collection.Latitude <= 0 || collection.Longitude <= 0) {
+                return BadRequest(_stringLocalizer[SharedResource.InvalidPoint]);
+            }
+            try {
+                var model = _mapper.Map<Product_GetByLocation_Schema>(collection);
+                var result = await _productService.GetByLocationAsync(model);
+                switch(model.StatusCode) {
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
+                    case 411:
+                        return BadRequest(_stringLocalizer[SharedResource.InvalidPoint]);
+                    case 200:
+                        return Ok(data: _mapper.Map<List<Product_ViewModel>>(result));
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            finally {
+                ///Log.Information(MethodBase.GetCurrentMethod().Name);
+            }
+            return InternalServerError();
+        }
+
         [ArgumentBinding, HttpGet, Route("getPaging")]
         public async Task<IActionResult> GetPaging([FromQuery]Product_GetPaging_BindingModel collection) {
             HeaderValidator(collection);
@@ -79,12 +109,12 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpGet, Route("new")]
-        public async Task<IActionResult> New([FromQuery]Product_New_BindingModel collection) {
+        [ArgumentBinding, HttpGet, Route("create")]
+        public async Task<IActionResult> Create([FromQuery]Product_New_BindingModel collection) {
             HeaderValidator(collection);
             try {
                 var model = _mapper.Map<Product_New_Schema>(collection);
-                var result = await _productService.NewAsync(model);
+                var result = await _productService.CreateAsync(model);
                 switch(model.StatusCode) {
                     case 400:
                         return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);

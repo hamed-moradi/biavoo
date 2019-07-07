@@ -20,7 +20,7 @@ namespace presentation.dashboard.helpers {
 
             // Admin
             CreateMap<Admin_Entity, AccountPrincipal>()
-                .ForMember(d => d.LastLoggedin, s => s.MapFrom(f => new PersianDateTime(f.LastLoggedin).ToShortDateTimeString()));
+                .ForMember(d => d.LastSignedin, s => s.MapFrom(f => new PersianDateTime(f.LastSignedin).ToShortDateTimeString()));
 
             CreateMap<Admin_Entity, Admin_DashboardModel>();
             CreateMap<Admin_DashboardModel, Admin_Entity>();

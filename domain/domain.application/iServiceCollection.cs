@@ -34,18 +34,19 @@ namespace domain.application {
     public interface IBusiness_Service {
         Task<List<Business_Model>> GetByLocationAsync(Business_GetByLocation_Schema model);
         Task<List<Business_Model>> GetPagingAsync(Business_GetPaging_Schema model);
-        Task<Business_Model> NewAsync(Business_New_Schema model);
+        Task<Business_Model> CreateAsync(Business_New_Schema model);
         Task<Business_Model> EditAsync(Business_Edit_Schema model);
     }
     public interface IProduct_Service {
         Task<Product_Model> GetAsync(Product_Get_Schema model);
+        Task<List<Product_Model>> GetByLocationAsync(Product_GetByLocation_Schema model);
         Task<List<Product_Model>> GetPagingAsync(Product_GetPaging_Schema model);
-        Task<Product_Model> NewAsync(Product_New_Schema model);
+        Task<Product_Model> CreateAsync(Product_New_Schema model);
         Task<Product_Model> EditAsync(Product_Edit_Schema model);
     }
     public interface IComment_Service {
         Task<List<Comment_Model>> GetPagingAsync(Comment_GetPaging_Schema model);
-        Task<Comment_Model> NewAsync(Comment_New_Schema model);
+        Task<Comment_Model> CreateAsync(Comment_New_Schema model);
         Task<Comment_Model> EditAsync(Comment_Edit_Schema model);
     }
 }

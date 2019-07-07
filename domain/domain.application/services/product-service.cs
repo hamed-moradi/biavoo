@@ -16,12 +16,15 @@ namespace domain.application.services {
         #region Constructor
         private readonly IParameterHandler _parameterHandler;
         private readonly IGenericRepository<IBase_Model> _repository;
+        private readonly IStoreProcedure<Product_Model, Product_GetByLocation_Schema> _getByLocation;
         private readonly IStoreProcedure<Product_Model, Product_GetPaging_Schema> _getPaging;
         public Product_Service(IParameterHandler parameterHandler,
-            IGenericRepository<IBase_Model> repository, 
+            IGenericRepository<IBase_Model> repository,
+            IStoreProcedure<Product_Model, Product_GetByLocation_Schema> getByLocation,
             IStoreProcedure<Product_Model, Product_GetPaging_Schema> getPaging) {
             _repository = repository;
             _parameterHandler = parameterHandler;
+            _getByLocation = getByLocation;
             _getPaging = getPaging;
         }
         #endregion
@@ -42,12 +45,16 @@ namespace domain.application.services {
             _parameterHandler.SetReturnValue(model, parameters);
             return product;
         }
+        public async Task<List<Product_Model>> GetByLocationAsync(Product_GetByLocation_Schema model) {
+            var result = await _getByLocation.ExecuteAsync(model);
+            return result.ToList();
+        }
         public async Task<List<Product_Model>> GetPagingAsync(Product_GetPaging_Schema model) {
             var result = await _getPaging.ExecuteAsync(model);
             model.TotalCount = result.Any() ? result.Single().TotalCount : 0;
             return result.ToList();
         }
-        public async Task<Product_Model> NewAsync(Product_New_Schema model) {
+        public async Task<Product_Model> CreateAsync(Product_New_Schema model) {
             var product = new Product_Model();
             var parameters = _parameterHandler.MakeParameters(model);
             var result = await _repository.QueryMultipleAsync(model.GetSchemaName(), param: parameters, commandType: CommandType.StoredProcedure);

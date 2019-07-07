@@ -14,6 +14,25 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
+    [Schema("[dbo].[api_product_getByLocation]")]
+    public class Product_GetByLocation_Schema: IBase_Schema {
+        [InputParameter]
+        public string @Title { get; set; }
+        [InputParameter]
+        public string @Categories { get; set; } // Comma seprated CategoryId's list
+        [InputParameter]
+        public double? @Latitude { get; set; }
+        [InputParameter]
+        public double? @Longitude { get; set; }
+        [InputParameter]
+        public bool? @MakeItValid { get; set; }
+        [InputParameter]
+        public int? @Radius { get; set; } // In meters
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
+    }
+
     [Schema("[dbo].[api_product_getPaging]")]
     public class Product_GetPaging_Schema: Paging_Schema {
         [InputParameter]

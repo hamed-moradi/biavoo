@@ -11,10 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class ModuleReferenceContainer: Generic_Container<ModuleReference_Entity>, IModuleReferenceContainer {
+    public class ModuleReference_Container: Generic_Container<ModuleReference_Entity>, IModuleReference_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public ModuleReferenceContainer(SqlDBContext dbContext) : base(dbContext) {
+        public ModuleReference_Container(SqlDBContext dbContext) : base(dbContext) {
             _dbContext = dbContext;
         }
         #endregion
@@ -24,7 +24,7 @@ namespace domain.office.container {
         }
 
         public async Task<List<ModuleReference_Entity>> GetAllAsync(ModuleReference_Entity model) {
-            var result = GetPaging(model);
+            var result = GetPagingAsync(model);
             return await result;
         }
 

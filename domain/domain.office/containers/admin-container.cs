@@ -11,10 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class AdminContainer: Generic_Container<Admin_Entity>, IAdminContainer {
+    public class Admin_Container: Generic_Container<Admin_Entity>, IAdmin_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public AdminContainer(SqlDBContext dbContext) : base(dbContext) {
+        public Admin_Container(SqlDBContext dbContext) : base(dbContext) {
             _dbContext = dbContext;
         }
         #endregion
@@ -32,7 +32,7 @@ namespace domain.office.container {
         }
 
         public async Task<List<Admin_Entity>> GetAllAsync(Admin_Entity model) {
-            var result = await GetPaging(model);
+            var result = await GetPagingAsync(model);
             return result;
         }
 

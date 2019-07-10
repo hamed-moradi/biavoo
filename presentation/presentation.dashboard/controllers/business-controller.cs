@@ -12,8 +12,8 @@ using shared.model.dashboard_models;
 namespace presentation.dashboard.controllers {
     public class BusinessController: BaseController {
         #region Constructor
-        private readonly IBusinessContainer _businessContainer;
-        public BusinessController(IBusinessContainer businessContainer) {
+        private readonly IBusiness_Container _businessContainer;
+        public BusinessController(IBusiness_Container businessContainer) {
             _businessContainer = businessContainer;
         }
         #endregion

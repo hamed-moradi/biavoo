@@ -10,16 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.container {
-    public class ChangeLogContainer: Generic_Container<ChangeLog_Entity>, IChangeLogContainer {
+    public class ChangeLog_Container: Generic_Container<ChangeLog_Entity>, IChangeLog_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public ChangeLogContainer(SqlDBContext dbContext) : base(dbContext) {
+        public ChangeLog_Container(SqlDBContext dbContext) : base(dbContext) {
             _dbContext = dbContext;
         }
         #endregion
 
         public async Task<List<ChangeLog_Entity>> GetAllAsync(ChangeLog_Entity model) {
-            var result = GetPaging(model);
+            var result = GetPagingAsync(model);
             return await result;
         }
     }

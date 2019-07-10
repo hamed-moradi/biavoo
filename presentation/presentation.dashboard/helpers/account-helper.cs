@@ -19,11 +19,11 @@ namespace presentation.dashboard.helpers {
     public static class AccountHelper {
         #region Constructor
         private static readonly IHttpContextAccessor _httpContextAccessor;
-        private static readonly IModuleReferenceContainer _moduleReferenceContainer;
+        private static readonly IModuleReference_Container _moduleReferenceContainer;
 
         static AccountHelper() {
             _httpContextAccessor = ServiceLocator.Current.GetInstance<IHttpContextAccessor>();
-            _moduleReferenceContainer = ServiceLocator.Current.GetInstance<IModuleReferenceContainer>();
+            _moduleReferenceContainer = ServiceLocator.Current.GetInstance<IModuleReference_Container>();
         }
         #endregion
 

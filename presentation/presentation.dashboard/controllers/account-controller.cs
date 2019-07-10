@@ -17,8 +17,8 @@ using shared.resource;
 namespace presentation.dashboard.controllers {
     public class AccountController: BaseController {
         #region Constructor
-        private readonly IAdminContainer _adminContainer;
-        public AccountController(IAdminContainer adminContainer) {
+        private readonly IAdmin_Container _adminContainer;
+        public AccountController(IAdmin_Container adminContainer) {
             _adminContainer = adminContainer;
         }
         #endregion

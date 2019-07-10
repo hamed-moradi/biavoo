@@ -12,4 +12,10 @@ namespace shared.model.viewModels {
         public int? TotalPages { get; set; }
         public string Version { get { return Assembly.GetEntryAssembly().GetName().Version.ToString(); } }
     }
+    public class Base_Paging_ViewModel: IBase_ViewModel {
+        public int PageIndex { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
+        public string OrderBy { get; set; } = "CreatedAt";
+        public bool OrderAscending { get; set; } = false;
+    }
 }

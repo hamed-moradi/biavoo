@@ -14,8 +14,8 @@ using shared.model.dashboard_models;
 namespace presentation.dashboard.controllers {
     public class AdminController: BaseController {
         #region Constructor
-        private readonly IAdminContainer _adminContainer;
-        public AdminController(IAdminContainer adminContainer) {
+        private readonly IAdmin_Container _adminContainer;
+        public AdminController(IAdmin_Container adminContainer) {
             _adminContainer = adminContainer;
         }
         #endregion

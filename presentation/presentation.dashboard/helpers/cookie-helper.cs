@@ -18,9 +18,9 @@ namespace presentation.dashboard.helpers {
     }
 
     public class AccountCookieAuthenticationEvents: CookieAuthenticationEvents {
-        private readonly IAdminContainer _adminRepository;
+        private readonly IAdmin_Container _adminRepository;
 
-        public AccountCookieAuthenticationEvents(IAdminContainer adminRepository) {
+        public AccountCookieAuthenticationEvents(IAdmin_Container adminRepository) {
             _adminRepository = adminRepository;
         }
 

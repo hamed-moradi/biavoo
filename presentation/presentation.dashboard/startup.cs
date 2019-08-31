@@ -12,9 +12,11 @@ using System.Reflection;
 using presentation.dashboard.helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Razor;
-using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using shared.resource;
+using JavaScriptEngineSwitcher.ChakraCore;
+using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
+using React.AspNet;
 
 namespace Presentation.WebApi {
     public class Startup {
@@ -27,12 +29,17 @@ namespace Presentation.WebApi {
         #endregion
 
         public void ConfigureServices(IServiceCollection services) {
+            // Localization
             services.AddLocalization(options => options.ResourcesPath = "SharedResource");
+
+            // CookiePolicy
             services.Configure<CookiePolicyOptions>(options => {
                 //This lambda determines whether user consent for non - essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            // Mvc
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization(options => {
@@ -42,6 +49,8 @@ namespace Presentation.WebApi {
                     options.Conventions.AuthorizePage("/Home/Contact");
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // CookieAuthentication
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
                 options.AccessDeniedPath = "/Account/AccessDenied";
                 options.LoginPath = "/Account/SignIn";
@@ -50,9 +59,18 @@ namespace Presentation.WebApi {
                 options.EventsType = typeof(AccountCookieAuthenticationEvents);
             });
             services.AddScoped<AccountCookieAuthenticationEvents>();
+
+            // React
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddReact();
+            services.AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName).AddChakraCore();
+
+            // App
             shared.utility._app.ModuleInjector.Init(services);
             domain.office._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
+
+            // Localization
             services.Configure<RequestLocalizationOptions>(options => {
                 options.DefaultRequestCulture = new RequestCulture("en-US");
                 options.SupportedCultures = SupportedCultures.List;
@@ -81,6 +99,27 @@ namespace Presentation.WebApi {
             // To configure external authentication, see: http://go.microsoft.com/fwlink/?LinkID=532715
             app.UseAuthentication(); //TODO: what is this?
             app.UseHttpsRedirection();
+
+            // Initialise ReactJS.NET. Must be before static files.
+            app.UseReact(config =>
+            {
+                config.AddScript("~/js/home.jsx");
+                // If you want to use server-side rendering of React components,
+                // add all the necessary JavaScript files here. This includes
+                // your components as well as all of their dependencies.
+                // See http://reactjs.net/ for more information. Example:
+                //config
+                //  .AddScript("~/js/First.jsx")
+                //  .AddScript("~/js/Second.jsx");
+
+                // If you use an external build too (for example, Babel, Webpack,
+                // Browserify or Gulp), you can improve performance by disabling
+                // ReactJS.NET's version of Babel and loading the pre-transpiled
+                // scripts. Example:
+                //config
+                //  .SetLoadBabel(false)
+                //  .AddScriptWithoutTransform("~/js/bundle.server.js");
+            });
             app.UseStaticFiles();
             app.UseRequestLocalization();
             app.UseCookiePolicy(new CookiePolicyOptions {

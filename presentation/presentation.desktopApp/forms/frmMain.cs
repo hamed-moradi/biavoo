@@ -1,4 +1,5 @@
 ﻿using domain.office.containers;
+using presentation.desktopApp.forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,22 +12,60 @@ using System.Windows.Forms;
 
 namespace presentation.desktopApp {
     public partial class MainForm: Form {
+        #region ctor
+        private frmSettings _frmSettings;
         public MainForm() {
             InitializeComponent();
 
-            // todo: read from resources
-            var toolStripExit = new ToolStripMenuItem {
-                Text = "Exit"
-            };
-
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip = new ContextMenuStrip();
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.SuspendLayout();
-            NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.Items.AddRange(new ToolStripItem[] { toolStripExit });
+            NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.Items.AddRange(SettingUpContextMenu());
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.ResumeLayout(false);
+            NotifyIconHandler.Instance.NotifyIcon.Click += NotifyIcon_Click;
 
             FormClosed += MainForm_FormClosed;
-            toolStripExit.Click += new EventHandler(ToolStripExit_Click);
-            NotifyIconHandler.Instance.NotifyIcon.Click += NotifyIcon_Click;
+
+            SettingFormInit();
+        }
+        #endregion
+
+        #region private
+        private ToolStripItem[] SettingUpContextMenu() {
+            var contextMenu = new ToolStripItem[2];
+
+            var toolStripExit = new ToolStripMenuItem {
+                Text = Properties.Resources.Exit
+            };
+            toolStripExit.Click += ToolStripExit_Click;
+            contextMenu[0] = toolStripExit;
+
+            var toolStripSettings = new ToolStripMenuItem {
+                Text = Properties.Resources.Settings
+            };
+            toolStripSettings.Click += ToolStripSettings_Click;
+            contextMenu[1] = toolStripSettings;
+
+            return contextMenu;
+        }
+        private void ShowSettings() {
+            Hide();
+            SettingFormInit();
+            if(_frmSettings.Visible) {
+                _frmSettings.Focus();
+            }
+            else {
+                _frmSettings.Show();
+            }
+        }
+        private void SettingFormInit() {
+            if(_frmSettings == null) {
+                _frmSettings = new frmSettings();
+            }
+        }
+        #endregion
+
+        private void ToolStripSettings_Click(object sender, EventArgs e) {
+            ShowSettings();
         }
 
         public void NotifyIcon_Click(object sender, EventArgs e) {
@@ -67,6 +106,10 @@ namespace presentation.desktopApp {
 
         private void ToolStripExit_Click(object sender, EventArgs e) {
             Application.Exit();
+        }
+
+        private void BtnSettings_Click(object sender, EventArgs e) {
+            ShowSettings();
         }
     }
 }

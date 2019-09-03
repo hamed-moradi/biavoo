@@ -11,7 +11,7 @@ namespace presentation.desktopApp {
     sealed class NotifyIconHandler {
         #region ctor
         private static NotifyIconUtility _instance;
-        private static object syncLock = new object();
+        private static readonly object _syncLock = new object();
         public NotifyIconHandler() { }
         #endregion
 
@@ -29,7 +29,7 @@ namespace presentation.desktopApp {
         public static NotifyIconUtility Instance {
             get {
                 if(_instance == null) {
-                    lock(syncLock) {
+                    lock(_syncLock) {
                         if(_instance == null) {
                             _instance = PrepareIcon();
                         }

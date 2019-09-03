@@ -4,6 +4,6 @@ using System.Configuration;
 
 namespace domain.office._app {
     public class AppSettings {
-        public static string ConnectionString => ConfigurationManager.AppSettings["ConnectionString"];
+        public static string ConnectionString => ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using domain.office.containers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +11,13 @@ using System.Windows.Forms;
 
 namespace presentation.desktopApp.forms {
     public partial class frmSettings: Form {
+        #region ctor
+        private readonly ConfigurationContainer _configurationContainer;
         public frmSettings() {
+            _configurationContainer = new ConfigurationContainer();
             InitializeComponent();
         }
-
+        #endregion
         private void BtnOk_Click(object sender, EventArgs e) {
             Hide();
         }
@@ -28,7 +32,13 @@ namespace presentation.desktopApp.forms {
         }
 
         private void FrmSettings_Load(object sender, EventArgs e) {
-            cmbLanguage.Items.AddRange(new object[] { "En", "Fa" });
+            cmbLanguage.Items.AddRange(new object[] { "EN", "FA" });
+            var configuration = _configurationContainer.Get();
+            switch(configuration.Language) {
+                case "en-US":
+                    cmbLanguage.SelectedItem = "EN";
+                    break;
+            }
         }
     }
 }

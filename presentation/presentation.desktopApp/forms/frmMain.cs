@@ -21,15 +21,17 @@ namespace presentation.desktopApp {
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.SuspendLayout();
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.Items.AddRange(SettingUpContextMenu());
             NotifyIconHandler.Instance.NotifyIcon.ContextMenuStrip.ResumeLayout(false);
-            NotifyIconHandler.Instance.NotifyIcon.Click += NotifyIcon_Click;
 
-            FormClosed += MainForm_FormClosed;
-
+            EventBinder();
             SettingFormInit();
         }
         #endregion
 
         #region private
+        private void EventBinder() {
+            NotifyIconHandler.Instance.NotifyIcon.Click += NotifyIcon_Click;
+            FormClosed += MainForm_FormClosed;
+        }
         private ToolStripItem[] SettingUpContextMenu() {
             var contextMenu = new ToolStripItem[2];
 

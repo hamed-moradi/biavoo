@@ -10,7 +10,7 @@ namespace presentation.desktopApp {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Startup.Init();
+            new Startup();
             Application.Run();
         }
     }

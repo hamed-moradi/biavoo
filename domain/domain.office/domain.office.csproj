@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>domain.office</RootNamespace>
     <AssemblyName>domain.office</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,14 +64,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_app\animation.cs" />
     <Compile Include="_app\appSettings.cs" />
-    <Compile Include="_app\connectionKeeper.cs" />
     <Compile Include="_app\nativeMethods.cs" />
-    <Compile Include="_app\sqldbContext.cs" />
+    <Compile Include="_app\myDbContext.cs" />
     <Compile Include="_app\sysInfo.cs" />
     <Compile Include="_app\taskbar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

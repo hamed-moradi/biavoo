@@ -11,12 +11,12 @@ namespace domain.office.containers {
         #region ctor
         private readonly MyDbContext _myDbContext;
         public ConfigurationContainer() {
-            //_myDbContext = new MyDbContext();
+            _myDbContext = new MyDbContext();
         }
         #endregion
 
         public Configuration Get() {
-            var result = _myDbContext.Configurations.Find();
+            var result = _myDbContext.Configurations.Find(1);
             return result;
         }
     }

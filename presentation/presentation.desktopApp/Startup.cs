@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace presentation.desktopApp {
-    public class Startup: DbContext {
-        public Startup() { //: base("Name=ConnectionString") 
+    public class Startup {
+        public Startup() {
             new MainForm().Hide();
-        }
-        public static void Init() {
         }
     }
 }

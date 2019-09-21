@@ -28,11 +28,10 @@ namespace presentation.desktopApp {
         private void EventBinder() {
             NotifyIconHandler.Instance.NotifyIcon.Click += NotifyIcon_Click;
             FormClosed += MainForm_FormClosed;
-            cmbPreferredDNS.GotFocus += CmbPreferredDNS_GotFocus;
         }
 
         private void CmbPreferredDNS_GotFocus(object sender, EventArgs e) {
-            cmbPreferredDNS.SelectionLength = 0;
+            //cmbPreferredDNS.SelectionLength = 0;
         }
 
         private ToolStripItem[] SettingUpContextMenu() {
@@ -123,16 +122,62 @@ namespace presentation.desktopApp {
             ShowSettings();
         }
 
-        private void CmbPreferredDNS_KeyUp(object sender, KeyEventArgs e) {
-            var selectionStart = cmbPreferredDNS.SelectionStart;
-            if(e.KeyCode != Keys.OemPeriod && e.KeyCode != Keys.Decimal && e.KeyCode != Keys.Enter && e.KeyCode != Keys.Tab &&
-                e.KeyCode != Keys.Back && e.KeyCode != Keys.Delete && e.KeyCode != Keys.Home && e.KeyCode != Keys.End &&
-                e.KeyCode != Keys.Left && e.KeyCode != Keys.Right && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9 ||
-                cmbAlternateDNS.Text.Length > 15)) {
-                return;
+        private void DNS_KeyDown(object sender, KeyEventArgs e) {
+            var textBox = (TextBox)sender;
+            var selectedTag = textBox.Tag.ToInt();
+
+            if(e.KeyCode == Keys.Left) {
+                if(selectedTag > 1 && textBox.SelectionStart == 0) {
+                    SendKeys.Send("+{TAB}");
+                }
             }
-            cmbPreferredDNS.Text = IPValidator.Exec(cmbPreferredDNS.Text);
-            cmbPreferredDNS.SelectionStart = selectionStart;
+            else if(e.KeyCode == Keys.Right) {
+                if(selectedTag < 4 && textBox.SelectionStart == textBox.TextLength) {
+                    SendKeys.Send("{TAB}");
+                }
+            }
+        }
+
+        private void DNS_KeyPress(object sender, KeyPressEventArgs e) {
+            var keyCode = e.KeyChar.ToKeyCode();
+            var textBox = (TextBox)sender;
+            var selectedTag = textBox.Tag.ToInt();
+
+            if((keyCode >= Keys.D0 && keyCode <= Keys.D9) || (keyCode >= Keys.NumPad0 && keyCode <= Keys.NumPad9)) {
+                if(textBox.TextLength == 3) {
+                    e.Handled = true;
+                    return;
+                }
+                if(selectedTag < 4 && textBox.TextLength >= 2) {
+                    SendKeys.Send("{TAB}");
+                }
+                var isValidNumber = int.TryParse($"{textBox.Text}{e.KeyChar}", out int segment);
+                if(isValidNumber) {
+                    if(segment > 255) {
+                        textBox.Text = "255";
+                        textBox.SelectionStart = 3;
+                    }
+                    else {
+                        e.Handled = true;
+                        textBox.Text = segment.ToString();
+                        textBox.SelectionStart = textBox.TextLength;
+                    }
+                }
+            }
+            else if(keyCode == Keys.Back) {
+                if(selectedTag > 1 && textBox.SelectionStart <= 0) {
+                    SendKeys.Send("+{TAB}");
+                }
+            }
+            else if(keyCode == Keys.Decimal || keyCode == Keys.OemPeriod) {
+                e.Handled = true;
+                if(selectedTag < 4 && textBox.TextLength > 0) {
+                    SendKeys.Send("{TAB}");
+                }
+            }
+            else {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -124,12 +124,18 @@
   <data name="btnTray.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="btnTray.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnTray.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="btnTray.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
   <data name="btnTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 32</value>
+    <value>420, 32</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnTray.TabIndex" type="System.Int32, mscorlib">
@@ -159,14 +165,20 @@
   <data name="btnSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="btnSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 366</value>
+    <value>0, 368</value>
+  </data>
+  <data name="btnSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 32</value>
+    <value>420, 32</value>
   </data>
   <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>13</value>
   </data>
   <data name="btnSettings.Text" xml:space="preserve">
     <value>▲</value>
@@ -189,11 +201,17 @@
   <data name="lblNetworkConnection.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lblNetworkConnection.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblNetworkConnection.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 32</value>
   </data>
+  <data name="lblNetworkConnection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblNetworkConnection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 13</value>
+    <value>120, 15</value>
   </data>
   <data name="lblNetworkConnection.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -217,13 +235,16 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="cmbNetworkConnection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 29</value>
+    <value>178, 29</value>
+  </data>
+  <data name="cmbNetworkConnection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="cmbNetworkConnection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 21</value>
+    <value>167, 23</value>
   </data>
   <data name="cmbNetworkConnection.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;cmbNetworkConnection.Name" xml:space="preserve">
     <value>cmbNetworkConnection</value>
@@ -238,10 +259,16 @@
     <value>1</value>
   </data>
   <data name="grbConnection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 49</value>
+    <value>16, 40</value>
+  </data>
+  <data name="grbConnection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="grbConnection.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="grbConnection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 76</value>
+    <value>388, 80</value>
   </data>
   <data name="grbConnection.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -264,6 +291,33 @@
   <data name="grbDNS.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="iptbPreferredDNS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 23</value>
+  </data>
+  <data name="iptbPreferredDNS.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>167, 24</value>
+  </data>
+  <data name="iptbPreferredDNS.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>167, 24</value>
+  </data>
+  <data name="iptbPreferredDNS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 24</value>
+  </data>
+  <data name="iptbPreferredDNS.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;iptbPreferredDNS.Name" xml:space="preserve">
+    <value>iptbPreferredDNS</value>
+  </data>
+  <data name="&gt;&gt;iptbPreferredDNS.Type" xml:space="preserve">
+    <value>IPTextBox.IPTextBox, presentation.desktopApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;iptbPreferredDNS.Parent" xml:space="preserve">
+    <value>grbDNS</value>
+  </data>
+  <data name="&gt;&gt;iptbPreferredDNS.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnApply.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -273,14 +327,20 @@
   <data name="btnApply.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
+  <data name="btnApply.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 112</value>
+    <value>8, 192</value>
+  </data>
+  <data name="btnApply.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="btnApply.Size" type="System.Drawing.Size, System.Drawing">
-    <value>336, 32</value>
+    <value>372, 32</value>
   </data>
   <data name="btnApply.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>12</value>
   </data>
   <data name="btnApply.Text" xml:space="preserve">
     <value>Apply</value>
@@ -295,70 +355,22 @@
     <value>grbDNS</value>
   </data>
   <data name="&gt;&gt;btnApply.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cmbAlternateDNS.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="cmbAlternateDNS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 67</value>
-  </data>
-  <data name="cmbAlternateDNS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 21</value>
-  </data>
-  <data name="cmbAlternateDNS.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cmbAlternateDNS.Name" xml:space="preserve">
-    <value>cmbAlternateDNS</value>
-  </data>
-  <data name="&gt;&gt;cmbAlternateDNS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbAlternateDNS.Parent" xml:space="preserve">
-    <value>grbDNS</value>
-  </data>
-  <data name="&gt;&gt;cmbAlternateDNS.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="cmbPreferredDNS.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="cmbPreferredDNS.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="cmbPreferredDNS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 29</value>
-  </data>
-  <data name="cmbPreferredDNS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 24</value>
-  </data>
-  <data name="cmbPreferredDNS.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="cmbPreferredDNS.Text" xml:space="preserve">
-    <value>   .   .   .   </value>
-  </data>
-  <data name="&gt;&gt;cmbPreferredDNS.Name" xml:space="preserve">
-    <value>cmbPreferredDNS</value>
-  </data>
-  <data name="&gt;&gt;cmbPreferredDNS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbPreferredDNS.Parent" xml:space="preserve">
-    <value>grbDNS</value>
-  </data>
-  <data name="&gt;&gt;cmbPreferredDNS.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="lblAlternateDNS.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lblAlternateDNS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblAlternateDNS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 70</value>
+    <value>16, 72</value>
+  </data>
+  <data name="lblAlternateDNS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblAlternateDNS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+    <value>87, 15</value>
   </data>
   <data name="lblAlternateDNS.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -376,16 +388,22 @@
     <value>grbDNS</value>
   </data>
   <data name="&gt;&gt;lblAlternateDNS.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="lblPreferredDNS.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lblPreferredDNS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblPreferredDNS.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 32</value>
   </data>
+  <data name="lblPreferredDNS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="lblPreferredDNS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 13</value>
+    <value>90, 15</value>
   </data>
   <data name="lblPreferredDNS.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -403,13 +421,19 @@
     <value>grbDNS</value>
   </data>
   <data name="&gt;&gt;lblPreferredDNS.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="grbDNS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 135</value>
+    <value>16, 128</value>
+  </data>
+  <data name="grbDNS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="grbDNS.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="grbDNS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 168</value>
+    <value>388, 232</value>
   </data>
   <data name="grbDNS.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -433,10 +457,19 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 400</value>
+    <value>420, 400</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>

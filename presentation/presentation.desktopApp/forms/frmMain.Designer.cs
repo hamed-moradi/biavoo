@@ -31,10 +31,9 @@
             this.cmbNetworkConnection = new System.Windows.Forms.ComboBox();
             this.grbDNS = new System.Windows.Forms.GroupBox();
             this.btnApply = new System.Windows.Forms.Button();
-            this.cmbAlternateDNS = new System.Windows.Forms.ComboBox();
-            this.cmbPreferredDNS = new System.Windows.Forms.ComboBox();
             this.lblAlternateDNS = new System.Windows.Forms.Label();
             this.lblPreferredDNS = new System.Windows.Forms.Label();
+            this.iptbPreferredDNS = new IPTextBox.IPTextBox();
             this.grbConnection.SuspendLayout();
             this.grbDNS.SuspendLayout();
             this.SuspendLayout();
@@ -78,9 +77,8 @@
             // grbDNS
             // 
             resources.ApplyResources(this.grbDNS, "grbDNS");
+            this.grbDNS.Controls.Add(this.iptbPreferredDNS);
             this.grbDNS.Controls.Add(this.btnApply);
-            this.grbDNS.Controls.Add(this.cmbAlternateDNS);
-            this.grbDNS.Controls.Add(this.cmbPreferredDNS);
             this.grbDNS.Controls.Add(this.lblAlternateDNS);
             this.grbDNS.Controls.Add(this.lblPreferredDNS);
             this.grbDNS.Name = "grbDNS";
@@ -93,19 +91,6 @@
             this.btnApply.Name = "btnApply";
             this.btnApply.UseVisualStyleBackColor = true;
             // 
-            // cmbAlternateDNS
-            // 
-            resources.ApplyResources(this.cmbAlternateDNS, "cmbAlternateDNS");
-            this.cmbAlternateDNS.FormattingEnabled = true;
-            this.cmbAlternateDNS.Name = "cmbAlternateDNS";
-            // 
-            // cmbPreferredDNS
-            // 
-            resources.ApplyResources(this.cmbPreferredDNS, "cmbPreferredDNS");
-            this.cmbPreferredDNS.FormattingEnabled = true;
-            this.cmbPreferredDNS.Name = "cmbPreferredDNS";
-            this.cmbPreferredDNS.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CmbPreferredDNS_KeyUp);
-            // 
             // lblAlternateDNS
             // 
             resources.ApplyResources(this.lblAlternateDNS, "lblAlternateDNS");
@@ -115,6 +100,11 @@
             // 
             resources.ApplyResources(this.lblPreferredDNS, "lblPreferredDNS");
             this.lblPreferredDNS.Name = "lblPreferredDNS";
+            // 
+            // iptbPreferredDNS
+            // 
+            resources.ApplyResources(this.iptbPreferredDNS, "iptbPreferredDNS");
+            this.iptbPreferredDNS.Name = "iptbPreferredDNS";
             // 
             // MainForm
             // 
@@ -147,11 +137,10 @@
         private System.Windows.Forms.Label lblNetworkConnection;
         private System.Windows.Forms.ComboBox cmbNetworkConnection;
         private System.Windows.Forms.GroupBox grbDNS;
-        private System.Windows.Forms.ComboBox cmbAlternateDNS;
-        private System.Windows.Forms.ComboBox cmbPreferredDNS;
         private System.Windows.Forms.Label lblAlternateDNS;
         private System.Windows.Forms.Label lblPreferredDNS;
         private System.Windows.Forms.Button btnApply;
+        private IPTextBox.IPTextBox iptbPreferredDNS;
     }
 }
 

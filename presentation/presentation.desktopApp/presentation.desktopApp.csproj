@@ -77,7 +77,7 @@
     <Compile Include="forms\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="helper\ipValidator.cs" />
+    <Compile Include="helper\extensions.cs" />
     <Compile Include="helper\maskedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,12 +95,19 @@
       <DependentUpon>Resources.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="userControls\IPTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userControls\IPTextBox.designer.cs">
+      <DependentUpon>IPTextBox.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="forms\frmMain.en-US.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
@@ -113,6 +120,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userControls\IPTextBox.resx">
+      <DependentUpon>IPTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="dnsChanger.db">

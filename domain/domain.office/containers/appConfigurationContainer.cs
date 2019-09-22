@@ -7,16 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.containers {
-    public class ConfigurationContainer {
+    public class AppConfigurationContainer {
         #region ctor
         private readonly MyDbContext _myDbContext;
-        public ConfigurationContainer() {
+        public AppConfigurationContainer() {
             _myDbContext = new MyDbContext();
         }
         #endregion
 
-        public Configuration Get() {
-            var result = _myDbContext.Configurations.Find(1);
+        public async Task<AppConfiguration> Get() {
+            var result = await _myDbContext.AppConfigurations.FindAsync(1);
             return result;
         }
     }

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace presentation.desktopApp {
+namespace presentation.desktopApp.helper {
     sealed class NotifyIconHandler {
         #region ctor
         private static NotifyIconUtility _instance;

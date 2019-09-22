@@ -123,4 +123,23 @@
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="app_connected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\content\app-connected.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="app_disconnected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\content\app-disconnected.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="connected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\content\connected.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="disconnected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\content\disconnected.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
 </root>

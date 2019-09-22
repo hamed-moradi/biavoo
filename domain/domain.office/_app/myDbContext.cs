@@ -29,6 +29,10 @@ namespace domain.office._app {
         }
         #endregion
 
-        public virtual DbSet<Configuration> Configurations { get; set; }
+        public virtual DbSet<AppConfiguration> AppConfigurations { get; set; }
+        public virtual DbSet<ConnectionHistory> ConnectionHistories { get; set; }
+        public virtual DbSet<DNSAddress> DNSAddresses { get; set; }
+        public virtual DbSet<Network2DNS> Network2DNSes { get; set; }
+        public virtual DbSet<NetworkAdapter> NetworkConnections { get; set; }
     }
 }

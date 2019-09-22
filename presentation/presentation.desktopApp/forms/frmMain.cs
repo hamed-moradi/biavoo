@@ -1,12 +1,17 @@
 ﻿using domain.office.containers;
+using domain.office.entities;
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.WindowsAPICodePack.Net;
 using presentation.desktopApp.forms;
 using presentation.desktopApp.helper;
+using presentation.desktopApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +20,19 @@ namespace presentation.desktopApp {
     public partial class MainForm: Form {
         #region ctor
         private frmSettings _frmSettings;
+        private NetworkAdapter _connectedNetwork;
+        private readonly List<NetworkAdapter> _networkAdapters;
+
         public MainForm() {
+            _networkAdapters = new List<NetworkAdapter>();
+
             InitializeComponent();
 
             PreparingForm();
             EventBinder();
             SettingFormInit();
+
+            GetWindowsNetworkConnection();
         }
         #endregion
 
@@ -28,10 +40,7 @@ namespace presentation.desktopApp {
         private void EventBinder() {
             NotifyIconHandler.Instance.NotifyIcon.Click += NotifyIcon_Click;
             FormClosed += MainForm_FormClosed;
-        }
-
-        private void CmbPreferredDNS_GotFocus(object sender, EventArgs e) {
-            //cmbPreferredDNS.SelectionLength = 0;
+            btnAction.Click += BtnAction_Click;
         }
 
         private ToolStripItem[] SettingUpContextMenu() {
@@ -72,6 +81,29 @@ namespace presentation.desktopApp {
                 _frmSettings = new frmSettings();
             }
         }
+
+        private void GetWindowsNetworkConnection() {
+            byte priority = 1;
+            var networkCollection = NetworkListManager.GetNetworks(NetworkConnectivityLevels.All);
+            foreach(var network in networkCollection) {
+                var netAdapter = new NetworkAdapter { Name = network.Name, NetworkId = network.NetworkId };
+                cmbNetworkConnection.Items.Add(network.Name);
+                if(network.IsConnected && network.IsConnectedToInternet) {
+                    netAdapter.Priority = priority;
+                    priority++;
+                }
+                _networkAdapters.Add(netAdapter);
+            }
+            
+            _connectedNetwork = _networkAdapters.SingleOrDefault(s => s.Priority == 1);
+            if(_connectedNetwork == null) {
+                picConnection.Image = new Icon(Resources.disconnected, 21, 21).ToBitmap();
+            }
+            else {
+                picConnection.Image = Bitmap.FromHicon(new Icon(Resources.connected, 21, 21).Handle);
+                cmbNetworkConnection.SelectedItem = _connectedNetwork.Name;
+            }
+        }
         #endregion
 
         private void ToolStripSettings_Click(object sender, EventArgs e) {
@@ -102,12 +134,43 @@ namespace presentation.desktopApp {
             }
         }
 
+        private void BtnAction_Click(object sender, EventArgs e) {
+            switch(btnAction.Tag.ToString().ToLower()) {
+                case "connect":
+                    if(_connectedNetwork == null) {
+                        // todo: show message "You're not connected to the internet"
+                        break;
+                    }
+                    var ips = new string[2];
+                    var isPreferredValid = IPAddress.TryParse(iptxtPreferredDNS.Value, out var preferredDNSIP);
+                    var isAlternatedValid = IPAddress.TryParse(iptxtAlternateDNS.Value, out var alternatedDNSIP);
+                    if(isPreferredValid) {
+                        ips[0] = preferredDNSIP.ToString();
+                    }
+                    if(isAlternatedValid) {
+                        ips[1] = alternatedDNSIP.ToString();
+                    }
+                    DNS.Set(ips);
+                    // todo: change app icon to green one
+                    btnAction.Text = Resources.Disconnect;
+                    btnAction.Tag = "disconnect";
+                    break;
+                case "disconnect":
+                    DNS.Set(null);
+                    // todo: change app icon to red one
+                    btnAction.Text = Resources.Connect;
+                    btnAction.Tag = "connect";
+                    break;
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e) {
             Hide();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
             NotifyIconHandler.Instance.NotifyIcon.Visible = false;
+            //Application.Exit();
         }
 
         private void BtnTray_Click(object sender, EventArgs e) {
@@ -120,64 +183,6 @@ namespace presentation.desktopApp {
 
         private void BtnSettings_Click(object sender, EventArgs e) {
             ShowSettings();
-        }
-
-        private void DNS_KeyDown(object sender, KeyEventArgs e) {
-            var textBox = (TextBox)sender;
-            var selectedTag = textBox.Tag.ToInt();
-
-            if(e.KeyCode == Keys.Left) {
-                if(selectedTag > 1 && textBox.SelectionStart == 0) {
-                    SendKeys.Send("+{TAB}");
-                }
-            }
-            else if(e.KeyCode == Keys.Right) {
-                if(selectedTag < 4 && textBox.SelectionStart == textBox.TextLength) {
-                    SendKeys.Send("{TAB}");
-                }
-            }
-        }
-
-        private void DNS_KeyPress(object sender, KeyPressEventArgs e) {
-            var keyCode = e.KeyChar.ToKeyCode();
-            var textBox = (TextBox)sender;
-            var selectedTag = textBox.Tag.ToInt();
-
-            if((keyCode >= Keys.D0 && keyCode <= Keys.D9) || (keyCode >= Keys.NumPad0 && keyCode <= Keys.NumPad9)) {
-                if(textBox.TextLength == 3) {
-                    e.Handled = true;
-                    return;
-                }
-                if(selectedTag < 4 && textBox.TextLength >= 2) {
-                    SendKeys.Send("{TAB}");
-                }
-                var isValidNumber = int.TryParse($"{textBox.Text}{e.KeyChar}", out int segment);
-                if(isValidNumber) {
-                    if(segment > 255) {
-                        textBox.Text = "255";
-                        textBox.SelectionStart = 3;
-                    }
-                    else {
-                        e.Handled = true;
-                        textBox.Text = segment.ToString();
-                        textBox.SelectionStart = textBox.TextLength;
-                    }
-                }
-            }
-            else if(keyCode == Keys.Back) {
-                if(selectedTag > 1 && textBox.SelectionStart <= 0) {
-                    SendKeys.Send("+{TAB}");
-                }
-            }
-            else if(keyCode == Keys.Decimal || keyCode == Keys.OemPeriod) {
-                e.Handled = true;
-                if(selectedTag < 4 && textBox.TextLength > 0) {
-                    SendKeys.Send("{TAB}");
-                }
-            }
-            else {
-                e.Handled = true;
-            }
         }
     }
 }

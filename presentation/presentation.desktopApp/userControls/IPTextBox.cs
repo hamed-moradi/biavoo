@@ -8,24 +8,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using presentation.desktopApp.helper;
+using System.Net;
 
 namespace IPTextBox {
     public partial class IPTextBox: UserControl {
+        #region ctor
         public IPTextBox() {
             InitializeComponent();
 
-            tbSegment1.KeyDown += TBSegment_KeyDown;
-            tbSegment2.KeyDown += TBSegment_KeyDown;
-            tbSegment3.KeyDown += TBSegment_KeyDown;
-            tbSegment4.KeyDown += TBSegment_KeyDown;
+            txtSegment1.KeyDown += TxtSegment_KeyDown;
+            txtSegment2.KeyDown += TxtSegment_KeyDown;
+            txtSegment3.KeyDown += TxtSegment_KeyDown;
+            txtSegment4.KeyDown += TxtSegment_KeyDown;
 
-            tbSegment1.KeyPress += TBSegment_KeyPress;
-            tbSegment2.KeyPress += TBSegment_KeyPress;
-            tbSegment3.KeyPress += TBSegment_KeyPress;
-            tbSegment4.KeyPress += TBSegment_KeyPress;
+            txtSegment1.KeyUp += TxtSegment_KeyUp;
+            txtSegment2.KeyUp += TxtSegment_KeyUp;
+            txtSegment3.KeyUp += TxtSegment_KeyUp;
+            txtSegment4.KeyUp += TxtSegment_KeyUp;
+
+            txtSegment1.KeyPress += TxtSegment_KeyPress;
+            txtSegment2.KeyPress += TxtSegment_KeyPress;
+            txtSegment3.KeyPress += TxtSegment_KeyPress;
+            txtSegment4.KeyPress += TxtSegment_KeyPress;
+
+            txtSegment1.Pasted += TxtSegment_Pasted;
+            txtSegment2.Pasted += TxtSegment_Pasted;
+            txtSegment3.Pasted += TxtSegment_Pasted;
+            txtSegment4.Pasted += TxtSegment_Pasted;
+
+            cmbIPs.SelectedIndexChanged += CmbIPs_SelectedIndexChanged;
         }
+        #endregion
 
-        private void TBSegment_KeyDown(object sender, KeyEventArgs e) {
+        #region private
+        private void SetValueFromClipBoard() {
+            if(Clipboard.ContainsText()) {
+                var ip = Clipboard.GetText();
+                if(!string.IsNullOrWhiteSpace(ip)) {
+                    var isValidIP = IPAddress.TryParse(ip, out var ipAddress);
+                    if(isValidIP) {
+                        Value = ipAddress.ToString();
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region events
+        private void TxtSegment_KeyDown(object sender, KeyEventArgs e) {
             var textBox = (TextBox)sender;
             var selectedTag = textBox.Tag.ToInt();
 
@@ -41,7 +71,13 @@ namespace IPTextBox {
             }
         }
 
-        private void TBSegment_KeyPress(object sender, KeyPressEventArgs e) {
+        private void TxtSegment_KeyUp(object sender, KeyEventArgs e) {
+            if(e.Control && e.KeyCode == Keys.V) {
+                SetValueFromClipBoard();
+            }
+        }
+
+        private void TxtSegment_KeyPress(object sender, KeyPressEventArgs e) {
             var keyCode = e.KeyChar.ToKeyCode();
             var textBox = (TextBox)sender;
             var selectedTag = textBox.Tag.ToInt();
@@ -80,6 +116,33 @@ namespace IPTextBox {
             }
             else {
                 e.Handled = true;
+            }
+        }
+
+        private void TxtSegment_Pasted(object sender, ClipboardEventArgs e) {
+            SetValueFromClipBoard();
+        }
+
+        private void CmbIPs_SelectedIndexChanged(object sender, EventArgs e) {
+            if(cmbIPs.SelectedItem != null) {
+                var isValidIP = IPAddress.TryParse(cmbIPs.SelectedItem.ToString(), out var ipAddress);
+                if(isValidIP) {
+                    Value = ipAddress.ToString();
+                }
+            }
+        }
+        #endregion
+
+        public string Value {
+            get {
+                return $"{txtSegment1.Text}.{txtSegment2.Text}.{txtSegment3.Text}.{txtSegment4.Text}";
+            }
+            set {
+                var ipSegments = value.Split('.');
+                txtSegment1.Text = ipSegments[0];
+                txtSegment2.Text = ipSegments[1];
+                txtSegment3.Text = ipSegments[2];
+                txtSegment4.Text = ipSegments[3];
             }
         }
     }

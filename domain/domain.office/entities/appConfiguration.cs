@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace domain.office.entities {
-    [Table("Configuration")]
-    public class Configuration {
+    [Table("AppConfiguration")]
+    public class AppConfiguration {
         [Key]
         public int Id { get; set; }
         public string Language { get; set; }

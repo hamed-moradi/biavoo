@@ -57,10 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="containers\configurationContainer.cs" />
+    <Compile Include="containers\appConfigurationContainer.cs" />
+    <Compile Include="containers\connectionHistoryContainer.cs" />
+    <Compile Include="containers\dnsAddressContainer.cs" />
+    <Compile Include="containers\network2DNSContainer.cs" />
+    <Compile Include="containers\networkAdapterContainer.cs" />
     <Compile Include="containers\NotifyAreaUtility.cs" />
     <Compile Include="containers\NotifyIconUtility.cs" />
-    <Compile Include="entities\Configuration.cs" />
+    <Compile Include="entities\appConfiguration.cs" />
+    <Compile Include="entities\connectionHistory.cs" />
+    <Compile Include="entities\dnsAddress.cs" />
+    <Compile Include="entities\network2DNS.cs" />
+    <Compile Include="entities\networkAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_app\animation.cs" />
     <Compile Include="_app\appSettings.cs" />

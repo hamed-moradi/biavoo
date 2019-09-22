@@ -12,9 +12,9 @@ using System.Windows.Forms;
 namespace presentation.desktopApp.forms {
     public partial class frmSettings: Form {
         #region ctor
-        private readonly ConfigurationContainer _configurationContainer;
+        private readonly AppConfigurationContainer _appConfigurationContainer;
         public frmSettings() {
-            _configurationContainer = new ConfigurationContainer();
+            _appConfigurationContainer = new AppConfigurationContainer();
             InitializeComponent();
         }
         #endregion
@@ -33,7 +33,7 @@ namespace presentation.desktopApp.forms {
 
         private void FrmSettings_Load(object sender, EventArgs e) {
             cmbLanguage.Items.AddRange(new object[] { "EN", "FA" });
-            var configuration = _configurationContainer.Get();
+            var configuration = _appConfigurationContainer.Get().Result;
             switch(configuration.Language) {
                 case "en-US":
                     cmbLanguage.SelectedItem = "EN";

@@ -28,12 +28,7 @@ namespace presentation.desktopApp.helper {
                     if(objMO["Description"].ToString().Equals(CurrentInterface.Description)) {
                         var objdns = objMO.GetMethodParameters("SetDNSServerSearchOrder");
                         if(objdns != null) {
-                            if(ips.Any()) {
-                                objdns["DNSServerSearchOrder"] = ips;
-                            }
-                            else {
-                                objdns["DNSServerSearchOrder"] = null;
-                            }
+                            objdns["DNSServerSearchOrder"] = ips;
                             objMO.InvokeMethod("SetDNSServerSearchOrder", objdns, null);
                         }
                     }
@@ -41,19 +36,20 @@ namespace presentation.desktopApp.helper {
             }
         }
 
-        //public static void t() {
-        //    var mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
-        //    var moc = mc.GetInstances();
-        //    foreach(ManagementObject mo in moc) {
-        //        if((bool)mo["IPEnabled"]) {
-        //            var objdns = mo.GetMethodParameters("SetDNSServerSearchOrder");
-        //            if(objdns != null) {
-        //                string[] s = { "192.168.XX.X", "XXX.XX.X.XX" };
-        //                objdns["DNSServerSearchOrder"] = s;
-        //                mo.InvokeMethod("SetDNSServerSearchOrder", objdns, null);
-        //            }
-        //        }
-        //    }
-        //}
+        public static void Set(NetworkInterface netInterface, string[] ips) {
+            var managementClass = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            var classInstances = managementClass.GetInstances();
+            foreach(ManagementObject obj in classInstances) {
+                if((bool)obj["IPEnabled"]) {
+                    if(obj["Description"].ToString().ToLower().Equals(netInterface.Description.ToLower())) {
+                        var objdns = obj.GetMethodParameters("SetDNSServerSearchOrder");
+                        if(objdns != null) {
+                            objdns["DNSServerSearchOrder"] = ips;
+                            obj.InvokeMethod("SetDNSServerSearchOrder", objdns, null);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

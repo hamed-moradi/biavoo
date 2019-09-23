@@ -94,7 +94,7 @@ namespace presentation.desktopApp {
                 }
                 _networkAdapters.Add(netAdapter);
             }
-            
+
             _connectedNetwork = _networkAdapters.SingleOrDefault(s => s.Priority == 1);
             if(_connectedNetwork == null) {
                 picConnection.Image = new Icon(Resources.disconnected, 21, 21).ToBitmap();
@@ -103,6 +103,12 @@ namespace presentation.desktopApp {
                 picConnection.Image = Bitmap.FromHicon(new Icon(Resources.connected, 21, 21).Handle);
                 cmbNetworkConnection.SelectedItem = _connectedNetwork.Name;
             }
+        }
+
+        private void ChangeEnable(bool status) {
+            cmbNetworkConnection.Enabled = status;
+            iptxtPreferredDNS.Enabled = status;
+            iptxtAlternateDNS.Enabled = status;
         }
         #endregion
 
@@ -141,25 +147,29 @@ namespace presentation.desktopApp {
                         // todo: show message "You're not connected to the internet"
                         break;
                     }
-                    var ips = new string[2];
+                    var ips = new List<string>();
                     var isPreferredValid = IPAddress.TryParse(iptxtPreferredDNS.Value, out var preferredDNSIP);
                     var isAlternatedValid = IPAddress.TryParse(iptxtAlternateDNS.Value, out var alternatedDNSIP);
                     if(isPreferredValid) {
-                        ips[0] = preferredDNSIP.ToString();
+                        ips.Add(preferredDNSIP.ToString());
                     }
                     if(isAlternatedValid) {
-                        ips[1] = alternatedDNSIP.ToString();
+                        ips.Add(alternatedDNSIP.ToString());
                     }
-                    DNS.Set(ips);
-                    // todo: change app icon to green one
-                    btnAction.Text = Resources.Disconnect;
-                    btnAction.Tag = "disconnect";
+                    if(ips.Any()) {
+                        DNS.Set(ips.ToArray());
+                        // todo: change app icon to green one
+                        btnAction.Text = Resources.Disconnect;
+                        btnAction.Tag = "disconnect";
+                        ChangeEnable(false);
+                    }
                     break;
                 case "disconnect":
                     DNS.Set(null);
                     // todo: change app icon to red one
                     btnAction.Text = Resources.Connect;
                     btnAction.Tag = "connect";
+                    ChangeEnable(true);
                     break;
             }
         }

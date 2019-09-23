@@ -36,7 +36,24 @@ namespace IPTextBox {
             txtSegment3.Pasted += TxtSegment_Pasted;
             txtSegment4.Pasted += TxtSegment_Pasted;
 
+            EnabledChanged += This_EnabledChanged;
+            
             cmbIPs.SelectedIndexChanged += CmbIPs_SelectedIndexChanged;
+        }
+
+        private void This_EnabledChanged(object sender, EventArgs e) {
+            var ipTextBox = (IPTextBox)sender;
+
+            cmbIPs.Enabled = ipTextBox.Enabled;
+
+            txtSegment1.Enabled = ipTextBox.Enabled;
+            txtSegment2.Enabled = ipTextBox.Enabled;
+            txtSegment3.Enabled = ipTextBox.Enabled;
+            txtSegment4.Enabled = ipTextBox.Enabled;
+            
+            lblDot1.Enabled = ipTextBox.Enabled;
+            lblDot2.Enabled = ipTextBox.Enabled;
+            lblDot3.Enabled = ipTextBox.Enabled;
         }
         #endregion
 

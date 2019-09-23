@@ -12,5 +12,7 @@ namespace domain.office.entities {
         [Key]
         public int Id { get; set; }
         public string IP { get; set; }
+        public byte Type { get; set; }
+        public byte Priority { get; set; }
     }
 }

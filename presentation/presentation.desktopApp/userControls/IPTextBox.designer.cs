@@ -23,15 +23,60 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.lblDot3 = new System.Windows.Forms.Label();
+            this.lblDot2 = new System.Windows.Forms.Label();
+            this.lblDot1 = new System.Windows.Forms.Label();
+            this.cmbIPs = new System.Windows.Forms.ComboBox();
             this.txtSegment4 = new presentation.desktopApp.helper.ExtendedTextBox();
             this.txtSegment3 = new presentation.desktopApp.helper.ExtendedTextBox();
             this.txtSegment2 = new presentation.desktopApp.helper.ExtendedTextBox();
             this.txtSegment1 = new presentation.desktopApp.helper.ExtendedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbIPs = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
+            // 
+            // lblDot3
+            // 
+            this.lblDot3.AutoSize = true;
+            this.lblDot3.BackColor = System.Drawing.Color.White;
+            this.lblDot3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDot3.Location = new System.Drawing.Point(98, 1);
+            this.lblDot3.Name = "lblDot3";
+            this.lblDot3.Size = new System.Drawing.Size(13, 20);
+            this.lblDot3.TabIndex = 15;
+            this.lblDot3.Text = ".";
+            // 
+            // lblDot2
+            // 
+            this.lblDot2.AutoSize = true;
+            this.lblDot2.BackColor = System.Drawing.Color.White;
+            this.lblDot2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDot2.Location = new System.Drawing.Point(63, 1);
+            this.lblDot2.Name = "lblDot2";
+            this.lblDot2.Size = new System.Drawing.Size(13, 20);
+            this.lblDot2.TabIndex = 14;
+            this.lblDot2.Text = ".";
+            // 
+            // lblDot1
+            // 
+            this.lblDot1.AutoSize = true;
+            this.lblDot1.BackColor = System.Drawing.Color.White;
+            this.lblDot1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDot1.Location = new System.Drawing.Point(28, 1);
+            this.lblDot1.Name = "lblDot1";
+            this.lblDot1.Size = new System.Drawing.Size(13, 20);
+            this.lblDot1.TabIndex = 13;
+            this.lblDot1.Text = ".";
+            // 
+            // cmbIPs
+            // 
+            this.cmbIPs.BackColor = System.Drawing.Color.White;
+            this.cmbIPs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIPs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbIPs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbIPs.Location = new System.Drawing.Point(0, 0);
+            this.cmbIPs.Name = "cmbIPs";
+            this.cmbIPs.Size = new System.Drawing.Size(157, 21);
+            this.cmbIPs.TabIndex = 4;
+            this.cmbIPs.TabStop = false;
             // 
             // txtSegment4
             // 
@@ -81,51 +126,6 @@
             this.txtSegment1.Tag = "1";
             this.txtSegment1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(98, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 20);
-            this.label3.TabIndex = 15;
-            this.label3.Text = ".";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 20);
-            this.label2.TabIndex = 14;
-            this.label2.Text = ".";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 20);
-            this.label1.TabIndex = 13;
-            this.label1.Text = ".";
-            // 
-            // cmbIPs
-            // 
-            this.cmbIPs.BackColor = System.Drawing.Color.White;
-            this.cmbIPs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbIPs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbIPs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbIPs.Location = new System.Drawing.Point(0, 0);
-            this.cmbIPs.Name = "cmbIPs";
-            this.cmbIPs.Size = new System.Drawing.Size(157, 21);
-            this.cmbIPs.TabIndex = 4;
-            this.cmbIPs.TabStop = false;
-            // 
             // IPTextBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,9 +134,9 @@
             this.Controls.Add(this.txtSegment3);
             this.Controls.Add(this.txtSegment2);
             this.Controls.Add(this.txtSegment1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDot1);
+            this.Controls.Add(this.lblDot2);
+            this.Controls.Add(this.lblDot3);
             this.Controls.Add(this.cmbIPs);
             this.MaximumSize = new System.Drawing.Size(157, 21);
             this.MinimumSize = new System.Drawing.Size(157, 21);
@@ -153,9 +153,9 @@
         private presentation.desktopApp.helper.ExtendedTextBox txtSegment3;
         private presentation.desktopApp.helper.ExtendedTextBox txtSegment2;
         private presentation.desktopApp.helper.ExtendedTextBox txtSegment1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDot3;
+        private System.Windows.Forms.Label lblDot2;
+        private System.Windows.Forms.Label lblDot1;
         public System.Windows.Forms.ComboBox cmbIPs;
     }
 }

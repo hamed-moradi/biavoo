@@ -13,14 +13,14 @@ namespace domain.office._app {
             return expression;
         }
 
-        public static IQueryable<T> OrderByField<T>(this IQueryable<T> q, string sortField, bool ascending) {
+        public static IQueryable<T> OrderByField<T>(this IQueryable<T> query, string sortField, bool ascending) {
             var param = Expression.Parameter(typeof(T), "p");
             var prop = Expression.Property(param, sortField);
             var exp = Expression.Lambda(prop, param);
             var method = ascending ? "OrderBy" : "OrderByDescending";
-            var types = new[] { q.ElementType, exp.Body.Type };
-            var mce = Expression.Call(typeof(Queryable), method, types, q.Expression, exp);
-            return q.Provider.CreateQuery<T>(mce);
+            var types = new[] { query.ElementType, exp.Body.Type };
+            var mce = Expression.Call(typeof(Queryable), method, types, query.Expression, exp);
+            return query.Provider.CreateQuery<T>(mce);
         }
     }
 }

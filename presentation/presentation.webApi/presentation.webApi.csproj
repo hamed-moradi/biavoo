@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup Label="Globals">
     <SccProjectName>SAK</SccProjectName>
@@ -21,17 +21,17 @@
 
   <ItemGroup>
     <Compile Remove="logs\**" />
+    <Compile Remove="wwwroot\**" />
     <Content Remove="logs\**" />
+    <Content Remove="wwwroot\**" />
     <EmbeddedResource Remove="logs\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
     <None Remove="logs\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Presentation.WebApi.csproj.vspscc" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>

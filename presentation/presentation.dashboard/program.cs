@@ -18,7 +18,7 @@ namespace Presentation.WebApi {
                 .UseStartup<Startup>()
                 .UseSerilog((ctx, config) => {
                     config.ReadFrom.Configuration(ctx.Configuration);
-                    //Serilog.Debugging.SelfLog.Enable(Console.Error);
+                    Serilog.Debugging.SelfLog.Enable(Console.Error);
                 })
             .Build();
     }

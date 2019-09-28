@@ -7,7 +7,7 @@ namespace domain.repository.entities {
     [Table("dbo.[admin]")]
     public partial class Admin_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? RoleId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

@@ -20,7 +20,8 @@ namespace domain.application {
         Task<User_Model> GetAsync(Void_Schema model);
         Task EnableTwoFactorAuthentication(User_EnableTwoFactorAuthentication_Schema model);
         Task DisableTwoFactorAuthentication(User_DisableTwoFactorAuthentication_Schema model);
-        Task UpdateAsync(User_Update_Schema model);
+        Task UpdateProfileAsync(User_UpdateProfile_Schema model);
+        Task UpdatePrivacyAsync(User_UpdatePrivacy_Schema model);
         Task DisableMeAsync(User_DisableMe_Schema model);
     }
     public interface ICustomer_Service {

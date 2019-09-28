@@ -117,14 +117,23 @@ namespace domain.repository.schemas {
         public short StatusCode { get; set; }
     }
 
-    [Schema("[dbo].[api_user_update]")]
-    public class User_Update_Schema: Header_Schema {
+    [Schema("[dbo].[api_user_updateProfile]")]
+    public class User_UpdateProfile_Schema: Header_Schema {
         [InputParameter]
         public string @Nickname { get; set; }
         [InputParameter]
         public string @Avatar { get; set; }
         [InputParameter]
         public DateTime? @BirthDate { get; set; }
+
+        [ReturnParameter]
+        public short StatusCode { get; set; }
+    }
+
+    [Schema("[dbo].[api_user_updatePrivacy]")]
+    public class User_UpdatePrivacy_Schema: Header_Schema {
+        [InputParameter]
+        public string @AppearingInSearch { get; set; }
 
         [ReturnParameter]
         public short StatusCode { get; set; }

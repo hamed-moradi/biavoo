@@ -44,6 +44,9 @@ namespace shared.model.bindingModels {
         public string Nickname { get; set; }
         public long? BirthDate { get; set; }
     }
+    public class User_UpdatePrivacy_BindingModel: FullHeader_BindingModel {
+        public bool AppearingInSearch { get; set; }
+    }
     public class User_DisableMe_BindingModel: FullHeader_BindingModel {
         public string Description { get; set; }
     }

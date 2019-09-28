@@ -36,7 +36,7 @@ namespace presentation.webApi.helpers {
             CreateMap<User_TwoFactorAuthentication_BindingModel, User_DisableTwoFactorAuthentication_Schema>();
             CreateMap<User_Verify_BindingModel, User_SetVerificationCode_Schema>();
             CreateMap<User_Verify_BindingModel, User_Verify_Schema>();
-            CreateMap<User_Update_BindingModel, User_Update_Schema>()
+            CreateMap<User_Update_BindingModel, User_UpdateProfile_Schema>()
                 .ForMember(d => d.BirthDate, s => s.MapFrom(f => f.BirthDate.ToDateTime(null)));
             CreateMap<User_DisableMe_BindingModel, User_DisableMe_Schema>();
 

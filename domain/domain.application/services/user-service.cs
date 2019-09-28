@@ -20,7 +20,8 @@ namespace domain.application.services {
         private readonly IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> _enableTwoFactorAuthentication;
         private readonly IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> _disableTwoFactorAuthentication;
         private readonly IStoreProcedure<User_Model, User_SignIn_Schema> _signIn;
-        private readonly IStoreProcedure<IBase_Model, User_Update_Schema> _updateProfile;
+        private readonly IStoreProcedure<IBase_Model, User_UpdateProfile_Schema> _updateProfile;
+        private readonly IStoreProcedure<IBase_Model, User_UpdatePrivacy_Schema> _updatePrivacy;
         private readonly IStoreProcedure<IBase_Model, User_DisableMe_Schema> _disableMe;
         public UserService(IParameterHandler parameterHandler,
             IGenericRepository<IBase_Model> repository,
@@ -29,7 +30,8 @@ namespace domain.application.services {
             IStoreProcedure<IBase_Model, User_EnableTwoFactorAuthentication_Schema> enableTwoFactorAuthentication,
             IStoreProcedure<IBase_Model, User_DisableTwoFactorAuthentication_Schema> disableTwoFactorAuthentication,
             IStoreProcedure<User_Model, User_SignIn_Schema> signIn,
-            IStoreProcedure<IBase_Model, User_Update_Schema> updateProfile,
+            IStoreProcedure<IBase_Model, User_UpdateProfile_Schema> updateProfile,
+            IStoreProcedure<IBase_Model, User_UpdatePrivacy_Schema> updatePrivacy,
             IStoreProcedure<IBase_Model, User_DisableMe_Schema> disableMe) {
             _repository = repository;
             _parameterHandler = parameterHandler;
@@ -98,8 +100,11 @@ namespace domain.application.services {
         public async Task DisableTwoFactorAuthentication(User_DisableTwoFactorAuthentication_Schema model) {
             await _disableTwoFactorAuthentication.ExecuteReturnLessAsync(model);
         }
-        public async Task UpdateAsync(User_Update_Schema model) {
+        public async Task UpdateProfileAsync(User_UpdateProfile_Schema model) {
             await _updateProfile.ExecuteReturnLessAsync(model);
+        }
+        public async Task UpdatePrivacyAsync(User_UpdatePrivacy_Schema model) {
+            await _updatePrivacy.ExecuteReturnLessAsync(model);
         }
         public async Task DisableMeAsync(User_DisableMe_Schema model) {
             await _disableMe.ExecuteReturnLessAsync(model);

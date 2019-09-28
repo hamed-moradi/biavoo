@@ -7,7 +7,7 @@ namespace domain.repository.entities {
     [Table("dbo.[productProperty]")]
     public partial class ProductProperty_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? ProductId { get; set; }
         public int? TypeId { get; set; }
         public string Key { get; set; }
@@ -15,7 +15,7 @@ namespace domain.repository.entities {
         public string Description { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
-        public byte? Status { get; set; }
+        public new byte? Status { get; set; }
     }
 
     public partial class ProductProperty_Entity {

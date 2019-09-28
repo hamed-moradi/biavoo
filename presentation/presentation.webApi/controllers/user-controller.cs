@@ -255,8 +255,8 @@ namespace presentation.webApi.controllers {
             return InternalServerError();
         }
 
-        [ArgumentBinding, HttpPut, Route("edit")]
-        public async Task<IActionResult> Edit([FromBody]User_Update_BindingModel collection) {
+        [ArgumentBinding, HttpPut, Route("editprofile")]
+        public async Task<IActionResult> EditProfile([FromBody]User_Update_BindingModel collection) {
             HeaderValidator(collection);
             try {
                 var fileName = string.Empty;
@@ -304,17 +304,40 @@ namespace presentation.webApi.controllers {
                         image.Save($@"{AppSettings.FilePath}\{fileName}.jpeg", ImageFormat.Jpeg);
                     }
                 }
-                var editModel = new User_Update_Schema {
+                var editModel = new User_UpdateProfile_Schema {
                     Token = collection.Token,
                     DeviceId = collection.DeviceId,
                     Avatar = $"{fileName}.jpeg",
                     Nickname = collection.Nickname,
                     BirthDate = collection.BirthDate.ToDateTime(null)
                 };
-                await _userService.UpdateAsync(editModel);
+                await _userService.UpdateProfileAsync(editModel);
                 switch(model.StatusCode) {
                     case 200:
                         return Ok();
+                }
+            }
+            catch(Exception ex) {
+                await _exceptionService.InsertAsync(ex, URL, IP);
+            }
+            return InternalServerError();
+        }
+
+        [ArgumentBinding, HttpPut, Route("editprivacy")]
+        public async Task<IActionResult> EditPrivacy([FromBody]User_UpdatePrivacy_BindingModel collection) {
+            HeaderValidator(collection);
+            try {
+                var model = _mapper.Map<User_UpdatePrivacy_Schema>(collection);
+                await _userService.UpdatePrivacyAsync(model);
+                switch(model.StatusCode) {
+                    case 200:
+                        return Ok();
+                    case 400:
+                        return BadRequest(_stringLocalizer[SharedResource.AuthenticationFailed]);
+                    case 405:
+                        return BadRequest(_stringLocalizer[SharedResource.DeviceIsNotActive]);
+                    case 410:
+                        return BadRequest(_stringLocalizer[SharedResource.UserIsNotActive]);
                 }
             }
             catch(Exception ex) {

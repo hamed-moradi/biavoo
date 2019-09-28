@@ -1,14 +1,14 @@
-﻿IF(OBJECT_ID('dbo.[api_user_update]', 'P') IS NOT NULL)
-    DROP PROCEDURE dbo.[api_user_update];
+﻿IF(OBJECT_ID('dbo.[api_user_updateProfile]', 'P') IS NOT NULL)
+    DROP PROCEDURE dbo.[api_user_updateProfile];
 GO
 
-/****** Object:  StoredProcedure [dbo].[api_user_update]    Script Date: 5/2/2019 7:46:42 PM ******/
+/****** Object:  StoredProcedure [dbo].[api_user_updateProfile]    Script Date: 5/2/2019 7:46:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[api_user_update]
+CREATE PROCEDURE [dbo].[api_user_updateProfile]
 	@Token char(32),
 	@DeviceId varchar(128),
 	@Avatar NVARCHAR(512) = NULL,

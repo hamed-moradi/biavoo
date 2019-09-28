@@ -11,7 +11,7 @@ namespace presentation.webApi.filterAttributes {
                     foreach(var item in properties) {
                         if(!string.IsNullOrWhiteSpace(item.Name)) {
                             switch(item.Name.ToLower()) {
-                                case "token": // GuidWithoutDash
+                                case "token": // Guid without dash
                                     var token = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("token"));
                                     if(token.Value.Any())
                                         item.SetValue(param.Value, token.Value[0]);
@@ -21,7 +21,7 @@ namespace presentation.webApi.filterAttributes {
                                     if(deviceId.Value.Any())
                                         item.SetValue(param.Value, deviceId.Value[0]);
                                     break;
-                                case "language": // IetfLanguageTag
+                                case "language": // IETF Language Tag
                                     var language = context.HttpContext.Request.Headers.FirstOrDefault(f => f.Key.ToLower().Equals("language"));
                                     if(language.Value.Any())
                                         item.SetValue(param.Value, language.Value[0]);

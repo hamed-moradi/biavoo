@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.[rate]")]
     public partial class Rate_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? UserId { get; set; }
         public long? EntityId { get; set; }
         public string Entity { get; set; }

@@ -8,7 +8,7 @@ namespace domain.repository.entities {
     [Table("dbo.[business]")]
     public partial class Business_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? CustomerId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -22,7 +22,7 @@ namespace domain.repository.entities {
         public Geography Point { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
-        public byte? Status { get; set; }
+        public new byte? Status { get; set; }
     }
 
     public partial class Business_Entity {

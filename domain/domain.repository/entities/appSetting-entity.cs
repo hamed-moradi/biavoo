@@ -7,7 +7,7 @@ namespace domain.repository.entities {
     [Table("dbo.[appSetting]")]
     public partial class AppSetting_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public string Key { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
@@ -16,7 +16,6 @@ namespace domain.repository.entities {
         public int? Priority { get; set; }
     }
     public partial class AppSetting_Entity {
-        public long RowsCount { get; set; }
     }
 
 }

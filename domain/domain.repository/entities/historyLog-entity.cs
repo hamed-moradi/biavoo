@@ -3,19 +3,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace domain.repository.entities {
-    [Table("dbo.[changeLog]")]
-    public partial class ChangeLog_Entity: Base_Entity {
+    [Table("dbo.[historyLog]")]
+    public partial class HistoryLog_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
-        public int? AdminId { get; set; }
+        public new long? Id { get; set; }
+        public int? UserId { get; set; }
         public Guid? ActivityId { get; set; }
         public byte? ActionType { get; set; }
-        public string Entity { get; set; }
-        public long? EntityId { get; set; }
         public string Data { get; set; }
         public DateTime? CreatedAt { get; set; }
     }
 
-    public partial class ChangeLog_Entity {
+    public partial class HistoryLog_Entity {
     }
 }

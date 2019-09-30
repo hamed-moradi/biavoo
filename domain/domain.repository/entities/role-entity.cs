@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.[role]")]
     public partial class Role_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }

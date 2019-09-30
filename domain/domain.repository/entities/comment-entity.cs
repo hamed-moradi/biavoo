@@ -7,7 +7,7 @@ namespace domain.repository.entities {
     [Table("dbo.[comment]")]
     public partial class Comment_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? UserId { get; set; }
         public int? ParentId { get; set; }
         public long? EntityId { get; set; }
@@ -15,7 +15,7 @@ namespace domain.repository.entities {
         public string Body { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
-        public byte? Status { get; set; }
+        public new byte? Status { get; set; }
     }
 
     public partial class Comment_Entity {

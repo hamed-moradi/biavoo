@@ -7,7 +7,7 @@ namespace domain.repository.entities {
     [Table("dbo.userPrivacy")]
     public partial class UserPrivacy_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? UserId { get; set; }
         public bool? AppearingInSearch { get; set; }
         public DateTime? CreatedAt { get; set; }

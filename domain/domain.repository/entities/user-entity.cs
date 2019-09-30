@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.[user]")]
     public partial class User_Entity: Base_Entity {
         [Key]
-        public int Id { get; set; }
+        public new int Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string ActivitionCode { get; set; }

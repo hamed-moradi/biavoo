@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.[page]")]
     public partial class Page_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public string UniqueName { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }

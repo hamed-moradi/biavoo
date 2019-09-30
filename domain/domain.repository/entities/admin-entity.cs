@@ -19,7 +19,7 @@ namespace domain.repository.entities {
         public string Avatar { get; set; }
         public DateTime? LastSignedin { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public byte? Status { get; set; }
+        public new byte? Status { get; set; }
     }
 
     public partial class Admin_Entity {

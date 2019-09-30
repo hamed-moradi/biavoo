@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.[exception]")]
     public partial class Exceptions_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public string URL { get; set; }
         public string Data { get; set; }

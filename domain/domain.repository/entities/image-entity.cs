@@ -7,7 +7,7 @@ using domain.repository.entities;
 namespace domain.repository.models {
     [Table("dbo.[image]")]
     public partial class Image_Entity: Base_Entity {
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? EntityId { get; set; }
         public int? ScaleId { get; set; }
         public string Entity { get; set; }
@@ -17,6 +17,6 @@ namespace domain.repository.models {
         public string Description { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public byte? Status { get; set; }
+        public new byte? Status { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.moduleReference")]
     public partial class ModuleReference_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? ParentId { get; set; }
         public string Title { get; set; }
         public string Path { get; set; }
@@ -16,7 +16,7 @@ namespace domain.repository.entities {
         public byte? Category { get; set; }
         public byte? Priority { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public byte? Status { get; set; }
+        public new byte? Status { get; set; }
     }
 
     public partial class ModuleReference_Entity {

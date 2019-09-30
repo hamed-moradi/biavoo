@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace shared.utility._app
-{
-    public class AppSettings
-    {
+namespace shared.utility._app {
+    public class AppSettings {
         #region Constructor
         private static readonly IConfiguration _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         #endregion

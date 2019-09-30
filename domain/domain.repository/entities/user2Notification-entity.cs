@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.user2Notification")]
     public partial class User2Notification_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? UserId { get; set; }
         public int? NotificationId { get; set; }
         public DateTime? DeliveredAt { get; set; }

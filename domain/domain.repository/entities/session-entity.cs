@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.session")]
     public partial class Session_Entity: Base_Entity {
         [Key]
-        public int? Id { get; set; }
+        public new int? Id { get; set; }
         public int? UserId { get; set; }
         public string Token { get; set; }
         public string DeviceId { get; set; }
@@ -20,7 +20,7 @@ namespace domain.repository.entities {
         public string FCM { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public short? Status { get; set; }
+        public new short? Status { get; set; }
     }
 
     public partial class Session_Entity {

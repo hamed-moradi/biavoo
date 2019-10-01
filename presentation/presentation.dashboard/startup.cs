@@ -21,7 +21,7 @@ using React.AspNet;
 namespace Presentation.WebApi {
     public class Startup {
         #region Constructor
-        private static readonly string apiVersion = Assembly.GetEntryAssembly().GetName().Version.ToString();
+        private static readonly string _appVersion = Assembly.GetEntryAssembly().GetName().Version.ToString();
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -48,7 +48,7 @@ namespace Presentation.WebApi {
                 .AddRazorPagesOptions(options => {
                     options.Conventions.AuthorizePage("/Home/Contact");
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             // CookieAuthentication
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
@@ -76,19 +76,26 @@ namespace Presentation.WebApi {
                 options.SupportedCultures = SupportedCultures.List;
                 options.SupportedUICultures = SupportedCultures.List;
             });
+
+            services.AddRazorPages().AddMvcOptions(configure => {
+                configure.EnableEndpointRouting = false;
+            });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-            if(env.IsDevelopment()) {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-                app.UseBrowserLink(); //TODO: what is this?
-            }
-            else {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts(); //TODO: what is this?
-            }
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            // after .net core 3
+            //if(env.IsDevelopment()) {
+            //    app.UseDeveloperExceptionPage();
+            //    //app.UseDatabaseErrorPage();  // after .net core 3
+            //    //app.UseBrowserLink(); //TODO: what is this?  // after .net core 3
+            //}
+            //else {
+            //    app.UseExceptionHandler("/Home/Error");
+            //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            //    app.UseHsts(); //TODO: what is this?
+            //}
+
+
             app.UseRequestLocalization(new RequestLocalizationOptions {
                 DefaultRequestCulture = new RequestCulture("en-US"),
                 // Formatting numbers, dates, etc.
@@ -101,8 +108,7 @@ namespace Presentation.WebApi {
             app.UseHttpsRedirection();
 
             // Initialise ReactJS.NET. Must be before static files.
-            app.UseReact(config =>
-            {
+            app.UseReact(config => {
                 config.AddScript("~/js/home.jsx");
                 // If you want to use server-side rendering of React components,
                 // add all the necessary JavaScript files here. This includes
@@ -130,6 +136,10 @@ namespace Presentation.WebApi {
             //    routes.MapRoute(
             //        name: "default",
             //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
+
+            //app.UseMvc(routes => {
+            //    routes.MapRoute("default", "{controller=home}/{action=get}/{id?)/");
             //});
             app.UseMvcWithDefaultRoute();
         }

@@ -9656,3 +9656,264 @@ presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.
    at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 2019-08-18 14:36:35.826 +04:30 [INF] Request finished in 9.7936ms 500 text/html; charset=utf-8
+2019-10-01 10:09:32.754 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 10:09:34.760 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 10:09:34.760 +03:30 [INF] Request starting HTTP/1.1 DEBUG http://localhost:62067/  0
+2019-10-01 10:09:34.946 +03:30 [INF] Request finished in 163.9228ms 200 
+2019-10-01 10:09:35.897 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 10:09:35.955 +03:30 [INF] Executing endpoint 'presentation.dashboard.controllers.HomeController.Get (presentation.dashboard)'
+2019-10-01 10:09:36.030 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 10:09:36.267 +03:30 [INF] Executing action method presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) - Validation state: "Valid"
+2019-10-01 10:09:36.305 +03:30 [INF] Executed action method presentation.dashboard.controllers.HomeController.Get (presentation.dashboard), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.7526ms.
+2019-10-01 10:09:36.363 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 10:09:36.440 +03:30 [INF] Executed ViewResult - view Get executed in 118.9585ms.
+2019-10-01 10:09:36.440 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 409.8568ms
+2019-10-01 10:09:36.440 +03:30 [INF] Executed endpoint 'presentation.dashboard.controllers.HomeController.Get (presentation.dashboard)'
+2019-10-01 10:09:36.462 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/js/home.jsx  
+2019-10-01 10:09:36.484 +03:30 [INF] Request finished in 1726.2913ms 200 text/html; charset=utf-8
+2019-10-01 10:09:36.738 +03:30 [ERR] An unhandled exception has occurred while executing the request.
+React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.ReactEnvironment ---> React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.JavaScriptEngineFactory ---> JavaScriptEngineSwitcher.Core.JsEngineLoadException: Failed to create instance of the ChakraCoreJsEngine. Most likely it happened, because the 'ChakraCore.dll' assembly or one of its dependencies was not found. Try to install the JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 package via NuGet. ---> System.DllNotFoundException: Unable to load DLL 'ChakraCore' or one of its dependencies: The specified module could not be found. (Exception from HRESULT: 0x8007007E)
+   at JavaScriptEngineSwitcher.ChakraCore.JsRt.NativeMethods.JsCreateRuntime(JsRuntimeAttributes attributes, JsThreadServiceCallback threadService, JsRuntime& runtime)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine.<>c__DisplayClass10_1.<.ctor>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.<>c__DisplayClass11_0.<Invoke>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.StartThread()
+--- End of stack trace from previous location where exception was thrown ---
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.InnnerInvoke(Func`1 del)
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.Invoke(Action action)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   --- End of inner exception stack trace ---
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngineFactory.CreateEngine()
+   at JSPool.JsPool`2.CreateEngine()
+   at JSPool.JsPool`2.PopulateEngines()
+   at JSPool.JsPool`2..ctor(JsPoolConfig`1 config)
+   at React.JavaScriptEngineFactory.CreatePool() in d:\a\1\s\src\React.Core\JavaScriptEngineFactory.cs:line 113
+   at React.JavaScriptEngineFactory..ctor(IJsEngineSwitcher jsEngineSwitcher, IReactSiteConfiguration config, ICache cache, IFileSystem fileSystem) in d:\a\1\s\src\React.Core\JavaScriptEngineFactory.cs:line 77
+   at lambda_method(Closure , Object[] )
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4052
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4060
+   at React.TinyIoC.TinyIoCContainer.SingletonFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3194
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3730
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4029
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4041
+   at React.TinyIoC.TinyIoCContainer.CustomObjectLifetimeFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3285
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3730
+   at React.TinyIoC.TinyIoCContainer.Resolve[ResolveType]() in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 1944
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context) in d:\a\1\s\src\React.AspNet.Middleware\BabelFileMiddleware.cs:line 64
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-10-01 10:09:37.055 +03:30 [INF] Request finished in 593.0594ms 500 text/html; charset=utf-8
+2019-10-01 10:09:38.026 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/js/home.jsx  
+2019-10-01 10:09:38.046 +03:30 [ERR] An unhandled exception has occurred while executing the request.
+React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.ReactEnvironment ---> React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.JavaScriptEngineFactory ---> JavaScriptEngineSwitcher.Core.JsEngineLoadException: Failed to create instance of the ChakraCoreJsEngine. Most likely it happened, because the 'ChakraCore.dll' assembly or one of its dependencies was not found. Try to install the JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 package via NuGet. ---> System.DllNotFoundException: Unable to load DLL 'ChakraCore' or one of its dependencies: The specified module could not be found. (Exception from HRESULT: 0x8007007E)
+   at JavaScriptEngineSwitcher.ChakraCore.JsRt.NativeMethods.JsCreateRuntime(JsRuntimeAttributes attributes, JsThreadServiceCallback threadService, JsRuntime& runtime)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine.<>c__DisplayClass10_1.<.ctor>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.<>c__DisplayClass11_0.<Invoke>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.StartThread()
+--- End of stack trace from previous location where exception was thrown ---
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.InnnerInvoke(Func`1 del)
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.Invoke(Action action)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   --- End of inner exception stack trace ---
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngineFactory.CreateEngine()
+   at JSPool.JsPool`2.CreateEngine()
+   at JSPool.JsPool`2.PopulateEngines()
+   at JSPool.JsPool`2..ctor(JsPoolConfig`1 config)
+   at React.JavaScriptEngineFactory.CreatePool() in d:\a\1\s\src\React.Core\JavaScriptEngineFactory.cs:line 113
+   at React.JavaScriptEngineFactory..ctor(IJsEngineSwitcher jsEngineSwitcher, IReactSiteConfiguration config, ICache cache, IFileSystem fileSystem) in d:\a\1\s\src\React.Core\JavaScriptEngineFactory.cs:line 77
+   at lambda_method(Closure , Object[] )
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4052
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4060
+   at React.TinyIoC.TinyIoCContainer.SingletonFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3194
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3730
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4029
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 4041
+   at React.TinyIoC.TinyIoCContainer.CustomObjectLifetimeFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3285
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options) in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 3730
+   at React.TinyIoC.TinyIoCContainer.Resolve[ResolveType]() in d:\a\1\s\src\React.Core\TinyIoC\TinyIoC.cs:line 1944
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context) in d:\a\1\s\src\React.AspNet.Middleware\BabelFileMiddleware.cs:line 64
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-10-01 10:09:38.054 +03:30 [INF] Request finished in 28.8321ms 500 text/html; charset=utf-8
+2019-10-01 10:09:38.109 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-10-01 10:09:38.115 +03:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateSet candidates)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, EndpointSelectorContext context, CandidateSet candidateSet)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.SelectAsync(HttpContext httpContext, EndpointSelectorContext context, CandidateSet candidateSet)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext, EndpointSelectorContext context)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.MatchAsync(HttpContext httpContext, EndpointSelectorContext context)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context) in d:\a\1\s\src\React.AspNet.Middleware\BabelFileMiddleware.cs:line 64
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-10-01 10:09:38.121 +03:30 [INF] Request finished in 12.3575ms 500 text/html; charset=utf-8
+2019-10-01 11:28:05.375 +03:30 [FTL] Application startup exception
+System.InvalidOperationException: Endpoint Routing does not support 'IApplicationBuilder.UseMvc(...)'. To use 'IApplicationBuilder.UseMvc' set 'MvcOptions.EnableEndpointRouting = false' inside 'ConfigureServices(...).
+   at Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc(IApplicationBuilder app, Action`1 configureRoutes)
+   at Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute(IApplicationBuilder app)
+   at Presentation.WebApi.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\git\biavoo\presentation\presentation.dashboard\startup.cs:line 134
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISServerSetupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2019-10-01 11:33:23.687 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 11:33:24.113 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 11:33:24.675 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 11:33:24.909 +03:30 [INF] Request finished in 797.8109000000001ms 404 
+2019-10-01 11:33:46.299 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 11:33:46.312 +03:30 [INF] Request finished in 13.7725ms 404 
+2019-10-01 11:33:47.777 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 11:33:47.799 +03:30 [INF] Request finished in 23.421400000000002ms 404 
+2019-10-01 11:43:10.035 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 11:43:10.213 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 11:43:10.401 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 11:43:10.536 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 11:43:14.781 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 11:43:14.913 +03:30 [INF] Executed ViewResult - view Get executed in 156.79330000000002ms.
+2019-10-01 11:43:14.915 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 4378.8395ms
+2019-10-01 11:43:14.922 +03:30 [INF] Request finished in 4712.8776ms 200 text/html; charset=utf-8
+2019-10-01 11:43:14.956 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/js/home.jsx  
+2019-10-01 11:43:15.167 +03:30 [ERR] Connection ID "18302628887244308486", Request ID "80000008-0000-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.ReactEnvironment
+ ---> React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.JavaScriptEngineFactory
+ ---> JavaScriptEngineSwitcher.Core.JsEngineLoadException: Failed to create instance of the ChakraCoreJsEngine. Most likely it happened, because the 'ChakraCore.dll' assembly or one of its dependencies was not found. Try to install the JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 package via NuGet.
+
+Engine name: ChakraCoreJsEngine
+Engine version: 1.11.12
+Category: Engine load error
+Description: Most likely it happened, because the 'ChakraCore.dll' assembly or one of its dependencies was not found. Try to install the JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 package via NuGet. ---> System.DllNotFoundException: Unable to load DLL 'ChakraCore' or one of its dependencies: The specified module could not be found. (0x8007007E)
+   at JavaScriptEngineSwitcher.ChakraCore.JsRt.NativeMethods.JsCreateRuntime(JsRuntimeAttributes attributes, JsThreadServiceCallback threadService, JsRuntime& runtime)
+   at JavaScriptEngineSwitcher.ChakraCore.JsRt.JsRuntime.Create(JsRuntimeAttributes attributes, JsThreadServiceCallback threadServiceCallback)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine.<>c__DisplayClass10_1.<.ctor>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.<>c__DisplayClass11_0.<Invoke>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.StartThread()
+--- End of stack trace from previous location where exception was thrown ---
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.InnnerInvoke(Func`1 del)
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.Invoke(Action action)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngineFactory.CreateEngine()
+   at JSPool.JsPool`2.CreateEngine()
+   at JSPool.JsPool`2.PopulateEngines()
+   at JSPool.JsPool`2..ctor(JsPoolConfig`1 config)
+   at JSPool.JsPool..ctor(JsPoolConfig config)
+   at React.JavaScriptEngineFactory.CreatePool()
+   at React.JavaScriptEngineFactory..ctor(IJsEngineSwitcher jsEngineSwitcher, IReactSiteConfiguration config, ICache cache, IFileSystem fileSystem)
+   at lambda_method(Closure , Object[] )
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.SingletonFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.CustomObjectLifetimeFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.Resolve(Type resolveType)
+   at React.TinyIoC.TinyIoCContainer.Resolve[ResolveType]()
+   at React.ReactEnvironment.get_Current()
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 11:43:15.266 +03:30 [INF] Request finished in 309.9371ms 500 
+2019-10-01 11:43:15.350 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/js/home.jsx  
+2019-10-01 11:43:15.366 +03:30 [ERR] Connection ID "18302628887244308486", Request ID "80000009-0000-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.ReactEnvironment
+ ---> React.TinyIoC.TinyIoCResolutionException: Unable to resolve type: React.JavaScriptEngineFactory
+ ---> JavaScriptEngineSwitcher.Core.JsEngineLoadException: Failed to create instance of the ChakraCoreJsEngine. Most likely it happened, because the 'ChakraCore.dll' assembly or one of its dependencies was not found. Try to install the JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 package via NuGet.
+
+Engine name: ChakraCoreJsEngine
+Engine version: 1.11.12
+Category: Engine load error
+Description: Most likely it happened, because the 'ChakraCore.dll' assembly or one of its dependencies was not found. Try to install the JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 package via NuGet. ---> System.DllNotFoundException: Unable to load DLL 'ChakraCore' or one of its dependencies: The specified module could not be found. (0x8007007E)
+   at JavaScriptEngineSwitcher.ChakraCore.JsRt.NativeMethods.JsCreateRuntime(JsRuntimeAttributes attributes, JsThreadServiceCallback threadService, JsRuntime& runtime)
+   at JavaScriptEngineSwitcher.ChakraCore.JsRt.JsRuntime.Create(JsRuntimeAttributes attributes, JsThreadServiceCallback threadServiceCallback)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine.<>c__DisplayClass10_1.<.ctor>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.<>c__DisplayClass11_0.<Invoke>b__0()
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.StartThread()
+--- End of stack trace from previous location where exception was thrown ---
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.InnnerInvoke(Func`1 del)
+   at JavaScriptEngineSwitcher.ChakraCore.ScriptDispatcher.Invoke(Action action)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngine..ctor(ChakraCoreSettings settings)
+   at JavaScriptEngineSwitcher.ChakraCore.ChakraCoreJsEngineFactory.CreateEngine()
+   at JSPool.JsPool`2.CreateEngine()
+   at JSPool.JsPool`2.PopulateEngines()
+   at JSPool.JsPool`2..ctor(JsPoolConfig`1 config)
+   at JSPool.JsPool..ctor(JsPoolConfig config)
+   at React.JavaScriptEngineFactory.CreatePool()
+   at React.JavaScriptEngineFactory..ctor(IJsEngineSwitcher jsEngineSwitcher, IReactSiteConfiguration config, ICache cache, IFileSystem fileSystem)
+   at lambda_method(Closure , Object[] )
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.SingletonFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+   --- End of inner exception stack trace ---
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ConstructType(Type requestedType, Type implementationType, ConstructorInfo constructor, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.CustomObjectLifetimeFactory.GetObject(Type requestedType, TinyIoCContainer container, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.ResolveInternal(TypeRegistration registration, NamedParameterOverloads parameters, ResolveOptions options)
+   at React.TinyIoC.TinyIoCContainer.Resolve(Type resolveType)
+   at React.TinyIoC.TinyIoCContainer.Resolve[ResolveType]()
+   at React.ReactEnvironment.get_Current()
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 11:43:15.368 +03:30 [INF] Request finished in 17.146900000000002ms 500 
+2019-10-01 11:43:15.432 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-10-01 11:43:15.434 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 11:43:15.436 +03:30 [ERR] Connection ID "18302628887244308486", Request ID "8000000a-0000-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 11:43:15.438 +03:30 [INF] Request finished in 6.230700000000001ms 500 

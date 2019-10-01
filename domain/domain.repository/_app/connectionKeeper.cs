@@ -1,6 +1,6 @@
 ﻿using shared.utility._app;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace domain.repository._app {
     public class ConnectionKeeper {

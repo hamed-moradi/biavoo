@@ -2,7 +2,6 @@
 using domain.repository.collections;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 using Newtonsoft.Json;
 using Serilog;
 using shared.utility._app;
@@ -34,7 +33,7 @@ namespace presentation.webApi.middlewares {
         #region Private
         private async Task<string> FormatRequest(HttpRequest request) {
             var body = request.Body;
-            request.EnableRewind();
+            //request.EnableRewind(); // after .net core 3
             var buffer = new byte[Convert.ToInt32(request.ContentLength)];
             await request.Body.ReadAsync(buffer, 0, buffer.Length);
             var bodyAsText = Encoding.UTF8.GetString(buffer);

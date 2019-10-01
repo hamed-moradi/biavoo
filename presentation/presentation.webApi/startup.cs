@@ -46,20 +46,26 @@ namespace Presentation.WebApi {
                 options.SupportedUICultures = SupportedCultures.List;
             });
             shared.utility._app.ModuleInjector.Init(services); // ServiceLocator
+            services.AddRazorPages().AddMvcOptions(setupAction => {
+                setupAction.EnableEndpointRouting = false;
+            });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             app.UseGateway();
             app.UseSwagger();
-            if(env.IsDevelopment()) {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-                //app.UseBrowserLink();
-                app.UseSwaggerUI(c => {
-                    c.SwaggerEndpoint($"swagger/{apiVersion}/swagger.json", $"biavoo {apiVersion}");
-                    c.RoutePrefix = string.Empty;
-                });
-            }
+
+            // after .net core 3
+            //if(env.IsDevelopment()) {
+            //    app.UseDeveloperExceptionPage();
+            //    //app.UseDatabaseErrorPage();  // after .net core 3
+            //    //app.UseBrowserLink();
+            //    app.UseSwaggerUI(c => {
+            //        c.SwaggerEndpoint($"swagger/{apiVersion}/swagger.json", $"biavoo {apiVersion}");
+            //        c.RoutePrefix = string.Empty;
+            //    });
+            //}
+
             app.UseRequestLocalization(new RequestLocalizationOptions {
                 DefaultRequestCulture = new RequestCulture("en-US"),
                 // Formatting numbers, dates, etc.

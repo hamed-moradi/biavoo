@@ -6,7 +6,7 @@ namespace domain.repository.entities {
     [Table("dbo.[customer]")]
     public partial class Customer_Entity: Base_Entity {
         [ForeignKey("dbo.[user].Id")]
-        public new int? UserId { get; set; }
+        public int? UserId { get; set; }
         public string NationalCode { get; set; }
         public DateTime? BirthDate { get; set; }
         public DateTime? CreatedAt { get; set; }

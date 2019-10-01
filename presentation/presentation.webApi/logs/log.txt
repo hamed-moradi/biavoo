@@ -2498,3 +2498,36 @@ System.Runtime.Serialization.SerializationException: An error occurred while des
    at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 2019-05-12 13:59:08.609 +04:30 [INF] Request finished in 543804.463ms 500 text/html; charset=utf-8
+2019-10-01 11:46:48.334 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 11:46:48.494 +03:30 [FTL] Application startup exception
+System.TypeLoadException: Could not load type 'Microsoft.AspNetCore.Mvc.MvcJsonOptions' from assembly 'Microsoft.AspNetCore.Mvc.Formatters.Json, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'.
+   at System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeConstructorInfo.get_Signature()
+   at System.Reflection.RuntimeConstructorInfo.GetParametersNoCopy()
+   at System.Reflection.RuntimeConstructorInfo.GetParameters()
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2019-10-01 12:27:43.574 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 12:27:43.723 +03:30 [FTL] Application startup exception
+System.TypeLoadException: Could not load type 'Microsoft.AspNetCore.Mvc.MvcJsonOptions' from assembly 'Microsoft.AspNetCore.Mvc.Formatters.Json, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'.
+   at System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeConstructorInfo.get_Signature()
+   at System.Reflection.RuntimeConstructorInfo.GetParametersNoCopy()
+   at System.Reflection.RuntimeConstructorInfo.GetParameters()
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2019-10-01 12:31:27.177 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 12:31:27.325 +03:30 [FTL] Application startup exception
+System.TypeLoadException: Could not load type 'Microsoft.AspNetCore.Mvc.MvcJsonOptions' from assembly 'Microsoft.AspNetCore.Mvc.Formatters.Json, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'.
+   at System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeConstructorInfo.get_Signature()
+   at System.Reflection.RuntimeConstructorInfo.GetParametersNoCopy()
+   at System.Reflection.RuntimeConstructorInfo.GetParameters()
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()

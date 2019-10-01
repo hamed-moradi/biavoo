@@ -47,7 +47,7 @@ namespace presentation.dashboard.controllers {
                 var admin = await _adminContainer.SignInAsync(collection.Username, collection.Password);
                 if(admin != null) {
                     if(admin.Status != 1) {
-                    Log.Information($"The lockout '{admin.FullName} (Id: {admin.Id})' tried to sign in.");
+                        Log.Information($"The lockout '{admin.FullName} (Id: {admin.Id})' tried to sign in.");
                         return View("Lockout");
                     }
                     //TODO: RequiresTwoFactor

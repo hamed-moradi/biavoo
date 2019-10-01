@@ -18,6 +18,5 @@ namespace shared.model.bindingModels {
 
     public class Comment_Edit_BindingModel: Comment_New_BindingModel {
         public int Id { get; set; }
-        public string Body { get; set; }
     }
 }

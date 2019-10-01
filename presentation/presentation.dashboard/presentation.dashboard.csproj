@@ -27,11 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="pages\shared\_layout2.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Presentation.WebApi.csproj.vspscc" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="pages\user\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\lib\" />
     <Folder Include="wwwroot\images\" />
@@ -51,7 +54,12 @@
     <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="React.AspNet" Version="5.0.0" />
     <PackageReference Include="Serilog" Version="2.8.0" />
@@ -65,6 +73,13 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="pages\shared\_layout2.cshtml" />
+    <None Include="pages\shared\_layout_old.cshtml" />
+    <None Include="pages\shared\_sidebar.cshtml" />
+    <None Include="pages\shared\_layout.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

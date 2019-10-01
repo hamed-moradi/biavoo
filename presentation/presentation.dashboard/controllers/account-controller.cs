@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using presentation.dashboard.helpers;
 using Serilog;
-using shared.model.dashboard_models;
+using shared.model.dashboardModels;
 using shared.resource;
 
 namespace presentation.dashboard.controllers {
@@ -29,13 +29,13 @@ namespace presentation.dashboard.controllers {
                 return Redirect(returnUrl);
             }
             else {
-                return RedirectToAction(nameof(HomeController.Get), "Home");
+                return RedirectToAction("Get", "Home");
             }
         }
         #endregion
 
         [HttpGet, AllowAnonymous]
-        public IActionResult SignIn(string returnUrl = null) {
+        public async Task<IActionResult> SignIn(string returnUrl = null) {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }

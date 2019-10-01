@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 using Serilog;
-using shared.model.dashboard_models;
+using shared.model.dashboardModels;
 using shared.resource;
 using shared.resource._app;
 using shared.utility;

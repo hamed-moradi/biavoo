@@ -8,7 +8,7 @@ using domain.office;
 using domain.repository.entities;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
-using shared.model.dashboard_models;
+using shared.model.dashboardModels;
 using shared.model.viewModels;
 
 namespace presentation.dashboard.controllers {

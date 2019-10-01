@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.dashboard_models {
+namespace shared.model.dashboardModels {
     public class Admin_DashboardModel: IBase_DashboardModel {
         public int? Id { get; set; }
         public int? RoleId { get; set; }

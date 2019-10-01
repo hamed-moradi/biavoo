@@ -9917,3 +9917,1666 @@ presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.
    at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
 2019-10-01 11:43:15.438 +03:30 [INF] Request finished in 6.230700000000001ms 500 
+2019-10-01 16:03:23.828 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:03:24.422 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:03:25.049 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:03:25.266 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:03:25.294 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:03:25.480 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 208.67870000000002ms
+2019-10-01 16:03:25.495 +03:30 [ERR] Connection ID "18230571297501347853", Request ID "8000000e-0001-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:03:25.786 +03:30 [INF] Request finished in 1370.0955000000001ms 500 
+2019-10-01 16:05:51.471 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:05:51.487 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:05:51.489 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:05:51.493 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 5.3128ms
+2019-10-01 16:05:51.495 +03:30 [ERR] Connection ID "17942340925644603393", Request ID "80000002-0002-f900-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:05:51.498 +03:30 [INF] Request finished in 27.530700000000003ms 500 
+2019-10-01 16:06:04.078 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:06:04.136 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:06:15.251 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:06:21.968 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 17834.7699ms
+2019-10-01 16:06:21.975 +03:30 [ERR] Connection ID "18374686494167138306", Request ID "80000003-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:06:21.978 +03:30 [INF] Request finished in 17903.592500000002ms 500 
+2019-10-01 16:08:12.250 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:08:12.402 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:08:12.669 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:08:12.785 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:08:15.086 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:08:15.149 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2358.8297000000002ms
+2019-10-01 16:08:15.158 +03:30 [ERR] Connection ID "17942340921349636102", Request ID "80000007-0001-f900-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:08:15.216 +03:30 [INF] Request finished in 2817.3818ms 500 
+2019-10-01 16:14:13.024 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:14:13.200 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:14:13.398 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:14:13.521 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:14:13.537 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:14:13.594 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 67.61460000000001ms
+2019-10-01 16:14:13.601 +03:30 [ERR] Connection ID "18086456113720459266", Request ID "80000003-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:14:13.670 +03:30 [INF] Request finished in 476.43690000000004ms 500 
+2019-10-01 16:27:56.351 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:27:56.502 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:27:56.701 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:27:56.807 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:27:56.820 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:27:56.877 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 65.5112ms
+2019-10-01 16:27:56.884 +03:30 [ERR] Connection ID "18230571293206380548", Request ID "80000005-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:27:56.944 +03:30 [INF] Request finished in 445.137ms 500 
+2019-10-01 16:28:49.804 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:28:49.825 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:28:49.827 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:28:49.832 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 5.8804ms
+2019-10-01 16:28:49.833 +03:30 [ERR] Connection ID "18230571293206380548", Request ID "80000006-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:28:49.837 +03:30 [INF] Request finished in 33.5414ms 500 
+2019-10-01 16:33:34.541 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:33:34.698 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:33:34.896 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:33:35.004 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:33:35.018 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:33:35.103 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 93.5438ms
+2019-10-01 16:33:35.110 +03:30 [ERR] Connection ID "18374686494167138308", Request ID "80000005-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:33:35.169 +03:30 [INF] Request finished in 473.41110000000003ms 500 
+2019-10-01 16:33:42.767 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/get  
+2019-10-01 16:33:42.784 +03:30 [INF] Request finished in 17.369600000000002ms 404 
+2019-10-01 16:33:47.036 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/get/1  
+2019-10-01 16:33:47.043 +03:30 [INF] Request finished in 8.630700000000001ms 404 
+2019-10-01 16:33:55.569 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/get/1  
+2019-10-01 16:33:55.578 +03:30 [INF] Request finished in 9.6194ms 404 
+2019-10-01 16:34:09.868 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/1  
+2019-10-01 16:34:09.873 +03:30 [INF] Request finished in 4.5112000000000005ms 404 
+2019-10-01 16:34:13.289 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business  
+2019-10-01 16:34:13.292 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:34:13.346 +03:30 [ERR] Connection ID "18374686494167138308", Request ID "8000000a-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:34:13.348 +03:30 [INF] Request finished in 58.725500000000004ms 500 
+2019-10-01 16:34:34.104 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:34:34.112 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:34:34.118 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:34:34.122 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 9.849400000000001ms
+2019-10-01 16:34:34.124 +03:30 [ERR] Connection ID "18374686494167138308", Request ID "8000000b-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:34:34.128 +03:30 [INF] Request finished in 24.9079ms 500 
+2019-10-01 16:34:36.929 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home  
+2019-10-01 16:34:36.931 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:34:36.933 +03:30 [ERR] Connection ID "18374686494167138308", Request ID "8000000c-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:34:36.938 +03:30 [INF] Request finished in 8.5565ms 500 
+2019-10-01 16:34:47.792 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home  
+2019-10-01 16:34:47.794 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:34:47.796 +03:30 [ERR] Connection ID "18374686494167138308", Request ID "8000000d-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:34:47.798 +03:30 [INF] Request finished in 6.3015ms 500 
+2019-10-01 16:34:51.504 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:34:51.507 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:34:56.610 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:34:56.615 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 5107.589ms
+2019-10-01 16:34:56.616 +03:30 [ERR] Connection ID "18374686494167138308", Request ID "8000000e-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:34:56.619 +03:30 [INF] Request finished in 5115.1989ms 500 
+2019-10-01 16:35:08.632 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/get/1  
+2019-10-01 16:35:08.636 +03:30 [INF] Request finished in 3.7626000000000004ms 404 
+2019-10-01 16:38:37.453 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:38:37.600 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:38:37.800 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:38:37.920 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:38:37.936 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:38:37.998 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 72.1327ms
+2019-10-01 16:38:38.006 +03:30 [ERR] Connection ID "18230571293206380551", Request ID "80000008-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:38:38.077 +03:30 [INF] Request finished in 480.9354ms 500 
+2019-10-01 16:38:44.985 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/get?id=1  
+2019-10-01 16:38:45.046 +03:30 [INF] Request finished in 61.108700000000006ms 404 
+2019-10-01 16:38:50.583 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/business/get?id=1  
+2019-10-01 16:38:50.600 +03:30 [INF] Request finished in 19.8257ms 404 
+2019-10-01 16:40:22.333 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/account/signin  
+2019-10-01 16:40:22.427 +03:30 [INF] Route matched with {action = "SignIn", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SignIn(System.String) on controller presentation.dashboard.controllers.AccountController (presentation.dashboard).
+2019-10-01 16:40:31.943 +03:30 [INF] Executing ViewResult, running view SignIn.
+2019-10-01 16:40:31.953 +03:30 [ERR] The view 'SignIn' was not found. Searched locations: ["/Views/Account/SignIn.en-US.cshtml","/Views/Account/SignIn.en.cshtml","/Views/Account/SignIn.cshtml","/Views/Shared/SignIn.en-US.cshtml","/Views/Shared/SignIn.en.cshtml","/Views/Shared/SignIn.cshtml","/Pages/Shared/SignIn.en-US.cshtml","/Pages/Shared/SignIn.en.cshtml","/Pages/Shared/SignIn.cshtml"]
+2019-10-01 16:40:31.984 +03:30 [INF] Executed action presentation.dashboard.controllers.AccountController.SignIn (presentation.dashboard) in 9556.844200000001ms
+2019-10-01 16:40:31.986 +03:30 [ERR] Connection ID "18230571293206380551", Request ID "8000000b-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The view 'SignIn' was not found. The following locations were searched:
+/Views/Account/SignIn.en-US.cshtml
+/Views/Account/SignIn.en.cshtml
+/Views/Account/SignIn.cshtml
+/Views/Shared/SignIn.en-US.cshtml
+/Views/Shared/SignIn.en.cshtml
+/Views/Shared/SignIn.cshtml
+/Pages/Shared/SignIn.en-US.cshtml
+/Pages/Shared/SignIn.en.cshtml
+/Pages/Shared/SignIn.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:40:31.990 +03:30 [INF] Request finished in 9657.1162ms 500 
+2019-10-01 16:41:27.556 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:41:27.701 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:41:27.888 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:41:28.004 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:41:28.021 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:41:28.080 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 70.76010000000001ms
+2019-10-01 16:41:28.088 +03:30 [ERR] Connection ID "18230571293206380556", Request ID "8000000d-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/views/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/views/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:41:28.158 +03:30 [INF] Request finished in 459.7217ms 500 
+2019-10-01 16:41:30.168 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/account/signin  
+2019-10-01 16:41:30.234 +03:30 [INF] Route matched with {action = "SignIn", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(System.String) on controller presentation.dashboard.controllers.AccountController (presentation.dashboard).
+2019-10-01 16:41:35.775 +03:30 [INF] Executing ViewResult, running view SignIn.
+2019-10-01 16:41:35.780 +03:30 [ERR] The view 'SignIn' was not found. Searched locations: ["/Views/Account/SignIn.en-US.cshtml","/Views/Account/SignIn.en.cshtml","/Views/Account/SignIn.cshtml","/Views/Shared/SignIn.en-US.cshtml","/Views/Shared/SignIn.en.cshtml","/Views/Shared/SignIn.cshtml","/Pages/Shared/SignIn.en-US.cshtml","/Pages/Shared/SignIn.en.cshtml","/Pages/Shared/SignIn.cshtml"]
+2019-10-01 16:41:35.802 +03:30 [INF] Executed action presentation.dashboard.controllers.AccountController.SignIn (presentation.dashboard) in 5567.196800000001ms
+2019-10-01 16:41:35.803 +03:30 [ERR] Connection ID "18230571293206380556", Request ID "8000000e-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The view 'SignIn' was not found. The following locations were searched:
+/Views/Account/SignIn.en-US.cshtml
+/Views/Account/SignIn.en.cshtml
+/Views/Account/SignIn.cshtml
+/Views/Shared/SignIn.en-US.cshtml
+/Views/Shared/SignIn.en.cshtml
+/Views/Shared/SignIn.cshtml
+/Pages/Shared/SignIn.en-US.cshtml
+/Pages/Shared/SignIn.en.cshtml
+/Pages/Shared/SignIn.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:41:35.806 +03:30 [INF] Request finished in 5639.1044ms 500 
+2019-10-01 16:48:35.797 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:48:35.945 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:48:36.135 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:48:36.248 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:48:36.263 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:48:36.316 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 63.538500000000006ms
+2019-10-01 16:48:36.324 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000010-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:48:36.385 +03:30 [INF] Request finished in 443.0623ms 500 
+2019-10-01 16:48:49.152 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:48:49.168 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:48:51.545 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:48:51.549 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2380.3168ms
+2019-10-01 16:48:51.550 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000011-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:48:51.553 +03:30 [INF] Request finished in 2401.5559000000003ms 500 
+2019-10-01 16:49:47.802 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:49:47.812 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:49:47.814 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:49:47.821 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 8.8278ms
+2019-10-01 16:49:47.822 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000012-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:49:47.825 +03:30 [INF] Request finished in 24.5946ms 500 
+2019-10-01 16:49:48.856 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:49:48.860 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:49:48.862 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:49:48.864 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 3.3384ms
+2019-10-01 16:49:48.865 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000013-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:49:48.868 +03:30 [INF] Request finished in 12.334200000000001ms 500 
+2019-10-01 16:49:49.544 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:49:49.549 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:49:49.551 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:49:49.556 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 6.425000000000001ms
+2019-10-01 16:49:49.558 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000014-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:49:49.564 +03:30 [INF] Request finished in 20.1339ms 500 
+2019-10-01 16:49:49.736 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:49:49.738 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:49:49.738 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:49:49.740 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2.0007ms
+2019-10-01 16:49:49.740 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000015-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:49:49.744 +03:30 [INF] Request finished in 8.0532ms 500 
+2019-10-01 16:49:49.936 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:49:49.938 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:49:49.938 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:49:49.940 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2.4051ms
+2019-10-01 16:49:49.941 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000016-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:49:49.944 +03:30 [INF] Request finished in 7.9519ms 500 
+2019-10-01 16:49:50.125 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:49:50.126 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:49:50.126 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:49:50.128 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 1.9648ms
+2019-10-01 16:49:50.129 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000017-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:49:50.132 +03:30 [INF] Request finished in 7.4634ms 500 
+2019-10-01 16:50:09.181 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:09.193 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:09.197 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:09.204 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 9.0272ms
+2019-10-01 16:50:09.206 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000018-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:09.215 +03:30 [INF] Request finished in 33.6742ms 500 
+2019-10-01 16:50:10.286 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:10.291 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:10.294 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:10.301 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 8.9882ms
+2019-10-01 16:50:10.306 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "80000019-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:10.312 +03:30 [INF] Request finished in 26.369500000000002ms 500 
+2019-10-01 16:50:10.883 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:10.886 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:10.887 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:10.889 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2.8526000000000002ms
+2019-10-01 16:50:10.890 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "8000001a-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:10.894 +03:30 [INF] Request finished in 10.4703ms 500 
+2019-10-01 16:50:11.137 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:11.139 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:11.140 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:11.143 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2.9798ms
+2019-10-01 16:50:11.144 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "8000001b-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:11.146 +03:30 [INF] Request finished in 9.013200000000001ms 500 
+2019-10-01 16:50:29.451 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:29.454 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:29.455 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:29.459 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 4.7692000000000005ms
+2019-10-01 16:50:29.474 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "8000001c-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:29.478 +03:30 [INF] Request finished in 27.536800000000003ms 500 
+2019-10-01 16:50:30.613 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:30.616 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:30.618 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:30.621 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 4.7250000000000005ms
+2019-10-01 16:50:30.623 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "8000001d-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:30.628 +03:30 [INF] Request finished in 15.514600000000002ms 500 
+2019-10-01 16:50:31.188 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:50:31.192 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:50:31.193 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:50:31.199 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 6.5978ms
+2019-10-01 16:50:31.201 +03:30 [ERR] Connection ID "18230571293206380559", Request ID "8000001e-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:50:31.208 +03:30 [INF] Request finished in 20.1387ms 500 
+2019-10-01 16:51:19.944 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:51:20.128 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:51:20.332 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:51:20.456 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:51:20.474 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:51:24.121 +03:30 [INF] Executed ViewResult - view Get executed in 3650.7062ms.
+2019-10-01 16:51:24.125 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 3667.6991000000003ms
+2019-10-01 16:51:24.133 +03:30 [INF] Request finished in 4007.8743000000004ms 200 text/html; charset=utf-8
+2019-10-01 16:51:24.185 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 16:51:24.185 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 16:51:24.195 +03:30 [INF] Request finished in 9.9116ms 404 
+2019-10-01 16:51:24.195 +03:30 [INF] Request finished in 9.8969ms 404 
+2019-10-01 16:51:24.643 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 16:51:24.667 +03:30 [INF] Request finished in 23.864800000000002ms 404 
+2019-10-01 16:51:24.831 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-10-01 16:51:24.832 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:51:24.837 +03:30 [ERR] Connection ID "18086456113720459271", Request ID "8000000b-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:51:24.886 +03:30 [INF] Request finished in 54.8828ms 500 
+2019-10-01 16:51:43.347 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:51:43.356 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:51:43.362 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:51:43.378 +03:30 [INF] Executed ViewResult - view Get executed in 18.01ms.
+2019-10-01 16:51:43.378 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 21.0779ms
+2019-10-01 16:51:43.379 +03:30 [INF] Request finished in 33.4668ms 200 text/html; charset=utf-8
+2019-10-01 16:51:43.422 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 16:51:43.422 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 16:51:43.425 +03:30 [INF] Request finished in 2.9299ms 404 
+2019-10-01 16:51:43.425 +03:30 [INF] Request finished in 2.7055000000000002ms 404 
+2019-10-01 16:51:43.505 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 16:51:43.506 +03:30 [INF] Request finished in 0.8775000000000001ms 404 
+2019-10-01 16:51:43.558 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-10-01 16:51:43.559 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:51:43.561 +03:30 [ERR] Connection ID "18086456113720459271", Request ID "8000000f-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:51:43.562 +03:30 [INF] Request finished in 4.0808ms 500 
+2019-10-01 16:51:44.103 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:51:44.105 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:51:44.106 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:51:44.109 +03:30 [INF] Executed ViewResult - view Get executed in 2.3466ms.
+2019-10-01 16:51:44.109 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 3.4711000000000003ms
+2019-10-01 16:51:44.109 +03:30 [INF] Request finished in 7.3207ms 200 text/html; charset=utf-8
+2019-10-01 16:51:44.129 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 16:51:44.129 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 16:51:44.130 +03:30 [INF] Request finished in 1.1529ms 404 
+2019-10-01 16:51:44.131 +03:30 [INF] Request finished in 2.1129000000000002ms 404 
+2019-10-01 16:51:44.216 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 16:51:44.216 +03:30 [INF] Request finished in 0.7619ms 404 
+2019-10-01 16:51:44.273 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-10-01 16:51:44.274 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:51:44.276 +03:30 [ERR] Connection ID "18086456113720459271", Request ID "80000013-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:51:44.277 +03:30 [INF] Request finished in 4.1626ms 500 
+2019-10-01 16:51:45.129 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:51:45.132 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:51:45.133 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:51:45.135 +03:30 [INF] Executed ViewResult - view Get executed in 1.7533ms.
+2019-10-01 16:51:45.135 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 2.6555ms
+2019-10-01 16:51:45.135 +03:30 [INF] Request finished in 6.4811000000000005ms 200 text/html; charset=utf-8
+2019-10-01 16:51:45.150 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 16:51:45.150 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 16:51:45.151 +03:30 [INF] Request finished in 1.1036000000000001ms 404 
+2019-10-01 16:51:45.151 +03:30 [INF] Request finished in 1.1536ms 404 
+2019-10-01 16:51:45.231 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 16:51:45.232 +03:30 [INF] Request finished in 1.2251ms 404 
+2019-10-01 16:51:45.282 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-10-01 16:51:45.282 +03:30 [ERR] Request matched multiple actions resulting in ambiguity. Matching actions: presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+2019-10-01 16:51:45.284 +03:30 [ERR] Connection ID "18086456113720459271", Request ID "80000017-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Microsoft.AspNetCore.Mvc.Infrastructure.AmbiguousActionException: Multiple actions matched. The following actions matched route data and had all constraints satisfied:
+
+presentation.dashboard.controllers.BusinessController.Get (presentation.dashboard)
+presentation.dashboard.controllers.UserController.FindSingleAsync (presentation.dashboard)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionSelector.SelectBestCandidate(RouteContext context, IReadOnlyList`1 candidates)
+   at Microsoft.AspNetCore.Mvc.Routing.MvcAttributeRouteHandler.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.Tree.TreeRouter.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Routing.RouteCollection.RouteAsync(RouteContext context)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:51:45.285 +03:30 [INF] Request finished in 3.6566ms 500 
+2019-10-01 16:53:38.401 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:53:38.570 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:53:38.848 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:53:38.973 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:53:38.988 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:53:39.060 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 82.6571ms
+2019-10-01 16:53:39.068 +03:30 [ERR] Connection ID "18374686494167138321", Request ID "80000012-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:53:39.145 +03:30 [INF] Request finished in 578.3542ms 500 
+2019-10-01 16:53:41.928 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 16:53:41.946 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 16:53:41.948 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 16:53:41.955 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 7.9995ms
+2019-10-01 16:53:41.957 +03:30 [ERR] Connection ID "18374686494167138321", Request ID "80000013-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The layout view '~/shared/_layout.cshtml' could not be located. The following locations were searched:
+~/shared/_layout.cshtml
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.GetLayoutPage(ViewContext context, String executingFilePath, String layoutPath)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 16:53:41.961 +03:30 [INF] Request finished in 35.210300000000004ms 500 
+2019-10-01 16:55:04.998 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:55:05.101 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/  
+2019-10-01 16:55:05.236 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:55:05.302 +03:30 [INF] Request finished in 203.7607ms 404 
+2019-10-01 16:55:58.213 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 16:55:58.306 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/  
+2019-10-01 16:55:58.437 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 16:55:58.504 +03:30 [INF] Request finished in 200.62040000000002ms 404 
+2019-10-01 17:04:49.736 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 17:04:49.897 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 17:04:50.089 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 17:04:50.207 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 17:04:50.222 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 17:04:50.594 +03:30 [INF] Executed action presentation.dashboard.controllers.HomeController.Get (presentation.dashboard) in 381.52520000000004ms
+2019-10-01 17:04:50.601 +03:30 [ERR] Connection ID "18086456113720459288", Request ID "80000019-0002-fb00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at presentation.dashboard.helpers.AccountHelper.ModuleReferences() in D:\git\biavoo\presentation\presentation.dashboard\helpers\account-helper.cs:line 46
+   at AspNetCore.pages_shared__sidebar.ExecuteAsync() in D:\git\biavoo\presentation\presentation.dashboard\pages\shared\_sidebar.cshtml:line 26
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial(IHtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial(IHtmlHelper htmlHelper, String partialViewName)
+   at AspNetCore.pages_shared__layout.<ExecuteAsync>b__15_1() in D:\git\biavoo\presentation\presentation.dashboard\pages\shared\_layout.cshtml:line 48
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.pages_shared__layout.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at React.AspNet.BabelFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2019-10-01 17:04:50.730 +03:30 [INF] Request finished in 836.3618ms 500 
+2019-10-01 17:05:07.870 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 17:05:07.875 +03:30 [INF] Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller presentation.dashboard.controllers.HomeController (presentation.dashboard).
+2019-10-01 17:05:07.876 +03:30 [INF] Executing ViewResult, running view Get.
+2019-10-01 17:35:15.609 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 17:35:15.908 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 17:35:16.101 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 17:35:16.249 +03:30 [INF] Route matched with {page = "/home/get", action = "", controller = ""}. Executing page /home/get
+2019-10-01 17:35:16.267 +03:30 [INF] Executing handler method presentation.dashboard.pages.home.GetModel.OnGet - ModelState is "Valid"
+2019-10-01 17:35:16.280 +03:30 [INF] Executed handler method OnGet, returned result .
+2019-10-01 17:35:16.285 +03:30 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-10-01 17:35:16.285 +03:30 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-10-01 17:35:19.430 +03:30 [INF] Executed page /home/get in 3176.7278ms
+2019-10-01 17:35:19.440 +03:30 [INF] Request finished in 3535.342ms 200 text/html; charset=utf-8
+2019-10-01 17:35:19.473 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/icon/feather/css/feather.css  
+2019-10-01 17:35:19.479 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/css/bootstrap.min.css  
+2019-10-01 17:35:19.479 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:35:19.480 +03:30 [INF] Request finished in 6.71ms 404 
+2019-10-01 17:35:19.481 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/logo.png  
+2019-10-01 17:35:19.485 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/jquery.mCustomScrollbar.css  
+2019-10-01 17:35:19.496 +03:30 [INF] Request finished in 17.9331ms 404 
+2019-10-01 17:35:19.496 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/style.css  
+2019-10-01 17:35:19.501 +03:30 [INF] Request finished in 20.785700000000002ms 404 
+2019-10-01 17:35:19.502 +03:30 [INF] Request finished in 16.3661ms 404 
+2019-10-01 17:35:19.502 +03:30 [INF] Request finished in 5.5246ms 404 
+2019-10-01 17:35:19.502 +03:30 [INF] Request finished in 22.8973ms 404 
+2019-10-01 17:35:19.786 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 17:35:19.786 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-3.jpg  
+2019-10-01 17:35:19.792 +03:30 [INF] Request finished in 5.8917ms 404 
+2019-10-01 17:35:19.802 +03:30 [INF] Request finished in 16.2803ms 404 
+2019-10-01 17:35:19.802 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 17:35:19.810 +03:30 [INF] Request finished in 8.2041ms 404 
+2019-10-01 17:35:19.818 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:35:19.820 +03:30 [INF] Request finished in 2.2217000000000002ms 404 
+2019-10-01 17:35:19.821 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:35:19.825 +03:30 [INF] Request finished in 3.6891000000000003ms 404 
+2019-10-01 17:35:19.827 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:35:19.829 +03:30 [INF] Request finished in 1.7910000000000001ms 404 
+2019-10-01 17:35:19.831 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:35:19.833 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:35:19.835 +03:30 [INF] Request finished in 3.4482000000000004ms 404 
+2019-10-01 17:35:19.836 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:35:19.837 +03:30 [INF] Request finished in 4.1458ms 404 
+2019-10-01 17:35:19.839 +03:30 [INF] Request finished in 2.3637ms 404 
+2019-10-01 17:35:19.845 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:35:19.845 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:35:19.847 +03:30 [INF] Request finished in 1.9897ms 404 
+2019-10-01 17:35:19.848 +03:30 [INF] Request finished in 1.624ms 404 
+2019-10-01 17:35:19.849 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:35:19.849 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:35:19.851 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:35:19.851 +03:30 [INF] Request finished in 1.998ms 404 
+2019-10-01 17:35:19.852 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:35:19.852 +03:30 [INF] Request finished in 2.6973000000000003ms 404 
+2019-10-01 17:35:19.853 +03:30 [INF] Request finished in 1.1088ms 404 
+2019-10-01 17:35:19.853 +03:30 [INF] Request finished in 2.6182000000000003ms 404 
+2019-10-01 17:35:19.855 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:35:19.855 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:35:19.858 +03:30 [INF] Request finished in 0.8908ms 404 
+2019-10-01 17:35:19.859 +03:30 [INF] Request finished in 4.3032ms 404 
+2019-10-01 17:35:19.860 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:35:19.860 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:35:19.861 +03:30 [INF] Request finished in 0.7749ms 404 
+2019-10-01 17:35:19.861 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:35:19.861 +03:30 [INF] Request finished in 0.6069ms 404 
+2019-10-01 17:35:19.861 +03:30 [INF] Request finished in 1.3749ms 404 
+2019-10-01 17:35:19.861 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:35:19.863 +03:30 [INF] Request finished in 2.8447ms 404 
+2019-10-01 17:35:20.113 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:35:20.115 +03:30 [INF] Request finished in 1.921ms 404 
+2019-10-01 17:35:20.119 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:35:20.120 +03:30 [INF] Request finished in 1.0711ms 404 
+2019-10-01 17:35:20.123 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:35:20.128 +03:30 [INF] Request finished in 5.268000000000001ms 404 
+2019-10-01 17:35:20.132 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:35:20.133 +03:30 [INF] Request finished in 0.8871ms 404 
+2019-10-01 17:35:20.136 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:35:20.138 +03:30 [INF] Request finished in 1.6969ms 404 
+2019-10-01 17:35:20.144 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:35:20.144 +03:30 [INF] Request finished in 0.6698000000000001ms 404 
+2019-10-01 17:35:20.146 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:35:20.147 +03:30 [INF] Request finished in 0.6096ms 404 
+2019-10-01 17:35:20.149 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:35:20.150 +03:30 [INF] Request finished in 0.6277ms 404 
+2019-10-01 17:35:20.152 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:35:20.153 +03:30 [INF] Request finished in 0.5911000000000001ms 404 
+2019-10-01 17:35:20.155 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:35:20.155 +03:30 [INF] Request finished in 0.5973ms 404 
+2019-10-01 17:35:20.161 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:35:20.161 +03:30 [INF] Request finished in 0.6236ms 404 
+2019-10-01 17:35:20.163 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:35:20.164 +03:30 [INF] Request finished in 0.6017ms 404 
+2019-10-01 17:35:20.166 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:35:20.167 +03:30 [INF] Request finished in 0.9466ms 404 
+2019-10-01 17:35:20.170 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:35:20.170 +03:30 [INF] Request finished in 0.6096ms 404 
+2019-10-01 17:35:20.172 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:35:20.176 +03:30 [INF] Request finished in 3.4267000000000003ms 404 
+2019-10-01 17:35:20.178 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:35:20.179 +03:30 [INF] Request finished in 0.5963ms 404 
+2019-10-01 17:35:20.181 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:35:20.182 +03:30 [INF] Request finished in 0.6096ms 404 
+2019-10-01 17:35:20.734 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/favicon.ico  
+2019-10-01 17:35:20.736 +03:30 [INF] Request finished in 1.8693000000000002ms 404 
+2019-10-01 17:36:48.183 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 17:36:48.187 +03:30 [INF] Route matched with {page = "/home/get", action = "", controller = ""}. Executing page /home/get
+2019-10-01 17:36:48.189 +03:30 [INF] Executing handler method presentation.dashboard.pages.home.GetModel.OnGet - ModelState is "Valid"
+2019-10-01 17:36:48.189 +03:30 [INF] Executed handler method OnGet, returned result .
+2019-10-01 17:36:48.189 +03:30 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-10-01 17:36:48.189 +03:30 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-10-01 17:36:48.208 +03:30 [INF] Executed page /home/get in 19.663500000000003ms
+2019-10-01 17:36:48.208 +03:30 [INF] Request finished in 25.128600000000002ms 200 text/html; charset=utf-8
+2019-10-01 17:36:48.241 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/logo.png  
+2019-10-01 17:36:48.241 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/css/bootstrap.min.css  
+2019-10-01 17:36:48.241 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/icon/feather/css/feather.css  
+2019-10-01 17:36:48.243 +03:30 [INF] Request finished in 1.4738ms 404 
+2019-10-01 17:36:48.242 +03:30 [INF] Request finished in 1.3688ms 404 
+2019-10-01 17:36:48.243 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/style.css  
+2019-10-01 17:36:48.243 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/jquery.mCustomScrollbar.css  
+2019-10-01 17:36:48.243 +03:30 [INF] Request finished in 0.6401ms 404 
+2019-10-01 17:36:48.244 +03:30 [INF] Request finished in 0.8108000000000001ms 404 
+2019-10-01 17:36:48.244 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:36:48.245 +03:30 [INF] Request finished in 4.3627ms 404 
+2019-10-01 17:36:48.246 +03:30 [INF] Request finished in 1.689ms 404 
+2019-10-01 17:36:48.316 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 17:36:48.316 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-3.jpg  
+2019-10-01 17:36:48.317 +03:30 [INF] Request finished in 0.8354ms 404 
+2019-10-01 17:36:48.317 +03:30 [INF] Request finished in 0.8252ms 404 
+2019-10-01 17:36:48.321 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 17:36:48.322 +03:30 [INF] Request finished in 0.7879ms 404 
+2019-10-01 17:36:48.329 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:36:48.329 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:36:48.330 +03:30 [INF] Request finished in 1.1091ms 404 
+2019-10-01 17:36:48.331 +03:30 [INF] Request finished in 1.0424ms 404 
+2019-10-01 17:36:48.341 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:36:48.341 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:36:48.342 +03:30 [INF] Request finished in 0.742ms 404 
+2019-10-01 17:36:48.342 +03:30 [INF] Request finished in 1.0284ms 404 
+2019-10-01 17:36:48.343 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:36:48.343 +03:30 [INF] Request finished in 0.5833ms 404 
+2019-10-01 17:36:48.344 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:36:48.344 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:36:48.344 +03:30 [INF] Request finished in 0.5740000000000001ms 404 
+2019-10-01 17:36:48.345 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:36:48.345 +03:30 [INF] Request finished in 2.3671ms 404 
+2019-10-01 17:36:48.345 +03:30 [INF] Request finished in 0.6709ms 404 
+2019-10-01 17:36:48.347 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:36:48.347 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:36:48.348 +03:30 [INF] Request finished in 1.1728ms 404 
+2019-10-01 17:36:48.349 +03:30 [INF] Request finished in 2.3018ms 404 
+2019-10-01 17:36:48.350 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:36:48.351 +03:30 [INF] Request finished in 0.6113000000000001ms 404 
+2019-10-01 17:36:48.352 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:36:48.352 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:36:48.352 +03:30 [INF] Request finished in 0.8837ms 404 
+2019-10-01 17:36:48.353 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:36:48.353 +03:30 [INF] Request finished in 0.9401ms 404 
+2019-10-01 17:36:48.354 +03:30 [INF] Request finished in 1.0031ms 404 
+2019-10-01 17:36:48.354 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:36:48.355 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:36:48.355 +03:30 [INF] Request finished in 0.7827000000000001ms 404 
+2019-10-01 17:36:48.356 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:36:48.356 +03:30 [INF] Request finished in 0.5922000000000001ms 404 
+2019-10-01 17:36:48.357 +03:30 [INF] Request finished in 1.8077ms 404 
+2019-10-01 17:36:48.357 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:36:48.358 +03:30 [INF] Request finished in 0.8529ms 404 
+2019-10-01 17:36:48.388 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:36:48.389 +03:30 [INF] Request finished in 1.3038ms 404 
+2019-10-01 17:36:48.395 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:36:48.396 +03:30 [INF] Request finished in 0.6024ms 404 
+2019-10-01 17:36:48.398 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:36:48.399 +03:30 [INF] Request finished in 0.9049ms 404 
+2019-10-01 17:36:48.405 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:36:48.406 +03:30 [INF] Request finished in 0.9456ms 404 
+2019-10-01 17:36:48.408 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:36:48.409 +03:30 [INF] Request finished in 0.5792ms 404 
+2019-10-01 17:36:48.411 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:36:48.412 +03:30 [INF] Request finished in 0.5692ms 404 
+2019-10-01 17:36:48.414 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:36:48.415 +03:30 [INF] Request finished in 0.6035ms 404 
+2019-10-01 17:36:48.419 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:36:48.421 +03:30 [INF] Request finished in 3.4653ms 404 
+2019-10-01 17:36:48.424 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:36:48.425 +03:30 [INF] Request finished in 0.5901000000000001ms 404 
+2019-10-01 17:36:48.427 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:36:48.428 +03:30 [INF] Request finished in 0.5812ms 404 
+2019-10-01 17:36:48.430 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:36:48.431 +03:30 [INF] Request finished in 0.5922000000000001ms 404 
+2019-10-01 17:36:48.439 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:36:48.440 +03:30 [INF] Request finished in 0.7273000000000001ms 404 
+2019-10-01 17:36:48.442 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:36:48.443 +03:30 [INF] Request finished in 0.5973ms 404 
+2019-10-01 17:36:48.445 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:36:48.446 +03:30 [INF] Request finished in 0.5713ms 404 
+2019-10-01 17:36:48.448 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:36:48.449 +03:30 [INF] Request finished in 0.5857ms 404 
+2019-10-01 17:36:48.453 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:36:48.454 +03:30 [INF] Request finished in 0.7023ms 404 
+2019-10-01 17:36:48.456 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:36:48.457 +03:30 [INF] Request finished in 0.5556ms 404 
+2019-10-01 17:37:00.197 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-10-01 17:37:00.355 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 17:37:00.549 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-10-01 17:37:00.689 +03:30 [INF] Route matched with {page = "/home/get", action = "", controller = ""}. Executing page /home/get
+2019-10-01 17:37:00.701 +03:30 [INF] Executing handler method presentation.dashboard.pages.home.GetModel.OnGet - ModelState is "Valid"
+2019-10-01 17:37:00.706 +03:30 [INF] Executed handler method OnGet, returned result .
+2019-10-01 17:37:00.710 +03:30 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-10-01 17:37:00.710 +03:30 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-10-01 17:37:00.823 +03:30 [INF] Executed page /home/get in 126.47290000000001ms
+2019-10-01 17:37:00.841 +03:30 [INF] Request finished in 488.60240000000005ms 200 text/html; charset=utf-8
+2019-10-01 17:37:00.914 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/style.css  
+2019-10-01 17:37:00.914 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/logo.png  
+2019-10-01 17:37:00.915 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:37:00.916 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/css/bootstrap.min.css  
+2019-10-01 17:37:00.917 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/jquery.mCustomScrollbar.css  
+2019-10-01 17:37:00.923 +03:30 [INF] Request finished in 8.5151ms 404 
+2019-10-01 17:37:00.923 +03:30 [INF] Request finished in 9.327300000000001ms 404 
+2019-10-01 17:37:00.925 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/icon/feather/css/feather.css  
+2019-10-01 17:37:00.929 +03:30 [INF] Request finished in 13.314ms 404 
+2019-10-01 17:37:00.931 +03:30 [INF] Request finished in 6.1589ms 404 
+2019-10-01 17:37:00.931 +03:30 [INF] Request finished in 14.5761ms 404 
+2019-10-01 17:37:00.932 +03:30 [INF] Request finished in 15.362ms 404 
+2019-10-01 17:37:01.248 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 17:37:01.248 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-3.jpg  
+2019-10-01 17:37:01.252 +03:30 [INF] Request finished in 4.4828ms 404 
+2019-10-01 17:37:01.252 +03:30 [INF] Request finished in 4.7103ms 404 
+2019-10-01 17:37:01.257 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 17:37:01.259 +03:30 [INF] Request finished in 2.5026ms 404 
+2019-10-01 17:37:01.270 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:37:01.270 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:37:01.272 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:37:01.273 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:37:01.277 +03:30 [INF] Request finished in 6.6662ms 404 
+2019-10-01 17:37:01.277 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:37:01.278 +03:30 [INF] Request finished in 1.0137ms 404 
+2019-10-01 17:37:01.279 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:37:01.279 +03:30 [INF] Request finished in 6.0679ms 404 
+2019-10-01 17:37:01.280 +03:30 [INF] Request finished in 1.0554000000000001ms 404 
+2019-10-01 17:37:01.281 +03:30 [INF] Request finished in 9.3649ms 404 
+2019-10-01 17:37:01.281 +03:30 [INF] Request finished in 11.2832ms 404 
+2019-10-01 17:37:01.283 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:37:01.286 +03:30 [INF] Request finished in 3.3487ms 404 
+2019-10-01 17:37:01.287 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:37:01.287 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:37:01.288 +03:30 [INF] Request finished in 0.8659ms 404 
+2019-10-01 17:37:01.288 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:37:01.288 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:37:01.289 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:37:01.289 +03:30 [INF] Request finished in 0.5419ms 404 
+2019-10-01 17:37:01.290 +03:30 [INF] Request finished in 2.1659ms 404 
+2019-10-01 17:37:01.290 +03:30 [INF] Request finished in 1.7568000000000001ms 404 
+2019-10-01 17:37:01.291 +03:30 [INF] Request finished in 2.1413ms 404 
+2019-10-01 17:37:01.291 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:37:01.292 +03:30 [INF] Request finished in 1.3007ms 404 
+2019-10-01 17:37:01.294 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:37:01.295 +03:30 [INF] Request finished in 1.2966ms 404 
+2019-10-01 17:37:01.295 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:37:01.296 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:37:01.296 +03:30 [INF] Request finished in 0.9706ms 404 
+2019-10-01 17:37:01.296 +03:30 [INF] Request finished in 0.5244ms 404 
+2019-10-01 17:37:01.296 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:37:01.298 +03:30 [INF] Request finished in 1.7325000000000002ms 404 
+2019-10-01 17:37:01.297 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:37:01.299 +03:30 [INF] Request finished in 1.7249ms 404 
+2019-10-01 17:37:01.544 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:37:01.547 +03:30 [INF] Request finished in 2.5272ms 404 
+2019-10-01 17:37:01.553 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:37:01.562 +03:30 [INF] Request finished in 9.0816ms 404 
+2019-10-01 17:37:01.565 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:37:01.566 +03:30 [INF] Request finished in 1.0872ms 404 
+2019-10-01 17:37:01.570 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:37:01.573 +03:30 [INF] Request finished in 2.3986ms 404 
+2019-10-01 17:37:01.579 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:37:01.581 +03:30 [INF] Request finished in 1.7448000000000001ms 404 
+2019-10-01 17:37:01.596 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:37:01.597 +03:30 [INF] Request finished in 1.9391ms 404 
+2019-10-01 17:37:01.600 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:37:01.608 +03:30 [INF] Request finished in 7.9892ms 404 
+2019-10-01 17:37:01.612 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:37:01.613 +03:30 [INF] Request finished in 0.6168ms 404 
+2019-10-01 17:37:01.615 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:37:01.616 +03:30 [INF] Request finished in 0.6644ms 404 
+2019-10-01 17:37:01.621 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:37:01.622 +03:30 [INF] Request finished in 0.6732ms 404 
+2019-10-01 17:37:01.624 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:37:01.625 +03:30 [INF] Request finished in 0.8128000000000001ms 404 
+2019-10-01 17:37:01.627 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:37:01.628 +03:30 [INF] Request finished in 0.6514ms 404 
+2019-10-01 17:37:01.630 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:37:01.631 +03:30 [INF] Request finished in 0.6514ms 404 
+2019-10-01 17:37:01.633 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:37:01.635 +03:30 [INF] Request finished in 1.7674ms 404 
+2019-10-01 17:37:01.638 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:37:01.639 +03:30 [INF] Request finished in 0.6089ms 404 
+2019-10-01 17:37:01.641 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:37:01.642 +03:30 [INF] Request finished in 0.6195ms 404 
+2019-10-01 17:37:01.644 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:37:01.644 +03:30 [INF] Request finished in 0.5881000000000001ms 404 
+2019-10-01 17:37:08.626 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-10-01 17:37:08.630 +03:30 [INF] Route matched with {page = "/home/get", action = "", controller = ""}. Executing page /home/get
+2019-10-01 17:37:08.632 +03:30 [INF] Executing handler method presentation.dashboard.pages.home.GetModel.OnGet - ModelState is "Valid"
+2019-10-01 17:37:08.632 +03:30 [INF] Executed handler method OnGet, returned result .
+2019-10-01 17:37:08.632 +03:30 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-10-01 17:37:08.632 +03:30 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-10-01 17:37:08.644 +03:30 [INF] Executed page /home/get in 12.7341ms
+2019-10-01 17:37:08.644 +03:30 [INF] Request finished in 18.9392ms 200 text/html; charset=utf-8
+2019-10-01 17:37:08.674 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/css/bootstrap.min.css  
+2019-10-01 17:37:08.674 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/icon/feather/css/feather.css  
+2019-10-01 17:37:08.675 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:37:08.675 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/jquery.mCustomScrollbar.css  
+2019-10-01 17:37:08.675 +03:30 [INF] Request finished in 1.3472000000000002ms 404 
+2019-10-01 17:37:08.675 +03:30 [INF] Request finished in 1.6202ms 404 
+2019-10-01 17:37:08.676 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/css/style.css  
+2019-10-01 17:37:08.676 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/logo.png  
+2019-10-01 17:37:08.677 +03:30 [INF] Request finished in 0.9935ms 404 
+2019-10-01 17:37:08.679 +03:30 [INF] Request finished in 2.6935000000000002ms 404 
+2019-10-01 17:37:08.680 +03:30 [INF] Request finished in 3.6620000000000004ms 404 
+2019-10-01 17:37:08.685 +03:30 [INF] Request finished in 9.572600000000001ms 404 
+2019-10-01 17:37:08.754 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-3.jpg  
+2019-10-01 17:37:08.754 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-2.jpg  
+2019-10-01 17:37:08.755 +03:30 [INF] Request finished in 0.7684000000000001ms 404 
+2019-10-01 17:37:08.755 +03:30 [INF] Request finished in 1.3411ms 404 
+2019-10-01 17:37:08.758 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/breadcrumb-bg.jpg  
+2019-10-01 17:37:08.759 +03:30 [INF] Request finished in 0.9025000000000001ms 404 
+2019-10-01 17:37:08.764 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/images/avatar-4.jpg  
+2019-10-01 17:37:08.765 +03:30 [INF] Request finished in 1ms 404 
+2019-10-01 17:37:08.766 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:37:08.766 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:37:08.770 +03:30 [INF] Request finished in 3.7575000000000003ms 404 
+2019-10-01 17:37:08.770 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:37:08.771 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:37:08.772 +03:30 [INF] Request finished in 5.7897ms 404 
+2019-10-01 17:37:08.773 +03:30 [INF] Request finished in 2.3873ms 404 
+2019-10-01 17:37:08.773 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:37:08.773 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:37:08.774 +03:30 [INF] Request finished in 3.1738ms 404 
+2019-10-01 17:37:08.774 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:37:08.774 +03:30 [INF] Request finished in 0.7998000000000001ms 404 
+2019-10-01 17:37:08.776 +03:30 [INF] Request finished in 2.4988ms 404 
+2019-10-01 17:37:08.778 +03:30 [INF] Request finished in 4.1246ms 404 
+2019-10-01 17:37:08.779 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:37:08.779 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:37:08.780 +03:30 [INF] Request finished in 0.7619ms 404 
+2019-10-01 17:37:08.780 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:37:08.780 +03:30 [INF] Request finished in 0.9945ms 404 
+2019-10-01 17:37:08.780 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:37:08.783 +03:30 [INF] Request finished in 3.0165ms 404 
+2019-10-01 17:37:08.780 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:37:08.787 +03:30 [INF] Request finished in 6.7908ms 404 
+2019-10-01 17:37:08.788 +03:30 [INF] Request finished in 8.033000000000001ms 404 
+2019-10-01 17:37:08.788 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:37:08.788 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:37:08.789 +03:30 [INF] Request finished in 0.9439000000000001ms 404 
+2019-10-01 17:37:08.790 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:37:08.790 +03:30 [INF] Request finished in 0.5549000000000001ms 404 
+2019-10-01 17:37:08.791 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:37:08.791 +03:30 [INF] Request finished in 0.7157ms 404 
+2019-10-01 17:37:08.792 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:37:08.792 +03:30 [INF] Request finished in 0.6106ms 404 
+2019-10-01 17:37:08.792 +03:30 [INF] Request finished in 4.0206ms 404 
+2019-10-01 17:37:08.828 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js  
+2019-10-01 17:37:08.830 +03:30 [INF] Request finished in 1.3099ms 404 
+2019-10-01 17:37:08.836 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery/js/jquery.min.js  
+2019-10-01 17:37:08.836 +03:30 [INF] Request finished in 0.6798000000000001ms 404 
+2019-10-01 17:37:08.838 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-ui/js/jquery-ui.min.js  
+2019-10-01 17:37:08.839 +03:30 [INF] Request finished in 0.6065ms 404 
+2019-10-01 17:37:08.841 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/popper.js/js/popper.min.js  
+2019-10-01 17:37:08.842 +03:30 [INF] Request finished in 0.9155000000000001ms 404 
+2019-10-01 17:37:08.845 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/bootstrap/js/bootstrap.min.js  
+2019-10-01 17:37:08.845 +03:30 [INF] Request finished in 0.7040000000000001ms 404 
+2019-10-01 17:37:08.848 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js  
+2019-10-01 17:37:08.848 +03:30 [INF] Request finished in 0.626ms 404 
+2019-10-01 17:37:08.852 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/modernizr/js/modernizr.js  
+2019-10-01 17:37:08.854 +03:30 [INF] Request finished in 1.7615ms 404 
+2019-10-01 17:37:08.858 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/bower_components/chart.js/js/Chart.js  
+2019-10-01 17:37:08.858 +03:30 [INF] Request finished in 0.6466000000000001ms 404 
+2019-10-01 17:37:08.860 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/amcharts.js  
+2019-10-01 17:37:08.861 +03:30 [INF] Request finished in 0.6055ms 404 
+2019-10-01 17:37:08.863 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/serial.js  
+2019-10-01 17:37:08.864 +03:30 [INF] Request finished in 0.6592ms 404 
+2019-10-01 17:37:08.866 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/widget/amchart/light.js  
+2019-10-01 17:37:08.868 +03:30 [INF] Request finished in 1.5744ms 404 
+2019-10-01 17:37:08.871 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/jquery.mCustomScrollbar.concat.min.js  
+2019-10-01 17:37:08.872 +03:30 [INF] Request finished in 0.7010000000000001ms 404 
+2019-10-01 17:37:08.874 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/SmoothScroll.js  
+2019-10-01 17:37:08.875 +03:30 [INF] Request finished in 0.6459ms 404 
+2019-10-01 17:37:08.877 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/pcoded.min.js  
+2019-10-01 17:37:08.878 +03:30 [INF] Request finished in 0.6124ms 404 
+2019-10-01 17:37:08.881 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/vartical-layout.min.js  
+2019-10-01 17:37:08.882 +03:30 [INF] Request finished in 0.8166ms 404 
+2019-10-01 17:37:08.886 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/pages/dashboard/custom-dashboard.js  
+2019-10-01 17:37:08.887 +03:30 [INF] Request finished in 0.9144ms 404 
+2019-10-01 17:37:08.890 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/files/assets/js/script.min.js  
+2019-10-01 17:37:08.891 +03:30 [INF] Request finished in 0.6753ms 404 

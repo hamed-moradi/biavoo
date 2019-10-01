@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using domain.office;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
-using shared.model.dashboard_models;
+using shared.model.dashboardModels;
 
 namespace presentation.dashboard.controllers {
     public class BusinessController: BaseController {

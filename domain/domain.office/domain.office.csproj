@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\shared\shared.model\shared.model.csproj" />
     <ProjectReference Include="..\..\shared\shared.resource\shared.resource.csproj" />
     <ProjectReference Include="..\domain.repository\domain.repository.csproj" />
   </ItemGroup>

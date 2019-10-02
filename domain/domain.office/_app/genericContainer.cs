@@ -8,18 +8,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using shared.resource._app;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace domain.office._app {
-    public interface IGeneric_Container<T> where T : Base_Entity {
-        IQueryable<T> GetFindQuery(T model);
-        Task<T> FindSingleAsync(long id, bool force = false);
-        Task<List<T>> FindAllAsync(T model, int retrieveLimit = 1000);
-        Task<List<T>> GetPagingAsync(T model);
-        Task<T> AddAsync(T model);
-        Task<T> UpdateAsync(T model);
-        Task<T> RemoveAsync(T model);
+    public interface IGeneric_Container<Entity> where Entity : Base_Entity {
+        IQueryable<Entity> GetFindQuery(Entity model);
+        Task<Entity> FindSingleAsync(long id, bool force = false);
+        Task<List<Entity>> FindAllAsync(Entity model, int retrieveLimit = 1000);
+        Task<List<Entity>> GetPagingAsync(Entity model);
+        Task<Entity> AddAsync(Entity model);
+        Task<Entity> UpdateAsync(Entity model);
+        Task<Entity> RemoveAsync(Entity model);
     }
-    public class Generic_Container<T>: IGeneric_Container<T> where T : Base_Entity {
+    public class Generic_Container<Entity>: IGeneric_Container<Entity> where Entity : Base_Entity {
         #region Constructor
         private readonly SqlDBContext _dbContext;
         public Generic_Container(SqlDBContext dbContext) {
@@ -27,8 +29,14 @@ namespace domain.office._app {
         }
         #endregion
 
-        public IQueryable<T> GetFindQuery(T model) {
-            var query = _dbContext.Set<T>().Select(s => s);
+        #region Private
+        private IQueryable<Entity> FindSingle(int id) {
+            return _dbContext.Set<Entity>().Where(w => w.Id == id);
+        }
+        #endregion
+
+        public IQueryable<Entity> GetFindQuery(Entity model) {
+            var query = _dbContext.Set<Entity>().Select(s => s);
             var properties = model.GetType().GetProperties().Where(item
                 => !Attribute.IsDefined(item, typeof(NotMappedAttribute))
                 && !Attribute.IsDefined(item, typeof(ForeignKeyAttribute)));
@@ -41,8 +49,8 @@ namespace domain.office._app {
             }
             return query;
         }
-        public async Task<T> FindSingleAsync(long id, bool force = false) {
-            var selectedItem = await _dbContext.Set<T>().SingleOrDefaultAsync(s => s.Id == id);
+        public async Task<Entity> FindSingleAsync(long id, bool force = false) {
+            var selectedItem = await _dbContext.Set<Entity>().SingleOrDefaultAsync(s => s.Id == id);
             if(selectedItem == null) {
                 if(force) {
                     throw new Exception(InternalMessage.ObjectNotFound, new Exception(GeneralVariables.SystemGeneratedMessage));
@@ -53,7 +61,7 @@ namespace domain.office._app {
             }
             return selectedItem;
         }
-        public async Task<List<T>> FindAllAsync(T model, int retrieveLimit) {
+        public async Task<List<Entity>> FindAllAsync(Entity model, int retrieveLimit) {
             var query = GetFindQuery(model);
             // Pass "zero" for reitrieve all data
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
@@ -62,28 +70,28 @@ namespace domain.office._app {
             }
             return await query.ToListAsync();
         }
-        public async Task<List<T>> GetPagingAsync(T model) {
+        public async Task<List<Entity>> GetPagingAsync(Entity model) {
             var query = GetFindQuery(model);
             model.TotalCount = query.Count();
             query = query.OrderByField(model.OrderBy, model.OrderAscending)
                 .Skip(model.Skip).Take(model.Take);
             return await query.ToListAsync();
         }
-        public async Task<T> AddAsync(T model) {
-            var newItem = await _dbContext.Set<T>().AddAsync(model);
+        public async Task<Entity> AddAsync(Entity model) {
+            var newItem = await _dbContext.Set<Entity>().AddAsync(model);
             await _dbContext.SaveChangesAsync();
             return newItem.Entity;
         }
-        public async Task<T> UpdateAsync(T model) {
+        public async Task<Entity> UpdateAsync(Entity model) {
             await FindSingleAsync(model.Id, true);
-            var updatedItem = _dbContext.Set<T>().Update(model);
+            var updatedItem = _dbContext.Set<Entity>().Update(model);
             await _dbContext.SaveChangesAsync();
             return updatedItem.Entity;
         }
-        public async Task<T> RemoveAsync(T model) {
+        public async Task<Entity> RemoveAsync(Entity model) {
             await FindSingleAsync(model.Id, true);
             model.Status = 10; // 10: Item is removed
-            var RemovedItem = _dbContext.Set<T>().Remove(model);
+            var RemovedItem = _dbContext.Set<Entity>().Remove(model);
             await _dbContext.SaveChangesAsync();
             return RemovedItem.Entity;
         }

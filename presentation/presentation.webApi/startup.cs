@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using presentation.webApi.helpers;
 using presentation.webApi.middlewares;
 using shared.resource;
@@ -55,16 +56,15 @@ namespace Presentation.WebApi {
             app.UseGateway();
             app.UseSwagger();
 
-            // after .net core 3
-            //if(env.IsDevelopment()) {
-            //    app.UseDeveloperExceptionPage();
-            //    //app.UseDatabaseErrorPage();  // after .net core 3
-            //    //app.UseBrowserLink();
-            //    app.UseSwaggerUI(c => {
-            //        c.SwaggerEndpoint($"swagger/{apiVersion}/swagger.json", $"biavoo {apiVersion}");
-            //        c.RoutePrefix = string.Empty;
-            //    });
-            //}
+            if(env.IsDevelopment()) {
+                app.UseDeveloperExceptionPage();
+                //app.UseDatabaseErrorPage();  // after .net core 3
+                //app.UseBrowserLink();
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint($"swagger/{apiVersion}/swagger.json", $"biavoo {apiVersion}");
+                    c.RoutePrefix = string.Empty;
+                });
+            }
 
             app.UseRequestLocalization(new RequestLocalizationOptions {
                 DefaultRequestCulture = new RequestCulture("en-US"),

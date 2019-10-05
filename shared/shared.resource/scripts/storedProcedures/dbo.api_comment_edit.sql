@@ -11,8 +11,8 @@ GO
 CREATE PROCEDURE [dbo].[api_comment_edit]
 	@Token CHAR(32),
 	@DeviceId VARCHAR(128),
-	@Id INT NOT NULL,
-	@Body NVARCHAR(MAX) NOT NULL
+	@Id INT,
+	@Body NVARCHAR(MAX)
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @userStatus TINYINT = NULL, @commentUserId INT = NULL, @commentStatus TINYINT = NULL;

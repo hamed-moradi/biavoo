@@ -11,12 +11,12 @@ GO
 CREATE PROCEDURE [dbo].[api_product_new]
 	@Token char(32),
 	@DeviceId varchar(128),
-	@BusinessId INT NOT NULL,
-	@CategoryId INT NOT NULL,
-	@Title NVARCHAR(128) NOT NULL,
+	@BusinessId INT,
+	@CategoryId INT,
+	@Title NVARCHAR(128),
 	@Description NVARCHAR(MAX) = NULL,
-	@Thumbnail NVARCHAR(512) NOT NULL,
-	@Images dbo.[image] READONLY
+	@Thumbnail NVARCHAR(512),
+	@Images ImageList READONLY
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @userStatus TINYINT = NULL, @productId INT = NULL;
@@ -42,10 +42,10 @@ BEGIN
 			-- Create product images
 			IF(EXISTS(SELECT 1 FROM @Images))
 			BEGIN
-				INSERT INTO dbo.[image]([EntityId], [TypeId], [Entity], [Name], [Extension], [Path], [Description])
+				INSERT INTO dbo.[image]([EntityId], [ScaleId], [Entity], [Name], [Extension], [Path], [Description])
 				SELECT @productId, 1, 'product', [Name], [Extension], [Path], [Description] FROM @Images; -- 1: Product image
 			END;
-
+			SELECT * FROM dbo.image
 			COMMIT TRAN productNew;
 
 			SELECT * FROM dbo.[product] WHERE Id = @productId;

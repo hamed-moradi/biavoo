@@ -10,6 +10,7 @@ namespace domain.repository.entities {
         public new int? Id { get; set; }
         public int? UserId { get; set; }
         public bool? AppearingInSearch { get; set; }
+        public DateTime? ModifiedAt { get; set; }
         public DateTime? CreatedAt { get; set; }
     }
 

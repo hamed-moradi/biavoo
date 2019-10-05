@@ -11,12 +11,12 @@ GO
 CREATE PROCEDURE [dbo].[api_product_edit]
 	@Token char(32),
 	@DeviceId varchar(128),
-	@Id INT NOT NULL,
-	@CategoryId INT NOT NULL,
-	@Title NVARCHAR(128) NOT NULL,
+	@Id INT,
+	@CategoryId INT,
+	@Title NVARCHAR(128),
 	@Description NVARCHAR(MAX) = NULL,
-	@Thumbnail NVARCHAR(512) NOT NULL,
-	@Images dbo.[image] READONLY
+	@Thumbnail NVARCHAR(512),
+	@Images ImageList READONLY
 AS
 BEGIN
 	DECLARE @userId INT = NULL, @sessionStatus TINYINT = NULL, @userStatus TINYINT = NULL, @productStatus INT = NULL;
@@ -49,16 +49,16 @@ BEGIN
 			IF(EXISTS(SELECT 1 FROM @Images))
 			BEGIN
 				INSERT INTO dbo.[image]([EntityId], [ScaleId], [Entity], [Name], [Extension], [Path], [Description])
-				SELECT @Id, [ScaleId], 'product', [Name], [Extension], [Path], [Description] FROM @Images
-				WHERE NOT EXISTS (SELECT 1 FROM dbo.[image] WITH(NOLOCK) WHERE @Images.Id = [image].Id);
+				SELECT @Id, [ScaleId], 'product', [Name], [Extension], [Path], [Description] FROM @Images imgList
+				WHERE NOT EXISTS (SELECT 1 FROM dbo.[image] WITH(NOLOCK) WHERE imgList.Id = [image].Id);
 
-				UPDATE dbo.[image] SET [ScaleId] = @Images.[ScaleId], [Name] = @Images.[Name], [Extension] = @Images.[Extension],
-					[Path] = @Images.[Path], [Description] = @Images.[Description]
-				FROM @Image
-				INNER JOIN dbo.[image] img WITH(NOLOCK) ON @Image.Id = img.Id;
+				UPDATE dbo.[image] SET [ScaleId] = imgList.[ScaleId], [Name] = imgList.[Name], [Extension] = imgList.[Extension],
+					[Path] = imgList.[Path], [Description] = imgList.[Description]
+				FROM @Images imgList
+				INNER JOIN dbo.[image] img WITH(NOLOCK) ON imgList.Id = img.Id;
 
-				DELETE FROM dbo.[image] WHERE NOT EXISTS(SELECT 1 FROM @Image
-					INNER JOIN dbo.[image] img WITH(NOLOCK) ON @Image.Id = img.Id);
+				DELETE FROM dbo.[image] WHERE NOT EXISTS(SELECT 1 FROM @Images imgList
+					INNER JOIN dbo.[image] img WITH(NOLOCK) ON imgList.Id = img.Id);
 
 				--MERGE dbo.[image] AS trg
 				--USING @Images AS src
@@ -74,8 +74,8 @@ BEGIN
 
 			COMMIT TRAN productNew;
 
-			SELECT * FROM dbo.[product] WHERE Id = @productId;
-			SELECT * FROM dbo.[image] WHERE [Entity] = 'product' AND EntityId = @productId;
+			SELECT * FROM dbo.[product] WHERE Id = @Id;
+			SELECT * FROM dbo.[image] WHERE [Entity] = 'product' AND EntityId = @Id;
 			RETURN 200; -- Done!
 		END TRY
 		BEGIN CATCH
@@ -84,3 +84,4 @@ BEGIN
 		END CATCH
 	END;
 END;
+

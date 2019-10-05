@@ -76,6 +76,9 @@ namespace Presentation.WebApi {
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRequestLocalization();
+            //app.UseEndpoints(configure => {
+            //    configure.MapDefaultControllerRoute();
+            //});
             app.UseMvcWithDefaultRoute();
         }
     }

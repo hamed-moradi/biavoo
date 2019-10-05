@@ -40,7 +40,7 @@ BEGIN
 		ELSE
 			RETURN 411;
 	
-	INSERT INTO dbo.[business] ([CustomerId], [Title], [Description], [Address], [BusinessCode], [ThumbImage], [Latitude], [Longitude], [Point])
+	INSERT INTO dbo.[business] ([CustomerId], [Title], [Description], [Address], [BusinessCode], [Thumbnail], [Latitude], [Longitude], [Point])
 	VALUES (@userId, @Title, @Description, @Address, @BusinessCode, @ThumbImage, @Latitude, @Longitude, @point)
 	SET @businessId = SCOPE_IDENTITY();
 

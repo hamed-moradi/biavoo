@@ -56,7 +56,7 @@ BEGIN
 		[Longitude] = ISNULL(@Longitude, [Longitude]), [Point] = ISNULL(@point, [Point]), [Status] = ISNULL(@Status, [Status])
 	WHERE Id = @Id;
 
-	SELECT * FROM dbo.[business] WHERE Id = @businessId;
+	SELECT * FROM dbo.[business] WHERE Id = @Id;
 	RETURN 200;
 	--BEGIN TRAN userUpdate;
 	--BEGIN

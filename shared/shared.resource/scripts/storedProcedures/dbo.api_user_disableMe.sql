@@ -31,7 +31,7 @@ BEGIN
 		BEGIN TRY
 			UPDATE dbo.[user] SET [Status] = 90 WHERE Id = @userId; -- 90: Disabled by itself
 			UPDATE dbo.[customer] SET [Status] = 90 WHERE UserId = @userId; -- 90: Disabled by user itself
-			UPDATE dbo.[business] SET [Status] = 90 WHERE UserId = @userId; -- 90: Disabled by user itself
+			UPDATE dbo.[business] SET [Status] = 90 WHERE CustomerId = @userId; -- 90: Disabled by user itself
 			COMMIT TRAN userDisableMe;
 			RETURN 200; -- Done!
 		END TRY

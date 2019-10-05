@@ -10,10 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using shared.resource._app;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using shared.model.dashboardModels;
 
 namespace domain.office._app {
     public interface IGeneric_Container<Entity> where Entity : Base_Entity {
         IQueryable<Entity> GetFindQuery(Entity model);
+        Task<Model> SingleAsync<Model>(int id) where Model : IBase_DashboardModel;
         Task<Entity> FindSingleAsync(long id, bool force = false);
         Task<List<Entity>> FindAllAsync(Entity model, int retrieveLimit = 1000);
         Task<List<Entity>> GetPagingAsync(Entity model);
@@ -26,12 +28,6 @@ namespace domain.office._app {
         private readonly SqlDBContext _dbContext;
         public Generic_Container(SqlDBContext dbContext) {
             _dbContext = dbContext;
-        }
-        #endregion
-
-        #region Private
-        private IQueryable<Entity> FindSingle(int id) {
-            return _dbContext.Set<Entity>().Where(w => w.Id == id);
         }
         #endregion
 
@@ -48,6 +44,10 @@ namespace domain.office._app {
                 }
             }
             return query;
+        }
+        public async Task<Model> SingleAsync<Model>(int id) where Model : IBase_DashboardModel {
+            var result = await _dbContext.Set<Entity>().Where(w => w.Id == id).ProjectTo<Model>(null).SingleOrDefaultAsync();
+            return result;
         }
         public async Task<Entity> FindSingleAsync(long id, bool force = false) {
             var selectedItem = await _dbContext.Set<Entity>().SingleOrDefaultAsync(s => s.Id == id);

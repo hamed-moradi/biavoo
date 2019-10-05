@@ -26,6 +26,6 @@ BEGIN
 	IF(@userStatus <> 100)
 		RETURN 410; -- User is not active
 
-	UPDATE dbo.[userPrivacy] SET [AppearingInSearch] = @AppearingInSearch WHERE Id = @userId;
+	UPDATE dbo.[userPrivacy] SET [AppearingInSearch] = @AppearingInSearch, ModifiedAt = GETDATE() WHERE Id = @userId;
 	RETURN 200; -- Done!
 END;

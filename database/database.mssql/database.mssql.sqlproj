@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>database.mssql</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{9628fd3e-3e18-4c27-8b96-a4940787df6f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>domain.database</RootNamespace>
+    <AssemblyName>domain.database</AssemblyName>
+    <ModelCollation>1065,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Persian_100_CI_AS</DefaultCollation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\wallet.sql" />
+    <Build Include="dbo\Tables\userProperty.sql" />
+    <Build Include="dbo\Tables\userPrivacy.sql" />
+    <Build Include="dbo\Tables\user.sql" />
+    <Build Include="dbo\Tables\tag.sql" />
+    <Build Include="dbo\Tables\status.sql" />
+    <Build Include="dbo\Tables\smsStatus.sql" />
+    <Build Include="dbo\Tables\setting.sql" />
+    <Build Include="dbo\Tables\session.sql" />
+    <Build Include="dbo\Tables\sentMessage.sql" />
+    <Build Include="dbo\Tables\sendMessageQueue.sql" />
+    <Build Include="dbo\Tables\role.sql" />
+    <Build Include="dbo\Tables\rate.sql" />
+    <Build Include="dbo\Tables\propertyType.sql" />
+    <Build Include="dbo\Tables\productToTag.sql" />
+    <Build Include="dbo\Tables\productPropertyType.sql" />
+    <Build Include="dbo\Tables\productProperty.sql" />
+    <Build Include="dbo\Tables\product.sql" />
+    <Build Include="dbo\Tables\permission.sql" />
+    <Build Include="dbo\Tables\page.sql" />
+    <Build Include="dbo\Tables\notification.sql" />
+    <Build Include="dbo\Tables\moduleReference.sql" />
+    <Build Include="dbo\Tables\messageType.sql" />
+    <Build Include="dbo\Tables\messageCategory.sql" />
+    <Build Include="dbo\Tables\message.sql" />
+    <Build Include="dbo\Tables\imageScale.sql" />
+    <Build Include="dbo\Tables\image.sql" />
+    <Build Include="dbo\Tables\historyLog.sql" />
+    <Build Include="dbo\Tables\historyActionType.sql" />
+    <Build Include="dbo\Tables\gender.sql" />
+    <Build Include="dbo\Tables\exception.sql" />
+    <Build Include="dbo\Tables\entityType.sql" />
+    <Build Include="dbo\Tables\customer.sql" />
+    <Build Include="dbo\Tables\comment.sql" />
+    <Build Include="dbo\Tables\changeLog.sql" />
+    <Build Include="dbo\Tables\category2Tag.sql" />
+    <Build Include="dbo\Tables\category.sql" />
+    <Build Include="dbo\Tables\businessCategory.sql" />
+    <Build Include="dbo\Tables\business.sql" />
+    <Build Include="dbo\Tables\admin.sql" />
+    <Build Include="dbo\Views\RandomNumber.sql" />
+    <Build Include="dbo\Functions\ToXML.sql" />
+    <Build Include="dbo\Functions\ToJSON.sql" />
+    <Build Include="dbo\Functions\NewUsername.sql" />
+    <Build Include="dbo\Functions\JSONEscaped.sql" />
+    <Build Include="dbo\Functions\Split.sql" />
+    <Build Include="dbo\Functions\ParseJSON.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_verify.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_updateProfile.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_update.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_signUp.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_signIn.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_setVerificationCode.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_get.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_enableTwoFactorAuthentication.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_disableTwoFactorAuthentication.sql" />
+    <Build Include="dbo\Stored Procedures\api_user_disableMe.sql" />
+    <Build Include="dbo\Stored Procedures\api_product_new.sql" />
+    <Build Include="dbo\Stored Procedures\api_product_getPaging.sql" />
+    <Build Include="dbo\Stored Procedures\api_product_getByLocation.sql" />
+    <Build Include="dbo\Stored Procedures\api_product_get.sql" />
+    <Build Include="dbo\Stored Procedures\api_product_edit.sql" />
+    <Build Include="dbo\Stored Procedures\api_historyLog_insert.sql" />
+    <Build Include="dbo\Stored Procedures\api_exception_insert.sql" />
+    <Build Include="dbo\Stored Procedures\api_customer_getById.sql" />
+    <Build Include="dbo\Stored Procedures\api_comment_new.sql" />
+    <Build Include="dbo\Stored Procedures\api_comment_getPaging.sql" />
+    <Build Include="dbo\Stored Procedures\api_comment_edit.sql" />
+    <Build Include="dbo\Stored Procedures\api_changeLog_insert.sql" />
+    <Build Include="dbo\Stored Procedures\api_business_new.sql" />
+    <Build Include="dbo\Stored Procedures\api_business_getPaging.sql" />
+    <Build Include="dbo\Stored Procedures\api_business_getByLocation.sql" />
+    <Build Include="dbo\Stored Procedures\api_business_edit.sql" />
+    <Build Include="dbo\User Defined Types\ImageList.sql" />
+    <Build Include="dbo\User Defined Types\Hierarchy.sql" />
+    <Build Include="dbo\User Defined Types\Dictionary.sql" />
+    <Build Include="dbo\User Defined Types\ArrayList.sql" />
+  </ItemGroup>
+</Project>

@@ -47,7 +47,7 @@
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.1.8" />
     <PackageReference Include="JavaScriptEngineSwitcher.Extensions.MsDependencyInjection" Version="3.1.0" />
-    <PackageReference Include="jQuery" Version="3.3.1" />
+    <PackageReference Include="jQuery" Version="3.4.1" />
     <PackageReference Include="MD.PersianDateTime.Core" Version="2.3.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
@@ -82,8 +82,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\domain\domain.office\domain.office.csproj" />
-    <ProjectReference Include="..\..\shared\shared.model\shared.model.csproj" />
-    <ProjectReference Include="..\..\shared\shared.resource\shared.resource.csproj" />
+    <ProjectReference Include="..\..\shared\shared.model\asset.model.csproj" />
+    <ProjectReference Include="..\..\shared\shared.resource\asset.resource.csproj" />
   </ItemGroup>
 
   <ItemGroup>

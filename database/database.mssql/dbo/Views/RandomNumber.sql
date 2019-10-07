@@ -1,0 +1,1 @@
+﻿CREATE VIEW [dbo].[RandomNumber] AS SELECT ABS(CHECKSUM(NEWID())) AS Id

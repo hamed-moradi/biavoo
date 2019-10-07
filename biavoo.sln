@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5FC99CF2-4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{3C97410E-7C03-4DEF-BF1B-CAB95D5902EE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{0326BBC6-1525-43E3-B5D3-886A7BC55F1E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "asset", "asset", "{0326BBC6-1525-43E3-B5D3-886A7BC55F1E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "domain.application", "domain\domain.application\domain.application.csproj", "{3A00E579-A357-462D-8BC2-1B4BD62B51F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "domain.repository", "domain\domain.repository\domain.repository.csproj", "{85901507-861A-4A62-99CD-35177B6E0089}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shared.utility", "shared\shared.utility\shared.utility.csproj", "{E8B2065A-0579-4B8A-802B-84D3BA0470BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asset.utility", "asset\asset.utility\asset.utility.csproj", "{E8B2065A-0579-4B8A-802B-84D3BA0470BA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test.common", "test\test.common\test.common.csproj", "{F7AB1E56-CC0A-4191-9998-9231D5C0F4E4}"
 EndProject
@@ -25,13 +25,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "presentation.dashboard", "p
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "domain.office", "domain\domain.office\domain.office.csproj", "{83022A57-74FF-44DF-A3DB-499776C94E1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shared.resource", "shared\shared.resource\shared.resource.csproj", "{6A7A8265-C7F5-41E4-87FF-FEED67DE6201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asset.resource", "asset\asset.resource\asset.resource.csproj", "{6A7A8265-C7F5-41E4-87FF-FEED67DE6201}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shared.model", "shared\shared.model\shared.model.csproj", "{2BFDB7FD-8899-46E1-A060-90366541D28C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asset.model", "asset\asset.model\asset.model.csproj", "{2BFDB7FD-8899-46E1-A060-90366541D28C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "presentation.pwa", "presentation\presentation.pwa\presentation.pwa.csproj", "{5392342F-686B-4EAD-8974-51A2390A09B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "presentation.executor", "presentation\presentation.executor\presentation.executor.csproj", "{5C953B1C-7D63-4962-816E-2997CCAEDEA0}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "database.mssql", "database\database.mssql\database.mssql.sqlproj", "{9628FD3E-3E18-4C27-8B96-A4940787DF6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{301E6044-1F4B-48E1-9980-E5E049F93395}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,12 @@ Global
 		{5C953B1C-7D63-4962-816E-2997CCAEDEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C953B1C-7D63-4962-816E-2997CCAEDEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C953B1C-7D63-4962-816E-2997CCAEDEA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +109,7 @@ Global
 		{2BFDB7FD-8899-46E1-A060-90366541D28C} = {0326BBC6-1525-43E3-B5D3-886A7BC55F1E}
 		{5392342F-686B-4EAD-8974-51A2390A09B8} = {3C97410E-7C03-4DEF-BF1B-CAB95D5902EE}
 		{5C953B1C-7D63-4962-816E-2997CCAEDEA0} = {3C97410E-7C03-4DEF-BF1B-CAB95D5902EE}
+		{9628FD3E-3E18-4C27-8B96-A4940787DF6F} = {301E6044-1F4B-48E1-9980-E5E049F93395}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C37F6E90-1612-4CB2-97DF-1EC3204D618C}

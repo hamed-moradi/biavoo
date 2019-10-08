@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.viewModels {
+namespace asset.model.viewModels {
     public class Image_ViewModel: IBase_ViewModel {
         public int? ScaleId { get; set; }
         public string FullName { get; set; }

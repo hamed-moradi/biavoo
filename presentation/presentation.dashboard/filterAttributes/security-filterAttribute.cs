@@ -2,11 +2,11 @@
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 using Serilog;
-using shared.model.dashboardModels;
-using shared.resource;
-using shared.resource._app;
-using shared.utility;
-using shared.utility._app;
+using asset.model.dashboardModels;
+using asset.resource;
+using asset.resource._app;
+using asset.utility;
+using asset.utility._app;
 using System;
 using System.Collections.Generic;
 using System.Linq;

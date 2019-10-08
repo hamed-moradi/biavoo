@@ -156,6 +156,9 @@
   <data name="RetrieveLimit" xml:space="preserve">
     <value>Retrieve limit</value>
   </data>
+  <data name="SigninFailed" xml:space="preserve">
+    <value>Username or Password is wrong!</value>
+  </data>
   <data name="TokenNotFound" xml:space="preserve">
     <value>Token not found</value>
   </data>

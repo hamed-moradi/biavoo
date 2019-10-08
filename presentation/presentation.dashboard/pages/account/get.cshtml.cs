@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using domain.office;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
 
 namespace presentation.dashboard.pages.account {
     public class GetModel: PageModel {
-        //#region Constructor
-        //private readonly IAdmin_Container _adminContainer;
-        //public AccountController(IAdmin_Container adminContainer) {
-        //    _adminContainer = adminContainer;
-        //}
-        //#endregion
+        #region Constructor
+        protected readonly IStringLocalizer<GetModel> _stringLocalizer;
+        private readonly IAdmin_Container _adminContainer;
+        public GetModel(IStringLocalizer<GetModel> stringLocalizer,
+                        IAdmin_Container adminContainer) {
+            _stringLocalizer = stringLocalizer;
+            _adminContainer = adminContainer;
+        }
+        #endregion
 
         //#region Private
         //private IActionResult RedirectToLocal(string returnUrl) {
@@ -72,5 +78,24 @@ namespace presentation.dashboard.pages.account {
         public void OnGet() {
 
         }
+
+        public async Task<IActionResult> OnPostSigninAsync() {
+            if(!ModelState.IsValid) {
+                return Page();
+            }
+            var result = await _adminContainer.SignInAsync(Username, Password);
+            if(result == null) {
+                ModelState.AddModelError(string.Empty, _stringLocalizer["SigninFailed"]);
+                return Page();
+            }
+            return RedirectToPage("home", "get");
+        }
+
+        [BindProperty, Required]
+        public string Username { get; set; }
+        [BindProperty, Required]
+        public string Password { get; set; }
+        [BindProperty]
+        public bool RememberMe { get; set; }
     }
 }

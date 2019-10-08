@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public interface IBase_BindingModel { }
     public class Header_BindingModel: IBase_BindingModel {
         public string TimeZone { get; set; } = "UTC";

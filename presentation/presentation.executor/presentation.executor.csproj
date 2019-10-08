@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\shared.model\asset.model.csproj" />
-    <ProjectReference Include="..\..\shared\shared.utility\asset.utility.csproj" />
+    <ProjectReference Include="..\..\asset\asset.model\asset.model.csproj" />
+    <ProjectReference Include="..\..\asset\asset.utility\asset.utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

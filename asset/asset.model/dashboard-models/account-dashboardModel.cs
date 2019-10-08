@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.dashboardModels {
+namespace asset.model.dashboardModels {
     public class Signin_DashboardModel: IBase_DashboardModel {
         public string Username { get; set; }
         public string Password { get; set; }

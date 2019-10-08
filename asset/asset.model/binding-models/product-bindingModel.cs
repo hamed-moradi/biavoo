@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public class Product_Get_BindingModel: FullHeader_BindingModel {
         public int Id { get; set; }
     }

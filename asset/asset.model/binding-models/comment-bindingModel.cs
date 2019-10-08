@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public class Comment_GetPaging_BindingModel: Paging_BindingModel {
         public int EntityId { get; set; }
         public string Entity { get; set; }

@@ -1,11 +1,11 @@
 ﻿using Dapper;
-using shared.utility._app;
+using asset.utility._app;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
 
-namespace shared.utility.infrastructure {
+namespace asset.utility.infrastructure {
     public interface IParameterHandler {
         DynamicParameters MakeParameters<T>(T schema) where T : IBase_Schema;
         void SetOutputValues<T>(T model, DynamicParameters parameters) where T : IBase_Schema;

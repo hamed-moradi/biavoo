@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace shared.utility._app {
+namespace asset.utility._app {
     public class ServiceLocator {
         public static ServiceLocatorAdapter Current;
         public ServiceLocator(IServiceCollection serviceDescriptors) {

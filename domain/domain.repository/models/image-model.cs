@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using shared.utility;
+using asset.utility;
 
 namespace domain.repository.models {
     public class Image_Model: IBase_Model {

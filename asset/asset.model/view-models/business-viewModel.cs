@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.viewModels {
+namespace asset.model.viewModels {
     public class Business_ViewModel: IBase_ViewModel {
         public string Title { get; set; }
         public string Description { get; set; }

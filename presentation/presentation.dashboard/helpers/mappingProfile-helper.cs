@@ -2,7 +2,7 @@
 using AutoMapper.Configuration;
 using domain.repository.entities;
 using MD.PersianDateTime.Core;
-using shared.model.dashboardModels;
+using asset.model.dashboardModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

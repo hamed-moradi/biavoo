@@ -2,7 +2,7 @@
 using System.Net;
 using System.Reflection;
 
-namespace shared.model.dashboardModels {
+namespace asset.model.dashboardModels {
     public interface IBase_DashboardModel {
     }
     public class Base_DashboardModel: IBase_DashboardModel {

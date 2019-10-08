@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public class Business_GetByLocation_BindingModel: Header_BindingModel {
         public string Title { get; set; }
         public string Categories { get; set; } // Comma seprated CategoryId's list

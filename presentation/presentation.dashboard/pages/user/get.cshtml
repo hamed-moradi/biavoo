@@ -5,5 +5,38 @@
     Layout = "~/pages/shared/_layout.cshtml";
 }
 
-<h1>get</h1>
+<div class="container">
+    <div class="page-header">
+        <a asp-page="get">users</a>
+    </div>
 
+    <div class="table">
+        <div class="d-table-row table-hover">
+            @*@Html.DisplayNameFor(item => item.Users[0].Username)
+                @Html.DisplayNameFor(item => item.Users[0].Name)
+                @Html.DisplayNameFor(item => item.Users[0].Family)*@
+            <div class="d-table-cell">Username</div>
+            <div class="d-table-cell">Name</div>
+            <div class="d-table-cell">Family</div>
+            <div class="d-table-cell"></div>
+        </div>
+        @foreach(var user in Model.Users) {
+            <div class="d-table-row">
+                @*@Html.DisplayFor(item => user.Username)
+                    @Html.DisplayFor(item => user.Name)
+                    @Html.DisplayFor(item => user.Family)*@
+                <div class="d-table-cell">@user.Username</div>
+                <div class="d-table-cell">@user.Name</div>
+                <div class="d-table-cell">@user.Family</div>
+                <div class="d-table-cell">
+                    <a asp-page="./edit" asp-route-id="@user.Id">edit</a>
+                    <a asp-page="./delete" asp-route-id="@user.Id">delete</a>
+                </div>
+            </div>
+        }
+        <div class="d-table-row">
+            <div class="d-table-cell">Prev</div>
+            <div class="d-table-cell">Next</div>
+        </div>
+    </div>
+</div>

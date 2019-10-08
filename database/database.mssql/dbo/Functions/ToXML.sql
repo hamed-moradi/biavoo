@@ -13,8 +13,8 @@ BEGIN
     @Objects NVARCHAR(MAX),
     @Name NVARCHAR(200),
     @Where INT,
-    @ANumber INT,
-    @notNumber INT,
+    --@ANumber INT,
+    @NotNumber INT,
     @indent INT,
     @CrLf CHAR(2)--just a simple utility to save typing!
       
@@ -24,8 +24,8 @@ BEGIN
          @XMLasString ='<?xml version="1.0" ?>
 @Object'+CONVERT(VARCHAR(5),ObjectId)+'
 '
-    FROM @hierarchy 
-    WHERE ParentId IS NULL AND valueType IN ('object','array') --get the root element
+    FROM @Hierarchy 
+    WHERE ParentId IS NULL AND ValueType IN ('object','array') --get the root element
 /* now we simply iterate from the root token growing each branch and leaf in each iteration. This won't be enormously quick, but it is simple to do. All values, or name/value pairs within a structure can be created in one SQL Statement*/
   WHILE 1=1
     begin
@@ -35,21 +35,21 @@ BEGIN
     SET @indent=CHARINDEX(char(10)+char(13),Reverse(LEFT(@XMLasString,@where))+char(10)+char(13))-1
     SET @NotNumber= PATINDEX('%[^0-9]%', RIGHT(@XMLasString,LEN(@XMLAsString+'|')-@Where-8)+' ')--find NEXT token
     SET @Entities=NULL --this contains the structure in its XML form
-    SELECT @Entities=COALESCE(@Entities+' ',' ')+NAME+'="'
+    SELECT @Entities=COALESCE(@Entities+' ',' ')+Name+'="'
      +REPLACE(REPLACE(REPLACE(StringValue, '<', '&lt;'), '&', '&amp;'),'>', '&gt;')
      + '"'  
-       FROM @hierarchy 
-       WHERE ParentId= SUBSTRING(@XMLasString,@where+8, @Notnumber-1) 
+       FROM @Hierarchy 
+       WHERE ParentId= SUBSTRING(@XMLasString,@where+8, @NotNumber-1) 
           AND ValueType NOT IN ('array', 'object')
-    SELECT @Entities=COALESCE(@entities,''),@Objects='',@name=CASE WHEN Name='-' THEN 'root' ELSE NAME end
-      FROM @hierarchy 
-      WHERE [ObjectId]= SUBSTRING(@XMLasString,@where+8, @Notnumber-1) 
+    SELECT @Entities=COALESCE(@entities,''),@Objects='',@name=CASE WHEN Name='-' THEN 'root' ELSE Name end
+      FROM @Hierarchy 
+      WHERE [ObjectId]= SUBSTRING(@XMLasString,@where+8, @NotNumber-1) 
     
     SELECT  @Objects=@Objects+@CrLf+SPACE(@indent+2)
            +'@Object'+CONVERT(VARCHAR(5),ObjectId)
            --+@CrLf+SPACE(@indent+2)+''
-      FROM @hierarchy 
-      WHERE ParentId= SUBSTRING(@XMLasString,@where+8, @Notnumber-1) 
+      FROM @Hierarchy 
+      WHERE ParentId= SUBSTRING(@XMLasString,@where+8, @NotNumber-1) 
       AND ValueType IN ('array', 'object')
     IF @Objects='' --if it is a lef, we can do a more compact rendering
          SELECT @NewXML='<'+COALESCE(@name,'item')+@entities+' />'

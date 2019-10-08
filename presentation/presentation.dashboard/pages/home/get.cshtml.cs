@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using domain.office;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using shared.model.dashboardModels;
+using asset.model.dashboardModels;
 
 namespace presentation.dashboard.pages.home {
     public class GetModel: PageModel {

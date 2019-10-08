@@ -1,9 +1,9 @@
 ﻿using domain.application._app;
 using domain.repository.models;
 using domain.repository.schemas;
-using shared.utility;
-using shared.utility._app;
-using shared.utility.infrastructure;
+using asset.utility;
+using asset.utility._app;
+using asset.utility.infrastructure;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -41,6 +41,7 @@ namespace domain.application.services {
             _disableTwoFactorAuthentication = disableTwoFactorAuthentication;
             _signIn = signIn;
             _updateProfile = updateProfile;
+            _updatePrivacy = updatePrivacy;
             _disableMe = disableMe;
         }
         #endregion

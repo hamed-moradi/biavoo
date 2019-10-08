@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using shared.utility._app;
+using asset.utility._app;
 using System.IO;
-using shared.utility.infrastructure;
+using asset.utility.infrastructure;
 
 namespace test.common {
     [TestClass]

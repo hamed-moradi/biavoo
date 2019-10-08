@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public class SendMessageQueue_GetPaging_BindingModel: Paging_BindingModel {
         public byte? TypeId { get; set; }
         public byte? CategoryId { get; set; }

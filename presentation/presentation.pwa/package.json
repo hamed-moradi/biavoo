@@ -25,7 +25,5 @@
     "url": "https://github.com/hamed-moradi/biavoo/issues"
   },
   "homepage": "https://github.com/hamed-moradi/biavoo#readme",
-  "dependencies": {
-    "@angular/cli": "^8.0.2"
-  }
+  "dependencies": {}
 }

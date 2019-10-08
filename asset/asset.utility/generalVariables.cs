@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace shared.utility {
+namespace asset.utility {
     public class GeneralVariables {
         public const string ExceptionSource = "Custom";
         public const string SystemGeneratedMessage = "SystemGeneratedMessage";

@@ -35,10 +35,10 @@ BEGIN
 	WHERE ((@CustomerId IS NULL AND [CustomerId] = @userId) OR (@CustomerId IS NOT NULL AND [CustomerId] = @CustomerId))
 		AND (@Title IS NULL OR Title LIKE '%'+@Title+'%')
 		AND (@BusinessCode IS NULL OR BusinessCode LIKE '%'+@BusinessCode+'%')
-		AND (@Categories IS NULL OR EXISTS(
-			SELECT bnsCat.Id FROM dbo.business2Category AS bnsCat WITH(NOLOCK)
-			INNER JOIN @catIds AS cats ON cats.Id = bnsCat.Id
-			WHERE bnsCat.BusinessId = bns.Id))
+		--AND (@Categories IS NULL OR EXISTS(
+		--	SELECT bnsCat.Id FROM dbo.[businessCategory] AS bnsCat WITH(NOLOCK)
+		--	INNER JOIN @catIds AS cats ON cats.Id = bnsCat.Id
+		--	WHERE bns.BusinessId = bns.Id))
 	ORDER BY
 		CASE WHEN @OrderBy = 'Id' AND @Order = 'ASC' THEN Id END ASC,
 		CASE WHEN @OrderBy = 'Id' AND (@Order <> 'ASC' OR @Order IS NULL) THEN Id END DESC,

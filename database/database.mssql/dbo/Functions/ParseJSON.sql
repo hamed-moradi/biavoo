@@ -4,9 +4,9 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	  (
 	   ElementId INT IDENTITY(1, 1) NOT NULL, /* internal surrogate primary key gives the order of parsing and the list order */
 	   SequenceNo [int] NULL, /* the place in the sequence for the element */
-	   ParentId INT,/* if the element has a parent then it is in this column. The document is the ultimate parent, so you can get the structure from recursing from the document */
-	   ObjectId INT,/* each list or object has an object id. This ties all elements to a parent. Lists are treated as objects here */
-	   [Name] NVARCHAR(2000),/* the name of the object */
+	   ParentId INT NULL,/* if the element has a parent then it is in this column. The document is the ultimate parent, so you can get the structure from recursing from the document */
+	   ObjectId INT NULL,/* each list or object has an object id. This ties all elements to a parent. Lists are treated as objects here */
+	   [Name] NVARCHAR(2000) NULL,/* the name of the object */
 	   StringValue NVARCHAR(MAX) NOT NULL,/*the string representation of the value of the element. */
 	   ValueType VARCHAR(10) NOT null /* the declared type of the value represented as a string in StringValue*/
 	  )
@@ -37,8 +37,8 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	    
 	  DECLARE @Strings TABLE /* in this temporary table we keep all strings, even the names of the elements, since they are 'escaped' in a different way, and may contain, unescaped, brackets denoting objects or lists. These are replaced in the JSON string by tokens representing the string */
 	    (
-	     String_ID INT IDENTITY(1, 1),
-	     StringValue NVARCHAR(MAX)
+	     String_Id INT IDENTITY(1, 1),
+	     StringValue NVARCHAR(MAX) NOT NULL
 	    )
 	  SELECT--initialise the characters to convert hex to ascii
 	    @characters='0123456789abcdefghijklmnopqrstuvwxyz',
@@ -48,16 +48,16 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	  WHILE 1=1 --forever until there is nothing more to do
 	    BEGIN
 	      SELECT
-	        @start=PATINDEX('%[^a-zA-Z]["]%', @json collate SQL_Latin1_General_CP850_Bin);--next delimited string
+	        @start=PATINDEX('%[^a-zA-Z]["]%', @JSON collate SQL_Latin1_General_CP850_Bin);--next delimited string
 	      IF @start=0 BREAK --no more so drop through the WHILE loop
-	      IF SUBSTRING(@json, @start+1, 1)='"' 
+	      IF SUBSTRING(@JSON, @start+1, 1)='"' 
 	        BEGIN --Delimited Name
 	          SET @start=@Start+1;
-	          SET @end=PATINDEX('%[^\]["]%', RIGHT(@json, LEN(@json+'|')-@start) collate SQL_Latin1_General_CP850_Bin);
+	          SET @end=PATINDEX('%[^\]["]%', RIGHT(@JSON, LEN(@JSON+'|')-@start) collate SQL_Latin1_General_CP850_Bin);
 	        END
 	      IF @end=0 --no end delimiter to last string
 	        BREAK --no more
-	      SELECT @token=SUBSTRING(@json, @start+1, @end-1)
+	      SELECT @token=SUBSTRING(@JSON, @start+1, @end-1)
 	      --now put in the escaped control characters
 	      SELECT @token=REPLACE(@token, FROMString, TOString)
 	      FROM
@@ -95,8 +95,8 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	      --now store the string away 
 	      INSERT INTO @Strings (StringValue) SELECT @token
 	      -- and replace the string with a token
-	      SELECT @JSON=STUFF(@json, @start, @end+1,
-	                    '@string'+CONVERT(NVARCHAR(5), @@identity))
+	      SELECT @JSON=STUFF(@JSON, @start, @end+1,
+	                    '@string'+CONVERT(NVARCHAR(5), @@IDENTITY))
 	    END
 	  -- all strings are now removed. Now we find the first leaf.  
 	  WHILE 1=1  --forever until there is nothing more to do
@@ -104,9 +104,9 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	 
 	  SELECT @ParentId=@ParentId+1
 	  --find the first object or list by looking for the open bracket
-	  SELECT @FirstObject=PATINDEX('%[{[[]%', @json collate SQL_Latin1_General_CP850_Bin)--object or array
+	  SELECT @FirstObject=PATINDEX('%[{[[]%', @JSON collate SQL_Latin1_General_CP850_Bin)--object or array
 	  IF @FirstObject = 0 BREAK
-	  IF (SUBSTRING(@json, @FirstObject, 1)='{') 
+	  IF (SUBSTRING(@JSON, @FirstObject, 1)='{') 
 	    SELECT @NextCloseDelimiterChar='}', @type='object'
 	  ELSE 
 	    SELECT @NextCloseDelimiterChar=']', @type='array'
@@ -117,17 +117,17 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	        @lenJSON=LEN(@JSON+'|')-1
 	  --find the matching close-delimiter proceeding after the open-delimiter
 	      SELECT
-	        @NextCloseDelimiter=CHARINDEX(@NextCloseDelimiterChar, @json,
+	        @NextCloseDelimiter=CHARINDEX(@NextCloseDelimiterChar, @JSON,
 	                                      @OpenDelimiter+1)
 	  --is there an intervening open-delimiter of either type
 	      SELECT @NextOpenDelimiter=PATINDEX('%[{[[]%',
-	             RIGHT(@json, @lenJSON-@OpenDelimiter)collate SQL_Latin1_General_CP850_Bin)--object
+	             RIGHT(@JSON, @lenJSON-@OpenDelimiter)collate SQL_Latin1_General_CP850_Bin)--object
 	      IF @NextOpenDelimiter=0 
 	        BREAK
 	      SELECT @NextOpenDelimiter=@NextOpenDelimiter+@OpenDelimiter
 	      IF @NextCloseDelimiter<@NextOpenDelimiter 
 	        BREAK
-	      IF SUBSTRING(@json, @NextOpenDelimiter, 1)='{' 
+	      IF SUBSTRING(@JSON, @NextOpenDelimiter, 1)='{' 
 	        SELECT @NextCloseDelimiterChar='}', @type='object'
 	      ELSE 
 	        SELECT @NextCloseDelimiterChar=']', @type='array'
@@ -135,10 +135,10 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	    END
 	  ---and parse out the list or name/value pairs
 	  SELECT
-	    @contents=SUBSTRING(@json, @OpenDelimiter+1,
+	    @contents=SUBSTRING(@JSON, @OpenDelimiter+1,
 	                        @NextCloseDelimiter-@OpenDelimiter-1)
 	  SELECT
-	    @JSON=STUFF(@json, @OpenDelimiter,
+	    @JSON=STUFF(@JSON, @OpenDelimiter,
 	                @NextCloseDelimiter-@OpenDelimiter+1,
 	                '@'+@type+CONVERT(NVARCHAR(5), @ParentId))
 	  WHILE (PATINDEX('%[A-Za-z0-9@+.e]%', @contents collate SQL_Latin1_General_CP850_Bin))<>0 
@@ -155,7 +155,7 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	            @token=LEFT(@token, @endofname-1),
 	            @Contents=RIGHT(' '+@contents, LEN(' '+@contents+'|')-@end-1)
 	          SELECT  @name=stringvalue FROM @strings
-	            WHERE string_id=@param --fetch the name
+	            WHERE String_Id=@param --fetch the name
 	        END
 	      ELSE 
 	        SELECT @Name=null,@SequenceNo=@SequenceNo+1 
@@ -187,7 +187,7 @@ CREATE FUNCTION [dbo].[ParseJSON]( @JSON NVARCHAR(MAX))
 	              ([Name], SequenceNo, ParentId, StringValue, ValueType)
 	              SELECT @name, @SequenceNo, @ParentId, stringvalue, 'string'
 	              FROM @strings
-	              WHERE string_id=SUBSTRING(@value, 8, 5)
+	              WHERE String_Id=SUBSTRING(@value, 8, 5)
 	          ELSE 
 	            IF @value IN ('true', 'false') 
 	              INSERT INTO @hierarchy

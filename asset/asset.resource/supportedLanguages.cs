@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace shared.resource {
+namespace asset.resource {
     public class SupportedLanguages {
         public static CultureInfo[] List {
             get {

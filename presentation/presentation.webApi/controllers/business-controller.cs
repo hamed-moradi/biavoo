@@ -8,10 +8,10 @@ using domain.application;
 using domain.repository.schemas;
 using Microsoft.AspNetCore.Mvc;
 using presentation.webApi.filterAttributes;
-using shared.model.bindingModels;
-using shared.model.viewModels;
+using asset.model.bindingModels;
+using asset.model.viewModels;
 using Serilog;
-using shared.resource;
+using asset.resource;
 
 namespace presentation.webApi.controllers {
     public class BusinessController: BaseController {

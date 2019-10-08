@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.viewModels {
+namespace asset.model.viewModels {
     public class User_ViewModel: Base_Paging_ViewModel {
         public string Name { get; set; }
         public string Family { get; set; }

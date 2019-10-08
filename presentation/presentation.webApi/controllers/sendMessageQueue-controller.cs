@@ -8,10 +8,10 @@ using domain.application;
 using domain.repository.schemas;
 using Microsoft.AspNetCore.Mvc;
 using presentation.webApi.filterAttributes;
-using shared.model.bindingModels;
+using asset.model.bindingModels;
 using Serilog;
-using shared.utility._app;
-using shared.utility.infrastructure;
+using asset.utility._app;
+using asset.utility.infrastructure;
 
 namespace presentation.webApi.controllers {
     public class SendMessageQueueController: BaseController {

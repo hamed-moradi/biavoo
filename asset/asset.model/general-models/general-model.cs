@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace shared.model.generalModels {
+namespace asset.model.generalModels {
     public class DropDownItemModel {
         public int id { get; set; }
         public int? parentId { get; set; }

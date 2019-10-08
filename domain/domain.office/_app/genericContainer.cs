@@ -1,16 +1,16 @@
 ﻿using domain.repository._app;
 using domain.repository.entities;
-using shared.utility;
+using asset.utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using shared.resource._app;
+using asset.resource._app;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using shared.model.dashboardModels;
+using asset.model.dashboardModels;
 
 namespace domain.office._app {
     public interface IGeneric_Container<Entity> where Entity : Base_Entity {

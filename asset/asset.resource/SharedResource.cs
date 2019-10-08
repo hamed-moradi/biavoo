@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace shared.resource {
+namespace asset.resource {
     public class SharedResource {
         #region General
         public static string Ok { get { return nameof(Ok); } }

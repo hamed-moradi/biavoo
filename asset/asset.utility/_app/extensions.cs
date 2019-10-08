@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace shared.utility._app {
+namespace asset.utility._app {
     public static class Extensions {
         public static IDictionary<Type, DbType> TypeMap = new Dictionary<Type, DbType> {
             //[typeof(System.Collections.IEnumerable)] = DbType.Object,

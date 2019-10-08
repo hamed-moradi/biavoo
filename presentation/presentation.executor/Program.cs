@@ -1,5 +1,5 @@
 ﻿using RestSharp;
-using shared.model.viewModels;
+using asset.model.viewModels;
 using System;
 using System.Diagnostics;
 using System.Net;

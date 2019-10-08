@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace shared.utility.infrastructure {
+namespace asset.utility.infrastructure {
     public static class EnumHelper<T> {
         public static IList<T> GetValues(Enum value) {
             return value.GetType().GetFields(BindingFlags.Static | BindingFlags.Public).Select(fi => (T)Enum.Parse(value.GetType(), fi.Name, false)).ToList();

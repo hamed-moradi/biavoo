@@ -2,7 +2,7 @@
 using System.Net;
 using System.Reflection;
 
-namespace shared.model.viewModels {
+namespace asset.model.viewModels {
     public interface IBase_ViewModel {
     }
     public class Base_ViewModel: IBase_ViewModel {

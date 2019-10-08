@@ -143,4 +143,7 @@
     <Build Include="dbo\User Defined Types\Dictionary.sql" />
     <Build Include="dbo\User Defined Types\ArrayList.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="mssqlSchemaCompare.scmp" />
+  </ItemGroup>
 </Project>

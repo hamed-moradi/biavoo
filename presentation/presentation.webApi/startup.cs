@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using presentation.webApi.helpers;
 using presentation.webApi.middlewares;
-using shared.resource;
+using asset.resource;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Presentation.WebApi {
@@ -29,7 +29,7 @@ namespace Presentation.WebApi {
         #endregion
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddLocalization(options => options.ResourcesPath = "shared.resource.resources");
+            services.AddLocalization(options => options.ResourcesPath = "asset.resource.resources");
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization(options => {
@@ -39,14 +39,14 @@ namespace Presentation.WebApi {
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
             domain.application._app.ModuleInjector.Init(services);
             services.AddSwaggerGen(c => {
-                c.SwaggerDoc(apiVersion, new Info { Title = shared.utility._app.AppSettings.MyTitle, Version = apiVersion });
+                c.SwaggerDoc(apiVersion, new Info { Title = asset.utility._app.AppSettings.MyTitle, Version = apiVersion });
             });
             services.Configure<RequestLocalizationOptions>(options => {
                 options.DefaultRequestCulture = new RequestCulture("en-US");
                 options.SupportedCultures = SupportedCultures.List;
                 options.SupportedUICultures = SupportedCultures.List;
             });
-            shared.utility._app.ModuleInjector.Init(services); // ServiceLocator
+            asset.utility._app.ModuleInjector.Init(services); // ServiceLocator
             services.AddRazorPages().AddMvcOptions(setupAction => {
                 setupAction.EnableEndpointRouting = false;
             });

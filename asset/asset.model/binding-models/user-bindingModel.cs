@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public class User_SignUp_BindingModel: Header_BindingModel {
         public string DeviceId { get; set; }
         public string Name { get; set; }

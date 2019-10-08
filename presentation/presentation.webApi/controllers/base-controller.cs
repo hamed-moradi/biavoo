@@ -10,11 +10,11 @@ using domain.application;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using presentation.webApi.filterAttributes;
-using shared.model.bindingModels;
-using shared.model.viewModels;
-using shared.resource;
-using shared.utility;
-using shared.utility._app;
+using asset.model.bindingModels;
+using asset.model.viewModels;
+using asset.resource;
+using asset.utility;
+using asset.utility._app;
 
 namespace presentation.webApi.controllers {
     [SecurityFilter, Route("[controller]")]

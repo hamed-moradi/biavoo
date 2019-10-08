@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using asset.model.dashboardModels;
 using AutoMapper;
 using domain.office;
 using Microsoft.AspNetCore.Mvc;
@@ -12,13 +13,22 @@ using Serilog;
 
 namespace presentation.dashboard.pages.user {
     public class GetModel: PageModel {
-        #region Constructor
+        #region ctor
         protected readonly IMapper _mapper;
         protected readonly IStringLocalizer<GetModel> _stringLocalizer;
         private readonly IUser_Container _userContainer;
-        public GetModel(IUser_Container userContainer) {
+        public GetModel(IMapper mapper,
+                        IStringLocalizer<GetModel> stringLocalizer,
+                        IUser_Container userContainer) {
+            _mapper = mapper;
+            _stringLocalizer = stringLocalizer;
             _userContainer = userContainer;
         }
+        #endregion
+
+        #region props
+        [BindProperty]
+        public List<User_DashboardModel> Users { get; set; }
         #endregion
 
         //[HttpGet, Route("{id}")]

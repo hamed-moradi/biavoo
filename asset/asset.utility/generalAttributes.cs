@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 
-namespace shared.utility {
+namespace asset.utility {
     public class SchemaAttribute: Attribute {
         public string Name { get; set; }
         public SchemaAttribute(string name = null) {

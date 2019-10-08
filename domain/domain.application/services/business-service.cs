@@ -1,8 +1,8 @@
 ﻿using domain.application._app;
 using domain.repository.models;
 using domain.repository.schemas;
-using shared.utility;
-using shared.utility.infrastructure;
+using asset.utility;
+using asset.utility.infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Data;

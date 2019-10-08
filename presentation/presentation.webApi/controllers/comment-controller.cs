@@ -8,9 +8,9 @@ using domain.application;
 using domain.repository.schemas;
 using Microsoft.AspNetCore.Mvc;
 using presentation.webApi.filterAttributes;
-using shared.model.bindingModels;
-using shared.model.viewModels;
-using shared.resource;
+using asset.model.bindingModels;
+using asset.model.viewModels;
+using asset.resource;
 
 namespace presentation.webApi.controllers {
     public class CommentController: BaseController {

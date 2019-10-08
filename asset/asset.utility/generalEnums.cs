@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace shared.utility {
+namespace asset.utility {
     #region System lookups
     public enum PropertyType: byte {
         [Display(Name = "تلفن")]

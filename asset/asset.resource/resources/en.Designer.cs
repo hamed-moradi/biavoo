@@ -178,6 +178,15 @@ namespace asset.resource.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username or Password is wrong!.
+        /// </summary>
+        internal static string SigninFailed {
+            get {
+                return ResourceManager.GetString("SigninFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Token not found.
         /// </summary>
         internal static string TokenNotFound {

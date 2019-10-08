@@ -19,7 +19,7 @@ BEGIN
 		RETURN 410; -- User is not active
 
 	SELECT * FROM dbo.[product] WITH(NOLOCK) WHERE Id = @Id AND [Status] = 100; -- 100: Active
-	SELECT * FROM dbo.[Image] WITH(NOLOCK) WHERE [Entity] = 'product' AND [EntityId] = @Id;
+	SELECT * FROM dbo.[image] WITH(NOLOCK) WHERE [Entity] = 'product' AND [EntityId] = @Id;
 
 	RETURN 200;
 END;

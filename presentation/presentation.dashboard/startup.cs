@@ -11,7 +11,7 @@ using System.Reflection;
 using presentation.dashboard.helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
-using shared.resource;
+using asset.resource;
 using Microsoft.Extensions.Hosting;
 
 namespace Presentation.WebApi {
@@ -57,7 +57,7 @@ namespace Presentation.WebApi {
             services.AddScoped<AccountCookieAuthenticationEvents>();
 
             // App
-            shared.utility._app.ModuleInjector.Init(services);
+            asset.utility._app.ModuleInjector.Init(services);
             domain.office._app.ModuleInjector.Init(services);
             services.AddSingleton(new MapperConfig().Init().CreateMapper());
 

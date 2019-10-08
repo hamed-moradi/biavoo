@@ -44,8 +44,8 @@
 	    @JSON NVARCHAR(MAX),
 	    @NewJSON NVARCHAR(MAX),
 	    @Where INT,
-	    @ANumber INT,
-	    @notNumber INT,
+	    --@ANumber INT,
+	    @NotNumber INT,
 	    @indent INT,
 	    @ii int,
 	    @CrLf CHAR(2)--just a simple utility to save typing!
@@ -53,16 +53,16 @@
 	  --firstly get the root token into place 
 	  SELECT @CrLf=CHAR(13)+CHAR(10),--just CHAR(10) in UNIX
 	         @JSON = CASE ValueType WHEN 'array' THEN 
-	         +COALESCE('{'+@CrLf+'  "'+NAME+'" : ','')+'[' 
+	         +COALESCE('{'+@CrLf+'  "'+Name+'" : ','')+'[' 
 	         ELSE '{' END
 	            +@CrLf
-	            + case when ValueType='array' and NAME is not null then '  ' else '' end
+	            + case when ValueType='array' and Name is not null then '  ' else '' end
 	            + '@Object'+CONVERT(VARCHAR(5),ObjectId)
 	            +@CrLf+CASE ValueType WHEN 'array' THEN
-	            case when NAME is null then ']' else '  ]'+@CrLf+'}'+@CrLf end
+	            case when Name is null then ']' else '  ]'+@CrLf+'}'+@CrLf end
 	                ELSE '}' END
 	  FROM @Hierarchy 
-	    WHERE ParentId IS NULL AND valueType IN ('object','document','array') --get the root element
+	    WHERE ParentId IS NULL AND ValueType IN ('object','document','array') --get the root element
 	/* now we simply iterat from the root token growing each branch and leaf in each iteration. This won't be enormously quick, but it is simple to do. All values, or name/value pairs withing a structure can be created in one SQL Statement*/
 	  Select @ii=1000
 	  WHILE @ii>0
@@ -75,8 +75,8 @@
 	    SET @NewJSON=NULL --this contains the structure in its JSON form
 	    SELECT  
 	        @NewJSON=COALESCE(@NewJSON+','+@CrLf+SPACE(@indent),'')
-	        +case when parent.ValueType='array' then '' else COALESCE('"'+TheRow.NAME+'" : ','') end
-	        +CASE TheRow.valuetype
+	        +case when parent.ValueType='array' then '' else COALESCE('"'+TheRow.Name+'" : ','') end
+	        +CASE TheRow.ValueType
 	        WHEN 'array' THEN '  ['+@CrLf+SPACE(@indent+2)
 	           +'@Object'+CONVERT(VARCHAR(5),TheRow.[ObjectId])+@CrLf+SPACE(@indent+2)+']' 
 	        WHEN 'object' then '  {'+@CrLf+SPACE(@indent+2)
@@ -87,7 +87,7 @@
 	     FROM @Hierarchy TheRow 
 	     inner join @hierarchy Parent
 	     on parent.ElementId=TheRow.ParentId
-	      WHERE TheRow.ParentId= SUBSTRING(@JSON,@where+8, @Notnumber-1)
+	      WHERE TheRow.ParentId= SUBSTRING(@JSON,@where+8, @NotNumber-1)
 	     /* basically, we just lookup the structure based on the ID that is appended to the @Object token. Simple eh? */
 	    --now we replace the token with the structure, maybe with more tokens in it.
 	    Select @JSON=STUFF (@JSON, @where+1, 8+@NotNumber-1, @NewJSON),@ii=@ii-1

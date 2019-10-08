@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.viewModels {
+namespace asset.model.viewModels {
     public class Customer_ViewModel: IBase_ViewModel {
         public string NationalCode { get; set; }
         public string BirthDate { get; set; }

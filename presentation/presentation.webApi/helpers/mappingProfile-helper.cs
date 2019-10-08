@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using domain.repository.models;
 using domain.repository.schemas;
-using shared.model.bindingModels;
-using shared.model.viewModels;
-using shared.utility._app;
+using asset.model.bindingModels;
+using asset.model.viewModels;
+using asset.utility._app;
 using System;
 using System.Collections.Generic;
 using System.IO;

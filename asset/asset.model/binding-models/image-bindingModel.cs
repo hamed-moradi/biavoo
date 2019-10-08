@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shared.model.bindingModels {
+namespace asset.model.bindingModels {
     public class Image_BindingModel: IBase_BindingModel {
         public int? ScaleId { get; set; }
         public string FullName { get; set; }

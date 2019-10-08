@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace shared.utility {
+namespace asset.utility {
     public interface IBase_Collection { }
     public interface IBase_Model { }
     public class Paging_Model: IBase_Model {

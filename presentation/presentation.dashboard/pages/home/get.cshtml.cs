@@ -18,7 +18,7 @@ namespace presentation.dashboard.pages.home {
         //public void OnGet() {
         //}
         public async Task OnGetAsync() {
-            var result = await _userContainer.SingleAsync<User_DashboardModel>(1);
+            //var result = await _userContainer.SingleAsync<User_DashboardModel>(1);
         }
     }
 }

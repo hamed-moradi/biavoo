@@ -28,4 +28,5 @@ namespace domain.office {
         Task<Business_Entity> GetByIdAsync(int id);
         Task<List<Business_Entity>> GetAllAsync(Business_Entity model);
     }
+    public interface ICategory_Container: IGeneric_Container<Category_Entity> { }
 }

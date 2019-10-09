@@ -11,6 +11,9 @@ namespace domain.office._app {
             services.AddSingleton(typeof(IGeneric_Container<>), typeof(Generic_Container<>));
             services.AddTransient<IAdmin_Container, Admin_Container>();
             services.AddTransient<IUser_Container, User_Container>();
+            services.AddTransient<IProduct_Container, Product_Container>();
+            services.AddTransient<IBusiness_Container, Business_Container>();
+            services.AddTransient<ICategory_Container, Category_Container>();
         }
     }
 }

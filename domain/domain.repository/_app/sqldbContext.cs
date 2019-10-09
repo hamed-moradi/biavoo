@@ -16,7 +16,6 @@ namespace domain.repository._app {
         //    var nextVal = task.Result;
         //    return nextVal;
         //}
-
         public virtual DbSet<Admin_Entity> Admins { get; set; }
         public virtual DbSet<Role_Entity> Roles { get; set; }
         public virtual DbSet<Customer_Entity> Customers { get; set; }
@@ -26,6 +25,7 @@ namespace domain.repository._app {
         public virtual DbSet<Page_Entity> Pages { get; set; }
         public virtual DbSet<Product_Entity> Products { get; set; }
         public virtual DbSet<Business_Entity> Businesses { get; set; }
+        public virtual DbSet<Category_Entity> Categories { get; set; }
         public virtual DbSet<ReceivedSms_Entity> ReceivedSmses { get; set; }
         public virtual DbSet<Session_Entity> Sessions { get; set; }
         public virtual DbSet<SentSms_Entity> SentSms { get; set; }

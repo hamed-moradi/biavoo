@@ -9,49 +9,10 @@ using System.Linq.Expressions;
 
 namespace asset.utility._app {
     public static class Extensions {
-        public static IDictionary<Type, DbType> TypeMap = new Dictionary<Type, DbType> {
-            //[typeof(System.Collections.IEnumerable)] = DbType.Object,
-            //[typeof(Binary)] = DbType.Binary
-            [typeof(byte)] = DbType.Byte,
-            [typeof(sbyte)] = DbType.SByte,
-            [typeof(short)] = DbType.Int16,
-            [typeof(ushort)] = DbType.UInt16,
-            [typeof(int)] = DbType.Int32,
-            [typeof(uint)] = DbType.UInt32,
-            [typeof(long)] = DbType.Int64,
-            [typeof(ulong)] = DbType.UInt64,
-            [typeof(float)] = DbType.Single,
-            [typeof(double)] = DbType.Double,
-            [typeof(decimal)] = DbType.Decimal,
-            [typeof(bool)] = DbType.Boolean,
-            [typeof(string)] = DbType.String,
-            [typeof(char)] = DbType.StringFixedLength,
-            [typeof(Guid)] = DbType.Guid,
-            [typeof(DateTime)] = DbType.DateTime,
-            [typeof(DateTimeOffset)] = DbType.DateTimeOffset,
-            [typeof(byte[])] = DbType.Binary,
-            [typeof(byte?)] = DbType.Byte,
-            [typeof(sbyte?)] = DbType.SByte,
-            [typeof(short?)] = DbType.Int16,
-            [typeof(ushort?)] = DbType.UInt16,
-            [typeof(int?)] = DbType.Int32,
-            [typeof(uint?)] = DbType.UInt32,
-            [typeof(long?)] = DbType.Int64,
-            [typeof(ulong?)] = DbType.UInt64,
-            [typeof(float?)] = DbType.Single,
-            [typeof(double?)] = DbType.Double,
-            [typeof(decimal?)] = DbType.Decimal,
-            [typeof(bool?)] = DbType.Boolean,
-            [typeof(char?)] = DbType.StringFixedLength,
-            [typeof(Guid?)] = DbType.Guid,
-            [typeof(DateTime?)] = DbType.DateTime,
-            [typeof(DateTimeOffset?)] = DbType.DateTimeOffset,
-        };
+        #region ctor
+        #endregion
 
-        public static string Truncate(this string value, int maxChars = 100) {
-            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
-        }
-
+        #region string
         public static string CharacterNormalizer(this string value) {
             value = value.Trim();
             //value = value.Replace(",", "_");
@@ -93,21 +54,26 @@ namespace asset.utility._app {
 
             return value;
         }
-
         public static string ToDescriptionString(this Enum val) {
             var attributes = (DescriptionAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
             return attributes.Length > 0 ? attributes[0].Description : string.Empty;
         }
-
         public static string ToErrorString(this Enum val) {
             var attributes = (ErrorAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(ErrorAttribute), false);
             return attributes.Length > 0 ? attributes[0].Message : string.Empty;
         }
+        public static string Truncate(this string value, int maxChars = 100) {
+            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
+        }
+        #endregion
 
+        #region number
         public static byte ToByte(this Enum val) {
             return Convert.ToByte(val);
         }
+        #endregion
 
+        #region mapper
         public static IMappingExpression<TSource, TDestination> IgnoreAllVirtual<TSource, TDestination>(this IMappingExpression<TSource, TDestination> expression) {
             var desType = typeof(TDestination);
             foreach(var property in desType.GetProperties().Where(p => p.Name.ToLower() != "id" && p.GetGetMethod().IsVirtual)) {
@@ -115,7 +81,9 @@ namespace asset.utility._app {
             }
             return expression;
         }
+        #endregion
 
+        #region linq
         public static IQueryable<T> OrderByField<T>(this IQueryable<T> q, string sortField, bool ascending) {
             var param = Expression.Parameter(typeof(T), "p");
             var prop = Expression.Property(param, sortField);
@@ -125,8 +93,9 @@ namespace asset.utility._app {
             var mce = Expression.Call(typeof(Queryable), method, types, q.Expression, exp);
             return q.Provider.CreateQuery<T>(mce);
         }
+        #endregion
 
-        #region Date and Time
+        #region date and time
         public static long? UnixTimestampFromDateTime(this DateTime? date) {
             if(!date.HasValue)
                 return null;
@@ -165,7 +134,8 @@ namespace asset.utility._app {
             return TimeZoneInfo.ConvertTime(dateTime, timeZoneInfo ?? TimeZoneInfo.Utc);
         }
         #endregion
-
+        
+        #region data types
         public static DataTable ToDataTable<T>(this IEnumerable<T> list) {
             var dataTable = new DataTable();
             var propertyDescriptorCollection = TypeDescriptor.GetProperties(typeof(T));
@@ -186,9 +156,45 @@ namespace asset.utility._app {
             return dataTable;
         }
         public static DbType ToDbType(this Type type) {
-            return TypeMap[type];
+            return new Dictionary<Type, DbType> {
+                //[typeof(System.Collections.IEnumerable)] = DbType.Object,
+                //[typeof(Binary)] = DbType.Binary
+                [typeof(byte)] = DbType.Byte,
+                [typeof(sbyte)] = DbType.SByte,
+                [typeof(short)] = DbType.Int16,
+                [typeof(ushort)] = DbType.UInt16,
+                [typeof(int)] = DbType.Int32,
+                [typeof(uint)] = DbType.UInt32,
+                [typeof(long)] = DbType.Int64,
+                [typeof(ulong)] = DbType.UInt64,
+                [typeof(float)] = DbType.Single,
+                [typeof(double)] = DbType.Double,
+                [typeof(decimal)] = DbType.Decimal,
+                [typeof(bool)] = DbType.Boolean,
+                [typeof(string)] = DbType.String,
+                [typeof(char)] = DbType.StringFixedLength,
+                [typeof(Guid)] = DbType.Guid,
+                [typeof(DateTime)] = DbType.DateTime,
+                [typeof(DateTimeOffset)] = DbType.DateTimeOffset,
+                [typeof(byte[])] = DbType.Binary,
+                [typeof(byte?)] = DbType.Byte,
+                [typeof(sbyte?)] = DbType.SByte,
+                [typeof(short?)] = DbType.Int16,
+                [typeof(ushort?)] = DbType.UInt16,
+                [typeof(int?)] = DbType.Int32,
+                [typeof(uint?)] = DbType.UInt32,
+                [typeof(long?)] = DbType.Int64,
+                [typeof(ulong?)] = DbType.UInt64,
+                [typeof(float?)] = DbType.Single,
+                [typeof(double?)] = DbType.Double,
+                [typeof(decimal?)] = DbType.Decimal,
+                [typeof(bool?)] = DbType.Boolean,
+                [typeof(char?)] = DbType.StringFixedLength,
+                [typeof(Guid?)] = DbType.Guid,
+                [typeof(DateTime?)] = DbType.DateTime,
+                [typeof(DateTimeOffset?)] = DbType.DateTimeOffset,
+            }[type];
         }
-
         public static string GetSchemaName(this IBase_Schema baseSchema) {
             // Read from model name (default)
             var name = baseSchema.GetType().Name;
@@ -208,5 +214,6 @@ namespace asset.utility._app {
             }
             return name;
         }
+        #endregion
     }
 }

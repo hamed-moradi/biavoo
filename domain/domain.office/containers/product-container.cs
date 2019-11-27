@@ -19,7 +19,7 @@ namespace domain.office.container {
             _dbContext = dbContext;
         }
         #endregion
-
+        public IDictionary<string,string> MyProperty { get; set; }
         public async Task<Product_Entity> GetByIdAsync(int id) {
             return await _dbContext.Products.SingleOrDefaultAsync(sd => sd.Id == id);
         }

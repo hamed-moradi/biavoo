@@ -11,7 +11,7 @@ namespace domain.repository._app {
         public SqlDBContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
 
         //public int GetNextSequenceValue() {
-        //    var rawQuery = Database.SqlQuery<int>("SELECT NEXT VALUE FOR [dbo].[Sequence-LeaderBoardGroup];");
+        //    var rawQuery = Database.SqlQuery<int>("SELECT NEXT VALUE FOR [dbo].[];");
         //    var task = rawQuery.SingleAsync();
         //    var nextVal = task.Result;
         //    return nextVal;

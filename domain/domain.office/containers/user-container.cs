@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 namespace domain.office.container {
     public class User_Container: Generic_Container<User_Entity>, IUser_Container {
         #region Constructor
-        private readonly SqlDBContext _dbContext;
-        public User_Container(SqlDBContext dbContext) : base(dbContext) {
-            _dbContext = dbContext;
-        }
+        //private readonly SqlDBContext _dbContext;
+        //public User_Container(SqlDBContext dbContext) : base() {
+        //    _dbContext = dbContext;
+        //}
         #endregion
 
         //public async Task<User_Entity> GetByIdAsync(int id) {

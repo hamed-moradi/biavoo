@@ -1,10 +1,7 @@
-﻿
-using domain.office._app;
-using domain.repository;
+﻿using domain.office._app;
 using domain.repository._app;
 using domain.repository.entities;
 using Microsoft.EntityFrameworkCore;
-using asset.utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +12,7 @@ namespace domain.office.container {
     public class Product_Container: Generic_Container<Product_Entity>, IProduct_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public Product_Container(SqlDBContext dbContext) : base(dbContext) {
+        public Product_Container(SqlDBContext dbContext) : base() {
             _dbContext = dbContext;
         }
         #endregion

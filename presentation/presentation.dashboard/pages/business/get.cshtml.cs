@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using presentation.dashboard.pages;
 
 namespace presentation.dashboard.views.business {
-    public class GetModel: PageModel {
+    public class GetModel: BasePageModel {
         public void OnGet() {
         }
 

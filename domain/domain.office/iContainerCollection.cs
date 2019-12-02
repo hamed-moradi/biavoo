@@ -9,8 +9,8 @@ namespace domain.office {
         Task<List<ChangeLog_Entity>> GetAllAsync(ChangeLog_Entity model);
     }
     public interface IAdmin_Container: IGeneric_Container<Admin_Entity> {
-        Task<Admin_Entity> GetByIdAsync(int id);
-        Task<List<Admin_Entity>> GetAllAsync(Admin_Entity model);
+        //Task<Admin_Entity> GetByIdAsync(int id);
+        //Task<List<Admin_Entity>> GetAllAsync(Admin_Entity model);
         bool ValidateLastChangedAsync(string lastChanged);
         Task<Admin_Entity> SignInAsync(string username, string password);
         Task<Admin_Entity> GenerateNewPasswordAsync(int id);

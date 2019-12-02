@@ -14,7 +14,7 @@ namespace domain.office.container {
     public class Business_Container: Generic_Container<Business_Entity>, IBusiness_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public Business_Container(SqlDBContext dbContext) : base(dbContext) {
+        public Business_Container(SqlDBContext dbContext) : base() {
             _dbContext = dbContext;
         }
         #endregion

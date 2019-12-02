@@ -14,10 +14,10 @@ using System.Threading.Tasks;
 namespace domain.office.container {
     public class Admin_Container: Generic_Container<Admin_Entity>, IAdmin_Container {
         #region Constructor
-        private readonly SqlDBContext _dbContext;
-        public Admin_Container(SqlDBContext dbContext) : base(dbContext) {
-            _dbContext = dbContext;
-        }
+        //private readonly SqlDBContext _dbContext;
+        //public Admin_Container(SqlDBContext dbContext) : base() {
+        //    _dbContext = dbContext;
+        //}
         #endregion
 
         #region Private
@@ -28,28 +28,29 @@ namespace domain.office.container {
         }
         #endregion
 
-        public async Task<Admin_Entity> GetByIdAsync(int id) {
-            return await _dbContext.Admins.SingleOrDefaultAsync(sd => sd.Id == id);
-        }
+        //public async Task<Admin_Entity> GetByIdAsync(int id) {
+        //    return await _dbContext.Admins.SingleOrDefaultAsync(sd => sd.Id == id);
+        //}
 
-        public async Task<List<Admin_Entity>> GetAllAsync(Admin_Entity model) {
-            var result = await GetPagingAsync(model);
-            return result;
-        }
+        //public async Task<List<Admin_Entity>> GetAllAsync(Admin_Entity model) {
+        //    var result = await GetPagingAsync(model);
+        //    return result;
+        //}
 
         public bool ValidateLastChangedAsync(string lastChanged) {
             return true;
         }
 
         public async Task<Admin_Entity> SignInAsync(string username, string password) {
-            var result = _dbContext.Admins.SingleOrDefaultAsync(admin => admin.Username == username && admin.Password == password);
-            return await result;
+            var result = await SingleAsync(admin => admin.Username == username && admin.Password == password);
+            return result;
         }
 
         public async Task<Admin_Entity> GenerateNewPasswordAsync(int id) {
-            var admin = await GetByIdAsync(id);
+            //var admin = await SingleAsync(id);
+            var admin = Single(id);
             admin.Password = RandomNumber();
-            await _dbContext.SaveChangesAsync();
+            await SaveAsync();
             return admin;
         }
     }

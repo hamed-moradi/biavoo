@@ -12,16 +12,10 @@ using Microsoft.Extensions.Localization;
 using Serilog;
 
 namespace presentation.dashboard.pages.user {
-    public class GetModel: PageModel {
+    public class GetModel: BasePageModel {
         #region ctor
-        protected readonly IMapper _mapper;
-        protected readonly IStringLocalizer<GetModel> _stringLocalizer;
         private readonly IUser_Container _userContainer;
-        public GetModel(IMapper mapper,
-                        IStringLocalizer<GetModel> stringLocalizer,
-                        IUser_Container userContainer) {
-            _mapper = mapper;
-            _stringLocalizer = stringLocalizer;
+        public GetModel(IUser_Container userContainer) {
             _userContainer = userContainer;
         }
         #endregion
@@ -96,7 +90,7 @@ namespace presentation.dashboard.pages.user {
         //}
         public async Task OnGetAsync(int id) {
             try {
-                var result = await _userContainer.FindSingleAsync(id);
+                var result = await _userContainer.SingleAsync(id);
                 //return View(_mapper.Map<User_DashboardModel>(result));
             }
             catch(Exception ex) {

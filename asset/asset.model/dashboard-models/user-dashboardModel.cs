@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace asset.model.dashboardModels {
-    public class User_DashboardModel: IBase_DashboardModel {
-        public int? Id { get; set; }
+    public class User_DashboardModel: Base_DashboardModel {
         public int? CustomerId { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }

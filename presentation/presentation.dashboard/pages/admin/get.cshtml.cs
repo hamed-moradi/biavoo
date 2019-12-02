@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace presentation.dashboard.pages.admin {
-    public class GetModel: PageModel {
+    public class GetModel: BasePageModel {
         //#region Constructor
         //private readonly IAdmin_Container _adminContainer;
         //public AdminController(IAdmin_Container adminContainer) {

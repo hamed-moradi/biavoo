@@ -9,13 +9,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
 
 namespace presentation.dashboard.pages.account {
-    public class GetModel: PageModel {
+    public class GetModel: BasePageModel {
         #region Constructor
-        protected readonly IStringLocalizer<GetModel> _stringLocalizer;
         private readonly IAdmin_Container _adminContainer;
-        public GetModel(IStringLocalizer<GetModel> stringLocalizer,
-                        IAdmin_Container adminContainer) {
-            _stringLocalizer = stringLocalizer;
+        public GetModel(IAdmin_Container adminContainer) {
             _adminContainer = adminContainer;
         }
         #endregion

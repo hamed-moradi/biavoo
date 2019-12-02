@@ -11,52 +11,137 @@ using asset.resource._app;
 using asset.model.dashboardModels;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
+using System.Linq.Expressions;
+using asset.utility._app;
 
 namespace domain.office._app {
-    public interface IGeneric_Container<TEntity> where TEntity : Base_Entity {
-        IQueryable<TEntity> GetFindQuery(TEntity model);
-        Task<TModel> SingleAsync<TModel>(int id) where TModel : IBase_DashboardModel;
-        Task<TEntity> FindSingleAsync(long id, bool force = false);
-        Task<List<TEntity>> FindAllAsync(TEntity model, int retrieveLimit = 1000);
-        Task<List<TEntity>> GetPagingAsync(TEntity model);
-        Task<TEntity> AddAsync(TEntity model);
-        Task<TEntity> UpdateAsync(TEntity model);
-        Task<TEntity> RemoveAsync(TEntity model);
-    }
-    public class Generic_Container<TEntity>: IGeneric_Container<TEntity> where TEntity : Base_Entity {
-        #region Constructor
+    public class Generic_Container<TEntity>: PredicateMaker<TEntity>, IGeneric_Container<TEntity> where TEntity : Base_Entity {
+        #region ctor
         private readonly IMapper _mapper;
         private readonly SqlDBContext _dbContext;
-        public Generic_Container() { }
-        public Generic_Container(SqlDBContext dbContext) {
-            _dbContext = dbContext;
-        }
-        public Generic_Container(SqlDBContext dbContext, IMapper mapper) {
-            _mapper = mapper;
-            _dbContext = dbContext;
+        public Generic_Container(SqlDBContext dbContext = null, IMapper mapper = null) : base(dbContext, mapper) {
+            _dbContext = dbContext ?? ServiceLocator.Current.GetInstance<SqlDBContext>();
+            _mapper = mapper ?? ServiceLocator.Current.GetInstance<IMapper>();
         }
         #endregion
 
-        public IQueryable<TEntity> GetFindQuery(TEntity model) {
-            var query = _dbContext.Set<TEntity>().Select(s => s);
-            var properties = model.GetType().GetProperties().Where(item
-                => !Attribute.IsDefined(item, typeof(NotMappedAttribute))
-                && !Attribute.IsDefined(item, typeof(ForeignKeyAttribute)));
-            foreach(var prp in properties) {
-                var key = prp.Name;
-                var value = prp.GetValue(model, null);
-                if(value != null) {
-                    query = query.Where(w => w.GetType().GetProperty(key).GetValue(model) == value);
-                }
+        /// <summary>
+        /// Get top 1000 rows by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public List<TEntity> All(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000) {
+            var query = GenerateQuery(predicate);
+            if(retrieveLimit != 0 && query.Count() > retrieveLimit) {
+                // Your retrieve limit has been reached
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
             }
-            return query;
+            return query.ToList();
         }
-        public async Task<TModel> SingleAsync<TModel>(int id) where TModel : IBase_DashboardModel {
-            var result = await _dbContext.Set<TEntity>().Where(w => w.Id == id).ProjectTo<TModel>(_mapper.ConfigurationProvider).SingleOrDefaultAsync();
-            return result;
+
+        /// <summary>
+        /// Get asynchrony top 1000 rows by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public async Task<List<TEntity>> AllAsync(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000) {
+            var query = GenerateQuery(predicate);
+            if(retrieveLimit != 0 && query.Count() > retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return await query.ToListAsync();
         }
-        public async Task<TEntity> FindSingleAsync(long id, bool force = false) {
-            var selectedItem = await _dbContext.Set<TEntity>().SingleOrDefaultAsync(s => s.Id == id);
+
+        /// <summary>
+        /// Get top 1000 rows as TModel by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public List<TModel> All<TModel>(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000)
+            where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(predicate);
+            if(retrieveLimit != 0 && query.Count() > retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Get asynchrony top 1000 rows as TModel by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public async Task<List<TModel>> AllAsync<TModel>(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000)
+            where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(predicate);
+            if(retrieveLimit != 0 && query.Count() > retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return await query.ToListAsync();
+        }
+
+        /// <summary>
+        /// Get top 1000 rows by TEntity
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public List<TEntity> All(TEntity model, int retrieveLimit = 1000) {
+            var query = GenerateQuery(model);
+            if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Get asynchrony top 1000 rows by TEntity
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public async Task<List<TEntity>> AllAsync(TEntity model, int retrieveLimit = 1000) {
+            var query = GenerateQuery(model);
+            if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return await query.ToListAsync();
+        }
+
+        /// <summary>
+        /// Get top 1000 rows as TModel by TEntity
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public List<TModel> All<TModel>(TEntity model, int retrieveLimit = 1000) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(model);
+            if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Get asynchrony top 1000 rows as TModel by TEntity
+        /// </summary>
+        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
+        /// <returns>A list of selected entity</returns>
+        public async Task<List<TModel>> AllAsync<TModel>(TEntity model, int retrieveLimit = 1000) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(model);
+            if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
+                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+            }
+            return await query.ToListAsync();
+        }
+
+        public TEntity Single(long id, bool force = false) {
+            var selectedItem = GenerateQuery(s => s.Id == id).SingleOrDefault();
             if(selectedItem == null) {
                 if(force) {
                     throw new Exception(InternalMessage.ObjectNotFound, new Exception(GeneralVariables.SystemGeneratedMessage));
@@ -67,20 +152,55 @@ namespace domain.office._app {
             }
             return selectedItem;
         }
-        public async Task<List<TEntity>> FindAllAsync(TEntity model, int retrieveLimit) {
-            var query = GetFindQuery(model);
-            // Pass "zero" for reitrieve all data
-            if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
-                // Your retrieve limit has been reached
-                throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
+        public async Task<TEntity> SingleAsync(long id, bool force = false) {
+            var selectedItem = await GenerateQuery(q => q.Id == id).SingleOrDefaultAsync();
+            if(selectedItem == null) {
+                if(force) {
+                    throw new Exception(InternalMessage.ObjectNotFound, new Exception(GeneralVariables.SystemGeneratedMessage));
+                }
+                else {
+                    return null;
+                }
             }
+            return selectedItem;
+        }
+        public TEntity Single(Expression<Func<TEntity, bool>> predicate) {
+            return GenerateQuery(predicate).SingleOrDefault();
+        }
+        public async Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate) {
+            return await GenerateQuery(predicate).SingleOrDefaultAsync();
+        }
+        public TModel Single<TModel>(int id, bool force = false) where TModel : Base_DashboardModel {
+            var selectedItem = GenerateQuery<TModel>(q => q.Id == id).SingleOrDefault();
+            if(selectedItem == null) {
+                if(force) {
+                    throw new Exception(InternalMessage.ObjectNotFound, new Exception(GeneralVariables.SystemGeneratedMessage));
+                }
+                else {
+                    return null;
+                }
+            }
+            return selectedItem;
+        }
+        public async Task<TModel> SingleAsync<TModel>(int id, bool force = false) where TModel : Base_DashboardModel {
+            var selectedItem = await GenerateQuery<TModel>(q => q.Id == id).SingleOrDefaultAsync();
+            if(selectedItem == null) {
+                if(force) {
+                    throw new Exception(InternalMessage.ObjectNotFound, new Exception(GeneralVariables.SystemGeneratedMessage));
+                }
+                else {
+                    return null;
+                }
+            }
+            return selectedItem;
+        }
+
+        public async Task<List<TEntity>> GetPagingAsync(TEntity model) {
+            var query = GenerateQuery(model, true);
             return await query.ToListAsync();
         }
-        public async Task<List<TEntity>> GetPagingAsync(TEntity model) {
-            var query = GetFindQuery(model);
-            model.TotalCount = query.Count();
-            query = query.OrderByField(model.OrderBy, model.OrderAscending)
-                .Skip(model.Skip).Take(model.Take);
+        public async Task<List<TModel>> GetPagingAsync<TModel>(TEntity model) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(model, true);
             return await query.ToListAsync();
         }
         public async Task<TEntity> AddAsync(TEntity model) {
@@ -89,17 +209,30 @@ namespace domain.office._app {
             return newItem.Entity;
         }
         public async Task<TEntity> UpdateAsync(TEntity model) {
-            await FindSingleAsync(model.Id, true);
+            await SingleAsync(model.Id, true);
             var updatedItem = _dbContext.Set<TEntity>().Update(model);
             await _dbContext.SaveChangesAsync();
             return updatedItem.Entity;
         }
-        public async Task<TEntity> RemoveAsync(TEntity model) {
-            await FindSingleAsync(model.Id, true);
+        public async Task<EntityState> RemoveAsync(TEntity model) {
+            await SingleAsync(model.Id, true);
             model.Status = 10; // 10: Item is removed
             var RemovedItem = _dbContext.Set<TEntity>().Remove(model);
             await _dbContext.SaveChangesAsync();
-            return RemovedItem.Entity;
+            return RemovedItem.State;
+        }
+        public async Task<EntityState> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
+            var model = await SingleAsync(viewModel.Id, true);
+            model.Status = 10; // 10: Item is removed
+            var removedItem = _dbContext.Set<TEntity>().Remove(model);
+            await _dbContext.SaveChangesAsync();
+            return removedItem.State;
+        }
+        public int Save() {
+            return _dbContext.SaveChanges();
+        }
+        public async Task<int> SaveAsync() {
+            return await _dbContext.SaveChangesAsync();
         }
     }
 }

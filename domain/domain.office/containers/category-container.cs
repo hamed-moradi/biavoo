@@ -17,7 +17,7 @@ namespace domain.office.container {
         #region Constructor
         private readonly IMapper _mapper;
         private readonly SqlDBContext _dbContext;
-        public Category_Container(SqlDBContext dbContext, IMapper mapper) : base(dbContext, mapper) {
+        public Category_Container(SqlDBContext dbContext, IMapper mapper) : base() {
             _mapper = mapper;
             _dbContext = dbContext;
         }

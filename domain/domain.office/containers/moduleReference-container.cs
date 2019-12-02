@@ -14,7 +14,7 @@ namespace domain.office.container {
     public class ModuleReference_Container: Generic_Container<ModuleReference_Entity>, IModuleReference_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public ModuleReference_Container(SqlDBContext dbContext) : base(dbContext) {
+        public ModuleReference_Container(SqlDBContext dbContext) : base() {
             _dbContext = dbContext;
         }
         #endregion

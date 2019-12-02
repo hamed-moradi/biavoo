@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using asset.model.dashboardModels;
 
 namespace presentation.dashboard.pages.home {
-    public class GetModel: PageModel {
+    public class GetModel: BasePageModel {
         #region Constructor
         private readonly IUser_Container _userContainer;
         public GetModel(IUser_Container userContainer) {
@@ -18,7 +18,7 @@ namespace presentation.dashboard.pages.home {
         //public void OnGet() {
         //}
         public async Task OnGetAsync() {
-            //var result = await _userContainer.SingleAsync<User_DashboardModel>(1);
+            var result = await _userContainer.SingleAsync<User_DashboardModel>(1);
         }
     }
 }

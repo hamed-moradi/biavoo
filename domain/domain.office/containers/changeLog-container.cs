@@ -13,7 +13,7 @@ namespace domain.office.container {
     public class ChangeLog_Container: Generic_Container<ChangeLog_Entity>, IChangeLog_Container {
         #region Constructor
         private readonly SqlDBContext _dbContext;
-        public ChangeLog_Container(SqlDBContext dbContext) : base(dbContext) {
+        public ChangeLog_Container(SqlDBContext dbContext) : base() {
             _dbContext = dbContext;
         }
         #endregion

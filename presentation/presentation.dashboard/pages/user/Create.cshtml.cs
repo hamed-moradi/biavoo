@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace presentation.dashboard.pages.user {
-    public class CreateModel: PageModel {
+    public class CreateModel: BasePageModel {
         public void OnGet() {
 
         }

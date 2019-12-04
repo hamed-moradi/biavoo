@@ -11,7 +11,7 @@ namespace domain.repository.entities {
         [NotMapped]
         public string OrderBy { get; set; } = "Id";
         [NotMapped]
-        public bool Order { get; set; } = false;
+        public bool OrderAscending { get; set; } = false;
         [NotMapped]
         public int Skip { get; set; } = 0;
         [NotMapped]

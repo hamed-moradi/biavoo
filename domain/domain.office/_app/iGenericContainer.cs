@@ -22,10 +22,14 @@ namespace domain.office._app {
 
         TEntity Single(long id, bool force = false);
         TEntity Single(Expression<Func<TEntity, bool>> predicate);
+        TModel Single<TModel>(int id, bool force = false) where TModel : Base_DashboardModel;
+        TModel Single<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
+
         Task<TEntity> SingleAsync(long id, bool force = false);
         Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate);
-        TModel Single<TModel>(int id, bool force = false) where TModel : Base_DashboardModel;
         Task<TModel> SingleAsync<TModel>(int id, bool force = false) where TModel : Base_DashboardModel;
+        Task<TModel> SingleAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
+
         Task<List<TEntity>> GetPagingAsync(TEntity model);
         Task<List<TModel>> GetPagingAsync<TModel>(TEntity model) where TModel : Base_DashboardModel;
         Task<TEntity> AddAsync(TEntity model);

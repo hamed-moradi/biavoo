@@ -1,4 +1,5 @@
-﻿using asset.utility._app;
+﻿using asset.model.dashboardModels;
+using asset.utility._app;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using domain.repository._app;
@@ -7,14 +8,15 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 
 namespace domain.office._app {
     public interface IPredicateMaker<TEntity> where TEntity : IBase_Entity {
-        IQueryable<TEntity> GenerateQuery(Expression<Func<TEntity, bool>> predicate = null);
-        IQueryable<TModel> GenerateQuery<TModel>(Expression<Func<TEntity, bool>> predicate = null);
+        IQueryable<TEntity> GenerateQuery(Expression<Func<TEntity, bool>> predicate = null, bool pagingSupport = false);
+        IQueryable<TModel> GenerateQuery<TModel>(Expression<Func<TEntity, bool>> predicate = null, bool pagingSupport = false) where TModel : Base_DashboardModel;
         IQueryable<TEntity> GenerateQuery(TEntity model, bool pagingSupport = false);
-        IQueryable<TModel> GenerateQuery<TModel>(TEntity model, bool pagingSupport = false);
+        IQueryable<TModel> GenerateQuery<TModel>(TEntity model, bool pagingSupport = false) where TModel : Base_DashboardModel;
     }
     public class PredicateMaker<TEntity>: IPredicateMaker<TEntity> where TEntity : Base_Entity {
         #region ctor
@@ -25,12 +27,21 @@ namespace domain.office._app {
             _mapper = mapper;
         }
         #endregion
-        public IQueryable<TEntity> GenerateQuery(Expression<Func<TEntity, bool>> predicate = null) {
-            //return predicate is null ? _dbContext.Set<TEntity>() : _dbContext.Set<TEntity>().Where(predicate);
-            return _dbContext.Set<TEntity>().Where(predicate);
+        public IQueryable<TEntity> GenerateQuery(Expression<Func<TEntity, bool>> predicate = null, bool pagingSupport = false) {
+            var query = _dbContext.Set<TEntity>().Where(predicate);
+            if(pagingSupport) {
+                predicate.Body.GetType().GetProperty("TotalCount").SetValue(predicate, query.Count());
+                var orderBy = (string)predicate.Body.GetType().GetProperty("OrderBy").GetValue(predicate);
+                var orderAsc = (bool)predicate.Body.GetType().GetProperty("Order").GetValue(predicate);
+                var skip = (int)predicate.Body.GetType().GetProperty("Skip").GetValue(predicate);
+                var take = (int)predicate.Body.GetType().GetProperty("Take").GetValue(predicate);
+                query = query.OrderByField(orderBy, orderAsc).Skip(skip).Take(take);
+            }
+            return query;
         }
-        public IQueryable<TModel> GenerateQuery<TModel>(Expression<Func<TEntity, bool>> predicate = null) {
-            return GenerateQuery(predicate).ProjectTo<TModel>(_mapper.ConfigurationProvider);
+        public IQueryable<TModel> GenerateQuery<TModel>(Expression<Func<TEntity, bool>> predicate = null, bool pagingSupport = false)
+            where TModel : Base_DashboardModel {
+            return GenerateQuery(predicate, pagingSupport).ProjectTo<TModel>(_mapper.ConfigurationProvider);
         }
         public IQueryable<TEntity> GenerateQuery(TEntity model, bool pagingSupport = false) {
             var query = GenerateQuery();
@@ -46,12 +57,13 @@ namespace domain.office._app {
             }
             if(pagingSupport) {
                 model.TotalCount = query.Count();
-                query = query.OrderByField(model.OrderBy, model.Order)
+                query = query.OrderByField(model.OrderBy, model.OrderAscending)
                     .Skip(model.Skip).Take(model.Take);
             }
             return query;
         }
-        public IQueryable<TModel> GenerateQuery<TModel>(TEntity model, bool pagingSupport = false) {
+        public IQueryable<TModel> GenerateQuery<TModel>(TEntity model, bool pagingSupport = false)
+            where TModel : Base_DashboardModel {
             return GenerateQuery(model, pagingSupport).ProjectTo<TModel>(_mapper.ConfigurationProvider);
         }
     }

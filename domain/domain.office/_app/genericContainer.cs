@@ -87,11 +87,11 @@ namespace domain.office._app {
         /// <summary>
         /// Get top 1000 rows by TEntity
         /// </summary>
-        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="entity">The entity (bypass by null)</param>
         /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
         /// <returns>A list of selected entity</returns>
-        public List<TEntity> All(TEntity model, int retrieveLimit = 1000) {
-            var query = GenerateQuery(model);
+        public List<TEntity> All(TEntity entity, int retrieveLimit = 1000) {
+            var query = GenerateQuery(entity);
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
             }
@@ -101,11 +101,11 @@ namespace domain.office._app {
         /// <summary>
         /// Get asynchrony top 1000 rows by TEntity
         /// </summary>
-        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="entity">The entity</param>
         /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
         /// <returns>A list of selected entity</returns>
-        public async Task<List<TEntity>> AllAsync(TEntity model, int retrieveLimit = 1000) {
-            var query = GenerateQuery(model);
+        public async Task<List<TEntity>> AllAsync(TEntity entity, int retrieveLimit = 1000) {
+            var query = GenerateQuery(entity);
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
             }
@@ -115,11 +115,11 @@ namespace domain.office._app {
         /// <summary>
         /// Get top 1000 rows as TModel by TEntity
         /// </summary>
-        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="entity">The entity</param>
         /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
         /// <returns>A list of selected model</returns>
-        public List<TModel> All<TModel>(TEntity model, int retrieveLimit = 1000) where TModel : Base_DashboardModel {
-            var query = GenerateQuery<TModel>(model);
+        public List<TModel> All<TModel>(TEntity entity, int retrieveLimit = 1000) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(entity);
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
             }
@@ -129,11 +129,11 @@ namespace domain.office._app {
         /// <summary>
         /// Get asynchrony top 1000 rows as TModel by TEntity
         /// </summary>
-        /// <param name="predicate">The predicate (bypass by null)</param>
+        /// <param name="entity">The entity</param>
         /// <param name="retrieveLimit">Pass "zero" for reitrieve all data</param>
         /// <returns>A list of selected model</returns>
-        public async Task<List<TModel>> AllAsync<TModel>(TEntity model, int retrieveLimit = 1000) where TModel : Base_DashboardModel {
-            var query = GenerateQuery<TModel>(model);
+        public async Task<List<TModel>> AllAsync<TModel>(TEntity entity, int retrieveLimit = 1000) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(entity);
             if(retrieveLimit != 0 && query.Count() >= retrieveLimit) {
                 throw new Exception(InternalMessage.RetrieveLimit, new Exception(GeneralVariables.SystemGeneratedMessage));
             }
@@ -191,8 +191,7 @@ namespace domain.office._app {
         /// <summary>
         /// Get single record by predicate query
         /// </summary>
-        /// <param name="id">The record identifier</param>
-        /// <param name="force">Throw exception if nothing found</param>
+        /// <param name="predicate">The predicate query</param>
         /// <returns>Selected model</returns>
         public TModel Single<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel {
             return GenerateQuery<TModel>(predicate).SingleOrDefault();
@@ -220,8 +219,7 @@ namespace domain.office._app {
         /// <summary>
         /// Get asynchrony single record by predicate query
         /// </summary>
-        /// <param name="id">The record identifier</param>
-        /// <param name="force">Throw exception if nothing found</param>
+        /// <param name="predicate">The predicate query</param>
         /// <returns>Selected entity</returns>
         public async Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate) {
             return await GenerateQuery(predicate).SingleOrDefaultAsync();
@@ -249,34 +247,96 @@ namespace domain.office._app {
         /// <summary>
         /// Get asynchrony single record by predicate query
         /// </summary>
-        /// <param name="id">The record identifier</param>
-        /// <param name="force">Throw exception if nothing found</param>
+        /// <param name="predicate">The predicate query</param>
         /// <returns>Selected model</returns>
         public async Task<TModel> SingleAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel {
             return await GenerateQuery<TModel>(predicate).SingleOrDefaultAsync();
         }
 
-        public List<TEntity> GetPaging(TEntity model) {
-            var query = GenerateQuery(model, pagingSupport: true);
+        /// <summary>
+        /// Get paged result by TEntity
+        /// </summary>
+        /// <param name="entity">The entity</param>
+        /// <returns>Paged list of TEntity</returns>
+        public List<TEntity> GetPaging(TEntity entity) {
+            var query = GenerateQuery(entity, pagingSupport: true);
             return query.ToList();
         }
 
+        /// <summary>
+        /// Get paged result by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate query</param>
+        /// <returns>Paged list of TEntity</returns>
         public List<TEntity> GetPaging(Expression<Func<TEntity, bool>> predicate) {
             var query = GenerateQuery(predicate, pagingSupport: true);
             return query.ToList();
         }
 
+        /// <summary>
+        /// Get paged result by TEntity
+        /// </summary>
+        /// <param name="model">The model</param>
+        /// <returns>Paged list of TModel</returns>
         public List<TModel> GetPaging<TModel>(TEntity model) where TModel : Base_DashboardModel {
             var query = GenerateQuery<TModel>(model, true);
             return query.ToList();
         }
+
+        /// <summary>
+        /// Get paged result by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate query</param>
+        /// <returns>Paged list of TModel</returns>
+        public List<TModel> GetPaging<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(predicate, pagingSupport: true);
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Get paged result asynchrony by TEntity
+        /// </summary>
+        /// <param name="entity">The entity</param>
+        /// <returns>Paged list of TEntity</returns>
         public async Task<List<TEntity>> GetPagingAsync(TEntity model) {
             var query = GenerateQuery(model, true);
             return await query.ToListAsync();
         }
+
+        /// <summary>
+        /// Get paged result asynchrony by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate query</param>
+        /// <returns>Paged list of TEntity</returns>
+        public async Task<List<TEntity>> GetPagingAsync(Expression<Func<TEntity, bool>> predicate) {
+            var query = GenerateQuery(predicate, pagingSupport: true);
+            return await query.ToListAsync();
+        }
+
+        /// /// <summary>
+        /// Get paged result asynchrony by TEntity
+        /// </summary>
+        /// <param name="model">The model</param>
+        /// <returns>Paged list of TModel</returns>
         public async Task<List<TModel>> GetPagingAsync<TModel>(TEntity model) where TModel : Base_DashboardModel {
             var query = GenerateQuery<TModel>(model, true);
             return await query.ToListAsync();
+        }
+
+        /// <summary>
+        /// Get paged result asynchrony by predicate query
+        /// </summary>
+        /// <param name="predicate">The predicate query</param>
+        /// <returns>Paged list of TModel</returns>
+        public async Task<List<TModel>> GetPagingAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel {
+            var query = GenerateQuery<TModel>(predicate, pagingSupport: true);
+            return await query.ToListAsync();
+        }
+
+        public TEntity Add(TEntity model) {
+            var newItem = _dbContext.Set<TEntity>().Add(model);
+            Save();
+            return newItem.Entity;
         }
 
         public async Task<TEntity> AddAsync(TEntity model) {
@@ -284,26 +344,53 @@ namespace domain.office._app {
             await _dbContext.SaveChangesAsync();
             return newItem.Entity;
         }
+
+        public TEntity Update(TEntity model) {
+            Single(model.Id, true);
+            var updatedItem = _dbContext.Set<TEntity>().Update(model);
+            Save();
+            return updatedItem.Entity;
+        }
+
         public async Task<TEntity> UpdateAsync(TEntity model) {
             await SingleAsync(model.Id, true);
             var updatedItem = _dbContext.Set<TEntity>().Update(model);
             await _dbContext.SaveChangesAsync();
             return updatedItem.Entity;
         }
+
+        public EntityState Remove(TEntity model) {
+            Single(model.Id, true);
+            model.Status = Status.Deleted.ToByte();
+            var RemovedItem = _dbContext.Set<TEntity>().Remove(model);
+            Save();
+            return RemovedItem.State;
+        }
+
+        public EntityState Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
+            var model = Single(viewModel.Id, true);
+            model.Status = Status.Deleted.ToByte();
+            var removedItem = _dbContext.Set<TEntity>().Remove(model);
+            Save();
+            return removedItem.State;
+        }
+
         public async Task<EntityState> RemoveAsync(TEntity model) {
             await SingleAsync(model.Id, true);
-            model.Status = 10; // 10: Item is removed
+            model.Status = Status.Deleted.ToByte();
             var RemovedItem = _dbContext.Set<TEntity>().Remove(model);
             await _dbContext.SaveChangesAsync();
             return RemovedItem.State;
         }
+
         public async Task<EntityState> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
             var model = await SingleAsync(viewModel.Id, true);
-            model.Status = 10; // 10: Item is removed
+            model.Status = Status.Deleted.ToByte();
             var removedItem = _dbContext.Set<TEntity>().Remove(model);
             await _dbContext.SaveChangesAsync();
             return removedItem.State;
         }
+
         public int Save() {
             return _dbContext.SaveChanges();
         }
@@ -312,3 +399,5 @@ namespace domain.office._app {
         }
     }
 }
+
+

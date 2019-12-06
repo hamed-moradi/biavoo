@@ -30,12 +30,27 @@ namespace domain.office._app {
         Task<TModel> SingleAsync<TModel>(int id, bool force = false) where TModel : Base_DashboardModel;
         Task<TModel> SingleAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
 
+        List<TEntity> GetPaging(TEntity model);
+        List<TEntity> GetPaging(Expression<Func<TEntity, bool>> predicate);
+        List<TModel> GetPaging<TModel>(TEntity model) where TModel : Base_DashboardModel;
+        List<TModel> GetPaging<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
+
         Task<List<TEntity>> GetPagingAsync(TEntity model);
+        Task<List<TEntity>> GetPagingAsync(Expression<Func<TEntity, bool>> predicate);
         Task<List<TModel>> GetPagingAsync<TModel>(TEntity model) where TModel : Base_DashboardModel;
+        Task<List<TModel>> GetPagingAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
+
+        TEntity Add(TEntity model);
         Task<TEntity> AddAsync(TEntity model);
+
+        TEntity Update(TEntity model);
         Task<TEntity> UpdateAsync(TEntity model);
+
+        EntityState Remove(TEntity model);
+        EntityState Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
         Task<EntityState> RemoveAsync(TEntity model);
         Task<EntityState> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
+
         int Save();
         Task<int> SaveAsync();
     }

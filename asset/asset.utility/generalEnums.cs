@@ -40,7 +40,9 @@ namespace asset.utility {
         [Display(Name = "معلق")]
         Pending = 2,
         [Display(Name = "حذف شده")]
-        Deleted = 3
+        Deleted = 3,
+        [Display(Name = "")]
+        Unknown = 33
     }
     public enum CategoryStatus: byte {
         [Display(Name = "غیر فعال")]

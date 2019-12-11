@@ -46,10 +46,10 @@ namespace domain.office._app {
         TEntity Update(TEntity model);
         Task<TEntity> UpdateAsync(TEntity model);
 
-        EntityState Remove(TEntity model);
-        EntityState Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
-        Task<EntityState> RemoveAsync(TEntity model);
-        Task<EntityState> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
+        bool Remove(TEntity model);
+        bool Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
+        Task<bool> RemoveAsync(TEntity model);
+        Task<bool> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
 
         int Save();
         Task<int> SaveAsync();

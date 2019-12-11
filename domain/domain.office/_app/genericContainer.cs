@@ -333,63 +333,96 @@ namespace domain.office._app {
             return await query.ToListAsync();
         }
 
-        public TEntity Add(TEntity model) {
-            var newItem = _dbContext.Set<TEntity>().Add(model);
+
+        /// <summary>
+        /// Insert new record
+        /// </summary>
+        /// <param name="entity">The entity</param>
+        /// <returns>The inserted record</returns>
+        public TEntity Add(TEntity entity) {
+            var newItem = _dbContext.Set<TEntity>().Add(entity);
             Save();
             return newItem.Entity;
         }
 
-        public async Task<TEntity> AddAsync(TEntity model) {
-            var newItem = await _dbContext.Set<TEntity>().AddAsync(model);
+        /// <summary>
+        /// Insert new record asychrony
+        /// </summary>
+        /// <param name="entity">The entity</param>
+        /// <returns>The inserted record</returns>
+        public async Task<TEntity> AddAsync(TEntity entity) {
+            var newItem = await _dbContext.Set<TEntity>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
             return newItem.Entity;
         }
 
-        public TEntity Update(TEntity model) {
-            Single(model.Id, true);
-            var updatedItem = _dbContext.Set<TEntity>().Update(model);
+        /// <summary>
+        /// Update record
+        /// </summary>
+        /// <param name="entity">The entity</param>
+        /// <returns>The updated record</returns>
+        public TEntity Update(TEntity entity) {
+            Single(entity.Id, true);
+            var updatedItem = _dbContext.Set<TEntity>().Update(entity);
             Save();
             return updatedItem.Entity;
         }
 
-        public async Task<TEntity> UpdateAsync(TEntity model) {
-            await SingleAsync(model.Id, true);
-            var updatedItem = _dbContext.Set<TEntity>().Update(model);
+        /// <summary>
+        /// Update record asynchrony
+        /// </summary>
+        /// <param name="entity">The entity</param>
+        /// <returns>The updated record</returns>
+        public async Task<TEntity> UpdateAsync(TEntity entity) {
+            await SingleAsync(entity.Id, true);
+            var updatedItem = _dbContext.Set<TEntity>().Update(entity);
             await _dbContext.SaveChangesAsync();
             return updatedItem.Entity;
         }
 
-        public EntityState Remove(TEntity model) {
+        //public bool Remove(long id) {
+        //    Single(model.Id, true);
+        //    model.Status = Status.Deleted.ToByte();
+        //    var modifiedItem = _dbContext.Set<TEntity>().Update(model);
+        //    Save();
+        //    return modifiedItem.State == EntityState.Modified;
+        //}
+
+        public bool Remove(TEntity model) {
             Single(model.Id, true);
             model.Status = Status.Deleted.ToByte();
-            var RemovedItem = _dbContext.Set<TEntity>().Remove(model);
+            var modifiedItem = _dbContext.Set<TEntity>().Update(model);
             Save();
-            return RemovedItem.State;
+            return modifiedItem.State == EntityState.Modified;
         }
 
-        public EntityState Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
+        public bool Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
             var model = Single(viewModel.Id, true);
             model.Status = Status.Deleted.ToByte();
-            var removedItem = _dbContext.Set<TEntity>().Remove(model);
+            var modifiedItem = _dbContext.Set<TEntity>().Update(model);
             Save();
-            return removedItem.State;
+            return modifiedItem.State == EntityState.Modified;
         }
 
-        public async Task<EntityState> RemoveAsync(TEntity model) {
+        public async Task<bool> RemoveAsync(TEntity model) {
             await SingleAsync(model.Id, true);
             model.Status = Status.Deleted.ToByte();
-            var RemovedItem = _dbContext.Set<TEntity>().Remove(model);
+            var modifiedItem = _dbContext.Set<TEntity>().Update(model);
             await _dbContext.SaveChangesAsync();
-            return RemovedItem.State;
+            return modifiedItem.State == EntityState.Modified;
         }
 
-        public async Task<EntityState> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
+        public async Task<bool> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel {
             var model = await SingleAsync(viewModel.Id, true);
             model.Status = Status.Deleted.ToByte();
-            var removedItem = _dbContext.Set<TEntity>().Remove(model);
-            await _dbContext.SaveChangesAsync();
-            return removedItem.State;
+            var modifiedItem = _dbContext.Set<TEntity>().Update(model);
+            await SaveAsync();
+            return modifiedItem.State == EntityState.Modified;
         }
+
+        //public EntityState Delete(int id) {
+        //    return _dbContext.Set<TEntity>().Remove(id).State;
+        //}
 
         public int Save() {
             return _dbContext.SaveChanges();

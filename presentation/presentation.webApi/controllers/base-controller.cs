@@ -58,17 +58,17 @@ namespace presentation.webApi.controllers {
 
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Ok(HttpStatusCode status = HttpStatusCode.OK, string message = null, object data = null, int? totalPages = null) {
-            message = message ?? _stringLocalizer[SharedResource.Ok];
+            message ??= _stringLocalizer[SharedResource.Ok];
             return Json(new Base_ViewModel { Status = status, Message = message, Data = data, TotalPages = totalPages });
         }
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult BadRequest(string message = null) {
-            message = message ?? _stringLocalizer[SharedResource.BadRequest];
+            message ??= _stringLocalizer[SharedResource.BadRequest];
             return Json(new Base_ViewModel { Status = HttpStatusCode.BadRequest, Message = message });
         }
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult InternalServerError(string message = null) {
-            message = message ?? _stringLocalizer[SharedResource.InternalServerError];
+            message ??= _stringLocalizer[SharedResource.InternalServerError];
             return Json(new Base_ViewModel { Status = HttpStatusCode.InternalServerError, Message = message });
         }
     }

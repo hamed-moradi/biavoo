@@ -16,6 +16,11 @@ namespace test.common.units {
         }
         #endregion
 
+        //[TestMethod, TestCategory("User"), TestCategory("All")]
+        //public void All() {
+        //    var users=_userService.GetAsync()
+        //}
+
         [TestMethod, TestCategory("User"), TestCategory("SignUp")]
         public async Task SignIn() {
             try {
@@ -54,10 +59,6 @@ namespace test.common.units {
             catch(Exception ex) {
                 Console.WriteLine(ex);
             }
-        }
-
-        [TestMethod, TestCategory("User"), TestCategory("SetActivities")]
-        public void SetActivities() {
         }
     }
 }

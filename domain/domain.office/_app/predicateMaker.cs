@@ -4,6 +4,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using domain.repository._app;
 using domain.repository.entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,13 +23,16 @@ namespace domain.office._app {
         #region ctor
         private readonly IMapper _mapper;
         private readonly SqlDBContext _dbContext;
-        public PredicateMaker(SqlDBContext dbContext, IMapper mapper) {
-            _dbContext = dbContext;
-            _mapper = mapper;
+        public DbSet<TEntity> Entity { get { return _dbContext.Set<TEntity>(); } }
+
+        public PredicateMaker() {
+            _dbContext = ServiceLocator.Current.GetInstance<SqlDBContext>();
+            _mapper = ServiceLocator.Current.GetInstance<IMapper>();
         }
         #endregion
+
         public IQueryable<TEntity> GenerateQuery(Expression<Func<TEntity, bool>> predicate = null, bool pagingSupport = false) {
-            var query = _dbContext.Set<TEntity>().Where(predicate);
+            var query = Entity.Where(predicate);
             if(pagingSupport) {
                 predicate.Body.GetType().GetProperty("TotalCount").SetValue(predicate, query.Count());
                 var orderBy = (string)predicate.Body.GetType().GetProperty("OrderBy").GetValue(predicate);

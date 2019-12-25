@@ -16,6 +16,11 @@ namespace domain.repository._app {
         //    var nextVal = task.Result;
         //    return nextVal;
         //}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            optionsBuilder.UseSqlServer(ConnectionKeeper.SqlConnection.ConnectionString, x => x.UseNetTopologySuite());
+        }
+
         public virtual DbSet<Admin_Entity> Admins { get; set; }
         public virtual DbSet<Role_Entity> Roles { get; set; }
         public virtual DbSet<Customer_Entity> Customers { get; set; }

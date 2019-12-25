@@ -12,13 +12,13 @@ namespace domain.office._app {
 
         List<TEntity> All(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000);
         List<TModel> All<TModel>(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000) where TModel : Base_DashboardModel;
-        List<TEntity> All(TEntity model, int retrieveLimit = 1000);
-        List<TModel> All<TModel>(TEntity model, int retrieveLimit = 1000) where TModel : Base_DashboardModel;
+        List<TEntity> All(TEntity entity, int retrieveLimit = 1000);
+        List<TModel> All<TModel>(TEntity entity, int retrieveLimit = 1000) where TModel : Base_DashboardModel;
 
         Task<List<TEntity>> AllAsync(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000);
         Task<List<TModel>> AllAsync<TModel>(Expression<Func<TEntity, bool>> predicate = null, int retrieveLimit = 1000) where TModel : Base_DashboardModel;
-        Task<List<TEntity>> AllAsync(TEntity model, int retrieveLimit = 1000);
-        Task<List<TModel>> AllAsync<TModel>(TEntity model, int retrieveLimit = 1000) where TModel : Base_DashboardModel;
+        Task<List<TEntity>> AllAsync(TEntity entity, int retrieveLimit = 1000);
+        Task<List<TModel>> AllAsync<TModel>(TEntity entity, int retrieveLimit = 1000) where TModel : Base_DashboardModel;
 
         TEntity Single(long id, bool force = false);
         TEntity Single(Expression<Func<TEntity, bool>> predicate);
@@ -30,26 +30,37 @@ namespace domain.office._app {
         Task<TModel> SingleAsync<TModel>(int id, bool force = false) where TModel : Base_DashboardModel;
         Task<TModel> SingleAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
 
-        List<TEntity> GetPaging(TEntity model);
+        List<TEntity> GetPaging(TEntity entity);
         List<TEntity> GetPaging(Expression<Func<TEntity, bool>> predicate);
-        List<TModel> GetPaging<TModel>(TEntity model) where TModel : Base_DashboardModel;
+        List<TModel> GetPaging<TModel>(TEntity entity) where TModel : Base_DashboardModel;
         List<TModel> GetPaging<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
 
-        Task<List<TEntity>> GetPagingAsync(TEntity model);
+        Task<List<TEntity>> GetPagingAsync(TEntity entity);
         Task<List<TEntity>> GetPagingAsync(Expression<Func<TEntity, bool>> predicate);
-        Task<List<TModel>> GetPagingAsync<TModel>(TEntity model) where TModel : Base_DashboardModel;
+        Task<List<TModel>> GetPagingAsync<TModel>(TEntity entity) where TModel : Base_DashboardModel;
         Task<List<TModel>> GetPagingAsync<TModel>(Expression<Func<TEntity, bool>> predicate) where TModel : Base_DashboardModel;
 
-        TEntity Add(TEntity model);
-        Task<TEntity> AddAsync(TEntity model);
+        TEntity Add(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
 
-        TEntity Update(TEntity model);
-        Task<TEntity> UpdateAsync(TEntity model);
+        TEntity Update(TEntity entity);
+        Task<TEntity> UpdateAsync(TEntity entity);
 
-        bool Remove(TEntity model);
+        bool Remove(long id);
+        bool Remove(TEntity entity);
         bool Remove<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
-        Task<bool> RemoveAsync(TEntity model);
+        bool Remove(Expression<Func<TEntity, bool>> predicate);
+
+        Task<bool> RemoveAsync(long id);
+        Task<bool> RemoveAsync(TEntity entity);
         Task<bool> RemoveAsync<TModel>(TModel viewModel) where TModel : Base_DashboardModel;
+        Task<bool> RemoveAsync(Expression<Func<TEntity, bool>> predicate);
+
+        bool Delete(long id);
+        bool Delete(TEntity entity);
+
+        Task<bool> DeleteAsync(long id);
+        Task<bool> DeleteAsync(TEntity entity);
 
         int Save();
         Task<int> SaveAsync();

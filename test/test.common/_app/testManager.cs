@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using asset.resource;
+using presentation.webApi.helpers;
 
 namespace test.common._app {
     [TestClass]
@@ -13,8 +14,10 @@ namespace test.common._app {
             var services = new ServiceCollection();
             services.AddLocalization(options => options.ResourcesPath = "asset.resource.resources");
             services.AddSingleton(new MongoDBContext());
+            services.AddSingleton(new MapperConfig().Init().CreateMapper());
             asset.utility._app.ModuleInjector.Init(services);
             domain.application._app.ModuleInjector.Init(services);
+            domain.office._app.ModuleInjector.Init(services);
             services.AddSingleton(new asset.utility._app.ServiceLocator(services));
             services.Configure<RequestLocalizationOptions>(options => {
                 options.DefaultRequestCulture = new RequestCulture("en-US");

@@ -15389,3 +15389,38 @@ System.InvalidOperationException: No suitable constructor found for entity type 
    at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
    at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
 2019-10-09 16:30:23.968 +03:30 [INF] Request finished in 26112.5419ms 500 text/html; charset=utf-8
+2019-12-14 14:28:03.843 +03:30 [INF] User profile is available. Using 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-12-14 14:28:04.185 +03:30 [INF] Creating key "9a5b3a44-7ee1-41df-ad90-0d3cc0ff2296" with creation date "2019-12-14T10:58:04.1784108+00:00", activation date "2019-12-14T10:58:03.9545996+00:00", and expiration date "2020-03-13T10:58:03.9545996+00:00".
+2019-12-14 14:28:04.219 +03:30 [INF] Writing data to file 'C:\Users\h.moradi\AppData\Local\ASP.NET\DataProtection-Keys\key-9a5b3a44-7ee1-41df-ad90-0d3cc0ff2296.xml'.
+2019-12-14 14:28:04.328 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/home/get  
+2019-12-14 14:28:04.397 +03:30 [WRN] Failed to determine the https port for redirect.
+2019-12-14 14:28:04.675 +03:30 [INF] Route matched with {page = "/home/get"}. Executing page /home/get
+2019-12-14 14:28:04.695 +03:30 [INF] Executing handler method presentation.dashboard.pages.home.GetModel.OnGetAsync - ModelState is "Valid"
+2019-12-14 14:28:04.839 +03:30 [INF] Executed page /home/get in 158.3999ms
+2019-12-14 14:28:04.841 +03:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at domain.office._app.PredicateMaker`1.get_Entity() in D:\git\biavoo\domain\domain.office\_app\predicateMaker.cs:line 26
+   at domain.office._app.PredicateMaker`1.GenerateQuery(Expression`1 predicate, Boolean pagingSupport) in D:\git\biavoo\domain\domain.office\_app\predicateMaker.cs:line 35
+   at domain.office._app.PredicateMaker`1.GenerateQuery[TModel](Expression`1 predicate, Boolean pagingSupport) in D:\git\biavoo\domain\domain.office\_app\predicateMaker.cs:line 48
+   at domain.office._app.Generic_Container`1.SingleAsync[TModel](Int32 id, Boolean force) in D:\git\biavoo\domain\domain.office\_app\genericContainer.cs:line 235
+   at presentation.dashboard.pages.home.GetModel.OnGetAsync() in D:\git\biavoo\presentation\presentation.dashboard\pages\home\get.cshtml.cs:line 21
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.NonGenericTaskHandlerMethod.Execute(Object receiver, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeHandlerMethodAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeNextPageFilterAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Rethrow(PageHandlerExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-12-14 14:28:05.042 +03:30 [INF] Request finished in 718.4065ms 500 text/html; charset=utf-8
+2019-12-14 14:28:07.145 +03:30 [INF] Request starting HTTP/1.1 GET http://localhost:62067/favicon.ico  
+2019-12-14 14:28:07.157 +03:30 [INF] Request finished in 11.869200000000001ms 404 
